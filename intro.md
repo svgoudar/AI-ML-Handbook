@@ -1,8 +1,3 @@
----
-noteId: "ff71a1f07d7811f0bc927b1fa70c6cf1"
-tags: []
-
----
 
 # Introduction
 
