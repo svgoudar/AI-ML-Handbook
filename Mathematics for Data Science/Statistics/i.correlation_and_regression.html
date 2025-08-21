@@ -1,0 +1,2265 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📊 1. Correlation &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Mathematics for Data Science/Statistics/i.correlation_and_regression';</script>
+    <link rel="icon" href="../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../markdown.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../table_of_contents.html">Table of Contents</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/edit/master/docs/Mathematics for Data Science/Statistics/i.correlation_and_regression.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FMathematics for Data Science/Statistics/i.correlation_and_regression.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Mathematics for Data Science/Statistics/i.correlation_and_regression.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>📊 1. Correlation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">📊 1. Correlation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson-correlation-coefficient">1.1 Pearson Correlation Coefficient</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">🔍 Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intuition">🧠 Intuition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-calculation-small-example">✍️ Manual Calculation (Small Example)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data">📝 Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">➡️ Steps</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-example">📝 Problem Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tiny-ascii-plot">📈 Tiny ASCII plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfalls">⚠️ Pitfalls</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spearman-rank-correlation">1.2 Spearman Rank Correlation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔍 Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">🧠 Intuition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-calculation">✍️ Manual Calculation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">📝 Data</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">⚠️ Pitfalls</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance">1.3 Covariance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">🔍 Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">✍️ Manual Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">⚠️ Pitfalls</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">🔎 2. Regression</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-linear-regression">2.1 Simple Linear Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">🔍 Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">📝 Problem Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">✍️ Manual Calculation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-earlier-data-hours-vs-score">Using earlier data (Hours vs Score)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#small-text-plot">📈 Small text plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">⚠️ Pitfalls</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-linear-regression">2.2 Multiple Linear Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">🔍 Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">📝 Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">2.3 Assumptions</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostics">🔬 3. Diagnostics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#r2-coefficient-of-determination">3.1 R² (Coefficient of Determination)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">🔍 Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">📝 Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residuals-analysis">3.2 Residuals Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#residuals">🔍 Residuals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ascii-plot-for-residuals">ASCII plot for residuals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting-vs-underfitting">3.3 Overfitting vs Underfitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">📝 Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-tables">✅ Summary Tables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16"><strong>1. Correlation</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson-correlation-coefficient-r"><strong>1.1. Pearson Correlation Coefficient (r)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spearman-rank-correlation-coefficient-or-r-s"><strong>1.2. Spearman Rank Correlation Coefficient (ρ or <span class="math notranslate nohighlight">\(r_s\)</span>)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17"><strong>1.3. Covariance</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18"><strong>2. Regression</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19"><strong>2.1. Simple Linear Regression</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20"><strong>2.2. Multiple Linear Regression</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-of-linear-regression"><strong>2.3. Assumptions of Linear Regression</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linearity"><strong>2.3.1. Linearity</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#independence-of-errors-no-autocorrelation"><strong>2.3.2. Independence of Errors (No Autocorrelation)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#homoscedasticity-constant-variance-of-errors"><strong>2.3.3. Homoscedasticity (Constant Variance of Errors)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#other-important-assumptions-briefly"><strong>Other Important Assumptions (briefly):</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21"><strong>3. Diagnostics</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22"><strong>3.1. R² (Coefficient of Determination)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23"><strong>3.2. Residuals Analysis</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting"><strong>3.3. Overfitting</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underfitting"><strong>3.4. Underfitting</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="correlation">
+<h1>📊 1. Correlation<a class="headerlink" href="#correlation" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="pearson-correlation-coefficient">
+<h2>1.1 Pearson Correlation Coefficient<a class="headerlink" href="#pearson-correlation-coefficient" title="Link to this heading">#</a></h2>
+<section id="definition">
+<h3>🔍 Definition<a class="headerlink" href="#definition" title="Link to this heading">#</a></h3>
+<p>Measures the <strong>strength and direction of the linear relationship</strong> between two continuous variables.</p>
+<ul class="simple">
+<li><p>Values range from <strong>-1 to +1</strong>.</p>
+<ul>
+<li><p>+1 = perfect positive linear relationship.</p></li>
+<li><p>-1 = perfect negative linear relationship.</p></li>
+<li><p>0 = no linear relationship.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="intuition">
+<h3>🧠 Intuition<a class="headerlink" href="#intuition" title="Link to this heading">#</a></h3>
+<p>If you increase X, does Y increase (positive correlation) or decrease (negative correlation)? Pearson captures this <strong>linear tendency</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="manual-calculation-small-example">
+<h3>✍️ Manual Calculation (Small Example)<a class="headerlink" href="#manual-calculation-small-example" title="Link to this heading">#</a></h3>
+<section id="data">
+<h4>📝 Data<a class="headerlink" href="#data" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Person</p></th>
+<th class="head"><p>Hours Studied (X)</p></th>
+<th class="head"><p>Exam Score (Y)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>2</p></td>
+<td><p>65</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>3</p></td>
+<td><p>70</p></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>5</p></td>
+<td><p>75</p></td>
+</tr>
+<tr class="row-odd"><td><p>D</p></td>
+<td><p>7</p></td>
+<td><p>80</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="steps">
+<h4>➡️ Steps<a class="headerlink" href="#steps" title="Link to this heading">#</a></h4>
+<p>1️⃣ Compute means:</p>
+<div class="math notranslate nohighlight">
+\[
+\bar{X} = (2+3+5+7)/4 = 4.25
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\bar{Y} = (65+70+75+80)/4 = 72.5
+\]</div>
+<hr class="docutils" />
+<p>2️⃣ Compute deviations &amp; products:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Person</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(X_i - \bar{X}\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(Y_i - \bar{Y}\)</span></p></th>
+<th class="head"><p>Product</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>-2.25</p></td>
+<td><p>-7.5</p></td>
+<td><p>16.875</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>-1.25</p></td>
+<td><p>-2.5</p></td>
+<td><p>3.125</p></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>0.75</p></td>
+<td><p>2.5</p></td>
+<td><p>1.875</p></td>
+</tr>
+<tr class="row-odd"><td><p>D</p></td>
+<td><p>2.75</p></td>
+<td><p>7.5</p></td>
+<td><p>20.625</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p>3️⃣ Sum products:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum (X_i - \bar{X})(Y_i - \bar{Y}) = 42.5
+\]</div>
+<hr class="docutils" />
+<p>4️⃣ Compute standard deviations:</p>
+<div class="math notranslate nohighlight">
+\[
+s_X = \sqrt{\frac{\sum (X_i - \bar{X})^2}{n-1}} = \sqrt{\frac{(5.06+1.56+0.56+7.56)}{3}} = \sqrt{4.91} = 2.22
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+s_Y = \sqrt{\frac{(56.25+6.25+6.25+56.25)}{3}} = \sqrt{41.67} = 6.45
+\]</div>
+<hr class="docutils" />
+<p>5️⃣ Compute <span class="math notranslate nohighlight">\(r\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+r = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{(n-1)s_X s_Y}
+= \frac{42.5}{3 \times 2.22 \times 6.45} = \frac{42.5}{42.9} = 0.99
+\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="problem-example">
+<h3>📝 Problem Example<a class="headerlink" href="#problem-example" title="Link to this heading">#</a></h3>
+<p>“A coaching center wants to know if more hours of study correlate with better exam scores.”</p>
+</section>
+<hr class="docutils" />
+<section id="tiny-ascii-plot">
+<h3>📈 Tiny ASCII plot<a class="headerlink" href="#tiny-ascii-plot" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">Y</span>
+<span class="mi">80</span> <span class="o">|</span>         <span class="o">*</span>
+<span class="mi">75</span> <span class="o">|</span>      <span class="o">*</span>
+<span class="mi">70</span> <span class="o">|</span>   <span class="o">*</span>
+<span class="mi">65</span> <span class="o">|</span> <span class="o">*</span>
+   <span class="o">+--------------</span>
+     <span class="mi">2</span> <span class="mi">3</span> <span class="mi">5</span> <span class="mi">7</span>   <span class="n">X</span>
+</pre></div>
+</div>
+<p>(Shows upward trend).</p>
+</section>
+<hr class="docutils" />
+<section id="pitfalls">
+<h3>⚠️ Pitfalls<a class="headerlink" href="#pitfalls" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Sensitive to <strong>outliers</strong>.</p></li>
+<li><p>Only measures <strong>linear</strong> relationships.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="spearman-rank-correlation">
+<h2>1.2 Spearman Rank Correlation<a class="headerlink" href="#spearman-rank-correlation" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>🔍 Definition<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Measures <strong>monotonic</strong> relationship (not necessarily linear) using <strong>ranks</strong> instead of actual values.</p>
+</section>
+<hr class="docutils" />
+<section id="id2">
+<h3>🧠 Intuition<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>If X increases, does Y tend to <strong>always increase or decrease</strong>, regardless of the shape?</p>
+</section>
+<hr class="docutils" />
+<section id="manual-calculation">
+<h3>✍️ Manual Calculation<a class="headerlink" href="#manual-calculation" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h4>📝 Data<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Person</p></th>
+<th class="head"><p>Hours (X)</p></th>
+<th class="head"><p>Rank X</p></th>
+<th class="head"><p>Score (Y)</p></th>
+<th class="head"><p>Rank Y</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>65</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>3</p></td>
+<td><p>2</p></td>
+<td><p>70</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>5</p></td>
+<td><p>3</p></td>
+<td><p>75</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>D</p></td>
+<td><p>7</p></td>
+<td><p>4</p></td>
+<td><p>80</p></td>
+<td><p>4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p>Since ranks are perfectly aligned:</p>
+<div class="math notranslate nohighlight">
+\[
+d_i = \text{Rank X} - \text{Rank Y} = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\rho = 1 - \frac{6 \sum d_i^2}{n(n^2-1)} = 1 - \frac{0}{4(16-1)} = 1
+\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id4">
+<h3>⚠️ Pitfalls<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Not affected by magnitude, only rank order.</p></li>
+<li><p>Ties require correction.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="covariance">
+<h2>1.3 Covariance<a class="headerlink" href="#covariance" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h3>🔍 Definition<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Shows <strong>direction of linear relationship</strong>, but not standardized, so hard to interpret magnitude.</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Cov}(X,Y) = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{n-1}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="id6">
+<h3>✍️ Manual Calculation<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\text{Cov}(X,Y) = \frac{42.5}{3} = 14.17
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="id7">
+<h3>⚠️ Pitfalls<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Units not normalized (hours × score).</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="regression">
+<h1>🔎 2. Regression<a class="headerlink" href="#regression" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="simple-linear-regression">
+<h2>2.1 Simple Linear Regression<a class="headerlink" href="#simple-linear-regression" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h3>🔍 Definition<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>Fits line:</p>
+<div class="math notranslate nohighlight">
+\[
+Y = \beta_0 + \beta_1 X
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\beta_0\)</span> = intercept</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta_1\)</span> = slope</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id9">
+<h3>📝 Problem Example<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>“A company predicts sales based on advertising spend.”</p>
+</section>
+<hr class="docutils" />
+<section id="id10">
+<h3>✍️ Manual Calculation<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<section id="using-earlier-data-hours-vs-score">
+<h4>Using earlier data (Hours vs Score)<a class="headerlink" href="#using-earlier-data-hours-vs-score" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[
+\beta_1 = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{\sum (X_i - \bar{X})^2} = \frac{42.5}{14.75} = 2.88
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\beta_0 = \bar{Y} - \beta_1 \bar{X} = 72.5 - 2.88 \times 4.25 = 60.25
+\]</div>
+<hr class="docutils" />
+<p>So equation:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{Y} = 60.25 + 2.88 X
+\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="small-text-plot">
+<h3>📈 Small text plot<a class="headerlink" href="#small-text-plot" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span>
+<span class="mi">80</span> <span class="o">|</span>      <span class="o">*</span>
+<span class="mi">75</span> <span class="o">|</span>    <span class="o">*</span>
+<span class="mi">70</span> <span class="o">|</span>  <span class="o">*</span>
+<span class="mi">65</span> <span class="o">|*</span>
+   <span class="o">+------------</span>
+     <span class="mi">2</span> <span class="mi">3</span> <span class="mi">5</span> <span class="mi">7</span> <span class="n">X</span>
+<span class="n">Fit</span> <span class="n">line</span> <span class="n">slopes</span> <span class="n">upward</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id11">
+<h3>⚠️ Pitfalls<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Sensitive to outliers.</p></li>
+<li><p>Only models <strong>linear</strong> relationships.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="multiple-linear-regression">
+<h2>2.2 Multiple Linear Regression<a class="headerlink" href="#multiple-linear-regression" title="Link to this heading">#</a></h2>
+<section id="id12">
+<h3>🔍 Definition<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \ldots + \epsilon
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="example">
+<h3>📝 Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p>“Predict house price (Y) based on area (X1) and number of rooms (X2).”</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="assumptions">
+<h2>2.3 Assumptions<a class="headerlink" href="#assumptions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Linearity</strong>: Relationship is linear.</p></li>
+<li><p><strong>Independence</strong>: Errors uncorrelated.</p></li>
+<li><p><strong>Homoscedasticity</strong>: Variance of errors constant.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="diagnostics">
+<h1>🔬 3. Diagnostics<a class="headerlink" href="#diagnostics" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="r2-coefficient-of-determination">
+<h2>3.1 R² (Coefficient of Determination)<a class="headerlink" href="#r2-coefficient-of-determination" title="Link to this heading">#</a></h2>
+<section id="id13">
+<h3>🔍 Definition<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p>Fraction of variance in Y explained by the model.</p>
+<div class="math notranslate nohighlight">
+\[
+R^2 = 1 - \frac{SS_{\text{residual}}}{SS_{\text{total}}}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="id14">
+<h3>📝 Example<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(R^2 = 0.9\)</span>, means <strong>90% of variance in Y</strong> explained by X.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="residuals-analysis">
+<h2>3.2 Residuals Analysis<a class="headerlink" href="#residuals-analysis" title="Link to this heading">#</a></h2>
+<section id="residuals">
+<h3>🔍 Residuals<a class="headerlink" href="#residuals" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+e_i = Y_i - \hat{Y}_i
+\]</div>
+<ul class="simple">
+<li><p>Plots of residuals vs fitted should show <strong>no pattern</strong>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="ascii-plot-for-residuals">
+<h3>ASCII plot for residuals<a class="headerlink" href="#ascii-plot-for-residuals" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Residual</span>
+ <span class="o">+</span><span class="mi">2</span> <span class="o">|</span> <span class="o">.</span>   <span class="o">.</span> <span class="o">.</span>
+  <span class="mi">0</span> <span class="o">|.</span> <span class="o">.</span> <span class="o">.</span>  <span class="o">.</span> <span class="o">.</span>
+ <span class="o">-</span><span class="mi">2</span> <span class="o">|.</span>  <span class="o">.</span> <span class="o">.</span>
+    <span class="o">+---------</span>
+     <span class="n">Fitted</span> <span class="n">Values</span>
+</pre></div>
+</div>
+<p>(Scattered randomly: good).</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="overfitting-vs-underfitting">
+<h2>3.3 Overfitting vs Underfitting<a class="headerlink" href="#overfitting-vs-underfitting" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Overfitting</strong>: Too complex, captures noise.</p></li>
+<li><p><strong>Underfitting</strong>: Too simple, misses patterns.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="id15">
+<h3>📝 Example<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Using 10-degree polynomial to fit 4 data points = overfitting.</p></li>
+<li><p>Using a straight line on data with curvature = underfitting.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="summary-tables">
+<h1>✅ Summary Tables<a class="headerlink" href="#summary-tables" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concept</p></th>
+<th class="head"><p>What it tells you</p></th>
+<th class="head"><p>Watch out for</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Pearson correlation</p></td>
+<td><p>Linear relationship strength</p></td>
+<td><p>Outliers, only linear</p></td>
+</tr>
+<tr class="row-odd"><td><p>Spearman correlation</p></td>
+<td><p>Monotonic relationship strength</p></td>
+<td><p>Ignores magnitude</p></td>
+</tr>
+<tr class="row-even"><td><p>Covariance</p></td>
+<td><p>Direction of relationship</p></td>
+<td><p>Not standardized</p></td>
+</tr>
+<tr class="row-odd"><td><p>Simple Linear Regression</p></td>
+<td><p>Predict Y from single X</p></td>
+<td><p>Only linear</p></td>
+</tr>
+<tr class="row-even"><td><p>Multiple Regression</p></td>
+<td><p>Predict Y from multiple Xs</p></td>
+<td><p>Multicollinearity</p></td>
+</tr>
+<tr class="row-odd"><td><p>R²</p></td>
+<td><p>% of variance explained</p></td>
+<td><p>Does not indicate causation</p></td>
+</tr>
+<tr class="row-even"><td><p>Residuals Analysis</p></td>
+<td><p>Check model fit</p></td>
+<td><p>Patterns = bad model</p></td>
+</tr>
+<tr class="row-odd"><td><p>Over/Underfitting</p></td>
+<td><p>Balance complexity vs simplicity</p></td>
+<td><p>High variance / high bias</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p>Let’s break down these statistical concepts in detail, including their definitions, manual calculation methods, and problem statements.</p>
+<hr class="docutils" />
+<section id="id16">
+<h2><strong>1. Correlation</strong><a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
+<p>Correlation measures the strength and direction of a linear relationship between two quantitative variables. It tells us how closely two variables move together. A correlation coefficient ranges from -1 to +1.</p>
+<ul class="simple">
+<li><p><strong>Positive Correlation (+1):</strong> As one variable increases, the other also increases.</p></li>
+<li><p><strong>Negative Correlation (-1):</strong> As one variable increases, the other decreases.</p></li>
+<li><p><strong>No Correlation (0):</strong> There is no linear relationship between the variables.</p></li>
+</ul>
+<section id="pearson-correlation-coefficient-r">
+<h3><strong>1.1. Pearson Correlation Coefficient (r)</strong><a class="headerlink" href="#pearson-correlation-coefficient-r" title="Link to this heading">#</a></h3>
+<p>The Pearson product-moment correlation coefficient (PPMCC) is a measure of the linear correlation between two sets of data. It is the most common type of correlation.</p>
+<p><strong>Formula:</strong>
+$<span class="math notranslate nohighlight">\(r = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n}(x_i - \bar{x})^2 \sum_{i=1}^{n}(y_i - \bar{y})^2}}\)</span>$
+Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span> is the number of data points</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(y_i\)</span> are individual data points</p></li>
+<li><p><span class="math notranslate nohighlight">\(\bar{x}\)</span> and <span class="math notranslate nohighlight">\(\bar{y}\)</span> are the means of the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> variables, respectively</p></li>
+</ul>
+<p><strong>Manual Calculation Steps:</strong></p>
+<ol class="arabic simple">
+<li><p>Calculate the mean of <span class="math notranslate nohighlight">\(X\)</span> (<span class="math notranslate nohighlight">\(\bar{x}\)</span>) and the mean of <span class="math notranslate nohighlight">\(Y\)</span> (<span class="math notranslate nohighlight">\(\bar{y}\)</span>).</p></li>
+<li><p>Calculate the deviation of each <span class="math notranslate nohighlight">\(X\)</span> value from its mean <span class="math notranslate nohighlight">\((x_i - \bar{x})\)</span>.</p></li>
+<li><p>Calculate the deviation of each <span class="math notranslate nohighlight">\(Y\)</span> value from its mean <span class="math notranslate nohighlight">\((y_i - \bar{y})\)</span>.</p></li>
+<li><p>Multiply the deviations for each pair: <span class="math notranslate nohighlight">\((x_i - \bar{x})(y_i - \bar{y})\)</span>. Sum these products to get the numerator.</p></li>
+<li><p>Square each <span class="math notranslate nohighlight">\(X\)</span> deviation: <span class="math notranslate nohighlight">\((x_i - \bar{x})^2\)</span>. Sum these squares.</p></li>
+<li><p>Square each <span class="math notranslate nohighlight">\(Y\)</span> deviation: <span class="math notranslate nohighlight">\((y_i - \bar{y})^2\)</span>. Sum these squares.</p></li>
+<li><p>Multiply the sum of squared <span class="math notranslate nohighlight">\(X\)</span> deviations by the sum of squared <span class="math notranslate nohighlight">\(Y\)</span> deviations.</p></li>
+<li><p>Take the square root of the result from step 7 to get the denominator.</p></li>
+<li><p>Divide the numerator (from step 4) by the denominator (from step 8).</p></li>
+</ol>
+<p><strong>Problem Statement (Pearson Correlation):</strong></p>
+<p>An ice cream vendor wants to see if there’s a relationship between the daily temperature and the number of ice creams sold.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Temperature (in °C) (X)</p></th>
+<th class="head text-left"><p>Ice Creams Sold (Y)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>15</p></td>
+<td class="text-left"><p>50</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>20</p></td>
+<td class="text-left"><p>70</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>25</p></td>
+<td class="text-left"><p>90</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>30</p></td>
+<td class="text-left"><p>110</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>35</p></td>
+<td class="text-left"><p>130</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Manual Calculation:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Calculate Means:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\bar{x} = (15+20+25+30+35)/5 = 125/5 = 25\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\bar{y} = (50+70+90+110+130)/5 = 450/5 = 90\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>Calculate Deviations and Products:</strong></p></li>
+</ol>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>X</p></th>
+<th class="head text-left"><p>Y</p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(x_i - \bar{x}\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(y_i - \bar{y}\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\((x_i - \bar{x})(y_i - \bar{y})\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\((x_i - \bar{x})^2\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\((y_i - \bar{y})^2\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>15</p></td>
+<td class="text-left"><p>50</p></td>
+<td class="text-left"><p>-10</p></td>
+<td class="text-left"><p>-40</p></td>
+<td class="text-left"><p>400</p></td>
+<td class="text-left"><p>100</p></td>
+<td class="text-left"><p>1600</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>20</p></td>
+<td class="text-left"><p>70</p></td>
+<td class="text-left"><p>-5</p></td>
+<td class="text-left"><p>-20</p></td>
+<td class="text-left"><p>100</p></td>
+<td class="text-left"><p>25</p></td>
+<td class="text-left"><p>400</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>25</p></td>
+<td class="text-left"><p>90</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>30</p></td>
+<td class="text-left"><p>110</p></td>
+<td class="text-left"><p>5</p></td>
+<td class="text-left"><p>20</p></td>
+<td class="text-left"><p>100</p></td>
+<td class="text-left"><p>25</p></td>
+<td class="text-left"><p>400</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>35</p></td>
+<td class="text-left"><p>130</p></td>
+<td class="text-left"><p>10</p></td>
+<td class="text-left"><p>40</p></td>
+<td class="text-left"><p>400</p></td>
+<td class="text-left"><p>100</p></td>
+<td class="text-left"><p>1600</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p><strong>Sum:</strong> 0</p></td>
+<td class="text-left"><p><strong>Sum:</strong> 0</p></td>
+<td class="text-left"><p><strong>Sum:</strong> 1000</p></td>
+<td class="text-left"><p><strong>Sum:</strong> 250</p></td>
+<td class="text-left"><p><strong>Sum:</strong> 4000</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Numerator:</strong> <span class="math notranslate nohighlight">\(\sum(x_i - \bar{x})(y_i - \bar{y}) = 1000\)</span></p></li>
+<li><p><strong>Denominator:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\sum(x_i - \bar{x})^2 = 250\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\sum(y_i - \bar{y})^2 = 4000\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\sqrt{250 \times 4000} = \sqrt{1,000,000} = 1000\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>Pearson r:</strong> <span class="math notranslate nohighlight">\(r = \frac{1000}{1000} = 1\)</span></p></li>
+</ol>
+<p><strong>Interpretation:</strong> A Pearson correlation coefficient of 1 indicates a perfect positive linear relationship. As temperature increases, ice cream sales perfectly increase in a linear fashion.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">PolynomialFeatures</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">r2_score</span><span class="p">,</span> <span class="n">mean_squared_error</span>
+
+<span class="c1"># Set a style for better aesthetics</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="c1"># plt.rcParams[&#39;font.family&#39;] = &#39;Inter&#39; # Set font to Inter</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Visualizing Statistical Concepts ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># --- 1. Correlation ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- 1. Correlation Plots ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># 1.1. Pearson Correlation Example Data (Ice Cream Sales)</span>
+<span class="n">temp_pearson</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">])</span>
+<span class="n">sales_pearson</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">130</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">temp_pearson</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">sales_pearson</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Scatter Plot: Temperature vs. Ice Cream Sales (Pearson Example)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature (°C)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Ice Creams Sold&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="spearman-rank-correlation-coefficient-or-r-s">
+<h3><strong>1.2. Spearman Rank Correlation Coefficient (ρ or <span class="math notranslate nohighlight">\(r_s\)</span>)</strong><a class="headerlink" href="#spearman-rank-correlation-coefficient-or-r-s" title="Link to this heading">#</a></h3>
+<p>Spearman’s rank correlation coefficient assesses the monotonic relationship between two variables. It’s particularly useful when dealing with ordinal data (ranks) or when the relationship is not necessarily linear but consistently increasing or decreasing. It’s less sensitive to outliers than Pearson.</p>
+<p><strong>Formula:</strong>
+$<span class="math notranslate nohighlight">\(\rho = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)}\)</span>$
+Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span> is the number of data points</p></li>
+<li><p><span class="math notranslate nohighlight">\(d_i\)</span> is the difference between the ranks of corresponding <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(y_i\)</span> values.</p></li>
+</ul>
+<p><strong>Manual Calculation Steps:</strong></p>
+<ol class="arabic simple">
+<li><p>Rank the <span class="math notranslate nohighlight">\(X\)</span> values from smallest to largest. Assign rank 1 to the smallest, 2 to the next, and so on. If there are ties, assign the average of the ranks they would have occupied.</p></li>
+<li><p>Rank the <span class="math notranslate nohighlight">\(Y\)</span> values similarly.</p></li>
+<li><p>For each data point, find the difference (<span class="math notranslate nohighlight">\(d_i\)</span>) between its X-rank and its Y-rank.</p></li>
+<li><p>Square each difference (<span class="math notranslate nohighlight">\(d_i^2\)</span>).</p></li>
+<li><p>Sum the squared differences (<span class="math notranslate nohighlight">\(\sum d_i^2\)</span>).</p></li>
+<li><p>Plug the sum into the formula.</p></li>
+</ol>
+<p><strong>Problem Statement (Spearman Correlation):</strong></p>
+<p>A judge ranks 5 contestants in a singing competition based on two criteria: vocal performance and stage presence.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Contestant</p></th>
+<th class="head text-left"><p>Vocal Performance (X)</p></th>
+<th class="head text-left"><p>Stage Presence (Y)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>A</p></td>
+<td class="text-left"><p>8</p></td>
+<td class="text-left"><p>7</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>B</p></td>
+<td class="text-left"><p>5</p></td>
+<td class="text-left"><p>4</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>C</p></td>
+<td class="text-left"><p>9</p></td>
+<td class="text-left"><p>8</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>D</p></td>
+<td class="text-left"><p>6</p></td>
+<td class="text-left"><p>5</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>E</p></td>
+<td class="text-left"><p>7</p></td>
+<td class="text-left"><p>6</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Manual Calculation:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Rank X and Y:</strong></p></li>
+</ol>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Contestant</p></th>
+<th class="head text-left"><p>X (Vocal)</p></th>
+<th class="head text-left"><p>Rank(X)</p></th>
+<th class="head text-left"><p>Y (Stage)</p></th>
+<th class="head text-left"><p>Rank(Y)</p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(d_i\)</span> (Rank(X) - Rank(Y))</p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(d_i^2\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>A</p></td>
+<td class="text-left"><p>8</p></td>
+<td class="text-left"><p>4</p></td>
+<td class="text-left"><p>7</p></td>
+<td class="text-left"><p>4</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>B</p></td>
+<td class="text-left"><p>5</p></td>
+<td class="text-left"><p>1</p></td>
+<td class="text-left"><p>4</p></td>
+<td class="text-left"><p>1</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>C</p></td>
+<td class="text-left"><p>9</p></td>
+<td class="text-left"><p>5</p></td>
+<td class="text-left"><p>8</p></td>
+<td class="text-left"><p>5</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>D</p></td>
+<td class="text-left"><p>6</p></td>
+<td class="text-left"><p>2</p></td>
+<td class="text-left"><p>5</p></td>
+<td class="text-left"><p>2</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>E</p></td>
+<td class="text-left"><p>7</p></td>
+<td class="text-left"><p>3</p></td>
+<td class="text-left"><p>6</p></td>
+<td class="text-left"><p>3</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p><strong>Sum:</strong> 0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Calculate <span class="math notranslate nohighlight">\(\sum d_i^2 = 0\)</span></strong></p></li>
+<li><p><strong>Apply Formula:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n = 5\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho = 1 - \frac{6 \times 0}{5(5^2 - 1)} = 1 - \frac{0}{5(24)} = 1 - 0 = 1\)</span></p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Interpretation:</strong> A Spearman correlation coefficient of 1 indicates a perfect monotonic relationship. The judges ranked the contestants identically on both vocal performance and stage presence.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- 3. Diagnostics ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- 3. Diagnostics Plots ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create a more realistic dataset for diagnostics to show non-zero residuals and potential issues</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_diag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="c1"># 0 to 10</span>
+<span class="n">y_diag</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">X_diag</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">X_diag</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># Linear relationship with noise</span>
+
+<span class="c1"># Introduce some heteroscedasticity for demonstration</span>
+<span class="c1"># Corrected line: Reshape the scale parameter to match the output shape</span>
+<span class="n">y_diag_hetero</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">X_diag</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">X_diag</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">X_diag</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># Introduce some non-linearity for demonstration</span>
+<span class="n">y_diag_nonlin</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">X_diag</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">X_diag</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X_diag</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># Fit a linear model to the &quot;linear with noise&quot; data</span>
+<span class="n">model_diag</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model_diag</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_diag</span><span class="p">,</span> <span class="n">y_diag</span><span class="p">)</span>
+<span class="n">y_pred_diag</span> <span class="o">=</span> <span class="n">model_diag</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_diag</span><span class="p">)</span>
+<span class="n">residuals_diag</span> <span class="o">=</span> <span class="n">y_diag</span> <span class="o">-</span> <span class="n">y_pred_diag</span>
+
+<span class="c1"># Fit a linear model to the &quot;heteroscedastic&quot; data</span>
+<span class="n">model_hetero</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model_hetero</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_diag</span><span class="p">,</span> <span class="n">y_diag_hetero</span><span class="p">)</span>
+<span class="n">y_pred_hetero</span> <span class="o">=</span> <span class="n">model_hetero</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_diag</span><span class="p">)</span>
+<span class="n">residuals_hetero</span> <span class="o">=</span> <span class="n">y_diag_hetero</span> <span class="o">-</span> <span class="n">y_pred_hetero</span>
+
+<span class="c1"># Fit a linear model to the &quot;non-linear&quot; data</span>
+<span class="n">model_nonlin</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model_nonlin</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_diag</span><span class="p">,</span> <span class="n">y_diag_nonlin</span><span class="p">)</span>
+<span class="n">y_pred_nonlin</span> <span class="o">=</span> <span class="n">model_nonlin</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_diag</span><span class="p">)</span>
+<span class="n">residuals_nonlin</span> <span class="o">=</span> <span class="n">y_diag_nonlin</span> <span class="o">-</span> <span class="n">y_pred_nonlin</span>
+
+
+<span class="c1"># 1.2. Spearman Correlation Example Data (Judge Ranks)</span>
+<span class="c1"># Note: For Spearman, we typically plot the original data to see the monotonic trend,</span>
+<span class="c1"># even though the calculation uses ranks.</span>
+<span class="n">vocal_spearman</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="n">stage_spearman</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">vocal_spearman</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">stage_spearman</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightcoral&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Scatter Plot: Vocal Performance vs. Stage Presence (Spearman Example)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Vocal Performance Score&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Stage Presence Score&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- 3. Diagnostics Plots ---
+</pre></div>
+</div>
+<img alt="../../_images/b3a70cac72f018b240b9ba84e5c2a876fc4f7d834008209c65644d47b3842310.png" src="../../_images/b3a70cac72f018b240b9ba84e5c2a876fc4f7d834008209c65644d47b3842310.png" />
+</div>
+</div>
+</section>
+<section id="id17">
+<h3><strong>1.3. Covariance</strong><a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p>Covariance measures how two variables change together. A positive covariance indicates that variables tend to move in the same direction, while a negative covariance indicates they tend to move in opposite directions. A covariance of zero suggests no linear relationship.</p>
+<p><strong>Formula:</strong>
+$<span class="math notranslate nohighlight">\(Cov(X, Y) = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{n-1}\)</span><span class="math notranslate nohighlight">\(
+Or for population:
+\)</span><span class="math notranslate nohighlight">\(Cov(X, Y) = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{n}\)</span><span class="math notranslate nohighlight">\(
+(We typically use \)</span>n-1$ for sample covariance to get an unbiased estimate.)</p>
+<p><strong>Manual Calculation Steps:</strong></p>
+<ol class="arabic simple">
+<li><p>Calculate the mean of <span class="math notranslate nohighlight">\(X\)</span> (<span class="math notranslate nohighlight">\(\bar{x}\)</span>) and the mean of <span class="math notranslate nohighlight">\(Y\)</span> (<span class="math notranslate nohighlight">\(\bar{y}\)</span>).</p></li>
+<li><p>Calculate the deviation of each <span class="math notranslate nohighlight">\(X\)</span> value from its mean <span class="math notranslate nohighlight">\((x_i - \bar{x})\)</span>.</p></li>
+<li><p>Calculate the deviation of each <span class="math notranslate nohighlight">\(Y\)</span> value from its mean <span class="math notranslate nohighlight">\((y_i - \bar{y})\)</span>.</p></li>
+<li><p>Multiply the deviations for each pair: <span class="math notranslate nohighlight">\((x_i - \bar{x})(y_i - \bar{y})\)</span>.</p></li>
+<li><p>Sum these products (<span class="math notranslate nohighlight">\(\sum (x_i - \bar{x})(y_i - \bar{y})\)</span>).</p></li>
+<li><p>Divide the sum by <span class="math notranslate nohighlight">\((n-1)\)</span> for sample covariance.</p></li>
+</ol>
+<p><strong>Problem Statement (Covariance):</strong></p>
+<p>Using the same ice cream sales data:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Temperature (in °C) (X)</p></th>
+<th class="head text-left"><p>Ice Creams Sold (Y)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>15</p></td>
+<td class="text-left"><p>50</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>20</p></td>
+<td class="text-left"><p>70</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>25</p></td>
+<td class="text-left"><p>90</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>30</p></td>
+<td class="text-left"><p>110</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>35</p></td>
+<td class="text-left"><p>130</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Manual Calculation:</strong></p>
+<p>From the Pearson correlation calculation, we already have:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\bar{x} = 25\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\bar{y} = 90\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\sum(x_i - \bar{x})(y_i - \bar{y}) = 1000\)</span></p></li>
+</ul>
+<p>Now, apply the covariance formula (<span class="math notranslate nohighlight">\(n=5\)</span>):
+$<span class="math notranslate nohighlight">\(Cov(X, Y) = \frac{1000}{5-1} = \frac{1000}{4} = 250\)</span>$</p>
+<p><strong>Interpretation:</strong> A positive covariance of 250 indicates that as temperature increases, ice cream sales tend to increase. The magnitude of covariance itself is not standardized, so it’s harder to interpret directly compared to correlation. Pearson correlation is simply the normalized version of covariance.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id18">
+<h2><strong>2. Regression</strong><a class="headerlink" href="#id18" title="Link to this heading">#</a></h2>
+<p>Regression analysis is a statistical method used to model the relationship between a dependent variable (what you want to predict) and one or more independent variables (predictors). It aims to find the “best fit” line (or curve) that describes how the dependent variable changes with the independent variables.</p>
+<section id="id19">
+<h3><strong>2.1. Simple Linear Regression</strong><a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<p>Simple linear regression models the relationship between two continuous variables: one dependent variable (Y) and one independent variable (X). It assumes a linear relationship, meaning the data points tend to fall along a straight line.</p>
+<p><strong>Model Equation:</strong>
+$<span class="math notranslate nohighlight">\(Y = \beta_0 + \beta_1 X + \epsilon\)</span>$
+Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Y\)</span> is the dependent variable</p></li>
+<li><p><span class="math notranslate nohighlight">\(X\)</span> is the independent variable</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta_0\)</span> (beta-naught) is the Y-intercept (the value of Y when X is 0)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta_1\)</span> (beta-one) is the slope of the regression line (the change in Y for a one-unit change in X)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\epsilon\)</span> (epsilon) is the error term, representing the difference between the observed Y values and the Y values predicted by the model.</p></li>
+</ul>
+<p>The goal is to estimate <span class="math notranslate nohighlight">\(\beta_0\)</span> and <span class="math notranslate nohighlight">\(\beta_1\)</span> from the sample data, resulting in the estimated regression line:
+$<span class="math notranslate nohighlight">\(\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X\)</span><span class="math notranslate nohighlight">\(
+Where \)</span>\hat{Y}$ is the predicted value of Y.</p>
+<p><strong>Formulas for Estimated Coefficients (<span class="math notranslate nohighlight">\(\hat{\beta}_0, \hat{\beta}_1\)</span>):</strong></p>
+<div class="math notranslate nohighlight">
+\[\hat{\beta}_1 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n}(x_i - \bar{x})^2}\]</div>
+<p>(Notice the numerator is the same as the Pearson correlation numerator, and the denominator is the sum of squared X deviations).
+Alternatively, <span class="math notranslate nohighlight">\(\hat{\beta}_1 = \frac{Cov(X, Y)}{Var(X)}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}\]</div>
+<p><strong>Manual Calculation Steps:</strong></p>
+<ol class="arabic simple">
+<li><p>Calculate the mean of <span class="math notranslate nohighlight">\(X\)</span> (<span class="math notranslate nohighlight">\(\bar{x}\)</span>) and the mean of <span class="math notranslate nohighlight">\(Y\)</span> (<span class="math notranslate nohighlight">\(\bar{y}\)</span>).</p></li>
+<li><p>Calculate the deviations <span class="math notranslate nohighlight">\((x_i - \bar{x})\)</span> and <span class="math notranslate nohighlight">\((y_i - \bar{y})\)</span>.</p></li>
+<li><p>Calculate the product of deviations <span class="math notranslate nohighlight">\((x_i - \bar{x})(y_i - \bar{y})\)</span> and sum them (numerator for <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span>).</p></li>
+<li><p>Calculate the squared deviations <span class="math notranslate nohighlight">\((x_i - \bar{x})^2\)</span> and sum them (denominator for <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span>).</p></li>
+<li><p>Calculate <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span> using the formula.</p></li>
+<li><p>Calculate <span class="math notranslate nohighlight">\(\hat{\beta}_0\)</span> using the formula.</p></li>
+<li><p>Write down the regression equation: <span class="math notranslate nohighlight">\(\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X\)</span>.</p></li>
+</ol>
+<p><strong>Problem Statement (Simple Linear Regression):</strong></p>
+<p>Using the same ice cream sales data, predict ice cream sales based on temperature.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Temperature (in °C) (X)</p></th>
+<th class="head text-left"><p>Ice Creams Sold (Y)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>15</p></td>
+<td class="text-left"><p>50</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>20</p></td>
+<td class="text-left"><p>70</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>25</p></td>
+<td class="text-left"><p>90</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>30</p></td>
+<td class="text-left"><p>110</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>35</p></td>
+<td class="text-left"><p>130</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Manual Calculation:</strong></p>
+<p>From previous calculations:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\bar{x} = 25\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\bar{y} = 90\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\sum(x_i - \bar{x})(y_i - \bar{y}) = 1000\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\sum(x_i - \bar{x})^2 = 250\)</span></p></li>
+</ul>
+<ol class="arabic simple">
+<li><p><strong>Calculate <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span> (Slope):</strong>
+$<span class="math notranslate nohighlight">\(\hat{\beta}_1 = \frac{1000}{250} = 4\)</span>$
+This means for every 1°C increase in temperature, ice cream sales are predicted to increase by 4 units.</p></li>
+<li><p><strong>Calculate <span class="math notranslate nohighlight">\(\hat{\beta}_0\)</span> (Y-intercept):</strong>
+$<span class="math notranslate nohighlight">\(\hat{\beta}_0 = 90 - (4 \times 25) = 90 - 100 = -10\)</span>$</p></li>
+<li><p><strong>Regression Equation:</strong>
+$<span class="math notranslate nohighlight">\(\hat{Y} = -10 + 4X\)</span>$</p></li>
+</ol>
+<p><strong>Interpretation and Prediction:</strong></p>
+<p>If the temperature is 28°C, the predicted ice cream sales would be:
+<span class="math notranslate nohighlight">\(\hat{Y} = -10 + 4(28) = -10 + 112 = 102\)</span> ice creams.</p>
+</section>
+<section id="id20">
+<h3><strong>2.2. Multiple Linear Regression</strong><a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p>Multiple linear regression extends simple linear regression by allowing for more than one independent variable to predict a single dependent variable.</p>
+<p><strong>Model Equation:</strong>
+$<span class="math notranslate nohighlight">\(Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + ... + \beta_k X_k + \epsilon\)</span>$
+Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Y\)</span> is the dependent variable</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_1, X_2, ..., X_k\)</span> are the independent variables</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta_0\)</span> is the Y-intercept</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta_1, \beta_2, ..., \beta_k\)</span> are the slopes for each independent variable, representing the change in Y for a one-unit change in that specific X, <em>holding all other X variables constant</em>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\epsilon\)</span> is the error term.</p></li>
+</ul>
+<p><strong>Manual Calculation:</strong></p>
+<p>Manually calculating multiple linear regression coefficients involves matrix algebra (using the normal equation: <span class="math notranslate nohighlight">\(\hat{\beta} = (X^T X)^{-1} X^T Y\)</span>). This is highly impractical and error-prone for more than two independent variables and even for small datasets. Software (R, Python, Excel, SPSS, SAS) is essential for multiple regression.</p>
+<p><strong>Problem Statement (Conceptual - Multiple Linear Regression):</strong></p>
+<p>A real estate company wants to predict house prices (Y) based on several factors:</p>
+<ul class="simple">
+<li><p>Square footage (<span class="math notranslate nohighlight">\(X_1\)</span>)</p></li>
+<li><p>Number of bedrooms (<span class="math notranslate nohighlight">\(X_2\)</span>)</p></li>
+<li><p>Distance to city center (<span class="math notranslate nohighlight">\(X_3\)</span>)</p></li>
+<li><p>Age of the house (<span class="math notranslate nohighlight">\(X_4\)</span>)</p></li>
+</ul>
+<p><strong>Conceptual Model:</strong>
+$<span class="math notranslate nohighlight">\(\text{House Price} = \beta_0 + \beta_1 (\text{Square Footage}) + \beta_2 (\text{Bedrooms}) + \beta_3 (\text{Distance}) + \beta_4 (\text{Age}) + \epsilon\)</span>$</p>
+<p>After running the regression in software, you might get an equation like:
+$<span class="math notranslate nohighlight">\(\hat{\text{House Price}} = 50,000 + 150(\text{SqFt}) + 10,000(\text{Bedrooms}) - 5,000(\text{Distance}) - 200(\text{Age})\)</span>$</p>
+<p><strong>Interpretation:</strong></p>
+<ul class="simple">
+<li><p>A base price of $50,000 (the intercept).</p></li>
+<li><p>For every additional square foot, the price is predicted to increase by $150 (holding other factors constant).</p></li>
+<li><p>For every additional bedroom, the price is predicted to increase by $10,000 (holding other factors constant).</p></li>
+<li><p>For every additional unit of distance from the city center, the price is predicted to decrease by $5,000.</p></li>
+<li><p>For every additional year of age, the price is predicted to decrease by $200.</p></li>
+</ul>
+</section>
+<section id="assumptions-of-linear-regression">
+<h3><strong>2.3. Assumptions of Linear Regression</strong><a class="headerlink" href="#assumptions-of-linear-regression" title="Link to this heading">#</a></h3>
+<p>For the regression model to be reliable and its inferences valid, certain assumptions about the error term (<span class="math notranslate nohighlight">\(\epsilon\)</span>) and the relationship between variables must be met. Violations of these assumptions can lead to biased coefficients, incorrect standard errors, and invalid hypothesis tests.</p>
+<section id="linearity">
+<h4><strong>2.3.1. Linearity</strong><a class="headerlink" href="#linearity" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Assumption:</strong> The relationship between the independent variable(s) and the dependent variable is linear.</p></li>
+<li><p><strong>Checking:</strong></p>
+<ul>
+<li><p><strong>Scatter Plots:</strong> For simple linear regression, plot Y vs. X. For multiple regression, plot Y vs. each X. Look for a roughly straight-line pattern.</p></li>
+<li><p><strong>Residuals Plot:</strong> Plot residuals vs. predicted values or residuals vs. independent variables. A random scatter of points around zero suggests linearity. If you see a curve, it indicates non-linearity.</p></li>
+</ul>
+</li>
+<li><p><strong>Consequences of Violation:</strong> The linear model will poorly represent the true relationship, leading to inaccurate predictions and interpretations.</p></li>
+<li><p><strong>Fixes:</strong></p>
+<ul>
+<li><p>Transform variables (e.g., log transform, square root).</p></li>
+<li><p>Add polynomial terms to the model (e.g., <span class="math notranslate nohighlight">\(X^2\)</span>).</p></li>
+<li><p>Use non-linear regression models.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="independence-of-errors-no-autocorrelation">
+<h4><strong>2.3.2. Independence of Errors (No Autocorrelation)</strong><a class="headerlink" href="#independence-of-errors-no-autocorrelation" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Assumption:</strong> The errors (residuals) are independent of each other. The error for one observation does not influence the error for another observation. This is crucial for time-series data where consecutive observations might be related.</p></li>
+<li><p><strong>Checking:</strong></p>
+<ul>
+<li><p><strong>Durbin-Watson Test:</strong> A statistical test specifically designed to detect autocorrelation. Values near 2 suggest no autocorrelation. Values below 1 or above 3 typically indicate positive or negative autocorrelation, respectively.</p></li>
+<li><p><strong>Residuals Plot (against time or order):</strong> If there’s a pattern (e.g., increasing then decreasing errors) when residuals are plotted against the order of data collection, it suggests autocorrelation.</p></li>
+</ul>
+</li>
+<li><p><strong>Consequences of Violation:</strong> Standard errors of coefficients will be underestimated, leading to narrower confidence intervals and inflated t-statistics, making it easier to incorrectly declare variables significant.</p></li>
+<li><p><strong>Fixes:</strong></p>
+<ul>
+<li><p>Include lagged variables in time-series models.</p></li>
+<li><p>Use time-series specific models (e.g., ARIMA).</p></li>
+<li><p>Adjust standard errors using robust methods.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="homoscedasticity-constant-variance-of-errors">
+<h4><strong>2.3.3. Homoscedasticity (Constant Variance of Errors)</strong><a class="headerlink" href="#homoscedasticity-constant-variance-of-errors" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Assumption:</strong> The variance of the error terms is constant across all levels of the independent variable(s). This means the spread of residuals should be roughly the same across the range of predicted values.</p></li>
+<li><p><strong>Checking:</strong></p>
+<ul>
+<li><p><strong>Residuals Plot (vs. Predicted Values):</strong> Plot residuals on the Y-axis against predicted values (<span class="math notranslate nohighlight">\(\hat{Y}\)</span>) on the X-axis. Look for a random scatter of points with a roughly equal spread (a “shotgun blast” pattern). If you see a “funnel” or “cone” shape (variance increasing or decreasing with <span class="math notranslate nohighlight">\(\hat{Y}\)</span>), heteroscedasticity is present.</p></li>
+<li><p><strong>Statistical Tests:</strong> Breusch-Pagan test, White test.</p></li>
+</ul>
+</li>
+<li><p><strong>Consequences of Violation (Heteroscedasticity):</strong> Standard errors are biased (usually underestimated), leading to incorrect p-values and confidence intervals. The estimates of coefficients are still unbiased but are not the most efficient.</p></li>
+<li><p><strong>Fixes:</strong></p>
+<ul>
+<li><p>Transform the dependent variable (e.g., log transform for right-skewed data).</p></li>
+<li><p>Use Weighted Least Squares (WLS) regression, which gives less weight to observations with larger variances.</p></li>
+<li><p>Use robust standard errors (e.g., Huber-White standard errors) that are less sensitive to heteroscedasticity.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="other-important-assumptions-briefly">
+<h4><strong>Other Important Assumptions (briefly):</strong><a class="headerlink" href="#other-important-assumptions-briefly" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Normality of Errors:</strong> The error terms are normally distributed. This is primarily important for valid hypothesis testing with small sample sizes. For large samples, the Central Limit Theorem helps. Checked with QQ plots of residuals or normality tests (Shapiro-Wilk).</p></li>
+<li><p><strong>No Multicollinearity (for Multiple Regression):</strong> Independent variables are not highly correlated with each other. High multicollinearity makes it difficult to determine the individual effect of each independent variable and can lead to unstable coefficient estimates. Checked with Variance Inflation Factor (VIF).</p></li>
+<li><p><strong>No or Little Measurement Error:</strong> The independent variables are measured without significant error.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id21">
+<h2><strong>3. Diagnostics</strong><a class="headerlink" href="#id21" title="Link to this heading">#</a></h2>
+<p>After fitting a regression model, it’s crucial to evaluate its performance and validity. Diagnostics help us understand how well the model explains the data and if its assumptions are met.</p>
+<section id="id22">
+<h3><strong>3.1. R² (Coefficient of Determination)</strong><a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(R^2\)</span> is a key diagnostic for regression. It represents the proportion of the variance in the dependent variable (Y) that is predictable from the independent variable(s) (X). In simpler terms, it tells you how much of the variation in Y is explained by your model.</p>
+<p><strong>Formula:</strong>
+$<span class="math notranslate nohighlight">\(R^2 = \frac{SSR}{SST} = 1 - \frac{SSE}{SST}\)</span>$
+Where:</p>
+<ul class="simple">
+<li><p><strong>SST (Total Sum of Squares):</strong> Total variation in the dependent variable Y.
+$<span class="math notranslate nohighlight">\(SST = \sum (y_i - \bar{y})^2\)</span>$</p></li>
+<li><p><strong>SSR (Regression Sum of Squares):</strong> Variation in Y explained by the regression model.
+$<span class="math notranslate nohighlight">\(SSR = \sum (\hat{y}_i - \bar{y})^2\)</span>$</p></li>
+<li><p><strong>SSE (Error Sum of Squares / Residual Sum of Squares):</strong> Variation in Y <em>not</em> explained by the regression model (the unexplained variance).
+$<span class="math notranslate nohighlight">\(SSE = \sum (y_i - \hat{y}_i)^2\)</span>$</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(R^2\)</span> ranges from 0 to 1 (or 0% to 100%).</p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(R^2 = 0\)</span>:</strong> The model explains none of the variability in the dependent variable.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(R^2 = 1\)</span>:</strong> The model explains all of the variability in the dependent variable (perfect fit).</p></li>
+<li><p><strong>Interpretation:</strong> An <span class="math notranslate nohighlight">\(R^2\)</span> of 0.75 means that 75% of the variation in the dependent variable can be explained by the independent variable(s) in the model.</p></li>
+</ul>
+<p><strong>Problem Statement (R²):</strong></p>
+<p>Using our ice cream sales regression model (<span class="math notranslate nohighlight">\(\hat{Y} = -10 + 4X\)</span>), calculate <span class="math notranslate nohighlight">\(R^2\)</span>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>X</p></th>
+<th class="head text-left"><p>Y</p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(\hat{Y} = -10 + 4X\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(y_i - \bar{y}\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\((y_i - \bar{y})^2\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(\hat{y}_i - \bar{y}\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\((\hat{y}_i - \bar{y})^2\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(y_i - \hat{y}_i\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\((y_i - \hat{y}_i)^2\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>15</p></td>
+<td class="text-left"><p>50</p></td>
+<td class="text-left"><p>-10 + 4(15) = 50</p></td>
+<td class="text-left"><p>-40</p></td>
+<td class="text-left"><p>1600</p></td>
+<td class="text-left"><p>-40</p></td>
+<td class="text-left"><p>1600</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>20</p></td>
+<td class="text-left"><p>70</p></td>
+<td class="text-left"><p>-10 + 4(20) = 70</p></td>
+<td class="text-left"><p>-20</p></td>
+<td class="text-left"><p>400</p></td>
+<td class="text-left"><p>-20</p></td>
+<td class="text-left"><p>400</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>25</p></td>
+<td class="text-left"><p>90</p></td>
+<td class="text-left"><p>-10 + 4(25) = 90</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>30</p></td>
+<td class="text-left"><p>110</p></td>
+<td class="text-left"><p>-10 + 4(30) = 110</p></td>
+<td class="text-left"><p>20</p></td>
+<td class="text-left"><p>400</p></td>
+<td class="text-left"><p>20</p></td>
+<td class="text-left"><p>400</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>35</p></td>
+<td class="text-left"><p>130</p></td>
+<td class="text-left"><p>-10 + 4(35) = 130</p></td>
+<td class="text-left"><p>40</p></td>
+<td class="text-left"><p>1600</p></td>
+<td class="text-left"><p>40</p></td>
+<td class="text-left"><p>1600</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p><strong>SST:</strong> 4000</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p><strong>SSR:</strong> 4000</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p><strong>SSE:</strong> 0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Manual Calculation:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>SST (Total Sum of Squares):</strong> <span class="math notranslate nohighlight">\(\sum (y_i - \bar{y})^2 = 4000\)</span> (from Pearson calculation)</p></li>
+<li><p><strong>SSR (Regression Sum of Squares):</strong> <span class="math notranslate nohighlight">\(\sum (\hat{y}_i - \bar{y})^2 = 4000\)</span></p></li>
+<li><p><strong>SSE (Error Sum of Squares):</strong> <span class="math notranslate nohighlight">\(\sum (y_i - \hat{y}_i)^2 = 0\)</span></p></li>
+</ol>
+<p>Now, calculate <span class="math notranslate nohighlight">\(R^2\)</span>:
+$<span class="math notranslate nohighlight">\(R^2 = \frac{SSR}{SST} = \frac{4000}{4000} = 1\)</span><span class="math notranslate nohighlight">\(
+Or
+\)</span><span class="math notranslate nohighlight">\(R^2 = 1 - \frac{SSE}{SST} = 1 - \frac{0}{4000} = 1\)</span>$</p>
+<p><strong>Interpretation:</strong> An <span class="math notranslate nohighlight">\(R^2\)</span> of 1 (or 100%) indicates that the model perfectly explains all the variability in ice cream sales. This is a very rare occurrence in real-world data and suggests a deterministic relationship or a very small dataset with specific values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- 2. Regression ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- 2. Regression Plots ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># 2.1. Simple Linear Regression Example Data (Ice Cream Sales)</span>
+<span class="c1"># Using the same data as Pearson example</span>
+<span class="n">X_slr</span> <span class="o">=</span> <span class="n">temp_pearson</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Reshape for sklearn</span>
+<span class="n">y_slr</span> <span class="o">=</span> <span class="n">sales_pearson</span>
+
+<span class="c1"># Fit the simple linear regression model</span>
+<span class="n">model_slr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model_slr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_slr</span><span class="p">,</span> <span class="n">y_slr</span><span class="p">)</span>
+<span class="n">y_pred_slr</span> <span class="o">=</span> <span class="n">model_slr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_slr</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">temp_pearson</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">sales_pearson</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;mediumseagreen&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Actual Sales&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_pearson</span><span class="p">,</span> <span class="n">y_pred_slr</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Regression Line&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Simple Linear Regression: Temperature vs. Ice Cream Sales&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature (°C)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Ice Creams Sold&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- 2. Regression Plots ---
+</pre></div>
+</div>
+<img alt="../../_images/f0fee3bd768753073f25193a5197f982c71a2c77f9c11ac7c2a6bdea452362c8.png" src="../../_images/f0fee3bd768753073f25193a5197f982c71a2c77f9c11ac7c2a6bdea452362c8.png" />
+</div>
+</div>
+</section>
+<section id="id23">
+<h3><strong>3.2. Residuals Analysis</strong><a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<p>Residuals are the differences between the observed values (<span class="math notranslate nohighlight">\(y_i\)</span>) and the values predicted by the model (<span class="math notranslate nohighlight">\(\hat{y}_i\)</span>):
+$<span class="math notranslate nohighlight">\(e_i = y_i - \hat{y}_i\)</span>$
+Analyzing residuals is crucial for checking the assumptions of linear regression and identifying potential problems with the model.</p>
+<p><strong>Common Residual Plots and What They Reveal:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Residuals vs. Predicted Values (<span class="math notranslate nohighlight">\(\hat{Y}\)</span>) Plot:</strong></p>
+<ul class="simple">
+<li><p><strong>Purpose:</strong> To check for <strong>linearity</strong> and <strong>homoscedasticity</strong>.</p></li>
+<li><p><strong>Ideal Pattern:</strong> A random scatter of points around the horizontal line at 0, with no discernible pattern, and roughly equal vertical spread across the range of predicted values.</p></li>
+<li><p><strong>Problems:</strong></p>
+<ul>
+<li><p><strong>Curved Pattern:</strong> Suggests non-linearity (e.g., U-shape, inverted U-shape).</p></li>
+<li><p><strong>Funnel/Cone Shape:</strong> Indicates heteroscedasticity (non-constant variance of errors).</p></li>
+<li><p><strong>Clustering:</strong> Might indicate a missing categorical variable or problems with the model specification.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Normal Q-Q Plot of Residuals:</strong></p>
+<ul class="simple">
+<li><p><strong>Purpose:</strong> To check the <strong>normality of errors</strong>.</p></li>
+<li><p><strong>Ideal Pattern:</strong> Points fall closely along a straight diagonal line.</p></li>
+<li><p><strong>Problems:</strong></p>
+<ul>
+<li><p><strong>S-shape:</strong> Indicates skewness (left or right).</p></li>
+<li><p><strong>Heavy tails (points deviate at ends):</strong> Indicates more outliers than a normal distribution.</p></li>
+<li><p><strong>Light tails (points flat at ends):</strong> Indicates fewer outliers than a normal distribution.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Residuals vs. Independent Variable(s) Plot:</strong></p>
+<ul class="simple">
+<li><p><strong>Purpose:</strong> Similar to residuals vs. predicted, but specifically checks linearity and homoscedasticity for each individual predictor.</p></li>
+<li><p><strong>Ideal Pattern:</strong> Random scatter around zero.</p></li>
+</ul>
+</li>
+<li><p><strong>Residuals vs. Order (or Time) Plot:</strong></p>
+<ul class="simple">
+<li><p><strong>Purpose:</strong> To check for <strong>independence of errors (autocorrelation)</strong>, especially important for time-series data.</p></li>
+<li><p><strong>Ideal Pattern:</strong> Random scatter.</p></li>
+<li><p><strong>Problems:</strong></p>
+<ul>
+<li><p><strong>Wave-like pattern:</strong> Suggests positive or negative autocorrelation.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Manual Calculation/Interpretation (Conceptual):</strong></p>
+<p>For our ice cream example, all residuals were 0, which is unrealistic for real-world data, but for completeness:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>X</p></th>
+<th class="head text-left"><p>Y</p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(\hat{Y}\)</span></p></th>
+<th class="head text-left"><p>Residual (<span class="math notranslate nohighlight">\(e_i = y_i - \hat{y}_i\)</span>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>15</p></td>
+<td class="text-left"><p>50</p></td>
+<td class="text-left"><p>50</p></td>
+<td class="text-left"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>20</p></td>
+<td class="text-left"><p>70</p></td>
+<td class="text-left"><p>70</p></td>
+<td class="text-left"><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>25</p></td>
+<td class="text-left"><p>90</p></td>
+<td class="text-left"><p>90</p></td>
+<td class="text-left"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>30</p></td>
+<td class="text-left"><p>110</p></td>
+<td class="text-left"><p>110</p></td>
+<td class="text-left"><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>35</p></td>
+<td class="text-left"><p>130</p></td>
+<td class="text-left"><p>130</p></td>
+<td class="text-left"><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In a real scenario, you would plot these residuals against <span class="math notranslate nohighlight">\(\hat{Y}\)</span> or X. If you had non-zero residuals, you’d look for patterns as described above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.1. Residuals Analysis - Linearity and Homoscedasticity Check</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- 3.1. Residuals Analysis (Linearity &amp; Homoscedasticity) ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># Ideal case (linear with constant variance)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y_pred_diag</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="n">residuals_diag</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Residuals vs. Predicted Values (Ideal)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted Values&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Residuals&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+
+<span class="c1"># Heteroscedasticity example</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y_pred_hetero</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="n">residuals_hetero</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Residuals vs. Predicted Values (Heteroscedasticity)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted Values&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Residuals&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- 3.1. Residuals Analysis (Linearity &amp; Homoscedasticity) ---
+</pre></div>
+</div>
+<img alt="../../_images/83cfff1e3c36cdc7d4fff54f34db2d12b308e6e920a838dc5353aa7aabf788c8.png" src="../../_images/83cfff1e3c36cdc7d4fff54f34db2d12b308e6e920a838dc5353aa7aabf788c8.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Non-linearity example</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y_pred_nonlin</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="n">residuals_nonlin</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Residuals vs. Predicted Values (Non-Linearity)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted Values&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Residuals&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/965c3d2ccb90cbff7336ef82760f5dde8f0497d945f5946240fcaff43c1ec014.png" src="../../_images/965c3d2ccb90cbff7336ef82760f5dde8f0497d945f5946240fcaff43c1ec014.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.2. Normal Q-Q Plot of Residuals</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- 3.2. Normal Q-Q Plot of Residuals ---&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">probplot</span><span class="p">(</span><span class="n">residuals_diag</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">dist</span><span class="o">=</span><span class="s2">&quot;norm&quot;</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="n">plt</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Normal Q-Q Plot of Residuals&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Theoretical Quantiles&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Ordered Residuals&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- 3.2. Normal Q-Q Plot of Residuals ---
+</pre></div>
+</div>
+<img alt="../../_images/cd13e3550a5be4d7195117031520161ab3915a2b96899042dc171f3c6383bb2d.png" src="../../_images/cd13e3550a5be4d7195117031520161ab3915a2b96899042dc171f3c6383bb2d.png" />
+</div>
+</div>
+</section>
+<section id="overfitting">
+<h3><strong>3.3. Overfitting</strong><a class="headerlink" href="#overfitting" title="Link to this heading">#</a></h3>
+<p>Overfitting occurs when a statistical model is too complex and fits the training data too closely, including the noise and random fluctuations, rather than capturing the underlying true relationship.</p>
+<p><strong>Characteristics of Overfitting:</strong></p>
+<ul class="simple">
+<li><p><strong>High Performance on Training Data:</strong> The model shows excellent (often unrealistically high) accuracy or <span class="math notranslate nohighlight">\(R^2\)</span> on the data it was trained on.</p></li>
+<li><p><strong>Poor Performance on New/Unseen Data:</strong> The model generalizes poorly to new data, leading to much lower accuracy or <span class="math notranslate nohighlight">\(R^2\)</span> when applied to a test set.</p></li>
+<li><p><strong>Complex Model:</strong> Often involves too many independent variables, polynomial terms, or interaction terms for the given sample size.</p></li>
+<li><p><strong>High Variance, Low Bias:</strong> The model is very sensitive to the specific training data.</p></li>
+</ul>
+<p><strong>Problem Statement (Conceptual - Overfitting):</strong></p>
+<p>You are building a model to predict house prices using a very small dataset (e.g., 20 houses). You include many predictors like square footage, number of bedrooms, bathrooms, age, distance to school, distance to park, distance to shopping mall, exact latitude, exact longitude, number of windows, color of front door, etc., and even complex interaction terms.</p>
+<p><strong>Consequences:</strong> The model might achieve an <span class="math notranslate nohighlight">\(R^2\)</span> of 0.99 on your 20 training houses. However, when you try to predict the price of a 21st house, your prediction is wildly off because the model has essentially memorized the specific noise in your small training set, not the general patterns of house pricing.</p>
+<p><strong>How to Mitigate Overfitting:</strong></p>
+<ul class="simple">
+<li><p><strong>More Data:</strong> The best solution, if possible.</p></li>
+<li><p><strong>Feature Selection:</strong> Use only the most relevant predictors.</p></li>
+<li><p><strong>Regularization (Ridge, Lasso):</strong> Penalize large coefficients, discouraging overly complex models.</p></li>
+<li><p><strong>Cross-Validation:</strong> Split data into training and validation sets to assess generalization performance.</p></li>
+<li><p><strong>Simpler Models:</strong> Start with simpler models and add complexity only if necessary.</p></li>
+<li><p><strong>Early Stopping:</strong> For iterative models, stop training when performance on a validation set starts to degrade.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting Overfitting</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training data&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_test</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Test data&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="c1"># For plotting the overfit curve smoothly</span>
+<span class="n">X_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">X_plot_poly_overfit</span> <span class="o">=</span> <span class="n">poly_features_overfit</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_plot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">poly_reg_overfit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_plot_poly_overfit</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Overfit Model (Poly Degree 20)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Overfitting: High Degree Polynomial Model</span><span class="se">\n</span><span class="s1">Train R²: </span><span class="si">{</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_train_overfit</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, Test R²: </span><span class="si">{</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_test_overfit</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span> <span class="c1"># Set fixed y-limits for better comparison</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9a3de3e070ef6ec08eea543f80785bd83a8fbe532b2659b0e9c2d18be8c553ea.png" src="../../_images/9a3de3e070ef6ec08eea543f80785bd83a8fbe532b2659b0e9c2d18be8c553ea.png" />
+</div>
+</div>
+</section>
+<section id="underfitting">
+<h3><strong>3.4. Underfitting</strong><a class="headerlink" href="#underfitting" title="Link to this heading">#</a></h3>
+<p>Underfitting occurs when a statistical model is too simple and fails to capture the underlying patterns or relationships in the data. It’s unable to accurately represent the training data itself.</p>
+<p><strong>Characteristics of Underfitting:</strong></p>
+<ul class="simple">
+<li><p><strong>Poor Performance on Training Data:</strong> The model shows low accuracy or a low <span class="math notranslate nohighlight">\(R^2\)</span> on the data it was trained on.</p></li>
+<li><p><strong>Poor Performance on New/Unseen Data:</strong> As it doesn’t even fit the training data well, it will naturally perform poorly on new data.</p></li>
+<li><p><strong>Simple Model:</strong> Often involves too few independent variables or fails to account for non-linear relationships when they exist.</p></li>
+<li><p><strong>Low Variance, High Bias:</strong> The model is too rigid and cannot learn from the data.</p></li>
+</ul>
+<p><strong>Problem Statement (Conceptual - Underfitting):</strong></p>
+<p>You are building a model to predict house prices but only use “number of bathrooms” as your sole predictor, assuming a simple linear relationship, even though house prices are clearly influenced by square footage, location, age, etc., and the relationship might be non-linear.</p>
+<p><strong>Consequences:</strong> Your model will have a very low <span class="math notranslate nohighlight">\(R^2\)</span> on your training data (e.g., 0.15) and will consistently make poor predictions. It’s too simplistic to capture the complex factors determining house prices.</p>
+<p><strong>How to Mitigate Underfitting:</strong></p>
+<ul class="simple">
+<li><p><strong>Add More Features:</strong> Include relevant independent variables.</p></li>
+<li><p><strong>Increase Model Complexity:</strong> Add polynomial terms or interaction terms if the relationships are non-linear.</p></li>
+<li><p><strong>Reduce Regularization:</strong> If regularization was applied too aggressively.</p></li>
+<li><p><strong>Use More Complex Models:</strong> Consider models beyond simple linear regression if the underlying relationships are inherently complex.</p></li>
+</ul>
+<hr class="docutils" />
+<p>This comprehensive explanation should provide a solid understanding of correlation, regression, their assumptions, and diagnostics, along with practical examples for manual calculations where feasible. Remember that for larger or more complex datasets, statistical software is indispensable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- 3.3. Overfitting vs. Underfitting (Conceptual Demonstration) ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- 3.3. Overfitting vs. Underfitting Demonstration ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># Generate data with a clear non-linear trend</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">X_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">y_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">X_fit</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># Split data into training and testing sets</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_fit</span><span class="p">,</span> <span class="n">y_fit</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Underfitting: Simple Linear Model</span>
+<span class="n">lin_reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">lin_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_train_lin</span> <span class="o">=</span> <span class="n">lin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">y_pred_test_lin</span> <span class="o">=</span> <span class="n">lin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Overfitting: High-degree Polynomial Model</span>
+<span class="n">poly_features_overfit</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">include_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># Very high degree</span>
+<span class="n">X_poly_train_overfit</span> <span class="o">=</span> <span class="n">poly_features_overfit</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_poly_test_overfit</span> <span class="o">=</span> <span class="n">poly_features_overfit</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">poly_reg_overfit</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">poly_reg_overfit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_poly_train_overfit</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_train_overfit</span> <span class="o">=</span> <span class="n">poly_reg_overfit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_poly_train_overfit</span><span class="p">)</span>
+<span class="n">y_pred_test_overfit</span> <span class="o">=</span> <span class="n">poly_reg_overfit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_poly_test_overfit</span><span class="p">)</span>
+
+<span class="c1"># Good Fit: Moderate-degree Polynomial Model</span>
+<span class="n">poly_features_good</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">include_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># Moderate degree</span>
+<span class="n">X_poly_train_good</span> <span class="o">=</span> <span class="n">poly_features_good</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_poly_test_good</span> <span class="o">=</span> <span class="n">poly_features_good</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">poly_reg_good</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">poly_reg_good</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_poly_train_good</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_train_good</span> <span class="o">=</span> <span class="n">poly_reg_good</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_poly_train_good</span><span class="p">)</span>
+<span class="n">y_pred_test_good</span> <span class="o">=</span> <span class="n">poly_reg_good</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_poly_test_good</span><span class="p">)</span>
+
+
+<span class="c1"># Plotting Underfitting</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training data&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_test</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Test data&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_fit</span><span class="p">,</span> <span class="n">lin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_fit</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Underfit Model (Linear)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Underfitting: Simple Linear Model</span><span class="se">\n</span><span class="s1">Train R²: </span><span class="si">{</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_train_lin</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, Test R²: </span><span class="si">{</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_test_lin</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- 3.3. Overfitting vs. Underfitting Demonstration ---
+</pre></div>
+</div>
+<img alt="../../_images/1204b165f9f47e691f748493fb1f79ab9c72ebb41ad7f5212d465a09a8b22a3b.png" src="../../_images/1204b165f9f47e691f748493fb1f79ab9c72ebb41ad7f5212d465a09a8b22a3b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting Good Fit</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training data&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_test</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Test data&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="c1"># For plotting the good fit curve smoothly</span>
+<span class="n">X_plot_poly_good</span> <span class="o">=</span> <span class="n">poly_features_good</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_plot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">poly_reg_good</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_plot_poly_good</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Good Fit Model (Poly Degree 3)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Good Fit: Moderate Degree Polynomial Model</span><span class="se">\n</span><span class="s1">Train R²: </span><span class="si">{</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_train_good</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, Test R²: </span><span class="si">{</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_test_good</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span> <span class="c1"># Set fixed y-limits for better comparison</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/79aca34daf9afcdd0bb6bc0c40e6967b0b22974d578c7f616aafb32a11d55c2b.png" src="../../_images/79aca34daf9afcdd0bb6bc0c40e6967b0b22974d578c7f616aafb32a11d55c2b.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Mathematics for Data Science\Statistics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">📊 1. Correlation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson-correlation-coefficient">1.1 Pearson Correlation Coefficient</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">🔍 Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intuition">🧠 Intuition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-calculation-small-example">✍️ Manual Calculation (Small Example)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data">📝 Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">➡️ Steps</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-example">📝 Problem Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tiny-ascii-plot">📈 Tiny ASCII plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitfalls">⚠️ Pitfalls</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spearman-rank-correlation">1.2 Spearman Rank Correlation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔍 Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">🧠 Intuition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-calculation">✍️ Manual Calculation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">📝 Data</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">⚠️ Pitfalls</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance">1.3 Covariance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">🔍 Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">✍️ Manual Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">⚠️ Pitfalls</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">🔎 2. Regression</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-linear-regression">2.1 Simple Linear Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">🔍 Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">📝 Problem Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">✍️ Manual Calculation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-earlier-data-hours-vs-score">Using earlier data (Hours vs Score)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#small-text-plot">📈 Small text plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">⚠️ Pitfalls</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-linear-regression">2.2 Multiple Linear Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">🔍 Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">📝 Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">2.3 Assumptions</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostics">🔬 3. Diagnostics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#r2-coefficient-of-determination">3.1 R² (Coefficient of Determination)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">🔍 Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">📝 Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residuals-analysis">3.2 Residuals Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#residuals">🔍 Residuals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ascii-plot-for-residuals">ASCII plot for residuals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting-vs-underfitting">3.3 Overfitting vs Underfitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">📝 Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-tables">✅ Summary Tables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16"><strong>1. Correlation</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson-correlation-coefficient-r"><strong>1.1. Pearson Correlation Coefficient (r)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spearman-rank-correlation-coefficient-or-r-s"><strong>1.2. Spearman Rank Correlation Coefficient (ρ or <span class="math notranslate nohighlight">\(r_s\)</span>)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17"><strong>1.3. Covariance</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18"><strong>2. Regression</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19"><strong>2.1. Simple Linear Regression</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20"><strong>2.2. Multiple Linear Regression</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-of-linear-regression"><strong>2.3. Assumptions of Linear Regression</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linearity"><strong>2.3.1. Linearity</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#independence-of-errors-no-autocorrelation"><strong>2.3.2. Independence of Errors (No Autocorrelation)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#homoscedasticity-constant-variance-of-errors"><strong>2.3.3. Homoscedasticity (Constant Variance of Errors)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#other-important-assumptions-briefly"><strong>Other Important Assumptions (briefly):</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21"><strong>3. Diagnostics</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22"><strong>3.1. R² (Coefficient of Determination)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23"><strong>3.2. Residuals Analysis</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting"><strong>3.3. Overfitting</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underfitting"><strong>3.4. Underfitting</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
