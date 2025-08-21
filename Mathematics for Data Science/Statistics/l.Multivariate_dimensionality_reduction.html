@@ -1,0 +1,1429 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>🟤 7. Multivariate &amp; Dimensionality Techniques &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Mathematics for Data Science/Statistics/l.Multivariate_dimensionality_reduction';</script>
+    <link rel="icon" href="../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../table_of_contents.html">Table of Contents</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/edit/master/docs/Mathematics for Data Science/Statistics/l.Multivariate_dimensionality_reduction.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FMathematics for Data Science/Statistics/l.Multivariate_dimensionality_reduction.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Mathematics for Data Science/Statistics/l.Multivariate_dimensionality_reduction.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>🟤 7. Multivariate & Dimensionality Techniques</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis-pca">7.1. Principal Component Analysis (PCA)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factor-analysis">7.2. Factor Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manova-multivariate-anova">7.3. MANOVA (Multivariate ANOVA)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-analysis">7.4. Cluster Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-clustering">7.4.1. K-means Clustering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-clustering">7.4.2. Hierarchical Clustering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#silhouette-score">7.4.3. Silhouette Score</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="multivariate-dimensionality-techniques">
+<h1>🟤 7. Multivariate &amp; Dimensionality Techniques<a class="headerlink" href="#multivariate-dimensionality-techniques" title="Link to this heading">#</a></h1>
+<section id="principal-component-analysis-pca">
+<h2>7.1. Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Link to this heading">#</a></h2>
+<p><strong>Explanation:</strong>
+Principal Component Analysis (PCA) is a widely used <strong>dimensionality reduction technique</strong>. Its main goal is to transform a large set of correlated variables into a smaller set of uncorrelated variables called <strong>Principal Components (PCs)</strong>. These new components capture the most variance in the data. The first PC captures the most variance, the second PC captures the second most variance (and is orthogonal to the first), and so on.</p>
+<p><strong>Purpose:</strong></p>
+<ul class="simple">
+<li><p><strong>Dimensionality Reduction:</strong> Reduce the number of features while retaining most of the information.</p></li>
+<li><p><strong>Noise Reduction:</strong> By focusing on major components, less important variance (noise) is often discarded.</p></li>
+<li><p><strong>Data Visualization:</strong> It can reduce high-dimensional data to 2 or 3 dimensions for easier plotting and interpretation.</p></li>
+<li><p><strong>Feature Engineering:</strong> The PCs can be used as new features for other machine learning models.</p></li>
+</ul>
+<p><strong>Mathematical Intuition:</strong>
+PCA essentially finds the directions (or axes) along which the data varies the most. These directions are the eigenvectors of the covariance matrix of your data.</p>
+<ol class="arabic">
+<li><p><strong>Covariance Matrix:</strong></p>
+<ul class="simple">
+<li><p>The covariance matrix is a square matrix that describes the variance of each variable and the covariance between each pair of variables.</p></li>
+<li><p>For a dataset with <span class="math notranslate nohighlight">\(p\)</span> features, the covariance matrix <span class="math notranslate nohighlight">\(\\Sigma\)</span> will be <span class="math notranslate nohighlight">\(p \\times p\)</span>.</p></li>
+<li><p>Each diagonal element <span class="math notranslate nohighlight">\(\\Sigma\_{ii}\)</span> is the variance of feature <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+<li><p>Each off-diagonal element <span class="math notranslate nohighlight">\(\\Sigma\_{ij}\)</span> is the covariance between feature <span class="math notranslate nohighlight">\(i\)</span> and feature <span class="math notranslate nohighlight">\(j\)</span>.</p></li>
+<li><p>A high positive covariance indicates that two variables tend to increase or decrease together. A high negative covariance indicates that as one increases, the other tends to decrease.</p></li>
+</ul>
+<p><em>Example for 2 variables (<span class="math notranslate nohighlight">\(X\_1, X\_2\)</span>):</em>
+$<span class="math notranslate nohighlight">\(\Sigma = \begin{pmatrix} \text{Var}(X_1) &amp; \text{Cov}(X_1, X_2) \\ \text{Cov}(X_2, X_1) &amp; \text{Var}(X_2) \end{pmatrix}\)</span>$</p>
+</li>
+<li><p><strong>Eigenvalues and Eigenvectors:</strong></p>
+<ul class="simple">
+<li><p><strong>Eigenvectors:</strong> These are special vectors that, when a linear transformation (like multiplying by the covariance matrix) is applied to them, only change by a scalar factor. In PCA, eigenvectors represent the <strong>principal components</strong>, which are the directions of maximum variance in the data. They are orthogonal (at right angles) to each other.</p></li>
+<li><p><strong>Eigenvalues:</strong> The scalar factor by which an eigenvector is scaled is its corresponding eigenvalue. In PCA, eigenvalues represent the <strong>amount of variance</strong> explained by each principal component. A larger eigenvalue means its corresponding eigenvector captures more variance in the data.</p></li>
+</ul>
+<p>The core mathematical problem of PCA is to find the eigenvalues <span class="math notranslate nohighlight">\(\\lambda\)</span> and eigenvectors <span class="math notranslate nohighlight">\(\\mathbf{v}\)</span> for a covariance matrix <span class="math notranslate nohighlight">\(\\Sigma\)</span> such that:
+$<span class="math notranslate nohighlight">\(\Sigma \mathbf{v} = \lambda \mathbf{v}\)</span>$</p>
+</li>
+<li><p><strong>Steps of PCA:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Standardize the Data:</strong> (Optional but recommended) If variables have different scales, standardize them to have zero mean and unit variance. This prevents variables with larger scales from dominating the principal components.</p></li>
+<li><p><strong>Compute the Covariance Matrix:</strong> Calculate the covariance matrix of the standardized data.</p></li>
+<li><p><strong>Calculate Eigenvalues and Eigenvectors:</strong> Perform eigen decomposition on the covariance matrix.</p></li>
+<li><p><strong>Sort Eigenvalues:</strong> Order the eigenvalues from largest to smallest. The corresponding eigenvectors are the principal components, ordered by the amount of variance they explain.</p></li>
+<li><p><strong>Select Principal Components:</strong> Choose a subset of principal components (eigenvectors) corresponding to the largest eigenvalues. You can decide based on:</p>
+<ul class="simple">
+<li><p>A fixed number of components (e.g., 2 for visualization).</p></li>
+<li><p>A cumulative explained variance threshold (e.g., components explaining 95% of variance).</p></li>
+<li><p>A Scree Plot (see below).</p></li>
+</ul>
+</li>
+<li><p><strong>Transform Data:</strong> Project the original data onto the selected principal components to get the new, lower-dimensional representation.</p></li>
+</ol>
+</li>
+</ol>
+<p><strong>Scree Plot:</strong>
+A Scree plot is a line plot of the eigenvalues (or explained variance) of principal components in descending order. It helps to determine the “optimal” number of components to retain. You typically look for an “elbow” point where the slope of the line dramatically changes, suggesting that components after this point contribute much less to explaining variance.</p>
+<p><strong>Problem Statement:</strong></p>
+<ul class="simple">
+<li><p><strong>Problem:</strong> A retail company has collected data on 10 different customer engagement metrics (e.g., website visits, average time on site, number of purchases, items viewed, newsletter clicks, etc.). They want to understand the underlying patterns of customer engagement and reduce the dimensionality of this data to build a simpler customer segmentation model, as having 10 features is complex for visualization and modeling.</p></li>
+<li><p><strong>PCA Application:</strong> PCA can identify the few principal components that capture most of the variation in these 10 metrics. For example, PC1 might represent “overall activity” and PC2 “engagement with promotions,” simplifying the data for clustering or visualization.</p></li>
+</ul>
+<!-- end list -->
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DejaVu Sans&#39;</span><span class="p">]</span> <span class="c1"># Or your preferred sans-serif font</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- 7.1. Principal Component Analysis (PCA) ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># 1. Simulate some correlated data (e.g., customer metrics)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">data_size</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="c1"># High correlation between feature1 and feature2</span>
+<span class="n">feature1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">data_size</span><span class="p">)</span>
+<span class="n">feature2</span> <span class="o">=</span> <span class="n">feature1</span> <span class="o">*</span> <span class="mf">0.8</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">data_size</span><span class="p">)</span>
+<span class="n">feature3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">data_size</span><span class="p">)</span>
+<span class="n">feature4</span> <span class="o">=</span> <span class="n">feature3</span> <span class="o">*</span> <span class="mf">0.6</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">data_size</span><span class="p">)</span>
+<span class="n">feature5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="n">data_size</span><span class="p">)</span> <span class="c1"># Less correlated</span>
+
+<span class="n">df_pca</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Metric_A&#39;</span><span class="p">:</span> <span class="n">feature1</span><span class="p">,</span>
+    <span class="s1">&#39;Metric_B&#39;</span><span class="p">:</span> <span class="n">feature2</span><span class="p">,</span>
+    <span class="s1">&#39;Metric_C&#39;</span><span class="p">:</span> <span class="n">feature3</span><span class="p">,</span>
+    <span class="s1">&#39;Metric_D&#39;</span><span class="p">:</span> <span class="n">feature4</span><span class="p">,</span>
+    <span class="s1">&#39;Metric_E&#39;</span><span class="p">:</span> <span class="n">feature5</span>
+<span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original Data Head:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_pca</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Original Data Covariance Matrix:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_pca</span><span class="o">.</span><span class="n">cov</span><span class="p">())</span>
+
+<span class="c1"># 2. Standardize the data</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">scaled_data</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_pca</span><span class="p">)</span>
+<span class="n">scaled_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">scaled_data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">df_pca</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="c1"># 3. Perform PCA</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1"># Keep all components initially</span>
+<span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scaled_data</span><span class="p">)</span>
+
+<span class="c1"># Explained variance ratio</span>
+<span class="n">explained_variance_ratio</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Explained Variance Ratio by each Principal Component: </span><span class="si">{</span><span class="n">explained_variance_ratio</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cumulative Explained Variance: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">explained_variance_ratio</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plotting: Scree Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">explained_variance_ratio</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">explained_variance_ratio</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Scree Plot (Explained Variance by Principal Component)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Principal Component Number&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proportion of Variance Explained&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">explained_variance_ratio</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Plotting: Cumulative Explained Variance</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">explained_variance_ratio</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">explained_variance_ratio</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">0.90</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;90</span><span class="si">% E</span><span class="s1">xplained Variance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Cumulative Explained Variance&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of Principal Components&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative Proportion of Variance Explained&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">explained_variance_ratio</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Project data onto the first 2 principal components for visualization</span>
+<span class="n">pca_2d</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">principal_components</span> <span class="o">=</span> <span class="n">pca_2d</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">scaled_data</span><span class="p">)</span>
+<span class="n">df_pca_2d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">principal_components</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Principal Component 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Principal Component 2&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Transformed Data (First 2 Principal Components) Head:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_pca_2d</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df_pca_2d</span><span class="p">[</span><span class="s1">&#39;Principal Component 1&#39;</span><span class="p">],</span> <span class="n">df_pca_2d</span><span class="p">[</span><span class="s1">&#39;Principal Component 2&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Data Projected onto First Two Principal Components&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Principal Component 1 (</span><span class="si">{</span><span class="n">explained_variance_ratio</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">% variance)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Principal Component 2 (</span><span class="si">{</span><span class="n">explained_variance_ratio</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">% variance)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Display Eigenvectors (Loadings) for the first two components</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Eigenvectors (Loadings) for the first 2 Principal Components:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pca_2d</span><span class="o">.</span><span class="n">components_</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PC1&#39;</span><span class="p">,</span> <span class="s1">&#39;PC2&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">df_pca</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- 7.1. Principal Component Analysis (PCA) ---
+Original Data Head:
+    Metric_A   Metric_B   Metric_C   Metric_D   Metric_E
+0  54.967142  36.896860  32.862299  16.401399  50.866868
+1  48.617357  36.790659  34.486276  18.451042  62.807500
+2  56.476885  43.467936  38.664410  26.187820  70.062924
+3  65.230299  48.172853  38.430416  25.499731  70.563767
+4  47.658466  37.320344  18.978645  11.303581  64.599214
+
+Original Data Covariance Matrix:
+           Metric_A   Metric_B   Metric_C   Metric_D    Metric_E
+Metric_A  82.476989  60.073882  15.033780   3.553174  -15.787590
+Metric_B  60.073882  66.070050  10.511866   1.636443   -1.018250
+Metric_C  15.033780  10.511866  75.242840  45.137757  -11.745841
+Metric_D   3.553174   1.636443  45.137757  39.584051    2.624194
+Metric_E -15.787590  -1.018250 -11.745841   2.624194  162.939196
+
+Explained Variance Ratio by each Principal Component: [0.41092429 0.32234883 0.20078359 0.03528015 0.03066314]
+Cumulative Explained Variance: [0.41092429 0.73327312 0.93405671 0.96933686 1.        ]
+</pre></div>
+</div>
+<img alt="../../_images/98ac2de1df61fb500116ba01ef0ab2647e0cc87d6a3d1309fa991bdfea5afe99.png" src="../../_images/98ac2de1df61fb500116ba01ef0ab2647e0cc87d6a3d1309fa991bdfea5afe99.png" />
+<img alt="../../_images/af051b6c01df351eefacfcf741ad1fdb4a60e30c76e25967e7a769739b8a9eb6.png" src="../../_images/af051b6c01df351eefacfcf741ad1fdb4a60e30c76e25967e7a769739b8a9eb6.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Transformed Data (First 2 Principal Components) Head:
+   Principal Component 1  Principal Component 2
+0               0.329634              -0.347166
+1               0.110852               0.325155
+2               1.715961               0.431588
+3               2.423823              -0.396480
+4              -1.404664              -1.100460
+</pre></div>
+</div>
+<img alt="../../_images/5b796abc4fda9c9c1b810ca05aca380350955e4f6ddef4caf6998a4631fd0917.png" src="../../_images/5b796abc4fda9c9c1b810ca05aca380350955e4f6ddef4caf6998a4631fd0917.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvectors (Loadings) for the first 2 Principal Components:
+               PC1       PC2
+Metric_A  0.511123 -0.481480
+Metric_B  0.484428 -0.500822
+Metric_C  0.531243  0.459490
+Metric_D  0.458059  0.549556
+Metric_E -0.109755  0.064897
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="factor-analysis">
+<h2>7.2. Factor Analysis<a class="headerlink" href="#factor-analysis" title="Link to this heading">#</a></h2>
+<p><strong>Explanation:</strong>
+Factor Analysis (FA) is a statistical method used to describe variability among observed, correlated variables in terms of a potentially lower number of unobserved variables called <strong>factors</strong> (or latent variables). Unlike PCA, which is primarily a data reduction technique that doesn’t make strong assumptions about an underlying causal structure, Factor Analysis <strong>assumes that the observed variables are caused by underlying latent factors</strong>. It seeks to identify these common factors.</p>
+<p><strong>Key Concepts:</strong></p>
+<ul class="simple">
+<li><p><strong>Latent Variable Modeling:</strong> The core idea is that observed variables (e.g., answers to survey questions, test scores) are manifestations of underlying, unobserved (latent) constructs or factors (e.g., “Intelligence,” “Customer Satisfaction,” “Personality Traits”).</p></li>
+<li><p><strong>Common Factors:</strong> These are the unobserved variables that influence two or more observed variables.</p></li>
+<li><p><strong>Unique Factors/Error:</strong> The part of an observed variable’s variance that is not explained by the common factors (it’s specific to that variable or due to random error).</p></li>
+<li><p><strong>Loadings:</strong> These are the correlations between the observed variables and the common factors. They indicate how strongly each observed variable is related to each factor.</p></li>
+</ul>
+<p><strong>Mathematical Intuition (Conceptual Model):</strong>
+Factor analysis models each observed variable as a linear combination of common factors and a unique factor:</p>
+<p>For an observed variable <span class="math notranslate nohighlight">\(X\_i\)</span>:
+$<span class="math notranslate nohighlight">\(X_i = L_{i1}F_1 + L_{i2}F_2 + \dots + L_{ik}F_k + U_i\)</span>$
+Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X\_i\)</span>: The <span class="math notranslate nohighlight">\(i\)</span>-th observed variable.</p></li>
+<li><p><span class="math notranslate nohighlight">\(L\_{ij}\)</span>: The <strong>loading</strong> of variable <span class="math notranslate nohighlight">\(X\_i\)</span> on common factor <span class="math notranslate nohighlight">\(F\_j\)</span>. (This is like a regression coefficient of <span class="math notranslate nohighlight">\(X\_i\)</span> on <span class="math notranslate nohighlight">\(F\_j\)</span>).</p></li>
+<li><p><span class="math notranslate nohighlight">\(F\_j\)</span>: The <span class="math notranslate nohighlight">\(j\)</span>-th common factor.</p></li>
+<li><p><span class="math notranslate nohighlight">\(U\_i\)</span>: The unique factor for variable <span class="math notranslate nohighlight">\(X\_i\)</span> (representing specific variance and error).</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span>: The number of common factors.</p></li>
+</ul>
+<p>The goal of Factor Analysis is to estimate these loadings (<span class="math notranslate nohighlight">\(L\_{ij}\)</span>) and the variance of the unique factors (<span class="math notranslate nohighlight">\(U\_i\)</span>) to infer the underlying factors. The method works by analyzing the correlations or covariances among the observed variables to find patterns that suggest common underlying causes.</p>
+<p><strong>Problem Statement:</strong></p>
+<ul class="simple">
+<li><p><strong>Problem:</strong> A researcher has administered a questionnaire to students, asking them to rate their agreement (on a scale of 1-5) with 15 statements related to their study habits and academic attitudes. The researcher believes that these 15 statements actually measure a smaller number of underlying psychological constructs, such as “Self-Discipline,” “Motivation for Learning,” and “Stress Management.” They want to identify and confirm these latent constructs.</p></li>
+<li><p><strong>Factor Analysis Application:</strong> Factor analysis can be used to determine if these 15 observed variables (survey responses) “load” onto a few distinct, underlying factors. For instance, statements like “I set clear study goals” and “I avoid distractions while studying” might load highly on a “Self-Discipline” factor.</p></li>
+</ul>
+<!-- end list -->
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>factor_analyzer
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting factor_analyzer
+  Downloading factor_analyzer-0.5.1.tar.gz (42 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status &#39;done&#39;
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status &#39;done&#39;
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status &#39;done&#39;
+Requirement already satisfied: pandas in c:\users\sangouda\appdata\local\anaconda3\lib\site-packages (from factor_analyzer) (2.2.2)
+Requirement already satisfied: scipy in c:\users\sangouda\appdata\local\anaconda3\lib\site-packages (from factor_analyzer) (1.13.1)
+Requirement already satisfied: numpy in c:\users\sangouda\appdata\local\anaconda3\lib\site-packages (from factor_analyzer) (1.26.4)
+Requirement already satisfied: scikit-learn in c:\users\sangouda\appdata\local\anaconda3\lib\site-packages (from factor_analyzer) (1.5.1)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\sangouda\appdata\local\anaconda3\lib\site-packages (from pandas-&gt;factor_analyzer) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in c:\users\sangouda\appdata\local\anaconda3\lib\site-packages (from pandas-&gt;factor_analyzer) (2024.1)
+Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\sangouda\appdata\local\anaconda3\lib\site-packages (from pandas-&gt;factor_analyzer) (2023.3)
+Requirement already satisfied: joblib&gt;=1.2.0 in c:\users\sangouda\appdata\local\anaconda3\lib\site-packages (from scikit-learn-&gt;factor_analyzer) (1.4.2)
+Requirement already satisfied: threadpoolctl&gt;=3.1.0 in c:\users\sangouda\appdata\local\anaconda3\lib\site-packages (from scikit-learn-&gt;factor_analyzer) (3.5.0)
+Requirement already satisfied: six&gt;=1.5 in c:\users\sangouda\appdata\local\anaconda3\lib\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas-&gt;factor_analyzer) (1.16.0)
+Building wheels for collected packages: factor_analyzer
+  Building wheel for factor_analyzer (pyproject.toml): started
+  Building wheel for factor_analyzer (pyproject.toml): finished with status &#39;done&#39;
+  Created wheel for factor_analyzer: filename=factor_analyzer-0.5.1-py2.py3-none-any.whl size=42715 sha256=350983c245b85bbc833205cc135a3fb3f9d16384b7799dd53c1d6c09dfe265a6
+  Stored in directory: c:\users\sangouda\appdata\local\pip\cache\wheels\a2\af\06\f4d4ed4d9d714fda437fb1583629417319603c2266e7b233cc
+Successfully built factor_analyzer
+Installing collected packages: factor_analyzer
+Successfully installed factor_analyzer-0.5.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">factor_analyzer</span><span class="w"> </span><span class="kn">import</span> <span class="n">FactorAnalyzer</span> <span class="c1"># You might need to install: pip install factor_analyzer</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DejaVu Sans&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- 7.2. Factor Analysis ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># Simulate data for 6 observed variables (e.g., test scores or survey items)</span>
+<span class="c1"># Assume 2 underlying latent factors</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">43</span><span class="p">)</span>
+<span class="n">num_samples</span> <span class="o">=</span> <span class="mi">200</span>
+
+<span class="c1"># Latent factors</span>
+<span class="n">factor1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">)</span> <span class="c1"># e.g., &#39;Verbal Ability&#39;</span>
+<span class="n">factor2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">)</span> <span class="c1"># e.g., &#39;Numerical Ability&#39;</span>
+
+<span class="c1"># Observed variables (each influenced by factors + unique error)</span>
+<span class="c1"># High loadings on Factor 1</span>
+<span class="n">var1</span> <span class="o">=</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="n">factor1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">factor2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">)</span>
+<span class="n">var2</span> <span class="o">=</span> <span class="mf">0.7</span> <span class="o">*</span> <span class="n">factor1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">factor2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">)</span>
+<span class="n">var3</span> <span class="o">=</span> <span class="mf">0.6</span> <span class="o">*</span> <span class="n">factor1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">factor2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">)</span>
+
+<span class="c1"># High loadings on Factor 2</span>
+<span class="n">var4</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">factor1</span> <span class="o">+</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="n">factor2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">)</span>
+<span class="n">var5</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">factor1</span> <span class="o">+</span> <span class="mf">0.7</span> <span class="o">*</span> <span class="n">factor2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">)</span>
+<span class="n">var6</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">factor1</span> <span class="o">+</span> <span class="mf">0.6</span> <span class="o">*</span> <span class="n">factor2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">)</span>
+
+<span class="n">df_fa</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Q1_Vocab&#39;</span><span class="p">:</span> <span class="n">var1</span><span class="p">,</span> <span class="s1">&#39;Q2_Grammar&#39;</span><span class="p">:</span> <span class="n">var2</span><span class="p">,</span> <span class="s1">&#39;Q3_Reading&#39;</span><span class="p">:</span> <span class="n">var3</span><span class="p">,</span>
+    <span class="s1">&#39;Q4_Math&#39;</span><span class="p">:</span> <span class="n">var4</span><span class="p">,</span> <span class="s1">&#39;Q5_Logic&#39;</span><span class="p">:</span> <span class="n">var5</span><span class="p">,</span> <span class="s1">&#39;Q6_ProblemSolving&#39;</span><span class="p">:</span> <span class="n">var6</span>
+<span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Simulated Observed Variables Head:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_fa</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Correlation Matrix of Observed Variables:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_fa</span><span class="o">.</span><span class="n">corr</span><span class="p">())</span> <span class="c1"># Notice the correlation patterns within presumed factors</span>
+
+<span class="c1"># Standardize the data</span>
+<span class="n">scaler_fa</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">scaled_data_fa</span> <span class="o">=</span> <span class="n">scaler_fa</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_fa</span><span class="p">)</span>
+
+<span class="c1"># Perform Factor Analysis</span>
+<span class="c1"># We&#39;ll try to extract 2 factors, corresponding to our simulation</span>
+<span class="n">fa</span> <span class="o">=</span> <span class="n">FactorAnalyzer</span><span class="p">(</span><span class="n">n_factors</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s2">&quot;varimax&quot;</span><span class="p">)</span> <span class="c1"># Varimax for orthogonal rotation</span>
+<span class="n">fa</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scaled_data_fa</span><span class="p">)</span>
+
+<span class="c1"># Get factor loadings</span>
+<span class="n">loadings</span> <span class="o">=</span> <span class="n">fa</span><span class="o">.</span><span class="n">loadings_</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Factor Loadings Matrix:&quot;</span><span class="p">)</span>
+<span class="n">loadings_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">loadings</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">df_fa</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Factor </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">loadings</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">loadings_df</span><span class="p">)</span>
+
+<span class="c1"># Get explained variance (eigenvalues)</span>
+<span class="n">ev</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">fa</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Eigenvalues (Variance explained by each factor):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+
+<span class="c1"># --- Conceptual Plot of Latent Variable Modeling ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+<span class="c1"># Draw latent factors</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="s1">&#39;Latent Factor 1 (e.g., Verbal Ability)&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s2">&quot;round,pad=0.3&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;lightblue&quot;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;steelblue&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="s1">&#39;Latent Factor 2 (e.g., Numerical Ability)&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s2">&quot;round,pad=0.3&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;lightcoral&quot;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Draw observed variables</span>
+<span class="n">obs_vars_pos</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Q1_Vocab&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="s1">&#39;Q2_Grammar&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="s1">&#39;Q3_Reading&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span>
+    <span class="s1">&#39;Q4_Math&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="s1">&#39;Q5_Logic&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="s1">&#39;Q6_ProblemSolving&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">var_name</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">obs_vars_pos</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">var_name</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s2">&quot;square,pad=0.2&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;lightgrey&quot;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Draw arrows (loadings) from factors to observed variables</span>
+<span class="c1"># Factor 1 to Q1, Q2, Q3</span>
+<span class="k">for</span> <span class="n">var_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Q1_Vocab&#39;</span><span class="p">,</span> <span class="s1">&#39;Q2_Grammar&#39;</span><span class="p">,</span> <span class="s1">&#39;Q3_Reading&#39;</span><span class="p">]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="n">obs_vars_pos</span><span class="p">[</span><span class="n">var_name</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">obs_vars_pos</span><span class="p">[</span><span class="n">var_name</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.75</span><span class="p">,</span>
+             <span class="n">head_width</span><span class="o">=</span><span class="mf">0.015</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+
+<span class="c1"># Factor 2 to Q4, Q5, Q6</span>
+<span class="k">for</span> <span class="n">var_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Q4_Math&#39;</span><span class="p">,</span> <span class="s1">&#39;Q5_Logic&#39;</span><span class="p">,</span> <span class="s1">&#39;Q6_ProblemSolving&#39;</span><span class="p">]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="n">obs_vars_pos</span><span class="p">[</span><span class="n">var_name</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">obs_vars_pos</span><span class="p">[</span><span class="n">var_name</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.75</span><span class="p">,</span>
+             <span class="n">head_width</span><span class="o">=</span><span class="mf">0.015</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+
+<span class="c1"># Draw unique factors (errors)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">var_name</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">obs_vars_pos</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$U_{</span><span class="si">%d</span><span class="s1">}$&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span> <span class="c1"># Hide axes</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Conceptual Diagram of Factor Analysis: Observed Variables and Latent Factors&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- 7.2. Factor Analysis ---
+Simulated Observed Variables Head:
+   Q1_Vocab  Q2_Grammar  Q3_Reading   Q4_Math  Q5_Logic  Q6_ProblemSolving
+0  1.336010    0.736596    0.253923  2.056413  1.728196           2.071967
+1 -0.163200    0.010937   -1.936023  0.325029 -1.091281           0.612893
+2 -0.075751   -0.997274   -0.110100 -0.098367 -0.433536          -1.719764
+3 -1.111375   -1.639419   -0.298438 -0.932929 -1.456312          -0.182500
+4  0.269268    1.266365    1.188081 -0.065314 -0.397982          -1.602509
+
+Correlation Matrix of Observed Variables:
+                   Q1_Vocab  Q2_Grammar  Q3_Reading   Q4_Math  Q5_Logic  \
+Q1_Vocab           1.000000    0.645038    0.609422  0.240305  0.254419   
+Q2_Grammar         0.645038    1.000000    0.493108  0.358252  0.379122   
+Q3_Reading         0.609422    0.493108    1.000000  0.194117  0.247480   
+Q4_Math            0.240305    0.358252    0.194117  1.000000  0.621763   
+Q5_Logic           0.254419    0.379122    0.247480  0.621763  1.000000   
+Q6_ProblemSolving  0.140458    0.209812    0.143097  0.554548  0.511081   
+
+                   Q6_ProblemSolving  
+Q1_Vocab                    0.140458  
+Q2_Grammar                  0.209812  
+Q3_Reading                  0.143097  
+Q4_Math                     0.554548  
+Q5_Logic                    0.511081  
+Q6_ProblemSolving           1.000000  
+
+Factor Loadings Matrix:
+                   Factor 1  Factor 2
+Q1_Vocab           0.890932  0.091192
+Q2_Grammar         0.696276  0.277148
+Q3_Reading         0.668155  0.115703
+Q4_Math            0.180220  0.800055
+Q5_Logic           0.230257  0.733398
+Q6_ProblemSolving  0.076993  0.669689
+
+Eigenvalues (Variance explained by each factor):
+[2.88226634 1.44666965 0.53528837 0.45536892 0.36859993 0.31180679]
+</pre></div>
+</div>
+<img alt="../../_images/793b01339f5999019acd29368f8a979a23a284c61fcd391fa31bd3f135321fa8.png" src="../../_images/793b01339f5999019acd29368f8a979a23a284c61fcd391fa31bd3f135321fa8.png" />
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="manova-multivariate-anova">
+<h2>7.3. MANOVA (Multivariate ANOVA)<a class="headerlink" href="#manova-multivariate-anova" title="Link to this heading">#</a></h2>
+<p><strong>Explanation:</strong>
+MANOVA (Multivariate Analysis of Variance) is an extension of the univariate ANOVA. While ANOVA tests for differences in means between groups for a <em>single</em> dependent variable, MANOVA tests for differences in means between groups for <em>two or more</em> dependent variables simultaneously.</p>
+<p>It assesses whether the group means differ significantly across a <strong>combination</strong> of dependent variables. In essence, it checks if the groups created by one or more categorical independent variables (factors) have different mean vectors (comprising the dependent variables).</p>
+<p><strong>Purpose:</strong></p>
+<ul class="simple">
+<li><p>To determine if there are statistically significant differences between group centroids (multivariate means) across multiple dependent variables.</p></li>
+<li><p>To control for Type I error inflation that would occur if multiple separate ANOVAs were performed on each dependent variable.</p></li>
+<li><p>To identify which specific dependent variables contribute most to the significant group differences (often followed by post-hoc univariate ANOVAs if MANOVA is significant).</p></li>
+</ul>
+<p><strong>Mathematical Intuition:</strong>
+Instead of comparing univariate means, MANOVA compares <strong>mean vectors</strong> of dependent variables across groups. It examines the variance-covariance matrices of the dependent variables.</p>
+<p>The core idea is to partition the total variance-covariance matrix (T) into two components:</p>
+<ol class="arabic simple">
+<li><p><strong>Between-group variance-covariance matrix (H):</strong> Variance explained by the group differences.</p></li>
+<li><p><strong>Within-group variance-covariance matrix (E):</strong> Residual variance (error).</p></li>
+</ol>
+<p>MANOVA test statistics are derived from the relationship between H and E. Common test statistics include:</p>
+<ul class="simple">
+<li><p><strong>Wilks’ Lambda (<span class="math notranslate nohighlight">\(\\Lambda\)</span>):</strong> The most common. It’s the ratio of the determinant of the error matrix (E) to the determinant of the total matrix (T = H + E). A smaller <span class="math notranslate nohighlight">\(\\Lambda\)</span> indicates greater group differences.
+$<span class="math notranslate nohighlight">\(\Lambda = \frac{\det(\mathbf{E})}{\det(\mathbf{H} + \mathbf{E})}\)</span><span class="math notranslate nohighlight">\(
+(Where \)</span>\det$ is the determinant of a matrix).</p></li>
+<li><p><strong>Pillai’s Trace, Hotelling’s T-squared, Roy’s Largest Root:</strong> Other common statistics, each with slightly different interpretations and robustness properties.</p></li>
+</ul>
+<p>The significance of these statistics is evaluated using an F-distribution approximation.</p>
+<p><strong>Problem Statement:</strong></p>
+<ul class="simple">
+<li><p><strong>Problem:</strong> A university wants to evaluate the effectiveness of three different teaching methods (Method A, Method B, Method C) on student performance. They measure student performance using scores on three different subjects: Mathematics, English, and Science. They want to know if there’s a significant difference in overall academic performance (considering all three subjects simultaneously) among the students taught by these three methods.</p></li>
+<li><p><strong>MANOVA Application:</strong> MANOVA would be used to test if the mean vectors of (Math score, English score, Science score) differ significantly across the three teaching methods. If the MANOVA is significant, it suggests that the teaching methods have a differential impact on the combined set of academic scores.</p></li>
+</ul>
+<!-- end list -->
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.multivariate.manova</span><span class="w"> </span><span class="kn">import</span> <span class="n">MANOVA</span> <span class="c1"># You might need to install statsmodels</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DejaVu Sans&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- 7.3. MANOVA (Multivariate ANOVA) ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># Simulate data for 3 groups (teaching methods) and 3 dependent variables (scores)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">44</span><span class="p">)</span>
+<span class="n">n_per_group</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># Group A (e.g., Traditional Method)</span>
+<span class="n">math_A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">n_per_group</span><span class="p">)</span>
+<span class="n">english_A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">n_per_group</span><span class="p">)</span>
+<span class="n">science_A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">68</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="n">n_per_group</span><span class="p">)</span>
+<span class="n">group_A_label</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Method A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_per_group</span>
+
+<span class="c1"># Group B (e.g., Interactive Method) - slightly higher means</span>
+<span class="n">math_B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">n_per_group</span><span class="p">)</span>
+<span class="n">english_B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">n_per_group</span><span class="p">)</span>
+<span class="n">science_B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">73</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="n">n_per_group</span><span class="p">)</span>
+<span class="n">group_B_label</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Method B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_per_group</span>
+
+<span class="c1"># Group C (e.g., Project-Based Method) - even higher means</span>
+<span class="n">math_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">n_per_group</span><span class="p">)</span>
+<span class="n">english_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">85</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">n_per_group</span><span class="p">)</span>
+<span class="n">science_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">78</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="n">n_per_group</span><span class="p">)</span>
+<span class="n">group_C_label</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Method C&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_per_group</span>
+
+<span class="c1"># Combine into a DataFrame</span>
+<span class="n">data_manova</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Math_Score&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">math_A</span><span class="p">,</span> <span class="n">math_B</span><span class="p">,</span> <span class="n">math_C</span><span class="p">]),</span>
+    <span class="s1">&#39;English_Score&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">english_A</span><span class="p">,</span> <span class="n">english_B</span><span class="p">,</span> <span class="n">english_C</span><span class="p">]),</span>
+    <span class="s1">&#39;Science_Score&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">science_A</span><span class="p">,</span> <span class="n">science_B</span><span class="p">,</span> <span class="n">science_C</span><span class="p">]),</span>
+    <span class="s1">&#39;Teaching_Method&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">group_A_label</span><span class="p">,</span> <span class="n">group_B_label</span><span class="p">,</span> <span class="n">group_C_label</span><span class="p">])</span>
+<span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Simulated MANOVA Data Head:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_manova</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Mean Scores by Teaching Method:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_manova</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Teaching_Method&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+<span class="c1"># Perform MANOVA</span>
+<span class="c1"># The formula specifies dependent variables ~ independent variable</span>
+<span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;Math_Score + English_Score + Science_Score ~ C(Teaching_Method)&#39;</span>
+<span class="n">manova_results</span> <span class="o">=</span> <span class="n">MANOVA</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data_manova</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">MANOVA Test Results (Wilks&#39; Lambda, Pillai&#39;s Trace, Hotelling-Lawley, Roy&#39;s Greatest Root):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">manova_results</span><span class="o">.</span><span class="n">mv_test</span><span class="p">())</span>
+
+
+<span class="c1"># --- Conceptual Plot: Multivariate Group Centroids ---</span>
+<span class="c1"># For visualization, we&#39;ll project the 3D data into 2D using PCA if needed, or just show 2 variables.</span>
+<span class="c1"># Let&#39;s visualize Math vs English scores by group.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">data_manova</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Math_Score&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;English_Score&#39;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Teaching_Method&#39;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="s1">&#39;Teaching_Method&#39;</span><span class="p">,</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Plot group centroids (means)</span>
+<span class="n">group_means</span> <span class="o">=</span> <span class="n">data_manova</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Teaching_Method&#39;</span><span class="p">)[[</span><span class="s1">&#39;Math_Score&#39;</span><span class="p">,</span> <span class="s1">&#39;English_Score&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">group_means</span><span class="p">[</span><span class="s1">&#39;Math_Score&#39;</span><span class="p">],</span>
+    <span class="n">group_means</span><span class="p">[</span><span class="s1">&#39;English_Score&#39;</span><span class="p">],</span>
+    <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Group Centroid (Mean)&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Annotate centroids</span>
+<span class="k">for</span> <span class="n">method</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">group_means</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s1"> Centroid&#39;</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Math_Score&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;English_Score&#39;</span><span class="p">]),</span>
+        <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span>
+    <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Conceptual MANOVA: Group Centroids (Math vs English Scores)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Math Score&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;English Score&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Teaching Method&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># You could also try a 3D plot for all three if you have libraries that support it well</span>
+<span class="c1"># from mpl_toolkits.mplot3d import Axes3D</span>
+<span class="c1"># fig = plt.figure(figsize=(12, 10))</span>
+<span class="c1"># ax = fig.add_subplot(111, projection=&#39;3d&#39;)</span>
+<span class="c1"># ax.scatter(data_manova[&#39;Math_Score&#39;], data_manova[&#39;English_Score&#39;], data_manova[&#39;Science_Score&#39;],</span>
+<span class="c1">#            c=data_manova[&#39;Teaching_Method&#39;].map({&#39;Method A&#39;: &#39;red&#39;, &#39;Method B&#39;: &#39;green&#39;, &#39;Method C&#39;: &#39;blue&#39;}),</span>
+<span class="c1">#            s=50, alpha=0.7)</span>
+<span class="c1"># ax.set_xlabel(&#39;Math Score&#39;)</span>
+<span class="c1"># ax.set_ylabel(&#39;English Score&#39;)</span>
+<span class="c1"># ax.set_zlabel(&#39;Science Score&#39;)</span>
+<span class="c1"># ax.set_title(&#39;3D Scatter Plot of Scores by Teaching Method&#39;)</span>
+<span class="c1"># plt.show()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- 7.3. MANOVA (Multivariate ANOVA) ---
+Simulated MANOVA Data Head:
+   Math_Score  English_Score  Science_Score Teaching_Method
+0   63.995082      82.410185      81.943073        Method A
+1   80.530859      85.117363      62.191609        Method A
+2   79.969120      75.341763      75.914043        Method A
+3   57.160674      75.632307      65.134563        Method A
+4   58.254851      71.638202      74.546221        Method A
+
+Mean Scores by Teaching Method:
+                 Math_Score  English_Score  Science_Score
+Teaching_Method                                          
+Method A          69.105127      74.527125      68.228416
+Method B          74.501611      79.989820      71.956995
+Method C          82.438607      86.176013      79.097486
+
+MANOVA Test Results (Wilks&#39; Lambda, Pillai&#39;s Trace, Hotelling-Lawley, Roy&#39;s Greatest Root):
+                   Multivariate linear model
+================================================================
+                                                                
+----------------------------------------------------------------
+       Intercept         Value  Num DF  Den DF   F Value  Pr &gt; F
+----------------------------------------------------------------
+          Wilks&#39; lambda  0.0126 3.0000 145.0000 3791.8254 0.0000
+         Pillai&#39;s trace  0.9874 3.0000 145.0000 3791.8254 0.0000
+ Hotelling-Lawley trace 78.4516 3.0000 145.0000 3791.8254 0.0000
+    Roy&#39;s greatest root 78.4516 3.0000 145.0000 3791.8254 0.0000
+----------------------------------------------------------------
+                                                                
+----------------------------------------------------------------
+      C(Teaching_Method)   Value  Num DF  Den DF  F Value Pr &gt; F
+----------------------------------------------------------------
+             Wilks&#39; lambda 0.4684 6.0000 290.0000 22.2899 0.0000
+            Pillai&#39;s trace 0.5336 6.0000 292.0000 17.7070 0.0000
+    Hotelling-Lawley trace 1.1309 6.0000 191.5658 27.2371 0.0000
+       Roy&#39;s greatest root 1.1272 3.0000 146.0000 54.8581 0.0000
+================================================================
+</pre></div>
+</div>
+<img alt="../../_images/554c694d8b14739c590901c83baa52660a491155ed88a88ba14896a55408412e.png" src="../../_images/554c694d8b14739c590901c83baa52660a491155ed88a88ba14896a55408412e.png" />
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="cluster-analysis">
+<h2>7.4. Cluster Analysis<a class="headerlink" href="#cluster-analysis" title="Link to this heading">#</a></h2>
+<p><strong>Explanation:</strong>
+Cluster analysis is an <strong>unsupervised machine learning technique</strong> used to group a set of objects in such a way that objects in the same group (called a cluster) are more similar to each other than to those in other groups (clusters). It’s “unsupervised” because it doesn’t rely on pre-labeled categories.</p>
+<p><strong>Purpose:</strong></p>
+<ul class="simple">
+<li><p><strong>Customer Segmentation:</strong> Grouping customers with similar purchasing behaviors or demographics.</p></li>
+<li><p><strong>Market Research:</strong> Identifying distinct market segments.</p></li>
+<li><p><strong>Biology:</strong> Classifying species or genes based on shared characteristics.</p></li>
+<li><p><strong>Image Segmentation:</strong> Grouping similar pixels.</p></li>
+<li><p><strong>Anomaly Detection:</strong> Identifying outliers as single-point clusters or points far from any cluster.</p></li>
+</ul>
+<p><strong>Mathematical Intuition &amp; Models:</strong></p>
+<section id="k-means-clustering">
+<h3>7.4.1. K-means Clustering<a class="headerlink" href="#k-means-clustering" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Concept:</strong> K-means is a centroid-based clustering algorithm. It aims to partition <span class="math notranslate nohighlight">\(n\)</span> observations into <span class="math notranslate nohighlight">\(k\)</span> clusters, where each observation belongs to the cluster with the nearest mean (centroid).</p></li>
+<li><p><strong>Algorithm Steps:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Initialization:</strong> Randomly select <span class="math notranslate nohighlight">\(k\)</span> data points from the dataset as initial cluster centroids.</p></li>
+<li><p><strong>Assignment Step:</strong> Assign each data point to the cluster whose centroid is closest (e.g., using Euclidean distance).</p></li>
+<li><p><strong>Update Step:</strong> Recalculate the centroids of the new clusters as the mean of all data points assigned to that cluster.</p></li>
+<li><p><strong>Iteration:</strong> Repeat steps 2 and 3 until cluster assignments no longer change or a maximum number of iterations is reached.</p></li>
+</ol>
+</li>
+<li><p><strong>Optimization:</strong> K-means minimizes the <strong>Within-Cluster Sum of Squares (WCSS)</strong>, also known as inertia.
+$<span class="math notranslate nohighlight">\(\text{WCSS} = \sum_{i=1}^{k} \sum_{x \in C_i} ||x - \mu_i||^2\)</span><span class="math notranslate nohighlight">\(
+Where \)</span>C_i<span class="math notranslate nohighlight">\( is the \)</span>i<span class="math notranslate nohighlight">\(-th cluster, and \)</span>\mu_i<span class="math notranslate nohighlight">\( is the centroid of cluster \)</span>C_i$.</p></li>
+</ul>
+<p><strong>Problem Statement (K-means):</strong></p>
+<ul class="simple">
+<li><p><strong>Problem:</strong> An e-commerce company wants to segment its customer base to tailor marketing campaigns. They have data on two key metrics for each customer: “Average Monthly Spend” and “Number of Website Visits per Month.” They believe there are 3 distinct customer groups.</p></li>
+<li><p><strong>K-means Application:</strong> K-means can be used to group these customers into 3 clusters based on their spend and visits, allowing the company to identify segments like “High-Value Engaged,” “Low-Value Engaged,” and “High-Value Infrequent.”</p></li>
+</ul>
+</section>
+<section id="hierarchical-clustering">
+<h3>7.4.2. Hierarchical Clustering<a class="headerlink" href="#hierarchical-clustering" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Concept:</strong> Hierarchical clustering builds a hierarchy of clusters. It can be:</p>
+<ul>
+<li><p><strong>Agglomerative (Bottom-Up):</strong> Starts with each data point as its own cluster, then iteratively merges the closest clusters until all points are in a single cluster or a stopping criterion is met.</p></li>
+<li><p><strong>Divisive (Top-Down):</strong> Starts with all data points in one cluster, then recursively splits clusters until each point is its own cluster. (Agglomerative is more common).</p></li>
+</ul>
+</li>
+<li><p><strong>Linkage Criteria:</strong> How the “distance” between two clusters is measured:</p>
+<ul>
+<li><p><strong>Single Linkage:</strong> Minimum distance between any two points in the two clusters.</p></li>
+<li><p><strong>Complete Linkage:</strong> Maximum distance between any two points in the two clusters.</p></li>
+<li><p><strong>Average Linkage:</strong> Average distance between all pairs of points in the two clusters.</p></li>
+<li><p><strong>Ward’s Method:</strong> Minimizes the total within-cluster variance when merging two clusters. Generally preferred.</p></li>
+</ul>
+</li>
+<li><p><strong>Dendrogram:</strong> The output of hierarchical clustering is a tree-like diagram called a dendrogram. It shows the sequence of merges or splits and the distances at which they occurred. You can “cut” the dendrogram at a certain height to obtain a desired number of clusters.</p></li>
+</ul>
+<p><strong>Problem Statement (Hierarchical):</strong></p>
+<ul class="simple">
+<li><p><strong>Problem:</strong> A biologist has genetic data for 20 different species and wants to understand their evolutionary relationships by grouping similar species based on their genetic markers, without pre-defining the number of groups.</p></li>
+<li><p><strong>Hierarchical Clustering Application:</strong> Hierarchical clustering can be used to build a dendrogram illustrating the genetic similarity hierarchy. The biologist can then observe natural groupings by cutting the dendrogram at different similarity thresholds.</p></li>
+</ul>
+</section>
+<section id="silhouette-score">
+<h3>7.4.3. Silhouette Score<a class="headerlink" href="#silhouette-score" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Concept:</strong> The Silhouette Score is a metric used to evaluate the quality of clustering results. It quantifies how similar an object is to its own cluster (cohesion) compared to other clusters (separation).</p></li>
+<li><p><strong>Calculation:</strong> For each data point <span class="math notranslate nohighlight">\(i\)</span>:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(a(i)\)</span>: The average distance between <span class="math notranslate nohighlight">\(i\)</span> and all other data points in the <em>same cluster</em>. (Measures cohesion)</p></li>
+<li><p><span class="math notranslate nohighlight">\(b(i)\)</span>: The minimum average distance between <span class="math notranslate nohighlight">\(i\)</span> and all data points in any <em>other cluster</em> that <span class="math notranslate nohighlight">\(i\)</span> is not a part of. (Measures separation)</p></li>
+<li><p>The Silhouette Coefficient for a single data point <span class="math notranslate nohighlight">\(i\)</span> is:
+$<span class="math notranslate nohighlight">\(S(i) = \frac{b(i) - a(i)}{\max(a(i), b(i))}\)</span>$</p></li>
+</ul>
+</li>
+<li><p><strong>Interpretation:</strong></p>
+<ul>
+<li><p><strong>Score range: -1 to +1.</strong></p></li>
+<li><p><strong>+1:</strong> Indicates that the data point is well-clustered, meaning it is far away from neighboring clusters.</p></li>
+<li><p><strong>0:</strong> Indicates that the data point is on or very close to the decision boundary between two neighboring clusters.</p></li>
+<li><p><strong>-1:</strong> Indicates that the data point might have been assigned to the wrong cluster.</p></li>
+</ul>
+</li>
+<li><p><strong>Overall Silhouette Score:</strong> The average <span class="math notranslate nohighlight">\(S(i)\)</span> over all data points. A higher overall score indicates better clustering. It’s often used to determine the optimal number of clusters (<span class="math notranslate nohighlight">\(k\)</span>) by trying different <span class="math notranslate nohighlight">\(k\)</span> values and picking the one with the highest silhouette score.</p></li>
+</ul>
+<!-- end list -->
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span><span class="p">,</span> <span class="n">AgglomerativeClustering</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">silhouette_score</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.cluster.hierarchy</span><span class="w"> </span><span class="kn">import</span> <span class="n">dendrogram</span><span class="p">,</span> <span class="n">linkage</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DejaVu Sans&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- 7.4. Cluster Analysis ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># Simulate customer data for clustering (Avg Monthly Spend, Website Visits)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">X_cluster</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Create 3 distinct &quot;true&quot; clusters</span>
+<span class="c1"># Cluster 1 (Low Spend, Low Visits)</span>
+<span class="n">X_cluster</span><span class="p">[:</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">X_cluster</span><span class="p">[:</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="c1"># Cluster 2 (Medium Spend, Medium Visits)</span>
+<span class="n">X_cluster</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">X_cluster</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="c1"># Cluster 3 (High Spend, High Visits)</span>
+<span class="n">X_cluster</span><span class="p">[</span><span class="mi">200</span><span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">X_cluster</span><span class="p">[</span><span class="mi">200</span><span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">df_cluster</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_cluster</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Avg_Monthly_Spend&#39;</span><span class="p">,</span> <span class="s1">&#39;Website_Visits&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Simulated Customer Data Head:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_cluster</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># Standardize the data for clustering (especially K-means sensitive to scale)</span>
+<span class="n">scaler_cluster</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">scaled_data_cluster</span> <span class="o">=</span> <span class="n">scaler_cluster</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_cluster</span><span class="p">)</span>
+
+
+<span class="c1"># --- 7.4.1. K-means Clustering ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- K-means Clustering ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># Try K-means with k=3</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># n_init for robust initialization</span>
+<span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scaled_data_cluster</span><span class="p">)</span>
+<span class="n">cluster_labels_kmeans</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span>
+<span class="n">centroids</span> <span class="o">=</span> <span class="n">scaler_cluster</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">)</span> <span class="c1"># Inverse transform centroids for original scale</span>
+
+<span class="n">df_cluster</span><span class="p">[</span><span class="s1">&#39;KMeans_Cluster&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cluster_labels_kmeans</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df_cluster</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Avg_Monthly_Spend&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Website_Visits&#39;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;KMeans_Cluster&#39;</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;Set1&#39;</span><span class="p">,</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">centroids</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">centroids</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Centroids&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;K-means Clustering (k=3) on Customer Data&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Average Monthly Spend&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Website Visits per Month&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Cluster&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">K-means Cluster Centroids (Original Scale):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">centroids</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Avg_Monthly_Spend&#39;</span><span class="p">,</span> <span class="s1">&#39;Website_Visits&#39;</span><span class="p">]))</span>
+
+
+<span class="c1"># --- 7.4.2. Hierarchical Clustering ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Hierarchical Clustering ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># Perform hierarchical clustering using Ward linkage</span>
+<span class="n">linked_data</span> <span class="o">=</span> <span class="n">linkage</span><span class="p">(</span><span class="n">scaled_data_cluster</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;ward&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">dendrogram</span><span class="p">(</span><span class="n">linked_data</span><span class="p">,</span>
+           <span class="n">truncate_mode</span><span class="o">=</span><span class="s1">&#39;lastp&#39;</span><span class="p">,</span>  <span class="c1"># show only the last p merged clusters</span>
+           <span class="n">p</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>                   <span class="c1"># show last 30 merges</span>
+           <span class="n">leaf_rotation</span><span class="o">=</span><span class="mf">90.</span><span class="p">,</span>
+           <span class="n">leaf_font_size</span><span class="o">=</span><span class="mf">8.</span><span class="p">,</span>
+           <span class="n">show_contracted</span><span class="o">=</span><span class="kc">True</span> <span class="c1"># For larger datasets, this helps summarize</span>
+          <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Hierarchical Clustering Dendrogram (Ward Linkage)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Sample Index or (Cluster Size)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Distance&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># To get clusters from hierarchical clustering, you can cut the dendrogram</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.cluster.hierarchy</span><span class="w"> </span><span class="kn">import</span> <span class="n">fcluster</span>
+<span class="c1"># Let&#39;s cut to get 3 clusters</span>
+<span class="n">max_d</span> <span class="o">=</span> <span class="mf">4.5</span> <span class="c1"># Based on observation of the dendrogram (adjust this!)</span>
+<span class="n">clusters_hierarchical</span> <span class="o">=</span> <span class="n">fcluster</span><span class="p">(</span><span class="n">linked_data</span><span class="p">,</span> <span class="n">max_d</span><span class="p">,</span> <span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;distance&#39;</span><span class="p">)</span>
+<span class="c1"># Or, to get a specific number of clusters (e.g., 3)</span>
+<span class="c1"># clusters_hierarchical = fcluster(linked_data, 3, criterion=&#39;maxclust&#39;)</span>
+
+<span class="n">df_cluster</span><span class="p">[</span><span class="s1">&#39;Hierarchical_Cluster&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clusters_hierarchical</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df_cluster</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Avg_Monthly_Spend&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Website_Visits&#39;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Hierarchical_Cluster&#39;</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;Set2&#39;</span><span class="p">,</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hierarchical Clustering (Cut to 3 Clusters) on Customer Data&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Average Monthly Spend&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Website Visits per Month&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Cluster&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># --- 7.4.3. Silhouette Score ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Silhouette Score ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># Calculate Silhouette Score for K-means with 3 clusters</span>
+<span class="n">silhouette_avg_kmeans</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">scaled_data_cluster</span><span class="p">,</span> <span class="n">cluster_labels_kmeans</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Silhouette Score for K-means (k=3): </span><span class="si">{</span><span class="n">silhouette_avg_kmeans</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Evaluate Silhouette Score for a range of k values to find optimal k</span>
+<span class="n">silhouette_scores</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">k_values</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># Test k from 2 to 9</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">k_values</span><span class="p">:</span>
+    <span class="n">kmeans_temp</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">kmeans_temp</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scaled_data_cluster</span><span class="p">)</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">scaled_data_cluster</span><span class="p">,</span> <span class="n">kmeans_temp</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+    <span class="n">silhouette_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">k_values</span><span class="p">,</span> <span class="n">silhouette_scores</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;indigo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Silhouette Scores for Different Number of Clusters (K-means)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of Clusters (k)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Silhouette Score&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">k_values</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">optimal_k</span> <span class="o">=</span> <span class="n">k_values</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">silhouette_scores</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Optimal number of clusters (k) based on Silhouette Score: </span><span class="si">{</span><span class="n">optimal_k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- 7.4. Cluster Analysis ---
+Simulated Customer Data Head:
+   Avg_Monthly_Spend  Website_Visits
+0          20.131874        5.193008
+1          21.301609        5.857532
+2          18.024272        6.194667
+3          18.978495        6.460173
+4          13.641837        2.617078
+
+--- K-means Clustering ---
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\Users\sangouda\AppData\Local\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.
+  warnings.warn(
+</pre></div>
+</div>
+<img alt="../../_images/4b4c38fc49abbd4139f5356e6a80ed56bd1ce64c4338e0f52d0464e7b9834251.png" src="../../_images/4b4c38fc49abbd4139f5356e6a80ed56bd1ce64c4338e0f52d0464e7b9834251.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>K-means Cluster Centroids (Original Scale):
+   Avg_Monthly_Spend  Website_Visits
+0          51.924215       14.436903
+1          78.953817       29.937641
+2          19.597540        5.209258
+
+--- Hierarchical Clustering ---
+</pre></div>
+</div>
+<img alt="../../_images/3f1141f560d828d9183beb3a860333219b9798964fd04cba9932a125c8e2d61a.png" src="../../_images/3f1141f560d828d9183beb3a860333219b9798964fd04cba9932a125c8e2d61a.png" />
+<img alt="../../_images/baa48c812cde5d7899516ecdc5f5cf6775010acf49689465c6aede57db0be34e.png" src="../../_images/baa48c812cde5d7899516ecdc5f5cf6775010acf49689465c6aede57db0be34e.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Silhouette Score ---
+Silhouette Score for K-means (k=3): 0.660
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\Users\sangouda\AppData\Local\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.
+  warnings.warn(
+c:\Users\sangouda\AppData\Local\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.
+  warnings.warn(
+c:\Users\sangouda\AppData\Local\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.
+  warnings.warn(
+c:\Users\sangouda\AppData\Local\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.
+  warnings.warn(
+c:\Users\sangouda\AppData\Local\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.
+  warnings.warn(
+c:\Users\sangouda\AppData\Local\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.
+  warnings.warn(
+c:\Users\sangouda\AppData\Local\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.
+  warnings.warn(
+c:\Users\sangouda\AppData\Local\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.
+  warnings.warn(
+</pre></div>
+</div>
+<img alt="../../_images/763a953645e1ea1388f723b7a2c5e9c7bb3899c53fc2430b58469013240c827a.png" src="../../_images/763a953645e1ea1388f723b7a2c5e9c7bb3899c53fc2430b58469013240c827a.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimal number of clusters (k) based on Silhouette Score: 3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Mathematics for Data Science\Statistics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis-pca">7.1. Principal Component Analysis (PCA)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factor-analysis">7.2. Factor Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manova-multivariate-anova">7.3. MANOVA (Multivariate ANOVA)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-analysis">7.4. Cluster Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-clustering">7.4.1. K-means Clustering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-clustering">7.4.2. Hierarchical Clustering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#silhouette-score">7.4.3. Silhouette Score</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

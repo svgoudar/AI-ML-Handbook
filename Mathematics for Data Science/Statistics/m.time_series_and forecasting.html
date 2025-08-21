@@ -1,0 +1,1472 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📍 8. Time Series &amp; Forecasting (Optional but Useful) &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Mathematics for Data Science/Statistics/m.time_series_and forecasting';</script>
+    <link rel="icon" href="../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../table_of_contents.html">Table of Contents</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/edit/master/docs/Mathematics for Data Science/Statistics/m.time_series_and forecasting.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FMathematics for Data Science/Statistics/m.time_series_and forecasting.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Mathematics for Data Science/Statistics/m.time_series_and forecasting.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>📍 8. Time Series & Forecasting (Optional but Useful)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts">Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stationarity">8.1. Stationarity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trend">8.2. Trend</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonality">8.3. Seasonality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#noise-residuals">8.4. Noise (Residuals)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models">Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ar-autoregressive-model">8.5. AR (AutoRegressive) Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ma-moving-average-model">8.6. MA (Moving Average) Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arma-autoregressive-moving-average-model">8.7. ARMA (AutoRegressive Moving Average) Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arima-autoregressive-integrated-moving-average-model">8.8. ARIMA (AutoRegressive Integrated Moving Average) Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponential-smoothing">8.9. Exponential Smoothing</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="time-series-forecasting-optional-but-useful">
+<h1>📍 8. Time Series &amp; Forecasting (Optional but Useful)<a class="headerlink" href="#time-series-forecasting-optional-but-useful" title="Link to this heading">#</a></h1>
+<section id="concepts">
+<h2>Concepts<a class="headerlink" href="#concepts" title="Link to this heading">#</a></h2>
+<p>Understanding the fundamental components of a time series is essential before applying forecasting models.</p>
+<section id="stationarity">
+<h3>8.1. Stationarity<a class="headerlink" href="#stationarity" title="Link to this heading">#</a></h3>
+<p><strong>Explanation:</strong>
+A time series is <strong>stationary</strong> if its statistical properties (mean, variance, and autocorrelation) remain constant over time. This means:</p>
+<ol class="arabic simple">
+<li><p><strong>Constant Mean:</strong> The average value around which the series fluctuates does not change over time.</p></li>
+<li><p><strong>Constant Variance:</strong> The variability (spread) of the series around its mean does not change over time.</p></li>
+<li><p><strong>Constant Autocorrelation:</strong> The correlation between the series and its lagged versions remains constant over time.</p></li>
+</ol>
+<p>Many time series models (like AR, MA, ARMA) assume stationarity. Non-stationary series often need to be transformed (e.g., by differencing) to become stationary before modeling.</p>
+<p><strong>Why is it important?</strong></p>
+<ul class="simple">
+<li><p><strong>Predictability:</strong> Stationary series are easier to model and forecast because their future behavior is assumed to be similar to their past behavior.</p></li>
+<li><p><strong>Model Assumptions:</strong> Many statistical models rely on the assumption of stationarity.</p></li>
+</ul>
+<p><strong>Plots for Stationarity:</strong>
+We can visually inspect a time series for stationarity by looking at its plot over time.</p>
+<ul class="simple">
+<li><p><strong>Non-Stationary (with Trend):</strong> A clear upward or downward drift in the mean.</p></li>
+<li><p><strong>Non-Stationary (with Seasonality):</strong> Regular, predictable patterns repeating over fixed periods.</p></li>
+<li><p><strong>Non-Stationary (with Changing Variance):</strong> The spread of the data widens or narrows over time.</p></li>
+<li><p><strong>Stationary:</strong> Fluctuates around a constant mean with constant variance and no obvious patterns.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DejaVu Sans&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Time Series Concepts: Stationarity ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># Generate time points</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span> <span class="c1"># 100 data points</span>
+
+<span class="c1"># 1. Non-Stationary (with Trend)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">trend_data</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">time</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">))</span>
+
+<span class="c1"># 2. Non-Stationary (with Seasonality)</span>
+<span class="n">seasonality_data</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">)))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">))</span> <span class="o">+</span> <span class="mi">50</span>
+
+<span class="c1"># 3. Non-Stationary (with Changing Variance - Heteroscedasticity)</span>
+<span class="n">variance_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">)))</span> <span class="c1"># Random walk</span>
+<span class="n">variance_data</span> <span class="o">=</span> <span class="n">variance_data</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">)))</span> <span class="c1"># Variance increases over time</span>
+
+<span class="c1"># 4. Stationary Data</span>
+<span class="n">stationary_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">))</span> <span class="o">+</span> <span class="mi">50</span> <span class="c1"># Constant mean and variance</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">trend_data</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Non-Stationary: Trend&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">seasonality_data</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightcoral&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Non-Stationary: Seasonality&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">variance_data</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;mediumseagreen&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Non-Stationary: Changing Variance&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">stationary_data</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Stationary: Constant Mean &amp; Variance&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Time Series Concepts: Stationarity ---
+</pre></div>
+</div>
+<img alt="../../_images/8c0e6eecdc0cb5b87fb96addfa97c6ffd4318b4cf35d4b94d333224276905fca.png" src="../../_images/8c0e6eecdc0cb5b87fb96addfa97c6ffd4318b4cf35d4b94d333224276905fca.png" />
+</div>
+</div>
+</section>
+<section id="trend">
+<h3>8.2. Trend<a class="headerlink" href="#trend" title="Link to this heading">#</a></h3>
+<p><strong>Explanation:</strong>
+A <strong>trend</strong> is a long-term increase or decrease in the data over time. It represents the underlying direction of the series.</p>
+<ul class="simple">
+<li><p><strong>Upward Trend:</strong> Values generally increase over time.</p></li>
+<li><p><strong>Downward Trend:</strong> Values generally decrease over time.</p></li>
+<li><p><strong>Linear Trend:</strong> The increase/decrease follows a straight line.</p></li>
+<li><p><strong>Non-linear Trend:</strong> The increase/decrease follows a curve (e.g., exponential, logarithmic).</p></li>
+</ul>
+<p>Trends can be removed from a time series (detrending) to make it more stationary, often by differencing or by fitting a regression line and using the residuals.</p>
+<p><strong>Example Problem Statement:</strong> Monthly average temperature in a city over several decades.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Time Series Concepts: Trend ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># Generate data with different trends</span>
+<span class="n">time_trend</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span> <span class="c1"># 50 time points</span>
+
+<span class="c1"># Linear Upward Trend</span>
+<span class="n">linear_up_trend</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">time_trend</span> <span class="o">+</span> <span class="mi">50</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">time_trend</span><span class="p">))</span>
+
+<span class="c1"># Linear Downward Trend</span>
+<span class="n">linear_down_trend</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">time_trend</span> <span class="o">+</span> <span class="mi">150</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">time_trend</span><span class="p">))</span>
+
+<span class="c1"># Non-linear (Exponential) Upward Trend</span>
+<span class="n">exp_up_trend</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">0.05</span> <span class="o">*</span> <span class="n">time_trend</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">time_trend</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_trend</span><span class="p">,</span> <span class="n">linear_up_trend</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkblue&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Linear Upward Trend&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_trend</span><span class="p">,</span> <span class="n">linear_down_trend</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkred&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Linear Downward Trend&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_trend</span><span class="p">,</span> <span class="n">exp_up_trend</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkgreen&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Non-linear (Exponential) Upward Trend&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Time Series Concepts: Trend ---
+</pre></div>
+</div>
+<img alt="../../_images/5b89065dfe6552811c17f5acc5d13a88bca3e58b540aea77822d0a4ea3ae5c4d.png" src="../../_images/5b89065dfe6552811c17f5acc5d13a88bca3e58b540aea77822d0a4ea3ae5c4d.png" />
+</div>
+</div>
+</section>
+<section id="seasonality">
+<h3>8.3. Seasonality<a class="headerlink" href="#seasonality" title="Link to this heading">#</a></h3>
+<p><strong>Explanation:</strong>
+<strong>Seasonality</strong> refers to repetitive and predictable patterns or cycles in a time series that occur over a fixed period (e.g., daily, weekly, monthly, quarterly, yearly). These patterns are often driven by calendar-related effects.</p>
+<ul class="simple">
+<li><p><strong>Daily Seasonality:</strong> Peaks in morning and evening traffic on a website.</p></li>
+<li><p><strong>Weekly Seasonality:</strong> Higher sales on weekends.</p></li>
+<li><p><strong>Monthly Seasonality:</strong> Increased ice cream sales in summer months.</p></li>
+<li><p><strong>Yearly Seasonality:</strong> Retail sales peaking during holiday seasons.</p></li>
+</ul>
+<p>Seasonality can be removed (deseasonalized) by methods like seasonal differencing or by using seasonal subseries plots.</p>
+<p><strong>Example Problem Statement:</strong> Monthly retail sales data showing consistent peaks around holidays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Time Series Concepts: Seasonality ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># Generate data with seasonality</span>
+<span class="n">time_season</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span> <span class="c1"># 100 data points (e.g., 8 years of monthly data)</span>
+
+<span class="c1"># Monthly seasonality (12-month cycle) with a slight trend</span>
+<span class="n">seasonal_data</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">time_season</span> <span class="o">+</span> <span class="mi">50</span> <span class="o">+</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">time_season</span> <span class="o">/</span> <span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">time_season</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_season</span><span class="p">,</span> <span class="n">seasonal_data</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Time Series with Trend and Monthly Seasonality&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (Months)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sales&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Time Series Concepts: Seasonality ---
+</pre></div>
+</div>
+<img alt="../../_images/258b15117a910ad68e277c2ce320e8845ce04307f41b65958df10aece986644e.png" src="../../_images/258b15117a910ad68e277c2ce320e8845ce04307f41b65958df10aece986644e.png" />
+</div>
+</div>
+</section>
+<section id="noise-residuals">
+<h3>8.4. Noise (Residuals)<a class="headerlink" href="#noise-residuals" title="Link to this heading">#</a></h3>
+<p><strong>Explanation:</strong>
+<strong>Noise</strong> (also known as residuals or irregular component) is the random, unpredictable fluctuations in a time series that remain after accounting for trend, seasonality, and other systematic components. It represents what cannot be explained by the model.</p>
+<ul class="simple">
+<li><p>Ideally, noise should be random and independent, without any discernible patterns.</p></li>
+<li><p>If noise exhibits patterns (e.g., a trend or seasonality), it suggests that the model has not fully captured these components, and it might be underfitting.</p></li>
+</ul>
+<p><strong>Example Problem Statement:</strong> The unpredictable daily fluctuations in stock prices after accounting for long-term trends and any weekly/monthly patterns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Time Series Concepts: Noise (Residuals) ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># Let&#39;s decompose a simple series to show noise</span>
+<span class="c1"># Data with trend, seasonality, and noise</span>
+<span class="n">time_noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+<span class="n">trend_comp</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">time_noise</span>
+<span class="n">seasonal_comp</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">time_noise</span> <span class="o">/</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">noise_comp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">time_noise</span><span class="p">))</span>
+<span class="n">combined_data</span> <span class="o">=</span> <span class="n">trend_comp</span> <span class="o">+</span> <span class="n">seasonal_comp</span> <span class="o">+</span> <span class="n">noise_comp</span> <span class="o">+</span> <span class="mi">50</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_noise</span><span class="p">,</span> <span class="n">combined_data</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Combined Data&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_noise</span><span class="p">,</span> <span class="n">trend_comp</span> <span class="o">+</span> <span class="mi">50</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Trend Component&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_noise</span><span class="p">,</span> <span class="n">seasonal_comp</span> <span class="o">+</span> <span class="mi">50</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Seasonal Component&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Time Series Decomposition: Identifying Noise&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_noise</span><span class="p">,</span> <span class="n">noise_comp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Noise (Residual) Component&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Noise Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Time Series Concepts: Noise (Residuals) ---
+</pre></div>
+</div>
+<img alt="../../_images/2ac7caefe8839754571b16662192f6dbae6e774198a149338910c6284da998ea.png" src="../../_images/2ac7caefe8839754571b16662192f6dbae6e774198a149338910c6284da998ea.png" />
+<img alt="../../_images/3410d02076d605c74411abee531e8d2a58991a2945faeac11695ada562f8cbfd.png" src="../../_images/3410d02076d605c74411abee531e8d2a58991a2945faeac11695ada562f8cbfd.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="models">
+<h2>Models<a class="headerlink" href="#models" title="Link to this heading">#</a></h2>
+<p>Time series forecasting models capture the patterns (trend, seasonality, autocorrelation) in historical data to predict future values.</p>
+<section id="ar-autoregressive-model">
+<h3>8.5. AR (AutoRegressive) Model<a class="headerlink" href="#ar-autoregressive-model" title="Link to this heading">#</a></h3>
+<p><strong>Explanation:</strong>
+An <strong>AutoRegressive (AR)</strong> model predicts future values based on a linear combination of past values of the series itself. The “auto” refers to the regression of a variable on itself.
+An AR(p) model means that the current value of the series is dependent on its previous ‘p’ values.</p>
+<p><strong>Formula for AR(p):</strong>
+$<span class="math notranslate nohighlight">\(Y_t = c + \phi_1 Y_{t-1} + \phi_2 Y_{t-2} + \dots + \phi_p Y_{t-p} + \epsilon_t\)</span>$
+Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Y_t\)</span> is the value of the series at time <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(c\)</span> is a constant.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\\phi_1, \\dots, \\phi_p\)</span> are the autoregressive coefficients.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Y_{t-1}, \\dots, Y_{t-p}\)</span> are the past values (lags) of the series.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\\epsilon_t\)</span> is the white noise error term at time <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span> is the order of the AR model (number of lagged observations used).</p></li>
+</ul>
+<p><strong>Manual Calculation (Simple AR(1) Example):</strong></p>
+<p>Consider a simple AR(1) model: <span class="math notranslate nohighlight">\(Y_t = 0.5 Y_{t-1} + \\epsilon_t\)</span>. Assume <span class="math notranslate nohighlight">\(Y_0 = 100\)</span> and <span class="math notranslate nohighlight">\(\\epsilon_t\)</span> are random errors.</p>
+<p><strong>Problem Statement:</strong> Given a series, predict the next few values using a simple AR(1) model.
+Let’s assume we have observed the following series: <code class="docutils literal notranslate"><span class="pre">[100,</span> <span class="pre">103,</span> <span class="pre">101,</span> <span class="pre">104,</span> <span class="pre">102]</span></code>
+And we estimate the AR(1) coefficient <span class="math notranslate nohighlight">\(\\phi_1 = 0.5\)</span> and constant <span class="math notranslate nohighlight">\(c=5\)</span>.
+So, our model is <span class="math notranslate nohighlight">\(\\hat{Y}*t = 5 + 0.5 Y*{t-1}\)</span>.</p>
+<p><strong>Forecast:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Y_5 = 102\)</span> (last observed value)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{Y}_6 = 5 + 0.5 \times Y_5 = 5 + 0.5 \times 102 = 5 + 51 = \mathbf{56}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{Y}_7 = 5 + 0.5 \times \hat{Y}_6 = 5 + 0.5 \times 56 = 5 + 28 = \mathbf{33}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{Y}_8 = 5 + 0.5 \times \hat{Y}_7 = 5 + 0.5 \times 33 = 5 + 16.5 = \mathbf{21.5}\)</span></p></li>
+</ul>
+<p><em>(Note: In real-world scenarios, <span class="math notranslate nohighlight">\(\\phi\)</span> and <span class="math notranslate nohighlight">\(c\)</span> are estimated from data using methods like Ordinary Least Squares (OLS) or Maximum Likelihood Estimation (MLE). The errors <span class="math notranslate nohighlight">\(\epsilon_t\)</span> are assumed to be white noise.)</em></p>
+<p><strong>Python Code for AR Model (Simulation &amp; Fitting):</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.arima_process</span><span class="w"> </span><span class="kn">import</span> <span class="n">arma_generate_sample</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.ar_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoReg</span> <span class="c1"># For fitting AR models</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmo</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DejaVu Sans&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Time Series Models: AR (AutoRegressive) ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># --- 1. Simulate an AR(1) process ---</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">ar_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.7</span><span class="p">])</span> <span class="c1"># phi_1</span>
+<span class="n">ma_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># No MA component</span>
+<span class="n">ar_order</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ar_params</span><span class="p">)</span>
+<span class="n">ma_order</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ma_params</span><span class="p">)</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># Generate AR(1) sample</span>
+<span class="c1"># The &#39;ar&#39; parameter is (1, -phi_1, -phi_2, ...), so for phi_1=0.7, it&#39;s [1, -0.7]</span>
+<span class="n">ar_process</span> <span class="o">=</span> <span class="n">arma_generate_sample</span><span class="p">(</span><span class="n">ar</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="n">ar_params</span><span class="p">],</span> <span class="n">ma</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">ma_params</span><span class="p">],</span> <span class="n">nsample</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ar_process</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Simulated AR(1) Process (phi_1=</span><span class="si">{</span><span class="n">ar_params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># --- 2. Fit an AR model to sample data ---</span>
+<span class="c1"># Let&#39;s use a slightly longer series for fitting</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ar_process_for_fit</span> <span class="o">=</span> <span class="n">arma_generate_sample</span><span class="p">(</span><span class="n">ar</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.6</span><span class="p">])],</span> <span class="n">ma</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">])],</span> <span class="n">nsample</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1"># Fit AR(1) model</span>
+<span class="n">model_ar</span> <span class="o">=</span> <span class="n">AutoReg</span><span class="p">(</span><span class="n">ar_process_for_fit</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span> <span class="c1"># lags=1 for AR(1), trend=&#39;c&#39; for constant</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Fitted AR(1) Model Summary:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_ar</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+
+<span class="c1"># Plot original series and 1-step-ahead predictions</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ar_process_for_fit</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Series&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model_ar</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">model_ar</span><span class="o">.</span><span class="n">lags</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">ar_process_for_fit</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;1-step-ahead Predictions&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;AR(1) Model: Original vs. 1-step-ahead Predictions&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Time Series Models: AR (AutoRegressive) ---
+</pre></div>
+</div>
+<img alt="../../_images/02bd46ec0df6155e2e17f7871138d8d8431e18dbdebd36dce03888b27d9191b4.png" src="../../_images/02bd46ec0df6155e2e17f7871138d8d8431e18dbdebd36dce03888b27d9191b4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitted AR(1) Model Summary:
+                            AutoReg Model Results                             
+==============================================================================
+Dep. Variable:                      y   No. Observations:                  200
+Model:                     AutoReg(1)   Log Likelihood                -277.149
+Method:               Conditional MLE   S.D. of innovations              0.974
+Date:                Sat, 28 Jun 2025   AIC                            560.298
+Time:                        23:23:38   BIC                            570.178
+Sample:                             1   HQIC                           564.297
+                                  200                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.0728      0.070      1.042      0.297      -0.064       0.210
+y.L1           0.5740      0.058      9.922      0.000       0.461       0.687
+                                    Roots                                    
+=============================================================================
+                  Real          Imaginary           Modulus         Frequency
+-----------------------------------------------------------------------------
+AR.1            1.7422           +0.0000j            1.7422            0.0000
+-----------------------------------------------------------------------------
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">47</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ar_process_for_fit</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Series&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">47</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model_ar</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">model_ar</span><span class="o">.</span><span class="n">lags</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">ar_process_for_fit</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;1-step-ahead Predictions&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;AR(1) Model: Original vs. 1-step-ahead Predictions&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\sangouda\AppData\Local\anaconda3\Lib\site-packages\statsmodels\base\wrapper.py:34,</span> in <span class="ni">ResultsWrapper.__getattribute__</span><span class="nt">(self, attr)</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>     <span class="k">pass</span>
+<span class="ne">---&gt; </span><span class="mi">34</span> <span class="n">obj</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="n">data</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="n">how</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;AutoRegResults&#39; object has no attribute &#39;lags&#39;
+</pre></div>
+</div>
+<img alt="../../_images/4cdada47bb7b10f55b68cf9dbff4a48ad30adcba5d9d7132d39ac1bfefe22a12.png" src="../../_images/4cdada47bb7b10f55b68cf9dbff4a48ad30adcba5d9d7132d39ac1bfefe22a12.png" />
+</div>
+</div>
+</section>
+<section id="ma-moving-average-model">
+<h3>8.6. MA (Moving Average) Model<a class="headerlink" href="#ma-moving-average-model" title="Link to this heading">#</a></h3>
+<p><strong>Explanation:</strong>
+A <strong>Moving Average (MA)</strong> model predicts future values based on a linear combination of past <strong>error terms</strong> (residuals from previous forecasts). It captures the short-term memory of a time series based on shocks or disturbances.
+An MA(q) model means that the current value of the series is dependent on its previous ‘q’ error terms.</p>
+<p><strong>Formula for MA(q):</strong>
+$<span class="math notranslate nohighlight">\(Y_t = c + \epsilon_t + \theta_1 \epsilon_{t-1} + \theta_2 \epsilon_{t-2} + \dots + \theta_q \epsilon_{t-q}\)</span>$
+Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Y_t\)</span> is the value of the series at time <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(c\)</span> is a constant.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\\epsilon_t\)</span> is the white noise error term at time <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\\epsilon_{t-1}, \\dots, \\epsilon_{t-q}\)</span> are the past white noise error terms.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\\theta_1, \\dots, \\theta_q\)</span> are the moving average coefficients.</p></li>
+<li><p><span class="math notranslate nohighlight">\(q\)</span> is the order of the MA model (number of lagged error terms used).</p></li>
+</ul>
+<p><strong>Manual Calculation (Simple MA(1) Example):</strong></p>
+<p>Consider a simple MA(1) model: <span class="math notranslate nohighlight">\(Y_t = 0.8 \\epsilon_{t-1} + \\epsilon_t\)</span>. Assume <span class="math notranslate nohighlight">\(\\epsilon_t\)</span> are random errors with mean 0.
+Let’s say we have the following error terms:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\\epsilon_0 = 0\)</span> (initial error)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\\epsilon_1 = 2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\\epsilon_2 = -1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\\epsilon_3 = 3\)</span></p></li>
+</ul>
+<p><strong>Problem Statement:</strong> Given past error terms, calculate the series values using a simple MA(1) model.</p>
+<p><strong>Calculate Series Values:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Y_1 = 0.8 \\times \\epsilon_0 + \\epsilon_1 = 0.8 \\times 0 + 2 = \\mathbf{2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Y_2 = 0.8 \\times \\epsilon_1 + \\epsilon_2 = 0.8 \\times 2 + (-1) = 1.6 - 1 = \\mathbf{0.6}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Y_3 = 0.8 \\times \\epsilon_2 + \\epsilon_3 = 0.8 \\times (-1) + 3 = -0.8 + 3 = \\mathbf{2.2}\)</span></p></li>
+</ul>
+<p><em>(Note: Forecasting with MA models involves estimating future error terms, which are typically assumed to be zero for steps beyond the observed ‘q’ errors. Fitting MA models is also done using MLE.)</em></p>
+<p><strong>Python Code for MA Model (Simulation &amp; Fitting):</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.arima_process</span><span class="w"> </span><span class="kn">import</span> <span class="n">arma_generate_sample</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.arima.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">ARIMA</span> <span class="c1"># ARIMA can fit MA models</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DejaVu Sans&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Time Series Models: MA (Moving Average) ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># --- 1. Simulate an MA(1) process ---</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">43</span><span class="p">)</span>
+<span class="n">ar_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># No AR component</span>
+<span class="n">ma_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.6</span><span class="p">])</span> <span class="c1"># theta_1</span>
+<span class="n">ar_order</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ar_params</span><span class="p">)</span>
+<span class="n">ma_order</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ma_params</span><span class="p">)</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># Generate MA(1) sample</span>
+<span class="c1"># The &#39;ma&#39; parameter is (1, theta_1, theta_2, ...), so for theta_1=0.6, it&#39;s [1, 0.6]</span>
+<span class="n">ma_process</span> <span class="o">=</span> <span class="n">arma_generate_sample</span><span class="p">(</span><span class="n">ar</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="n">ar_params</span><span class="p">],</span> <span class="n">ma</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">ma_params</span><span class="p">],</span> <span class="n">nsample</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ma_process</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkred&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Simulated MA(1) Process (theta_1=</span><span class="si">{</span><span class="n">ma_params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># --- 2. Fit an MA model to sample data ---</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ma_process_for_fit</span> <span class="o">=</span> <span class="n">arma_generate_sample</span><span class="p">(</span><span class="n">ar</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">])],</span> <span class="n">ma</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">])],</span> <span class="n">nsample</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1"># Fit MA(1) model (ARIMA with p=0, d=0, q=1)</span>
+<span class="n">model_ma</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">ma_process_for_fit</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Fitted MA(1) Model Summary:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_ma</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+
+<span class="c1"># Plot original series and 1-step-ahead predictions</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ma_process_for_fit</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Series&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model_ma</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">ma_process_for_fit</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;1-step-ahead Predictions&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;MA(1) Model: Original vs. 1-step-ahead Predictions&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Time Series Models: MA (Moving Average) ---
+</pre></div>
+</div>
+<img alt="../../_images/d68a5bc55752baeedd6a3412a9614d7ef340a0b3a19507ff146945900c90701f.png" src="../../_images/d68a5bc55752baeedd6a3412a9614d7ef340a0b3a19507ff146945900c90701f.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitted MA(1) Model Summary:
+                               SARIMAX Results                                
+==============================================================================
+Dep. Variable:                      y   No. Observations:                  200
+Model:                 ARIMA(0, 0, 1)   Log Likelihood                -271.359
+Date:                Sat, 28 Jun 2025   AIC                            548.718
+Time:                        23:47:55   BIC                            558.613
+Sample:                             0   HQIC                           552.723
+                                - 200                                         
+Covariance Type:                  opg                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.0161      0.103      0.157      0.875      -0.185       0.218
+ma.L1          0.5491      0.055      9.967      0.000       0.441       0.657
+sigma2         0.8815      0.099      8.886      0.000       0.687       1.076
+===================================================================================
+Ljung-Box (L1) (Q):                   0.28   Jarque-Bera (JB):                 1.34
+Prob(Q):                              0.60   Prob(JB):                         0.51
+Heteroskedasticity (H):               0.95   Skew:                            -0.03
+Prob(H) (two-sided):                  0.85   Kurtosis:                         2.60
+===================================================================================
+
+Warnings:
+[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+</pre></div>
+</div>
+<img alt="../../_images/774c5ffc1856e41ef4700b8ab72da9fba815c16740c0d7eefe3049dc010681b5.png" src="../../_images/774c5ffc1856e41ef4700b8ab72da9fba815c16740c0d7eefe3049dc010681b5.png" />
+</div>
+</div>
+</section>
+<section id="arma-autoregressive-moving-average-model">
+<h3>8.7. ARMA (AutoRegressive Moving Average) Model<a class="headerlink" href="#arma-autoregressive-moving-average-model" title="Link to this heading">#</a></h3>
+<p><strong>Explanation:</strong>
+An <strong>AutoRegressive Moving Average (ARMA)</strong> model combines both AR and MA components. It’s used for stationary time series. An ARMA(p, q) model uses ‘p’ lagged values of the series and ‘q’ lagged error terms to predict the current value.</p>
+<p><strong>Formula for ARMA(p, q):</strong>
+$<span class="math notranslate nohighlight">\(Y_t = c + \phi_1 Y_{t-1} + \dots + \phi_p Y_{t-p} + \epsilon_t + \theta_1 \epsilon_{t-1} + \dots + \theta_q \epsilon_{t-q}\)</span>$
+Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Y_t\)</span> is the value of the series at time <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(c\)</span> is a constant.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\\phi\)</span> are AR coefficients, <span class="math notranslate nohighlight">\(Y\)</span> are lagged values.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\\theta\)</span> are MA coefficients, <span class="math notranslate nohighlight">\(\\epsilon\)</span> are lagged error terms.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\\epsilon_t\)</span> is the current white noise error term.</p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span> is the AR order, <span class="math notranslate nohighlight">\(q\)</span> is the MA order.</p></li>
+</ul>
+<p><strong>Manual Calculation:</strong>
+Manually calculating ARMA models is extremely complex as it involves iterative optimization (e.g., Maximum Likelihood Estimation) to find the coefficients. It’s not practical to do by hand beyond conceptual understanding.</p>
+<p><strong>Problem Statement:</strong> A financial analyst wants to model stock price fluctuations that exhibit both dependence on past prices and past shocks.</p>
+<p><strong>Python Code for ARMA Model (Simulation &amp; Fitting):</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.arima_process</span><span class="w"> </span><span class="kn">import</span> <span class="n">arma_generate_sample</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.arima.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">ARIMA</span> <span class="c1"># ARIMA can fit ARMA models</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DejaVu Sans&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Time Series Models: ARMA (AutoRegressive Moving Average) ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># --- 1. Simulate an ARMA(1,1) process ---</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">44</span><span class="p">)</span>
+<span class="n">ar_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.7</span><span class="p">])</span> <span class="c1"># phi_1</span>
+<span class="n">ma_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">])</span> <span class="c1"># theta_1</span>
+<span class="n">ar_order</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ar_params</span><span class="p">)</span>
+<span class="n">ma_order</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ma_params</span><span class="p">)</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># Generate ARMA(1,1) sample</span>
+<span class="c1"># ar parameter is (1, -phi_1, ...), ma parameter is (1, theta_1, ...)</span>
+<span class="n">arma_process</span> <span class="o">=</span> <span class="n">arma_generate_sample</span><span class="p">(</span><span class="n">ar</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="n">ar_params</span><span class="p">],</span> <span class="n">ma</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">ma_params</span><span class="p">],</span> <span class="n">nsample</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arma_process</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkgreen&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Simulated ARMA(1,1) Process (phi_1=</span><span class="si">{</span><span class="n">ar_params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">, theta_1=</span><span class="si">{</span><span class="n">ma_params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># --- 2. Fit an ARMA model to sample data ---</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">arma_process_for_fit</span> <span class="o">=</span> <span class="n">arma_generate_sample</span><span class="p">(</span><span class="n">ar</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">])],</span> <span class="n">ma</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.4</span><span class="p">])],</span> <span class="n">nsample</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1"># Fit ARMA(1,1) model (ARIMA with p=1, d=0, q=1)</span>
+<span class="n">model_arma</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">arma_process_for_fit</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Fitted ARMA(1,1) Model Summary:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_arma</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+
+<span class="c1"># Plot original series and 1-step-ahead predictions</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arma_process_for_fit</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Series&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model_arma</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">arma_process_for_fit</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;1-step-ahead Predictions&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;ARMA(1,1) Model: Original vs. 1-step-ahead Predictions&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Time Series Models: ARMA (AutoRegressive Moving Average) ---
+</pre></div>
+</div>
+<img alt="../../_images/e6779ce8a043867973afc3e605f49f3bc6ce9b5799259d21718e371f1dbe68f4.png" src="../../_images/e6779ce8a043867973afc3e605f49f3bc6ce9b5799259d21718e371f1dbe68f4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitted ARMA(1,1) Model Summary:
+                               SARIMAX Results                                
+==============================================================================
+Dep. Variable:                      y   No. Observations:                  200
+Model:                 ARIMA(1, 0, 1)   Log Likelihood                -291.302
+Date:                Sat, 28 Jun 2025   AIC                            590.604
+Time:                        23:48:35   BIC                            603.797
+Sample:                             0   HQIC                           595.943
+                                - 200                                         
+Covariance Type:                  opg                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -0.4920      0.197     -2.496      0.013      -0.878      -0.106
+ar.L1          0.4727      0.087      5.417      0.000       0.302       0.644
+ma.L1          0.4141      0.085      4.885      0.000       0.248       0.580
+sigma2         1.0737      0.107     10.010      0.000       0.863       1.284
+===================================================================================
+Ljung-Box (L1) (Q):                   0.02   Jarque-Bera (JB):                 0.78
+Prob(Q):                              0.88   Prob(JB):                         0.68
+Heteroskedasticity (H):               0.87   Skew:                             0.14
+Prob(H) (two-sided):                  0.58   Kurtosis:                         3.13
+===================================================================================
+
+Warnings:
+[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+</pre></div>
+</div>
+<img alt="../../_images/5d5e2cdee28f0836ae02c1f93fc53c1beb7155adfcc17cd3f6c0e9d19bc7f4c4.png" src="../../_images/5d5e2cdee28f0836ae02c1f93fc53c1beb7155adfcc17cd3f6c0e9d19bc7f4c4.png" />
+</div>
+</div>
+</section>
+<section id="arima-autoregressive-integrated-moving-average-model">
+<h3>8.8. ARIMA (AutoRegressive Integrated Moving Average) Model<a class="headerlink" href="#arima-autoregressive-integrated-moving-average-model" title="Link to this heading">#</a></h3>
+<p><strong>Explanation:</strong>
+<strong>AutoRegressive Integrated Moving Average (ARIMA)</strong> is an extension of the ARMA model that can handle <strong>non-stationary</strong> time series. The “I” stands for “Integrated,” which refers to the use of <strong>differencing</strong> to make the series stationary.</p>
+<p>An ARIMA model is typically denoted as ARIMA(p, d, q):</p>
+<ul class="simple">
+<li><p><strong>p:</strong> The order of the AutoRegressive (AR) part (number of lagged observations).</p></li>
+<li><p><strong>d:</strong> The order of differencing (number of times the raw observations are differenced to achieve stationarity).</p></li>
+<li><p><strong>q:</strong> The order of the Moving Average (MA) part (number of lagged forecast errors).</p></li>
+</ul>
+<p><strong>Differencing:</strong>
+Differencing involves computing the difference between consecutive observations.</p>
+<ul class="simple">
+<li><p><strong>First-order differencing:</strong> <span class="math notranslate nohighlight">\(Y'*t = Y_t - Y*{t-1}\)</span> (removes linear trend)</p></li>
+<li><p><strong>Second-order differencing:</strong> <span class="math notranslate nohighlight">\(Y''_t = Y'*t - Y'*{t-1}\)</span> (removes quadratic trend)</p></li>
+<li><p><strong>Seasonal differencing:</strong> <span class="math notranslate nohighlight">\(Y'*t = Y_t - Y*{t-L}\)</span> (removes seasonality of period L)</p></li>
+</ul>
+<p><strong>Manual Calculation (Differencing Step):</strong></p>
+<p><strong>Problem Statement:</strong> A company’s monthly sales data shows a clear upward trend. Make the series stationary using first-order differencing.</p>
+<p>Sales Data: <code class="docutils literal notranslate"><span class="pre">[100,</span> <span class="pre">110,</span> <span class="pre">125,</span> <span class="pre">130,</span> <span class="pre">140,</span> <span class="pre">155]</span></code></p>
+<p><strong>First-order Differencing:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Y'_2 = Y_2 - Y_1 = 110 - 100 = \\mathbf{10}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Y'_3 = Y_3 - Y_2 = 125 - 110 = \\mathbf{15}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Y'_4 = Y_4 - Y_3 = 130 - 125 = \\mathbf{5}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Y'_5 = Y_5 - Y_4 = 140 - 130 = \\mathbf{10}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Y'_6 = Y_6 - Y_5 = 155 - 140 = \\mathbf{15}\)</span></p></li>
+</ul>
+<p>The differenced series is: <code class="docutils literal notranslate"><span class="pre">[10,</span> <span class="pre">15,</span> <span class="pre">5,</span> <span class="pre">10,</span> <span class="pre">15]</span></code>. This series now fluctuates around a constant mean (no trend).</p>
+<p><em>(Note: After differencing, the stationary series is then modeled using ARMA(p, q). The forecast from the ARMA model is then “integrated” back to the original scale by reversing the differencing operation.)</em></p>
+<p><strong>Python Code for ARIMA Model (Differencing &amp; Fitting):</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.arima.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">ARIMA</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.graphics.tsaplots</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_acf</span><span class="p">,</span> <span class="n">plot_pacf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.arima_process</span><span class="w"> </span><span class="kn">import</span> <span class="n">arma_generate_sample</span>
+
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DejaVu Sans&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Time Series Models: ARIMA (AutoRegressive Integrated Moving Average) ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># --- 1. Simulate a non-stationary process (e.g., random walk with drift) ---</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">150</span>
+<span class="n">non_stationary_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span> <span class="o">+</span> <span class="mi">50</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">non_stationary_data</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Non-Stationary Time Series (with Trend)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># --- 2. Apply differencing to achieve stationarity ---</span>
+<span class="n">differenced_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">non_stationary_data</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># First-order differencing</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">differenced_data</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;First-Order Differenced Time Series (More Stationary)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Differenced Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># --- 3. Fit an ARIMA model ---</span>
+<span class="c1"># Let&#39;s use a simulated ARIMA(1,1,1) process for fitting</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="c1"># AR(1) param = 0.7, MA(1) param = 0.5, d=1 (integrated)</span>
+<span class="c1"># This is a bit complex to generate directly as ARIMA, so we&#39;ll simulate a stationary ARMA and then cumsum it</span>
+<span class="c1"># For demonstration purposes, let&#39;s create a non-stationary series that can be made stationary with 1 diff</span>
+<span class="n">ar_param_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.6</span><span class="p">])</span>
+<span class="n">ma_param_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.4</span><span class="p">])</span>
+<span class="n">stationary_part</span> <span class="o">=</span> <span class="n">arma_generate_sample</span><span class="p">(</span><span class="n">ar</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="n">ar_param_sim</span><span class="p">],</span> <span class="n">ma</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">ma_param_sim</span><span class="p">],</span> <span class="n">nsample</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">arima_process_for_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">stationary_part</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span> <span class="c1"># Add a slight random walk on top</span>
+
+<span class="c1"># Fit ARIMA(1,1,1) model (p=1, d=1, q=1)</span>
+<span class="c1"># The &#39;d&#39; parameter handles the differencing internally</span>
+<span class="n">model_arima</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">arima_process_for_fit</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># model_arima = ARIMA(arima_process_for_fit, order=(1, 1, 1), trend=&#39;c&#39;).fit()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Fitted ARIMA(1,1,1) Model Summary:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_arima</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+
+<span class="c1"># Plot original series and forecasts</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arima_process_for_fit</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Series&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="c1"># Get forecasts for a future period</span>
+<span class="n">forecast_steps</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">forecast_result</span> <span class="o">=</span> <span class="n">model_arima</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="n">forecast_steps</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arima_process_for_fit</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">arima_process_for_fit</span><span class="p">)</span> <span class="o">+</span> <span class="n">forecast_steps</span><span class="p">),</span>
+         <span class="n">forecast_result</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Forecast&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;ARIMA(1,1,1) Model: Original Series and Forecast&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Time Series Models: ARIMA (AutoRegressive Integrated Moving Average) ---
+</pre></div>
+</div>
+<img alt="../../_images/f870831850dcf083c8a9f57d6580f8fe810cd2f8576b55d19e9e437e58322ebc.png" src="../../_images/f870831850dcf083c8a9f57d6580f8fe810cd2f8576b55d19e9e437e58322ebc.png" />
+<img alt="../../_images/70cf8e491ad73e0cf842537063ccbbf0347bf2a4755238067fa71dd5f6181c88.png" src="../../_images/70cf8e491ad73e0cf842537063ccbbf0347bf2a4755238067fa71dd5f6181c88.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitted ARIMA(1,1,1) Model Summary:
+                               SARIMAX Results                                
+==============================================================================
+Dep. Variable:                      y   No. Observations:                  200
+Model:                 ARIMA(1, 1, 1)   Log Likelihood                -347.539
+Date:                Sat, 28 Jun 2025   AIC                            703.078
+Time:                        23:16:53   BIC                            716.251
+Sample:                             0   HQIC                           708.409
+                                - 200                                         
+Covariance Type:                  opg                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+x1            -0.1674      0.202     -0.827      0.408      -0.564       0.229
+ar.L1          0.6244      0.140      4.451      0.000       0.349       0.899
+ma.L1         -0.2661      0.183     -1.453      0.146      -0.625       0.093
+sigma2         1.9231      0.193      9.939      0.000       1.544       2.302
+===================================================================================
+Ljung-Box (L1) (Q):                   0.00   Jarque-Bera (JB):                 1.37
+Prob(Q):                              0.97   Prob(JB):                         0.50
+Heteroskedasticity (H):               0.60   Skew:                             0.20
+Prob(H) (two-sided):                  0.04   Kurtosis:                         3.06
+===================================================================================
+
+Warnings:
+[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+</pre></div>
+</div>
+<img alt="../../_images/43d26c9fe64a6c4271d35e7f015de5a381845521fac02917b22d7cd39993150a.png" src="../../_images/43d26c9fe64a6c4271d35e7f015de5a381845521fac02917b22d7cd39993150a.png" />
+</div>
+</div>
+</section>
+<section id="exponential-smoothing">
+<h3>8.9. Exponential Smoothing<a class="headerlink" href="#exponential-smoothing" title="Link to this heading">#</a></h3>
+<p><strong>Explanation:</strong>
+Exponential smoothing methods are a family of forecasting techniques that assign exponentially decreasing weights to past observations. More recent observations are given more weight than older observations. This makes them particularly effective for data with trend and/or seasonality.</p>
+<p><strong>Types of Exponential Smoothing:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Simple Exponential Smoothing (SES):</strong></p>
+<ul class="simple">
+<li><p>For series with <strong>no trend and no seasonality</strong>.</p></li>
+<li><p>Forecast is a weighted average of past observations, with weights decaying exponentially.</p></li>
+<li><p>Formula: <span class="math notranslate nohighlight">\(\\hat{Y}_{t+1} = \\alpha Y_t + (1 - \\alpha) \\hat{Y}_t\)</span></p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\\hat{Y}_{t+1}\)</span>: Forecast for the next period.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Y_t\)</span>: Actual observation at time <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\\hat{Y}_t\)</span>: Forecast for time <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\\alpha\)</span>: Smoothing parameter (alpha), between 0 and 1. A higher <span class="math notranslate nohighlight">\(\\alpha\)</span> means more weight on recent observations.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Holt’s Linear Trend Method:</strong></p>
+<ul class="simple">
+<li><p>For series with a <strong>trend but no seasonality</strong>.</p></li>
+<li><p>Involves two smoothing parameters: one for the level (<span class="math notranslate nohighlight">\(\\alpha\)</span>) and one for the trend (<span class="math notranslate nohighlight">\(\\beta\)</span>).</p></li>
+</ul>
+</li>
+<li><p><strong>Holt-Winters’ Seasonal Method:</strong></p>
+<ul class="simple">
+<li><p>For series with <strong>trend and/or seasonality</strong>.</p></li>
+<li><p>Involves three smoothing parameters: one for the level (<span class="math notranslate nohighlight">\(\\alpha\)</span>), one for the trend (<span class="math notranslate nohighlight">\(\\beta\)</span>), and one for the seasonal component (<span class="math notranslate nohighlight">\(\\gamma\)</span>).</p></li>
+<li><p>Can be additive (seasonal fluctuations are constant in magnitude) or multiplicative (seasonal fluctuations change with the level of the series).</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Manual Calculation (Simple Exponential Smoothing - SES):</strong></p>
+<p><strong>Problem Statement:</strong> Forecast the next sales value using SES with <span class="math notranslate nohighlight">\(\\alpha = 0.3\)</span>. Assume the initial forecast <span class="math notranslate nohighlight">\(\\hat{Y}_1 = 100\)</span>.</p>
+<p>Sales Data: <code class="docutils literal notranslate"><span class="pre">[105,</span> <span class="pre">110,</span> <span class="pre">108,</span> <span class="pre">115,</span> <span class="pre">112]</span></code></p>
+<p><strong>Forecast:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\hat{Y}_1 = 100\)</span> (given initial forecast)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{Y}_2 = \\alpha Y_1 + (1 - \alpha) \hat{Y}_1 = 0.3 \times 105 + (1 - 0.3) \times 100 = 31.5 + 70 = \mathbf{101.5}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{Y}_3 = \\alpha Y_2 + (1 - \alpha) \hat{Y}_2 = 0.3 \times 110 + (1 - 0.3) \times 101.5 = 33 + 71.05 = \mathbf{104.05}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{Y}_4 = \\alpha Y_3 + (1 - \alpha) \hat{Y}_3 = 0.3 \times 108 + (1 - 0.3) \times 104.05 = 32.4 + 72.835 = \mathbf{105.235}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{Y}_5 = \\alpha Y_4 + (1 - \alpha) \hat{Y}_4 = 0.3 \times 115 + (1 - 0.3) \times 105.235 = 34.5 + 73.6645 = \mathbf{108.1645}\)</span></p></li>
+<li><p><strong>Forecast for <span class="math notranslate nohighlight">\(Y_6\)</span></strong>: <span class="math notranslate nohighlight">\(\hat{Y}_6 = \alpha Y_5 + (1 - \alpha) \hat{Y}_5 = 0.3 \times 112 + (1 - 0.3) \times 108.1645 = 33.6 + 75.71515 = \mathbf{109.31515}\)</span></p></li>
+</ul>
+<p><strong>Python Code for Exponential Smoothing (Fitting &amp; Plotting):</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleExpSmoothing</span><span class="p">,</span> <span class="n">Holt</span><span class="p">,</span> <span class="n">ExponentialSmoothing</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DejaVu Sans&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Time Series Models: Exponential Smoothing ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># --- 1. Simple Exponential Smoothing (SES) ---</span>
+<span class="c1"># Problem Statement Data</span>
+<span class="n">sales_ses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">105</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">115</span><span class="p">,</span> <span class="mi">112</span><span class="p">])</span>
+<span class="n">initial_forecast_ses</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># For manual calculation comparison</span>
+
+<span class="c1"># Fit SES model</span>
+<span class="c1"># The smoothing_level parameter is alpha</span>
+<span class="n">fit_ses</span> <span class="o">=</span> <span class="n">SimpleExpSmoothing</span><span class="p">(</span><span class="n">sales_ses</span><span class="p">,</span> <span class="n">initialization_method</span><span class="o">=</span><span class="s2">&quot;estimated&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span> <span class="c1"># Let statsmodels estimate alpha</span>
+<span class="c1"># Or, if you want to fix alpha for demonstration:</span>
+<span class="c1"># fit_ses_fixed_alpha = SimpleExpSmoothing(sales_ses, initialization_method=&quot;known&quot;, initial_level=initial_forecast_ses).fit(smoothing_level=0.3)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Simple Exponential Smoothing (SES) - Estimated Alpha: </span><span class="si">{</span><span class="n">fit_ses</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;smoothing_level&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SES Forecast for next period: </span><span class="si">{</span><span class="n">fit_ses</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sales_ses</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Sales&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fit_ses</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SES Fitted Values&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sales_ses</span><span class="p">),</span> <span class="n">fit_ses</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SES Forecast&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Simple Exponential Smoothing&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sales&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># --- 2. Holt&#39;s Linear Trend Method ---</span>
+<span class="c1"># Simulate data with trend</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">46</span><span class="p">)</span>
+<span class="n">data_holt</span> <span class="o">=</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span> <span class="o">+</span> <span class="mi">50</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="n">fit_holt</span> <span class="o">=</span> <span class="n">Holt</span><span class="p">(</span><span class="n">data_holt</span><span class="p">,</span> <span class="n">initialization_method</span><span class="o">=</span><span class="s2">&quot;estimated&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Holt&#39;s Linear Trend Method - Alpha: </span><span class="si">{</span><span class="n">fit_holt</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;smoothing_level&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, Beta: </span><span class="si">{</span><span class="n">fit_holt</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;smoothing_trend&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Holt Forecast for next 3 periods: </span><span class="si">{</span><span class="n">fit_holt</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_holt</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Data&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fit_holt</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Holt Fitted Values&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_holt</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_holt</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="p">),</span> <span class="n">fit_holt</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Holt Forecast&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Holt</span><span class="se">\&#39;</span><span class="s1">s Linear Trend Method&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># --- 3. Holt-Winters&#39; Seasonal Method ---</span>
+<span class="c1"># Simulate data with trend and seasonality (e.g., quarterly data over years)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">47</span><span class="p">)</span>
+<span class="n">time_hw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">41</span><span class="p">)</span> <span class="c1"># 40 quarters (10 years)</span>
+<span class="n">data_hw</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">time_hw</span> <span class="o">+</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">time_hw</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+
+<span class="c1"># Fit Holt-Winters model (additive seasonality)</span>
+<span class="c1"># seasonal_periods=4 for quarterly data</span>
+<span class="n">fit_hw</span> <span class="o">=</span> <span class="n">ExponentialSmoothing</span><span class="p">(</span><span class="n">data_hw</span><span class="p">,</span> <span class="n">seasonal_periods</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="n">seasonal</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="n">initialization_method</span><span class="o">=</span><span class="s2">&quot;estimated&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Holt-Winters&#39; Seasonal Method (Additive) - Alpha: </span><span class="si">{</span><span class="n">fit_hw</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;smoothing_level&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, Beta: </span><span class="si">{</span><span class="n">fit_hw</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;smoothing_trend&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, Gamma: </span><span class="si">{</span><span class="n">fit_hw</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;smoothing_seasonal&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Holt-Winters Forecast for next 8 periods: </span><span class="si">{</span><span class="n">fit_hw</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_hw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Data&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkgreen&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fit_hw</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Holt-Winters Fitted Values&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_hw</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_hw</span><span class="p">)</span> <span class="o">+</span> <span class="mi">8</span><span class="p">),</span> <span class="n">fit_hw</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Holt-Winters Forecast&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Holt-Winters</span><span class="se">\&#39;</span><span class="s1"> Seasonal Method (Additive)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (Quarters)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Time Series Models: Exponential Smoothing ---
+
+Simple Exponential Smoothing (SES) - Estimated Alpha: 0.000
+SES Forecast for next period: 110.00
+</pre></div>
+</div>
+<img alt="../../_images/50047017434ea74eb438074640ff8d5cbd265097d5fa7308c67dd1990ffea507.png" src="../../_images/50047017434ea74eb438074640ff8d5cbd265097d5fa7308c67dd1990ffea507.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Holt&#39;s Linear Trend Method - Alpha: 0.000, Beta: 0.000
+Holt Forecast for next 3 periods: [66.74616403 67.51115306 68.27614209]
+</pre></div>
+</div>
+<img alt="../../_images/b13f1e2fed61437680f6b9270644502b6b647855df0e35b724d1e8d703513359.png" src="../../_images/b13f1e2fed61437680f6b9270644502b6b647855df0e35b724d1e8d703513359.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Holt-Winters&#39; Seasonal Method (Additive) - Alpha: 0.000, Beta: 0.000, Gamma: 0.000
+Holt-Winters Forecast for next 8 periods: [134.26910991 118.79518074  97.111006   119.54949796 135.77519877
+ 120.3012696   98.61709486 121.05558682]
+</pre></div>
+</div>
+<img alt="../../_images/d3feb8089ed3d246c4e940ef0f39b70cdb294e9063896b0191656997ac146c6d.png" src="../../_images/d3feb8089ed3d246c4e940ef0f39b70cdb294e9063896b0191656997ac146c6d.png" />
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(Y_1 = 0.8 * \epsilon_0 + \\epsilon_1 = 0.8 \\times 0 + 2 = \\mathbf{2}\)</span>
+<span class="math notranslate nohighlight">\(Y_2 = 0.8 \\times \\epsilon_1 + \\epsilon_2 = 0.8 \\times 2 + (-1) = 1.6 - 1 = \\mathbf{0.6}\)</span>
+<span class="math notranslate nohighlight">\(Y_3 = 0.8 \\times \\epsilon_2 + \\epsilon_3 = 0.8 \\times (-1) + 3 = -0.8 + 3 = \\mathbf{2.2}\)</span></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Mathematics for Data Science\Statistics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts">Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stationarity">8.1. Stationarity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trend">8.2. Trend</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonality">8.3. Seasonality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#noise-residuals">8.4. Noise (Residuals)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models">Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ar-autoregressive-model">8.5. AR (AutoRegressive) Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ma-moving-average-model">8.6. MA (Moving Average) Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arma-autoregressive-moving-average-model">8.7. ARMA (AutoRegressive Moving Average) Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arima-autoregressive-integrated-moving-average-model">8.8. ARIMA (AutoRegressive Integrated Moving Average) Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponential-smoothing">8.9. Exponential Smoothing</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

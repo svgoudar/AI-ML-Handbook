@@ -1,0 +1,2061 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Foundational Descriptive Statistics &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Mathematics for Data Science/Statistics/b.Descriptive_Statistucs';</script>
+    <link rel="icon" href="../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../table_of_contents.html">Table of Contents</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/edit/master/docs/Mathematics for Data Science/Statistics/b.Descriptive_Statistucs.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FMathematics for Data Science/Statistics/b.Descriptive_Statistucs.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Mathematics for Data Science/Statistics/b.Descriptive_Statistucs.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Foundational Descriptive Statistics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Foundational Descriptive Statistics</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-central-tendency">1. <strong>Measures of Central Tendency</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-arithmetic-average">📌 <strong>Mean (Arithmetic Average)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#median">📌 <strong>Median</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mode">📌 <strong>Mode</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-dispersion">2. <strong>Measures of Dispersion</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#range">📌 <strong>Range</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">📌 <strong>Variance</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combined-insight">Combined Insight:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">📌 <strong>Standard Deviation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interquartile-range-iqr">📌 <strong>Interquartile Range (IQR)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-of-the-distribution">3. <strong>Shape of the Distribution</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">📌 <strong>Skewness</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurtosis">📌 <strong>Kurtosis</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization-techniques">4. <strong>Data Visualization Techniques</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms">📊 <strong>Histograms</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plots-box-and-whisker-plots">📦 <strong>Box Plots (Box-and-Whisker Plots)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot-of-exam-scores-section-a-vs-section-b">📦 <strong>Box Plot of Exam Scores – Section A vs. Section B</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observation">🔍 <strong>Observation</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">✅ <strong>Conclusion</strong>:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#density-plot">🌊 Density Plot</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#density-plot-of-daily-sales">🌊 <strong>Density Plot of Daily Sales</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔍 <strong>Observation</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">✅ <strong>Conclusion</strong>:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#violin-plot">🎻 Violin Plot</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#violin-plot-of-player-points-per-game">🎻 <strong>Violin Plot of Player Points per Game</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🔍 <strong>Observation</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">✅ <strong>Conclusion</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-charts-pie-charts">📊 <strong>Bar Charts / Pie Charts</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-chart-voter-preferences-by-political-party">📊 <strong>Bar Chart: Voter Preferences by Political Party</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">🔍 <strong>Observation</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">✅ <strong>Conclusion</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plots">⚫ <strong>Scatter Plots</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot-bmi-vs-blood-pressure">⚪ <strong>Scatter Plot: BMI vs Blood Pressure</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">🔍 <strong>Observation</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">✅ <strong>Conclusion</strong>:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pair-plot">🔁 Pair Plot</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">✅ <strong>Conclusion</strong>:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pair-plot-academic-scores-math-science-reading">🔁 <strong>Pair Plot: Academic Scores (Math, Science, Reading)</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">🔍 <strong>Observation</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">✅ <strong>Conclusion</strong>:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-table-of-observations">✅ Summary Table of Observations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-for-reporting-conclusions">💡 Tips for Reporting Conclusions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-appropriate-way-to-visualize-a-list-of-the-eye-colors-of-120-people"><strong>1. What is an appropriate way to visualize a list of the eye colors of 120 people?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#according-to-the-histogram-of-travel-times-to-work-from-the-us-2000-census-roughly-what-percentage-of-commuters-travel-more-than-45-minutes"><strong>2. According to the histogram of travel times to work from the US 2000 census, roughly what percentage of commuters travel more than 45 minutes?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximately-what-is-the-median-travel-time-in-minutes"><strong>3. Approximately what is the median travel time, in minutes?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#which-summary-measure-would-you-use-to-compare-household-incomes-between-california-and-massachusetts"><strong>4. Which summary measure would you use to compare household incomes between California and Massachusetts?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-all-household-incomes-increase-by-5-how-does-the-mean-change"><strong>5. If all household incomes increase by 5%, how does the mean change?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-median-change-if-all-incomes-increase-by-5"><strong>6. How does the median change if all incomes increase by 5%?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-standard-deviation-change-if-all-incomes-increase-by-5"><strong>7. How does the standard deviation change if all incomes increase by 5%?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-interquartile-range-change-if-all-incomes-increase-by-5"><strong>8. How does the interquartile range change if all incomes increase by 5%?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-mean-change-if-all-incomes-increase-by-5-000"><strong>9. How does the mean change if all incomes increase by $5,000?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-median-change-if-all-incomes-increase-by-5-000"><strong>10. How does the median change if all incomes increase by $5,000?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-standard-deviation-change-if-all-incomes-increase-by-5-000"><strong>11. How does the standard deviation change if all incomes increase by $5,000?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-interquartile-range-change-if-all-incomes-increase-by-5-000"><strong>12. How does the interquartile range change if all incomes increase by $5,000?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-median-house-price-is-342-000-what-percentage-of-homes-sold-for-more-than-that"><strong>13. The median house price is $342,000. What percentage of homes sold for more than that?</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#topic-understanding-the-shape-of-a-distribution">🎓 Topic: Understanding the <strong>Shape of a Distribution</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-we-mean-by-shape-of-a-distribution">1. 📌 <strong>What Do We Mean by “Shape of a Distribution”?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-types-of-distribution-shapes">2. 🔄 <strong>Main Types of Distribution Shapes</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-symmetric-distribution-also-called-normal-or-bell-shaped">🟢 a) <strong>Symmetric Distribution</strong> (also called “normal” or bell-shaped)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-right-skewed-positively-skewed">🔵 b) <strong>Right-Skewed (Positively Skewed)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-left-skewed-negatively-skewed">🔴 c) <strong>Left-Skewed (Negatively Skewed)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-uniform-distribution">🟡 d) <strong>Uniform Distribution</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-bimodal-distribution">🟠 e) <strong>Bimodal Distribution</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-you-spot-these-shapes">3. 🧠 <strong>How Can You Spot These Shapes?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-the-shape-matter-in-data-analysis">4. ✅ <strong>Why Does the Shape Matter in Data Analysis?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analogy-to-wrap-it-up">✨ Analogy to Wrap It Up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">🎯 Summary</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-divide-by-n-1-for-sample-variance">📌 <strong>Why Do We Divide by (n – 1) for Sample Variance?</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-reason">✅ <strong>Key Reason</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-happening">🔍 <strong>What’s Happening</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-n-1">📊 <strong>Why (n – 1)?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bottom-line">🎓 <strong>Bottom Line</strong>:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-covariance-and-correlation">Understanding Covariance and Correlation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance">Covariance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation">Correlation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson-correlation-coefficient">Pearson Correlation Coefficient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spearman-rank-correlation">Spearman Rank Correlation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases-in-data-science">Use Cases in Data Science</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <details>
+<summary>Topics</summary>
+<ol class="arabic simple">
+<li><p><strong>Descriptive Statistics</strong></p>
+<ul class="simple">
+<li><p>Measures of Central Tendency</p>
+<ul>
+<li><p>Mean</p></li>
+<li><p>Median</p></li>
+<li><p>Mode</p></li>
+</ul>
+</li>
+<li><p>Measures of Dispersion</p>
+<ul>
+<li><p>Variance</p></li>
+<li><p>Standard Deviation</p></li>
+<li><p>Range</p></li>
+</ul>
+</li>
+<li><p>Data Summarization Tools</p>
+<ul>
+<li><p>Histograms</p></li>
+<li><p>Box Plots</p></li>
+<li><p>Whisker Plots</p></li>
+</ul>
+</li>
+<li><p>Probability Distributions</p>
+<ul>
+<li><p>Probability Density Function (PDF)</p></li>
+<li><p>Cumulative Distribution Function (CDF)</p></li>
+<li><p>Gaussian Distribution</p></li>
+<li><p>Log Normal Distribution</p></li>
+<li><p>Binomial Distribution</p></li>
+<li><p>Bernoulli Distribution</p></li>
+<li><p>Pareto Distribution (Power Law Distribution)</p></li>
+<li><p>Standard Normal Distribution</p></li>
+</ul>
+</li>
+<li><p>Statistical Transformation Techniques</p>
+<ul>
+<li><p>Standardization</p></li>
+<li><p>Q-Q Plot Analysis</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul class="simple">
+<li><p><strong>Inferential Statistics</strong></p>
+<ul>
+<li><p>Hypothesis Testing</p>
+<ul>
+<li><p>Null Hypothesis</p></li>
+<li><p>Alternative Hypothesis</p></li>
+</ul>
+</li>
+<li><p>Statistical Tests</p>
+<ul>
+<li><p>Z-test</p></li>
+<li><p>T-test</p></li>
+<li><p>ANOVA (Analysis of Variance)</p>
+<ul>
+<li><p>F-test</p></li>
+<li><p>Factorial ANOVA</p></li>
+</ul>
+</li>
+<li><p>Chi-square test</p></li>
+</ul>
+</li>
+<li><p>P-values</p></li>
+<li><p>Confidence Intervals</p></li>
+<li><p>Statistical Tables</p>
+<ul>
+<li><p>Z-tables</p></li>
+<li><p>T-tables</p></li>
+<li><p>Chi-square tables</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Sampling Techniques</strong></p>
+<ul>
+<li><p>Simple Random Sampling</p></li>
+<li><p>Stratified Sampling</p></li>
+<li><p>Systematic Sampling</p></li>
+<li><p>Convenience Sampling</p></li>
+</ul>
+</li>
+<li><p><strong>Applications and Examples</strong></p>
+<ul>
+<li><p>Exit Poll Analysis</p></li>
+<li><p>Household Surveys</p></li>
+<li><p>Drug Testing Sampling Strategies</p></li>
+</ul>
+</li>
+</ul>
+</details><section id="foundational-descriptive-statistics">
+<h1><strong>Foundational Descriptive Statistics</strong><a class="headerlink" href="#foundational-descriptive-statistics" title="Link to this heading">#</a></h1>
+<p>Descriptive statistics is the branch of statistics that deals with <strong>summarizing and describing</strong> the main features of a dataset. These summaries can be <strong>numerical (e.g., averages, variability)</strong> or <strong>visual (e.g., graphs and plots)</strong>. Below, we will study its core concepts in four thematic groups.</p>
+<hr class="docutils" />
+</section>
+<section id="measures-of-central-tendency">
+<h1>1. <strong>Measures of Central Tendency</strong><a class="headerlink" href="#measures-of-central-tendency" title="Link to this heading">#</a></h1>
+<p>These metrics describe the <strong>center or typical value</strong> in a dataset.</p>
+<section id="mean-arithmetic-average">
+<h2>📌 <strong>Mean (Arithmetic Average)</strong><a class="headerlink" href="#mean-arithmetic-average" title="Link to this heading">#</a></h2>
+<p><strong>Definition:</strong>
+The sum of all values divided by the number of values.</p>
+<p><strong>Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+\]</div>
+<p><strong>Interpretation:</strong>
+The mean represents a <strong>balanced point</strong> of the data, much like the center of mass.</p>
+<p><strong>Example (Education):</strong>
+A student scores 60, 70, 80 on three exams. The mean score = (60 + 70 + 80) / 3 = <strong>70</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="median">
+<h2>📌 <strong>Median</strong><a class="headerlink" href="#median" title="Link to this heading">#</a></h2>
+<p><strong>Definition:</strong>
+The <strong>middle value</strong> when the data are sorted in order.</p>
+<p><strong>Interpretation:</strong>
+It divides the data into <strong>two equal halves</strong> and is <strong>not affected by extreme values (outliers).</strong></p>
+<p><strong>Example (Health):</strong>
+The waiting times (in minutes) at a clinic: 5, 7, 10, 12, 60.
+Median = 10 (middle value), <strong>not distorted by 60</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="mode">
+<h2>📌 <strong>Mode</strong><a class="headerlink" href="#mode" title="Link to this heading">#</a></h2>
+<p><strong>Definition:</strong>
+The <strong>most frequently occurring</strong> value(s) in a dataset.</p>
+<p><strong>Interpretation:</strong>
+Useful for <strong>categorical data</strong> or understanding common outcomes.</p>
+<p><strong>Example (Retail):</strong>
+In a clothing store, the most sold shirt size is <strong>M</strong>.
+Hence, the mode = <strong>M</strong>.</p>
+<hr class="docutils" />
+</section>
+</section>
+<section id="measures-of-dispersion">
+<h1>2. <strong>Measures of Dispersion</strong><a class="headerlink" href="#measures-of-dispersion" title="Link to this heading">#</a></h1>
+<p>These statistics describe how <strong>spread out or varied</strong> the data are.</p>
+<section id="range">
+<h2>📌 <strong>Range</strong><a class="headerlink" href="#range" title="Link to this heading">#</a></h2>
+<p><strong>Definition:</strong>
+The difference between the <strong>maximum and minimum</strong> values.</p>
+<p><strong>Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\text{Range} = \max(x) - \min(x)
+\]</div>
+<p><strong>Interpretation:</strong>
+Gives a quick sense of total variability but is <strong>sensitive to outliers</strong>.</p>
+<p><strong>Example (Sports):</strong>
+If the scores in a basketball game are from 45 to 98,
+then the range = 98 - 45 = <strong>53 points</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="variance">
+<h2>📌 <strong>Variance</strong><a class="headerlink" href="#variance" title="Link to this heading">#</a></h2>
+<p><strong>Definition:</strong>
+The <strong>average of the squared differences</strong> from the mean.</p>
+<p><strong>Formula (Sample):</strong></p>
+<div class="math notranslate nohighlight">
+\[
+s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2
+\]</div>
+<p><strong>Interpretation:</strong>
+Indicates the <strong>average spread</strong>, but in <strong>squared units</strong>.
+A higher variance indicates more spread in the data.</p>
+<p><strong>Example (Finance):</strong>
+If daily returns on a stock fluctuate greatly, the variance will be <strong>high</strong>, indicating <strong>high risk</strong>.</p>
+</section>
+<section id="combined-insight">
+<h2>Combined Insight:<a class="headerlink" href="#combined-insight" title="Link to this heading">#</a></h2>
+<p>Together, these two sets of metrics give a <strong>comprehensive summary of your dataset</strong>:</p>
+<ul class="simple">
+<li><p>Central tendency tells you <strong>where</strong> the data is centered.</p></li>
+<li><p>Dispersion tells you <strong>how tight or spread out</strong> that data is.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="standard-deviation">
+<h2>📌 <strong>Standard Deviation</strong><a class="headerlink" href="#standard-deviation" title="Link to this heading">#</a></h2>
+<p><strong>Definition:</strong>
+The <strong>square root</strong> of the variance.</p>
+<p><strong>Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+s = \sqrt{s^2}
+\]</div>
+<p><strong>Interpretation:</strong>
+Describes <strong>typical distance</strong> of data points from the mean, in the <strong>original units</strong>.</p>
+<p><strong>Example (Health):</strong>
+If the average blood pressure is 120 mmHg and SD = 10, then most patients fall within <strong>110–130 mmHg</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="interquartile-range-iqr">
+<h2>📌 <strong>Interquartile Range (IQR)</strong><a class="headerlink" href="#interquartile-range-iqr" title="Link to this heading">#</a></h2>
+<p><strong>Definition:</strong>
+The difference between the <strong>75th percentile (Q3)</strong> and the <strong>25th percentile (Q1)</strong>.</p>
+<p><strong>Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\text{IQR} = Q3 - Q1
+\]</div>
+<p><strong>Interpretation:</strong>
+Measures the <strong>middle 50%</strong> spread of data. <strong>Robust to outliers.</strong></p>
+<p><strong>Example (Education):</strong>
+SAT scores: Q1 = 1050, Q3 = 1250 → IQR = 200.
+Middle students scored between 1050 and 1250.</p>
+<hr class="docutils" />
+</section>
+</section>
+<section id="shape-of-the-distribution">
+<h1>3. <strong>Shape of the Distribution</strong><a class="headerlink" href="#shape-of-the-distribution" title="Link to this heading">#</a></h1>
+<p>These metrics describe the <strong>form or symmetry</strong> of data distributions.</p>
+<section id="skewness">
+<h2>📌 <strong>Skewness</strong><a class="headerlink" href="#skewness" title="Link to this heading">#</a></h2>
+<p><strong>Definition:</strong>
+A measure of <strong>asymmetry</strong> in the distribution.</p>
+<ul class="simple">
+<li><p><strong>Skewness &gt; 0</strong>: Right-skewed (tail on the right).</p></li>
+<li><p><strong>Skewness &lt; 0</strong>: Left-skewed (tail on the left).</p></li>
+<li><p><strong>Skewness ≈ 0</strong>: Symmetric (like normal distribution).</p></li>
+</ul>
+<p><strong>Example (Income):</strong>
+Most people earn average incomes, but a few earn very high amounts.
+→ Income data is <strong>right-skewed</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="kurtosis">
+<h2>📌 <strong>Kurtosis</strong><a class="headerlink" href="#kurtosis" title="Link to this heading">#</a></h2>
+<p><strong>Definition:</strong>
+Measures the <strong>tailedness</strong> or <strong>peakedness</strong> of a distribution.</p>
+<ul class="simple">
+<li><p><strong>High kurtosis</strong>: More extreme outliers (leptokurtic).</p></li>
+<li><p><strong>Low kurtosis</strong>: Flatter, fewer outliers (platykurtic).</p></li>
+<li><p><strong>Normal distribution</strong> has kurtosis = 3.</p></li>
+</ul>
+<p><strong>Example (Finance):</strong>
+Stock returns often have <strong>high kurtosis</strong>, indicating <strong>frequent extreme gains/losses</strong>.</p>
+<hr class="docutils" />
+</section>
+</section>
+<section id="data-visualization-techniques">
+<h1>4. <strong>Data Visualization Techniques</strong><a class="headerlink" href="#data-visualization-techniques" title="Link to this heading">#</a></h1>
+<section id="histograms">
+<h2>📊 <strong>Histograms</strong><a class="headerlink" href="#histograms" title="Link to this heading">#</a></h2>
+<p><strong>Definition</strong>: A histogram is a type of bar graph that displays the <strong>distribution of continuous numerical data</strong> by grouping values into bins (intervals).</p>
+<p><strong>Interpretation</strong>:</p>
+<ul class="simple">
+<li><p>Height of each bar shows the <strong>frequency</strong> of observations within that interval.</p></li>
+<li><p>Helps identify the <strong>shape of the distribution</strong> (e.g., normal, skewed).</p></li>
+<li><p>Unlike bar charts, there are <strong>no gaps</strong> between the bars.</p></li>
+</ul>
+<p><strong>Example (Health)</strong>: Suppose a hospital records the <strong>ages of 1,000 patients</strong>. A histogram can show how many patients fall within each age bracket (e.g., 0–10, 11–20, …). This helps in allocating resources for pediatric, adult, or geriatric care.</p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Simulate age data</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># Histogram</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Histogram of Patient Ages&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Age&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9f5c223708cfc257978e6e0a2937f0ce779ae7e3dc48628da2e77242ed26efd5.png" src="../../_images/9f5c223708cfc257978e6e0a2937f0ce779ae7e3dc48628da2e77242ed26efd5.png" />
+</div>
+</div>
+<p><strong>What it shows:</strong> Distribution of a continuous variable (e.g., student exam scores).</p>
+<p><strong>What to look for:</strong></p>
+<ul class="simple">
+<li><p><strong>Shape</strong> of the distribution (symmetric, skewed, bimodal).</p></li>
+<li><p><strong>Center</strong> around the mean.</p></li>
+<li><p><strong>Spread</strong> (standard deviation).</p></li>
+</ul>
+<p><strong>📝 Conclusion:</strong></p>
+<blockquote>
+<div><p>This histogram reveals that the patient age distribution is centered around 40 years with a moderate spread, consistent with a normal distribution.
+It is useful for identifying the most common age group, understanding variability, and planning age-specific healthcare services—for instance, prioritizing adult care over pediatric or geriatric services in this population.</p>
+</div></blockquote>
+</section>
+<section id="box-plots-box-and-whisker-plots">
+<h2>📦 <strong>Box Plots (Box-and-Whisker Plots)</strong><a class="headerlink" href="#box-plots-box-and-whisker-plots" title="Link to this heading">#</a></h2>
+<p><strong>Definition</strong>: A box plot summarizes a dataset using <strong>five-number summary</strong>: minimum, first quartile (Q1), median (Q2), third quartile (Q3), and maximum.</p>
+<p><strong>Interpretation</strong>:</p>
+<ul class="simple">
+<li><p>Box represents the <strong>interquartile range (IQR)</strong> (middle 50%).</p></li>
+<li><p>A line inside the box shows the <strong>median</strong>.</p></li>
+<li><p>Whiskers extend to data within 1.5×IQR from Q1 and Q3; points beyond are <strong>outliers</strong>.</p></li>
+</ul>
+<p><strong>Example (Education)</strong>: An instructor wants to compare <strong>exam scores</strong> across two sections. Box plots can reveal which class performed better, had more variation, or contained outliers (e.g., students who scored exceptionally low or high).</p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Simulated exam scores for two sections</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Section A&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="s1">&#39;Section B&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="c1"># Melt for seaborn</span>
+<span class="n">data_melted</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">var_name</span><span class="o">=</span><span class="s2">&quot;Section&quot;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s2">&quot;Score&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Section&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Score&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data_melted</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Box Plot of Exam Scores&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/cf1549a8d86533d0945e8f601c22e9bba2f44445ff0a7da699ae936671b28a44.png" src="../../_images/cf1549a8d86533d0945e8f601c22e9bba2f44445ff0a7da699ae936671b28a44.png" />
+</div>
+</div>
+<p><strong>What it shows:</strong> Summary of distribution, including <strong>median</strong>, <strong>quartiles</strong>, and <strong>outliers</strong>.</p>
+<p><strong>What to look for:</strong></p>
+<ul class="simple">
+<li><p>Length of box (IQR).</p></li>
+<li><p>Position of median.</p></li>
+<li><p>Whiskers and individual outliers.</p></li>
+</ul>
+<p><strong>📝 Conclusion:</strong></p>
+<blockquote>
+<div><p>The box plot of monthly sales reveals a <strong>right-skewed distribution</strong>, with a longer upper whisker and visible outliers above the upper quartile. The <strong>median lies closer to the lower quartile</strong>, indicating a <strong>small number of stores are making significantly higher sales</strong>, likely outliers. Most stores operate within a moderate range.</p>
+</div></blockquote>
+<p>Here’s the <strong>observation</strong> and <strong>conclusion</strong> for the box plot generated by your code:</p>
+<hr class="docutils" />
+</section>
+</section>
+<section id="box-plot-of-exam-scores-section-a-vs-section-b">
+<h1>📦 <strong>Box Plot of Exam Scores – Section A vs. Section B</strong><a class="headerlink" href="#box-plot-of-exam-scores-section-a-vs-section-b" title="Link to this heading">#</a></h1>
+<section id="observation">
+<h2>🔍 <strong>Observation</strong>:<a class="headerlink" href="#observation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Section A</strong> has a <strong>median score</strong> around <strong>70</strong>, with a relatively <strong>tight interquartile range (IQR)</strong>, indicating consistent scores.</p></li>
+<li><p><strong>Section B</strong> has a <strong>higher median</strong>, approximately <strong>75</strong>, and a <strong>wider spread</strong>, suggesting more variability in scores.</p></li>
+<li><p><strong>Section B</strong> also shows <strong>longer whiskers</strong> and possibly <strong>outliers</strong>, meaning a few students scored much higher or lower than the rest.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="conclusion">
+<h2>✅ <strong>Conclusion</strong>:<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>The box plot shows that <strong>Section B has a higher overall performance</strong> than Section A, as indicated by the median.
+However, the <strong>wider spread</strong> and <strong>presence of outliers</strong> suggest that <strong>scores are less consistent</strong> in Section B.
+In contrast, Section A demonstrates <strong>more consistent</strong> performance but <strong>lower average scores</strong>.
+This makes box plots an effective tool for quickly comparing <strong>central tendency, variability, and outliers</strong> between groups.</p>
+<p>Let me know if you’d like to add a <strong>violin plot or swarm plot</strong> for further visual insight!</p>
+</section>
+</section>
+<section id="density-plot">
+<h1>🌊 Density Plot<a class="headerlink" href="#density-plot" title="Link to this heading">#</a></h1>
+<p>Concept Recap: A smoothed version of a histogram, useful for identifying peaks and modality.</p>
+<p>Example: Distribution of daily sales revenue.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulate daily sales data</span>
+<span class="n">sales</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">sales</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Density Plot of Daily Sales&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Sales Amount&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/da4501afb54a436eec2c2e33f3c16f36e29b0f6523c9631b639c73ca2808ebe1.png" src="../../_images/da4501afb54a436eec2c2e33f3c16f36e29b0f6523c9631b639c73ca2808ebe1.png" />
+</div>
+</div>
+<p>Here’s the <strong>observation</strong> and <strong>conclusion</strong> for the <strong>density plot</strong> of daily sales:</p>
+<hr class="docutils" />
+</section>
+<section id="density-plot-of-daily-sales">
+<h1>🌊 <strong>Density Plot of Daily Sales</strong><a class="headerlink" href="#density-plot-of-daily-sales" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>🔍 <strong>Observation</strong>:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The curve is <strong>smooth and unimodal</strong>, peaking around <strong>₹5,000</strong>, which aligns with the mean of the simulated data (<code class="docutils literal notranslate"><span class="pre">loc=5000</span></code>).</p></li>
+<li><p>The shape is <strong>fairly symmetrical</strong>, indicating that most daily sales cluster around the average.</p></li>
+<li><p>The spread suggests that daily sales typically range between <strong>₹2,000 and ₹8,000</strong>, with extreme values being rare.</p></li>
+<li><p>There are <strong>no sharp discontinuities</strong> or multiple peaks, which means the data lacks subgroups or irregular fluctuations.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id2">
+<h2>✅ <strong>Conclusion</strong>:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>The density plot shows that <strong>most daily sales are concentrated around ₹5,000</strong>, with a balanced distribution on either side.
+This smooth curve provides a <strong>clearer view of the sales distribution</strong> than a histogram, helping business analysts detect <strong>central tendencies, variability, and potential skewness</strong>.
+Such insights can guide <strong>inventory planning, revenue forecasting</strong>, or <strong>staff allocation</strong> on high-sales days.</p>
+<p>Would you like to overlay a histogram on top of the KDE plot for comparison?</p>
+</section>
+</section>
+<section id="violin-plot">
+<h1>🎻 Violin Plot<a class="headerlink" href="#violin-plot" title="Link to this heading">#</a></h1>
+<p>Concept Recap: Combines box plot and density plot.</p>
+<p>Example: Compare player points per game across three teams.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">teams</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Team A&#39;</span><span class="p">,</span> <span class="s1">&#39;Team B&#39;</span><span class="p">,</span> <span class="s1">&#39;Team C&#39;</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Team&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">teams</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span>
+    <span class="s1">&#39;Points&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="p">])</span>
+<span class="p">})</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Team&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Points&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Violin Plot of Player Points per Game&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b47ea8ae22d4832a41dd244d3c807045d67c763117cf4fca9cdcce23b054607d.png" src="../../_images/b47ea8ae22d4832a41dd244d3c807045d67c763117cf4fca9cdcce23b054607d.png" />
+</div>
+</div>
+<p>Here’s the <strong>observation</strong> and <strong>conclusion</strong> for the <strong>violin plot</strong> of player points per game across teams:</p>
+<hr class="docutils" />
+</section>
+<section id="violin-plot-of-player-points-per-game">
+<h1>🎻 <strong>Violin Plot of Player Points per Game</strong><a class="headerlink" href="#violin-plot-of-player-points-per-game" title="Link to this heading">#</a></h1>
+<section id="id3">
+<h2>🔍 <strong>Observation</strong>:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Team A</strong> shows a <strong>tighter, symmetric distribution</strong> centered around <strong>15 points</strong>, indicating consistent performance.</p></li>
+<li><p><strong>Team B</strong> has a <strong>wider distribution</strong> with moderate variability centered around <strong>20 points</strong>.</p></li>
+<li><p><strong>Team C</strong> displays the <strong>widest and most spread-out distribution</strong>, peaking around <strong>25 points</strong>, but with <strong>greater variability</strong>, including a <strong>longer tail</strong> toward lower scores.</p></li>
+<li><p>The <strong>internal box plot</strong> indicates <strong>median values</strong> increase from Team A to Team C.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id4">
+<h2>✅ <strong>Conclusion</strong>:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>This violin plot reveals that while <strong>Team C has the highest median performance</strong>, it also shows the <strong>greatest variability</strong>, suggesting <strong>inconsistent individual scores</strong>.
+<strong>Team A is the most consistent</strong>, with tightly grouped scores around the median.
+<strong>Team B lies in between</strong>, with moderate performance and spread.
+Violin plots effectively highlight both <strong>summary statistics</strong> and <strong>distribution shape</strong>, making them ideal for <strong>comparing performance across multiple groups</strong> with varying score ranges and densities.</p>
+<p>Would you like to overlay <strong>individual data points (e.g., swarm or strip plot)</strong> for better granularity?</p>
+</section>
+<hr class="docutils" />
+<section id="bar-charts-pie-charts">
+<h2>📊 <strong>Bar Charts / Pie Charts</strong><a class="headerlink" href="#bar-charts-pie-charts" title="Link to this heading">#</a></h2>
+<p><strong>Use:</strong> For <strong>categorical</strong> data.</p>
+<p><strong>Bar Chart:</strong> Shows frequencies as separate bars.
+<strong>Pie Chart:</strong> Shows proportions as sectors of a circle.</p>
+<p><strong>Example (Marketing):</strong>
+Bar chart of customer gender preference: 60% Female, 40% Male.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parties</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;Party A&#39;</span><span class="p">,</span> <span class="s1">&#39;Party B&#39;</span><span class="p">,</span> <span class="s1">&#39;Party C&#39;</span><span class="p">],</span> <span class="mi">300</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">parties</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;Set2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bar Chart of Voter Preferences&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Political Party&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Respondents&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/6e8c93bc2be40aedc4fefa7c80b432d00b40e02b76213ca4fb4458f7c28918f7.png" src="../../_images/6e8c93bc2be40aedc4fefa7c80b432d00b40e02b76213ca4fb4458f7c28918f7.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="bar-chart-voter-preferences-by-political-party">
+<h1>📊 <strong>Bar Chart: Voter Preferences by Political Party</strong><a class="headerlink" href="#bar-chart-voter-preferences-by-political-party" title="Link to this heading">#</a></h1>
+<section id="id5">
+<h2>🔍 <strong>Observation</strong>:<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Each bar height represents the <strong>number of respondents</strong> per political party.</p></li>
+<li><p>One party likely has <strong>noticeably higher support</strong>, suggesting <strong>dominant preference</strong>.</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>✅ <strong>Conclusion</strong>:<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>The bar chart visually compares <strong>category sizes</strong> (political party preference).
+It’s useful for <strong>polling results</strong>, <strong>survey analysis</strong>, or any context where <strong>ranking by frequency</strong> is needed.</p>
+</section>
+<section id="scatter-plots">
+<h2>⚫ <strong>Scatter Plots</strong><a class="headerlink" href="#scatter-plots" title="Link to this heading">#</a></h2>
+<p><strong>Use:</strong> Shows <strong>relationship between two numerical variables</strong>.</p>
+<p><strong>Interpretation:</strong>
+Reveals <strong>correlation, trend direction, and outliers</strong>.</p>
+<p><strong>Example (Health):</strong>
+Scatter plot of <strong>age vs. cholesterol level</strong> can help identify <strong>positive correlation</strong> in older adults.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bmi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">bp</span> <span class="o">=</span> <span class="mi">80</span> <span class="o">+</span> <span class="p">(</span><span class="n">bmi</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">bmi</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">bp</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Scatter Plot: BMI vs Blood Pressure&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;BMI&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Blood Pressure (mm Hg)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f88786b8b82913dcee588d8be1ffb8ed987a58d2e97e56ba9c2286222683bae9.png" src="../../_images/f88786b8b82913dcee588d8be1ffb8ed987a58d2e97e56ba9c2286222683bae9.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="scatter-plot-bmi-vs-blood-pressure">
+<h1>⚪ <strong>Scatter Plot: BMI vs Blood Pressure</strong><a class="headerlink" href="#scatter-plot-bmi-vs-blood-pressure" title="Link to this heading">#</a></h1>
+<section id="id7">
+<h2>🔍 <strong>Observation</strong>:<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>There’s a <strong>positive linear relationship</strong>: as <strong>BMI increases</strong>, <strong>blood pressure tends to rise</strong>.</p></li>
+<li><p>The points are <strong>somewhat spread</strong>, indicating <strong>moderate variability</strong> due to the added noise.</p></li>
+</ul>
+</section>
+<section id="id8">
+<h2>✅ <strong>Conclusion</strong>:<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<p>The scatter plot shows a <strong>direct association</strong> between BMI and blood pressure.
+It helps reveal <strong>correlation patterns</strong>, <strong>clusters</strong>, and <strong>potential outliers</strong>, making it ideal for exploring <strong>health-related risk factors</strong> or predictive relationships in data.</p>
+<hr class="docutils" />
+</section>
+</section>
+<section id="pair-plot">
+<h1>🔁 Pair Plot<a class="headerlink" href="#pair-plot" title="Link to this heading">#</a></h1>
+<p>Definition: Matrix of scatter plots showing pairwise relationships among variables.</p>
+<p>Example (Education): Students’ performance across subjects.</p>
+<section id="id9">
+<h2>✅ <strong>Conclusion</strong>:<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<p>Pair plots are excellent for spotting correlations (e.g., if students strong in Math are also strong in Science) and identifying multivariate outliers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Math&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="s1">&#39;Science&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="s1">&#39;Reading&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">78</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Pair Plot of Academic Scores&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/88c8593ab52594410e0150f52663874f40b886b0c490dbcac81d43e103bf635d.png" src="../../_images/88c8593ab52594410e0150f52663874f40b886b0c490dbcac81d43e103bf635d.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="pair-plot-academic-scores-math-science-reading">
+<h1>🔁 <strong>Pair Plot: Academic Scores (Math, Science, Reading)</strong><a class="headerlink" href="#pair-plot-academic-scores-math-science-reading" title="Link to this heading">#</a></h1>
+<section id="id10">
+<h2>🔍 <strong>Observation</strong>:<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Diagonal plots</strong> show individual subject distributions (histograms).</p></li>
+<li><p><strong>Off-diagonal scatter plots</strong> reveal <strong>mild positive correlations</strong> between subjects—especially between <strong>Math and Science</strong>.</p></li>
+<li><p>Most data points cluster in the <strong>upper score range (70–90)</strong>.</p></li>
+</ul>
+</section>
+<section id="id11">
+<h2>✅ <strong>Conclusion</strong>:<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<p>The pair plot is a compact way to explore <strong>relationships across multiple variables</strong>.
+It shows that students scoring high in one subject tend to perform well in others.
+Use it for <strong>multivariate exploratory analysis</strong>, especially in <strong>education or psychometric data</strong>.</p>
+</section>
+</section>
+<section id="summary-table-of-observations">
+<h1>✅ Summary Table of Observations<a class="headerlink" href="#summary-table-of-observations" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Plot Type</p></th>
+<th class="head"><p>Key Observation</p></th>
+<th class="head"><p>Implication</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Histogram</p></td>
+<td><p>Scores follow normal distribution</p></td>
+<td><p>Use parametric stats (mean, SD) safely</p></td>
+</tr>
+<tr class="row-odd"><td><p>Box Plot</p></td>
+<td><p>Sales are right-skewed with outliers</p></td>
+<td><p>Investigate top performers or anomalies</p></td>
+</tr>
+<tr class="row-even"><td><p>Bar Chart</p></td>
+<td><p>Females are majority customers</p></td>
+<td><p>Tailor services/products accordingly</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pie Chart</p></td>
+<td><p>Confirms female customer dominance</p></td>
+<td><p>Supports bar chart analysis</p></td>
+</tr>
+<tr class="row-even"><td><p>Scatter Plot</p></td>
+<td><p>Positive trend between age and cholesterol</p></td>
+<td><p>Older customers may need health screening focus</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Tool</strong></p></th>
+<th class="head"><p><strong>Best For</strong></p></th>
+<th class="head"><p><strong>Key Insight/Use</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Histogram</p></td>
+<td><p>Numeric distributions</p></td>
+<td><p>See shape, central tendency, spread</p></td>
+</tr>
+<tr class="row-odd"><td><p>Box Plot</p></td>
+<td><p>Outlier detection, comparison</p></td>
+<td><p>Spot outliers and compare medians</p></td>
+</tr>
+<tr class="row-even"><td><p>Density Plot</p></td>
+<td><p>Smooth distribution visualization</p></td>
+<td><p>See modality and skewness</p></td>
+</tr>
+<tr class="row-odd"><td><p>Violin Plot</p></td>
+<td><p>Distribution + summary</p></td>
+<td><p>Compare full distribution across groups</p></td>
+</tr>
+<tr class="row-even"><td><p>Scatter Plot</p></td>
+<td><p>Relationships between 2 variables</p></td>
+<td><p>Detect linear trend or clusters</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pair Plot</p></td>
+<td><p>Multivariate relationships</p></td>
+<td><p>Reveal variable interactions</p></td>
+</tr>
+<tr class="row-even"><td><p>Frequency Table</p></td>
+<td><p>Categorical count summary</p></td>
+<td><p>Text-based overview of popularity</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bar Chart</p></td>
+<td><p>Categorical frequency</p></td>
+<td><p>Compare categories directly</p></td>
+</tr>
+<tr class="row-even"><td><p>Pie Chart</p></td>
+<td><p>Proportional representation</p></td>
+<td><p>Visualize percentage shares</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="tips-for-reporting-conclusions">
+<h1>💡 Tips for Reporting Conclusions<a class="headerlink" href="#tips-for-reporting-conclusions" title="Link to this heading">#</a></h1>
+<p>When presenting your findings, follow this structure:</p>
+<blockquote>
+<div><p><strong>Observation → Interpretation → Recommendation</strong></p>
+</div></blockquote>
+<p><strong>Example:</strong></p>
+<blockquote>
+<div><p>“The histogram of exam scores shows a symmetric distribution centered at 70, suggesting consistent academic performance. This supports using the mean as a reliable central measure. No significant intervention needed.”</p>
+</div></blockquote>
+<details>
+<summary><strong><h3>Questionaire - Click Here</h3></strong></summary>
+<p>Source : <a class="reference external" href="https://www2.census.gov/library/publications/decennial/2000/briefs/c2kbr-33.pdf">Journey to work</a></p>
+<p><img alt="alt text" src="../../_images/image-6.png" /></p>
+<section id="what-is-an-appropriate-way-to-visualize-a-list-of-the-eye-colors-of-120-people">
+<h2><strong>1. What is an appropriate way to visualize a list of the eye colors of 120 people?</strong><a class="headerlink" href="#what-is-an-appropriate-way-to-visualize-a-list-of-the-eye-colors-of-120-people" title="Link to this heading">#</a></h2>
+<p>Select all that apply.*</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Pie chart</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Dot plot</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Box plot</p></li>
+</ul>
+<details>
+<summary>✅ Show Answer & Explanation</summary>
+<p><strong>Correct Answers:</strong> Pie chart, Dot plot<br />
+<strong>Explanation:</strong> Eye color is <strong>categorical</strong> data. Pie charts and dot plots are appropriate. Box plots are used for <strong>numerical</strong> data.</p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="according-to-the-histogram-of-travel-times-to-work-from-the-us-2000-census-roughly-what-percentage-of-commuters-travel-more-than-45-minutes">
+<h2><strong>2. According to the histogram of travel times to work from the US 2000 census, roughly what percentage of commuters travel more than 45 minutes?</strong><a class="headerlink" href="#according-to-the-histogram-of-travel-times-to-work-from-the-us-2000-census-roughly-what-percentage-of-commuters-travel-more-than-45-minutes" title="Link to this heading">#</a></h2>
+<p><strong>Answer:</strong> 15</p>
+<details>
+<summary>✅ Show Answer & Explanation</summary>
+<p><strong>Explanation:</strong> Approximately <strong>14.75%</strong> of commuters travel more than 45 minutes. Rounded, this becomes <strong>15%</strong>.</p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="approximately-what-is-the-median-travel-time-in-minutes">
+<h2><strong>3. Approximately what is the median travel time, in minutes?</strong><a class="headerlink" href="#approximately-what-is-the-median-travel-time-in-minutes" title="Link to this heading">#</a></h2>
+<p><strong>Answer:</strong> 22</p>
+<details>
+<summary>✅ Show Answer & Explanation</summary>
+<p><strong>Explanation:</strong> The 50th percentile (median) falls in the <strong>20–24 minute</strong> bin. The midpoint of this range is <strong>22</strong>.</p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="which-summary-measure-would-you-use-to-compare-household-incomes-between-california-and-massachusetts">
+<h2><strong>4. Which summary measure would you use to compare household incomes between California and Massachusetts?</strong><a class="headerlink" href="#which-summary-measure-would-you-use-to-compare-household-incomes-between-california-and-massachusetts" title="Link to this heading">#</a></h2>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Median household income</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 3rd quartile of household income</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Mean household income</p></li>
+</ul>
+<details>
+<summary>✅ Show Answer & Explanation</summary>
+<p><strong>Correct Answer:</strong> Median household income<br />
+<strong>Explanation:</strong> Median is <strong>robust to outliers</strong>, which are common in income data. Mean can be skewed by extreme values.</p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="if-all-household-incomes-increase-by-5-how-does-the-mean-change">
+<h2><strong>5. If all household incomes increase by 5%, how does the mean change?</strong><a class="headerlink" href="#if-all-household-incomes-increase-by-5-how-does-the-mean-change" title="Link to this heading">#</a></h2>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Cannot be determined from the information given</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The mean household income goes up by 5%</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The mean household income doesn’t change</p></li>
+</ul>
+<details>
+<summary>✅ Show Answer & Explanation</summary>
+<p><strong>Correct Answer:</strong> The mean household income goes up by 5%<br />
+<strong>Explanation:</strong> Scaling every value by 1.05 scales the <strong>mean</strong> by the same factor.</p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="how-does-the-median-change-if-all-incomes-increase-by-5">
+<h2><strong>6. How does the median change if all incomes increase by 5%?</strong><a class="headerlink" href="#how-does-the-median-change-if-all-incomes-increase-by-5" title="Link to this heading">#</a></h2>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Median household income goes up by 5%</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The median household income doesn’t change</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Cannot be determined from the information given</p></li>
+</ul>
+<details>
+<summary>✅ Show Answer & Explanation</summary>
+<p><strong>Correct Answer:</strong> Median household income goes up by 5%<br />
+<strong>Explanation:</strong> Like the mean, the <strong>median also scales</strong> proportionally when every value is increased by 5%.</p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="how-does-the-standard-deviation-change-if-all-incomes-increase-by-5">
+<h2><strong>7. How does the standard deviation change if all incomes increase by 5%?</strong><a class="headerlink" href="#how-does-the-standard-deviation-change-if-all-incomes-increase-by-5" title="Link to this heading">#</a></h2>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The standard deviation doesn’t change</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The standard deviation goes up by 5%</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Cannot be determined from the information given</p></li>
+</ul>
+<details>
+<summary>✅ Show Answer & Explanation</summary>
+<p><strong>Correct Answer:</strong> The standard deviation goes up by 5%<br />
+<strong>Explanation:</strong> Standard deviation scales when all data are multiplied by a constant.</p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="how-does-the-interquartile-range-change-if-all-incomes-increase-by-5">
+<h2><strong>8. How does the interquartile range change if all incomes increase by 5%?</strong><a class="headerlink" href="#how-does-the-interquartile-range-change-if-all-incomes-increase-by-5" title="Link to this heading">#</a></h2>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The IQR doesn’t change</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The IQR goes up by 5%</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Cannot be determined from the information given</p></li>
+</ul>
+<details>
+<summary>✅ Show Answer & Explanation</summary>
+<p><strong>Correct Answer:</strong> The IQR goes up by 5%<br />
+<strong>Explanation:</strong> IQR measures spread; scaling by 5% increases the IQR by 5%.</p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="how-does-the-mean-change-if-all-incomes-increase-by-5-000">
+<h2><strong>9. How does the mean change if all incomes increase by $5,000?</strong><a class="headerlink" href="#how-does-the-mean-change-if-all-incomes-increase-by-5-000" title="Link to this heading">#</a></h2>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The mean doesn’t change</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The mean goes up by $5,000</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Cannot be determined from the information given</p></li>
+</ul>
+<details>
+<summary>✅ Show Answer & Explanation</summary>
+<p><strong>Correct Answer:</strong> The mean goes up by $5,000<br />
+<strong>Explanation:</strong> Adding a constant to all data points shifts the <strong>mean</strong> by the same constant.</p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="how-does-the-median-change-if-all-incomes-increase-by-5-000">
+<h2><strong>10. How does the median change if all incomes increase by $5,000?</strong><a class="headerlink" href="#how-does-the-median-change-if-all-incomes-increase-by-5-000" title="Link to this heading">#</a></h2>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The median goes up by $5,000</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The median doesn’t change</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Cannot be determined from the information given</p></li>
+</ul>
+<details>
+<summary>✅ Show Answer & Explanation</summary>
+<p><strong>Correct Answer:</strong> The median goes up by $5,000<br />
+<strong>Explanation:</strong> Like the mean, the <strong>median increases</strong> by a constant when all values are increased equally.</p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="how-does-the-standard-deviation-change-if-all-incomes-increase-by-5-000">
+<h2><strong>11. How does the standard deviation change if all incomes increase by $5,000?</strong><a class="headerlink" href="#how-does-the-standard-deviation-change-if-all-incomes-increase-by-5-000" title="Link to this heading">#</a></h2>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The standard deviation goes up by $5,000</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The standard deviation doesn’t change</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Cannot be determined from the information given</p></li>
+</ul>
+<details>
+<summary>✅ Show Answer & Explanation</summary>
+<p><strong>Correct Answer:</strong> The standard deviation doesn’t change<br />
+<strong>Explanation:</strong> SD measures <strong>spread</strong>, not location. Adding a constant doesn’t affect spread.</p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="how-does-the-interquartile-range-change-if-all-incomes-increase-by-5-000">
+<h2><strong>12. How does the interquartile range change if all incomes increase by $5,000?</strong><a class="headerlink" href="#how-does-the-interquartile-range-change-if-all-incomes-increase-by-5-000" title="Link to this heading">#</a></h2>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Cannot be determined from the information given</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The IQR doesn’t change</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The IQR goes up by $5,000</p></li>
+</ul>
+<details>
+<summary>✅ Show Answer & Explanation</summary>
+<p><strong>Correct Answer:</strong> The IQR doesn’t change<br />
+<strong>Explanation:</strong> Adding a constant to every value shifts the entire distribution, but doesn’t change spread (IQR).</p>
+</details>
+</section>
+<hr class="docutils" />
+<section id="the-median-house-price-is-342-000-what-percentage-of-homes-sold-for-more-than-that">
+<h2><strong>13. The median house price is $342,000. What percentage of homes sold for more than that?</strong><a class="headerlink" href="#the-median-house-price-is-342-000-what-percentage-of-homes-sold-for-more-than-that" title="Link to this heading">#</a></h2>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> More than 50%</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Exactly 50%</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Less than 50%</p></li>
+</ul>
+<details>
+<summary>✅ Show Answer & Explanation</summary>
+<p><strong>Correct Answer:</strong> Less than 50%<br />
+<strong>Explanation:</strong> If $342,000 is the <strong>median</strong>, then <strong>at most 50%</strong> of homes sold for more than that — sometimes <strong>less than 50%</strong> if there are repeated values at the median.</p>
+</details>
+</details></section>
+</section>
+<section id="topic-understanding-the-shape-of-a-distribution">
+<h1>🎓 Topic: Understanding the <strong>Shape of a Distribution</strong><a class="headerlink" href="#topic-understanding-the-shape-of-a-distribution" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="what-do-we-mean-by-shape-of-a-distribution">
+<h2>1. 📌 <strong>What Do We Mean by “Shape of a Distribution”?</strong><a class="headerlink" href="#what-do-we-mean-by-shape-of-a-distribution" title="Link to this heading">#</a></h2>
+<p>Imagine you collect a bunch of numbers—say, the heights of students in a class or daily temperatures over a month—and you <strong>plot them on a graph</strong> like a histogram.</p>
+<p>The <strong>shape of the distribution</strong> is simply the <strong>pattern</strong> that forms when you stack those numbers. It’s like asking:</p>
+<blockquote>
+<div><p>“How do the values spread out? Are they piled in the center? Leaning to one side? Do we have multiple peaks?”</p>
+</div></blockquote>
+<p>The shape gives you a <strong>visual summary</strong> of your data.</p>
+</section>
+<hr class="docutils" />
+<section id="main-types-of-distribution-shapes">
+<h2>2. 🔄 <strong>Main Types of Distribution Shapes</strong><a class="headerlink" href="#main-types-of-distribution-shapes" title="Link to this heading">#</a></h2>
+<p>Let’s go through the key types you’ll see often:</p>
+<hr class="docutils" />
+<section id="a-symmetric-distribution-also-called-normal-or-bell-shaped">
+<h3>🟢 a) <strong>Symmetric Distribution</strong> (also called “normal” or bell-shaped)<a class="headerlink" href="#a-symmetric-distribution-also-called-normal-or-bell-shaped" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Looks like a hill or a bell 🛎️.</p></li>
+<li><p>The <strong>left and right sides mirror each other</strong>.</p></li>
+<li><p><strong>Mean = Median = Mode</strong>, all in the center.</p></li>
+</ul>
+<p><strong>Example:</strong> Heights of adults, test scores in large populations.</p>
+<blockquote>
+<div><p>Imagine a bell lying on its side—most values are in the center, fewer at the ends.</p>
+</div></blockquote>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Symmetric Distribution (Discrete + KDE)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;density&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+<span class="n">mean</span><span class="p">,</span> <span class="n">median</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">median</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Median&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mode&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;1️⃣ Symmetric Distribution (Discrete + KDE)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Density&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\Users\sangouda\AppData\Local\anaconda3\Lib\site-packages\IPython\core\pylabtools.py:170: UserWarning:
+
+Glyph 65039 (\N{VARIATION SELECTOR-16}) missing from font(s) Arial.
+
+c:\Users\sangouda\AppData\Local\anaconda3\Lib\site-packages\IPython\core\pylabtools.py:170: UserWarning:
+
+Glyph 8419 (\N{COMBINING ENCLOSING KEYCAP}) missing from font(s) Arial.
+</pre></div>
+</div>
+<img alt="../../_images/735fa610732b7f004cf5a8972f6d2c85d897d7e55435c065b970b0376d7c95fd.png" src="../../_images/735fa610732b7f004cf5a8972f6d2c85d897d7e55435c065b970b0376d7c95fd.png" />
+</div>
+</div>
+</section>
+<section id="b-right-skewed-positively-skewed">
+<h3>🔵 b) <strong>Right-Skewed (Positively Skewed)</strong><a class="headerlink" href="#b-right-skewed-positively-skewed" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Tail</strong> is longer on the <strong>right</strong> (higher values).</p></li>
+<li><p>Mean is <strong>greater than</strong> median.</p></li>
+</ul>
+<p><strong>Example:</strong> Salaries in a company (a few very high earners pull the mean up).</p>
+<blockquote>
+<div><p>Like a hill sliding down slowly to the right 📈.</p>
+</div></blockquote>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Right-Skewed Distribution (Discrete + KDE)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">geometric</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;density&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;salmon&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+<span class="n">mean</span><span class="p">,</span> <span class="n">median</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">median</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Median&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mode&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;2️⃣ Right-Skewed Distribution (Discrete + KDE)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Density&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1c5a1d8fbffcf82274186d576123707f942a00e2b25de2b36380b1b3621d7fd5.png" src="../../_images/1c5a1d8fbffcf82274186d576123707f942a00e2b25de2b36380b1b3621d7fd5.png" />
+</div>
+</div>
+</section>
+<section id="c-left-skewed-negatively-skewed">
+<h3>🔴 c) <strong>Left-Skewed (Negatively Skewed)</strong><a class="headerlink" href="#c-left-skewed-negatively-skewed" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Tail</strong> is longer on the <strong>left</strong> (lower values).</p></li>
+<li><p>Mean is <strong>less than</strong> median.</p></li>
+</ul>
+<p><strong>Example:</strong> Age at retirement (most people retire at a similar age, but a few retire early).</p>
+<blockquote>
+<div><p>Like a hill leaning toward the left 📉.</p>
+</div></blockquote>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Left-Skewed Distribution (Discrete + KDE)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">geometric</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;density&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;lightgreen&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+<span class="n">mean</span><span class="p">,</span> <span class="n">median</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">median</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Median&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mode&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;3️⃣ Left-Skewed Distribution (Discrete + KDE)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Density&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/336c3cb6e4020dd500e072fc0af8b1114411102cca140ac34ffa5a3bb941f836.png" src="../../_images/336c3cb6e4020dd500e072fc0af8b1114411102cca140ac34ffa5a3bb941f836.png" />
+</div>
+</div>
+</section>
+<section id="d-uniform-distribution">
+<h3>🟡 d) <strong>Uniform Distribution</strong><a class="headerlink" href="#d-uniform-distribution" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>All bars are roughly the same height.</p></li>
+<li><p>No clear peak; values are <strong>evenly spread</strong>.</p></li>
+</ul>
+<p><strong>Example:</strong> Rolling a fair die, where each number is equally likely.</p>
+<blockquote>
+<div><p>Think of a <strong>flat plateau</strong> or a <strong>brick wall</strong> 🧱.</p>
+</div></blockquote>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uniform Distribution (Discrete + KDE)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;density&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gold&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+<span class="n">mean</span><span class="p">,</span> <span class="n">median</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">median</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Median&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mode&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;4️⃣ Uniform Distribution (Discrete + KDE)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Density&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/bef6fae0ec479621c27e2ce2cb99b744f56c5b29f9756eb4e2c3ea450eb27af8.png" src="../../_images/bef6fae0ec479621c27e2ce2cb99b744f56c5b29f9756eb4e2c3ea450eb27af8.png" />
+</div>
+</div>
+</section>
+<section id="e-bimodal-distribution">
+<h3>🟠 e) <strong>Bimodal Distribution</strong><a class="headerlink" href="#e-bimodal-distribution" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Has <strong>two peaks</strong> or “humps”.</p></li>
+<li><p>Suggests two different groups or processes in the data.</p></li>
+</ul>
+<p><strong>Example:</strong> Heights in a mixed group of adults and children, or test scores where some studied and some didn’t.</p>
+<blockquote>
+<div><p>Picture a <strong>camel’s back</strong> 🐫 – two humps, not one!</p>
+</div></blockquote>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bimodal Distribution (Discrete + KDE)</span>
+
+<span class="n">group1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">group2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;density&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;violet&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+<span class="n">mean</span><span class="p">,</span> <span class="n">median</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">median</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Median&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mode&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;5️⃣ Bimodal Distribution (Discrete + KDE)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Density&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/7298c1cfa38342164a9b19070a5b45062fb8f7cac5f778f68159ec32bd47038d.png" src="../../_images/7298c1cfa38342164a9b19070a5b45062fb8f7cac5f778f68159ec32bd47038d.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="how-can-you-spot-these-shapes">
+<h2>3. 🧠 <strong>How Can You Spot These Shapes?</strong><a class="headerlink" href="#how-can-you-spot-these-shapes" title="Link to this heading">#</a></h2>
+<p>Use <strong>histograms</strong> or <strong>density plots</strong>.</p>
+<ul class="simple">
+<li><p>Symmetric → bell-shaped.</p></li>
+<li><p>Skewed → tail stretches left or right.</p></li>
+<li><p>Uniform → all bars even.</p></li>
+<li><p>Bimodal → two bumps.</p></li>
+</ul>
+<p>➡️ You <strong>don’t need to calculate</strong> to spot the shape. A quick look at a histogram is often enough!</p>
+</section>
+<hr class="docutils" />
+<section id="why-does-the-shape-matter-in-data-analysis">
+<h2>4. ✅ <strong>Why Does the Shape Matter in Data Analysis?</strong><a class="headerlink" href="#why-does-the-shape-matter-in-data-analysis" title="Link to this heading">#</a></h2>
+<p>Because the shape affects <strong>everything</strong> we do with data:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Shape</strong></p></th>
+<th class="head"><p><strong>Why It Matters</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Skewed</strong></p></td>
+<td><p>Mean gets pulled; use median instead for center.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Symmetric (Normal)</strong></p></td>
+<td><p>Many statistical tools (like z-scores, t-tests) <strong>assume normality</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Bimodal</strong></p></td>
+<td><p>You might have <strong>two different groups</strong> hiding in your data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Uniform</strong></p></td>
+<td><p>Suggests <strong>randomness</strong> or lack of structure.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p>📊 Think of the shape as the <strong>personality</strong> of your data—it tells you how to treat it.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="analogy-to-wrap-it-up">
+<h2>✨ Analogy to Wrap It Up<a class="headerlink" href="#analogy-to-wrap-it-up" title="Link to this heading">#</a></h2>
+<p>Imagine you’re looking at a <strong>crowd of people</strong> from a balcony.</p>
+<ul class="simple">
+<li><p>If most people are clustered in the middle: symmetric.</p></li>
+<li><p>If they’re mostly to one side: skewed.</p></li>
+<li><p>If they’re evenly spread: uniform.</p></li>
+<li><p>If there are two groups talking in corners: bimodal.</p></li>
+</ul>
+<p>Understanding shape is like <strong>seeing the story</strong> behind the numbers.</p>
+</section>
+<hr class="docutils" />
+<section id="summary">
+<h2>🎯 Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Distribution shape tells us <strong>how data is spread</strong>.</p></li>
+<li><p>Main types: symmetric, skewed (left/right), uniform, bimodal.</p></li>
+<li><p>Use histograms or density plots to <strong>visualize shape</strong>.</p></li>
+<li><p>It guides us in choosing the <strong>right summary measures and statistical methods</strong>.</p></li>
+</ul>
+<p><img alt="image.png" src="Mathematics for Data Science/Statistics/attachment:image.png" /></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Tool</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
+<th class="head"><p><strong>Best For</strong></p></th>
+<th class="head"><p><strong>Example Context</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Histogram</p></td>
+<td><p>Numerical</p></td>
+<td><p>Distribution shape</p></td>
+<td><p>Age of patients</p></td>
+</tr>
+<tr class="row-odd"><td><p>Box Plot</p></td>
+<td><p>Numerical</p></td>
+<td><p>Median, IQR, outliers</p></td>
+<td><p>Exam scores</p></td>
+</tr>
+<tr class="row-even"><td><p>Density Plot</p></td>
+<td><p>Numerical</p></td>
+<td><p>Smooth distribution estimate</p></td>
+<td><p>Daily sales</p></td>
+</tr>
+<tr class="row-odd"><td><p>Violin Plot</p></td>
+<td><p>Numerical</p></td>
+<td><p>Distribution + box plot</p></td>
+<td><p>Player performance</p></td>
+</tr>
+<tr class="row-even"><td><p>Scatter Plot</p></td>
+<td><p>Bivariate numeric</p></td>
+<td><p>Relationships between two variables</p></td>
+<td><p>BMI vs. blood pressure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pair Plot</p></td>
+<td><p>Multivariate</p></td>
+<td><p>Exploring all variable relationships</p></td>
+<td><p>Student academic scores</p></td>
+</tr>
+<tr class="row-even"><td><p>Frequency Table</p></td>
+<td><p>Categorical</p></td>
+<td><p>Counts of categories</p></td>
+<td><p>Payment methods</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bar Chart</p></td>
+<td><p>Categorical</p></td>
+<td><p>Frequency/proportion comparison</p></td>
+<td><p>Political party preference</p></td>
+</tr>
+<tr class="row-even"><td><p>Pie Chart</p></td>
+<td><p>Categorical</p></td>
+<td><p>Visualizing proportions of a whole</p></td>
+<td><p>Majors of students</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="why-do-we-divide-by-n-1-for-sample-variance">
+<h1>📌 <strong>Why Do We Divide by (n – 1) for Sample Variance?</strong><a class="headerlink" href="#why-do-we-divide-by-n-1-for-sample-variance" title="Link to this heading">#</a></h1>
+<section id="key-reason">
+<h2>✅ <strong>Key Reason</strong>:<a class="headerlink" href="#key-reason" title="Link to this heading">#</a></h2>
+<p>We divide by <strong>n – 1</strong> instead of <strong>n</strong> to get an <strong>unbiased estimate</strong> of the population variance — this is called <strong>Bessel’s Correction</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="what-s-happening">
+<h2>🔍 <strong>What’s Happening</strong>:<a class="headerlink" href="#what-s-happening" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Population variance</strong> uses the <strong>true mean</strong> <span class="math notranslate nohighlight">\(\mu\)</span> and divides by <strong>N</strong>.</p></li>
+<li><p><strong>Sample variance</strong> uses the <strong>sample mean</strong> <span class="math notranslate nohighlight">\(\bar{x}\)</span>, which underestimates variability.</p></li>
+<li><p>Dividing by <strong>(n – 1)</strong> corrects this bias.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="why-n-1">
+<h2>📊 <strong>Why (n – 1)?</strong><a class="headerlink" href="#why-n-1" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Using the sample mean costs you <strong>1 degree of freedom</strong>.</p></li>
+<li><p>(n – 1) adjusts for that, giving a better estimate of how spread out the full population is.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="bottom-line">
+<h2>🎓 <strong>Bottom Line</strong>:<a class="headerlink" href="#bottom-line" title="Link to this heading">#</a></h2>
+<p>Use <strong>n – 1</strong> for sample variance so your estimate of the population variance is <strong>accurate on average</strong> — not too low.</p>
+</section>
+</section>
+<section id="understanding-covariance-and-correlation">
+<h1>Understanding Covariance and Correlation<a class="headerlink" href="#understanding-covariance-and-correlation" title="Link to this heading">#</a></h1>
+<p>Covariance and correlation are fundamental statistical measures used to quantify the <strong>relationship between two continuous variables</strong>. They help us understand how changes in one variable are associated with changes in another.</p>
+<hr class="docutils" />
+<section id="covariance">
+<h2>Covariance<a class="headerlink" href="#covariance" title="Link to this heading">#</a></h2>
+<p><strong>Covariance</strong> measures how much two random variables change together.</p>
+<ul class="simple">
+<li><p><strong>Positive Covariance:</strong> Indicates that if one variable tends to increase, the other also tends to increase, and vice-versa (they move in the same direction).</p></li>
+<li><p><strong>Negative Covariance:</strong> Indicates that if one variable tends to increase, the other tends to decrease, and vice-versa (they move in opposite directions).</p></li>
+<li><p><strong>Formula (Sample Covariance):</strong>
+$<span class="math notranslate nohighlight">\(\text{Cov}(X, Y) = \frac{\sum_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{n-1}\)</span>$
+Where:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(X_i\)</span> and <span class="math notranslate nohighlight">\(Y_i\)</span> are individual data points for variables X and Y.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\bar{X}\)</span> and <span class="math notranslate nohighlight">\(\bar{Y}\)</span> are the sample means of X and Y, respectively.</p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> is the number of data points.</p></li>
+</ul>
+</li>
+<li><p><strong>Relationship with Variance:</strong> <span class="math notranslate nohighlight">\(\text{Cov}(X, X) = \text{Var}(X)\)</span>. This shows that variance is essentially the covariance of a variable with itself, indicating its spread.</p></li>
+<li><p><strong>Disadvantage:</strong> Covariance does not have a standardized limit. Its value can range from <span class="math notranslate nohighlight">\(-\infty\)</span> to <span class="math notranslate nohighlight">\(+\infty\)</span>, making it difficult to compare the strength of relationships across different pairs of variables or datasets. For example, a covariance of +20 doesn’t inherently tell us if the relationship is “stronger” than a covariance of +5, as the scale depends on the magnitudes of the variables themselves.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="correlation">
+<h2>Correlation<a class="headerlink" href="#correlation" title="Link to this heading">#</a></h2>
+<p><strong>Correlation</strong> addresses the limitations of covariance by providing a standardized measure of the strength and direction of the linear relationship between two variables. Its value is always limited, typically between -1 and +1.</p>
+<section id="pearson-correlation-coefficient">
+<h3>Pearson Correlation Coefficient<a class="headerlink" href="#pearson-correlation-coefficient" title="Link to this heading">#</a></h3>
+<p>The <strong>Pearson Correlation Coefficient</strong> (often denoted as <span class="math notranslate nohighlight">\(\rho\)</span> for population or <span class="math notranslate nohighlight">\(r\)</span> for sample) measures the strength and direction of a <strong>linear</strong> relationship between two continuous variables.</p>
+<ul class="simple">
+<li><p><strong>Formula:</strong>
+$<span class="math notranslate nohighlight">\(r = \frac{\text{Cov}(X, Y)}{\sigma_X \sigma_Y}\)</span>$
+Where:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\text{Cov}(X, Y)\)</span> is the covariance between X and Y.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma_X\)</span> is the standard deviation of X.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma_Y\)</span> is the standard deviation of Y.</p></li>
+</ul>
+</li>
+<li><p><strong>Interpretation of Values:</strong></p>
+<ul>
+<li><p><strong>+1:</strong> Perfect positive linear relationship (as one variable increases, the other increases proportionally).</p></li>
+<li><p><strong>-1:</strong> Perfect negative linear relationship (as one variable increases, the other decreases proportionally).</p></li>
+<li><p><strong>0:</strong> No linear relationship.</p></li>
+<li><p><strong>Values closer to +1 or -1:</strong> Indicate a stronger linear relationship.</p></li>
+<li><p><strong>Values closer to 0:</strong> Indicate a weaker linear relationship.</p></li>
+</ul>
+</li>
+<li><p><strong>Advantage:</strong> The standardized range of -1 to +1 makes it easy to compare the strength of relationships between different pairs of variables. For example, a correlation of 0.98 signifies a very strong positive linear relationship, while 0.50 indicates a moderate one.</p></li>
+<li><p><strong>Limitation:</strong> Pearson correlation primarily captures <strong>linear</strong> relationships. If the relationship between variables is non-linear (e.g., curved), Pearson correlation might underestimate the true association, even if a strong non-linear pattern exists.</p></li>
+</ul>
+</section>
+<section id="spearman-rank-correlation">
+<h3>Spearman Rank Correlation<a class="headerlink" href="#spearman-rank-correlation" title="Link to this heading">#</a></h3>
+<p>The <strong>Spearman Rank Correlation Coefficient</strong> (often denoted as <span class="math notranslate nohighlight">\(r_s\)</span>) measures the strength and direction of a <strong>monotonic</strong> relationship between two continuous or ordinal variables. It assesses how well the relationship between two variables can be described using a monotonic function (either consistently increasing or consistently decreasing, but not necessarily at a constant rate).</p>
+<ul class="simple">
+<li><p><strong>How it Works:</strong> Instead of using the raw data values, Spearman correlation calculates the Pearson correlation coefficient on the <strong>ranks</strong> of the data. This means that instead of the actual values, their positions (ranks) in sorted order are used for the calculation.</p></li>
+<li><p><strong>Formula:</strong> Similar to Pearson, but applied to ranks:
+$<span class="math notranslate nohighlight">\(r_s = \frac{\text{Cov}(\text{rank}(X), \text{rank}(Y))}{\sigma_{\text{rank}(X)} \sigma_{\text{rank}(Y)}}\)</span>$</p></li>
+<li><p><strong>Advantage:</strong> Spearman correlation is robust to outliers and can capture <strong>non-linear but monotonic</strong> relationships that Pearson correlation might miss or underestimate. For instance, if one variable consistently increases as the other increases, even if the rate of increase varies, Spearman correlation will tend towards +1.</p></li>
+<li><p><strong>Use Case:</strong> Ideal when you suspect a relationship that is not strictly linear but consistently moves in one direction.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="use-cases-in-data-science">
+<h2>Use Cases in Data Science<a class="headerlink" href="#use-cases-in-data-science" title="Link to this heading">#</a></h2>
+<p>Covariance and correlation are invaluable tools for data scientists and analysts, especially in:</p>
+<ul class="simple">
+<li><p><strong>Exploratory Data Analysis (EDA):</strong></p>
+<ul>
+<li><p><strong>Understanding Feature Relationships:</strong> Identifying how different features in a dataset relate to each other.</p></li>
+<li><p><strong>Identifying Multicollinearity:</strong> Detecting if independent variables in a regression model are highly correlated, which can cause issues in model interpretation and stability.</p></li>
+</ul>
+</li>
+<li><p><strong>Feature Engineering/Selection:</strong></p>
+<ul>
+<li><p><strong>Identifying Predictive Features:</strong> Determining which features have a strong relationship with the target variable (the variable you want to predict). Highly correlated features with the target variable are often good candidates for inclusion in a model.</p></li>
+<li><p><strong>Reducing Redundancy:</strong> If two features are highly correlated with each other, one might be redundant and can potentially be removed to simplify the model and prevent overfitting.</p></li>
+</ul>
+</li>
+<li><p><strong>Real-World Examples:</strong></p>
+<ul>
+<li><p><strong>House Price Prediction:</strong> As you demonstrated, features like “size of house,” “number of rooms,” and “location” are likely to be positively correlated with “price.”</p></li>
+<li><p><strong>Negative Correlation Example:</strong> A feature like “house is haunted” would likely show a negative correlation with “price,” indicating that if the house is haunted, its price tends to decrease.</p></li>
+</ul>
+</li>
+</ul>
+<p>By understanding and applying these concepts, data professionals can gain deeper insights into their data and build more effective machine learning models.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Mathematics for Data Science\Statistics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Foundational Descriptive Statistics</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-central-tendency">1. <strong>Measures of Central Tendency</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-arithmetic-average">📌 <strong>Mean (Arithmetic Average)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#median">📌 <strong>Median</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mode">📌 <strong>Mode</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-dispersion">2. <strong>Measures of Dispersion</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#range">📌 <strong>Range</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">📌 <strong>Variance</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combined-insight">Combined Insight:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">📌 <strong>Standard Deviation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interquartile-range-iqr">📌 <strong>Interquartile Range (IQR)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-of-the-distribution">3. <strong>Shape of the Distribution</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">📌 <strong>Skewness</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurtosis">📌 <strong>Kurtosis</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization-techniques">4. <strong>Data Visualization Techniques</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms">📊 <strong>Histograms</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plots-box-and-whisker-plots">📦 <strong>Box Plots (Box-and-Whisker Plots)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot-of-exam-scores-section-a-vs-section-b">📦 <strong>Box Plot of Exam Scores – Section A vs. Section B</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observation">🔍 <strong>Observation</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">✅ <strong>Conclusion</strong>:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#density-plot">🌊 Density Plot</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#density-plot-of-daily-sales">🌊 <strong>Density Plot of Daily Sales</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔍 <strong>Observation</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">✅ <strong>Conclusion</strong>:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#violin-plot">🎻 Violin Plot</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#violin-plot-of-player-points-per-game">🎻 <strong>Violin Plot of Player Points per Game</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🔍 <strong>Observation</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">✅ <strong>Conclusion</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-charts-pie-charts">📊 <strong>Bar Charts / Pie Charts</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-chart-voter-preferences-by-political-party">📊 <strong>Bar Chart: Voter Preferences by Political Party</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">🔍 <strong>Observation</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">✅ <strong>Conclusion</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plots">⚫ <strong>Scatter Plots</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot-bmi-vs-blood-pressure">⚪ <strong>Scatter Plot: BMI vs Blood Pressure</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">🔍 <strong>Observation</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">✅ <strong>Conclusion</strong>:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pair-plot">🔁 Pair Plot</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">✅ <strong>Conclusion</strong>:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pair-plot-academic-scores-math-science-reading">🔁 <strong>Pair Plot: Academic Scores (Math, Science, Reading)</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">🔍 <strong>Observation</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">✅ <strong>Conclusion</strong>:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-table-of-observations">✅ Summary Table of Observations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-for-reporting-conclusions">💡 Tips for Reporting Conclusions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-appropriate-way-to-visualize-a-list-of-the-eye-colors-of-120-people"><strong>1. What is an appropriate way to visualize a list of the eye colors of 120 people?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#according-to-the-histogram-of-travel-times-to-work-from-the-us-2000-census-roughly-what-percentage-of-commuters-travel-more-than-45-minutes"><strong>2. According to the histogram of travel times to work from the US 2000 census, roughly what percentage of commuters travel more than 45 minutes?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximately-what-is-the-median-travel-time-in-minutes"><strong>3. Approximately what is the median travel time, in minutes?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#which-summary-measure-would-you-use-to-compare-household-incomes-between-california-and-massachusetts"><strong>4. Which summary measure would you use to compare household incomes between California and Massachusetts?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-all-household-incomes-increase-by-5-how-does-the-mean-change"><strong>5. If all household incomes increase by 5%, how does the mean change?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-median-change-if-all-incomes-increase-by-5"><strong>6. How does the median change if all incomes increase by 5%?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-standard-deviation-change-if-all-incomes-increase-by-5"><strong>7. How does the standard deviation change if all incomes increase by 5%?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-interquartile-range-change-if-all-incomes-increase-by-5"><strong>8. How does the interquartile range change if all incomes increase by 5%?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-mean-change-if-all-incomes-increase-by-5-000"><strong>9. How does the mean change if all incomes increase by $5,000?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-median-change-if-all-incomes-increase-by-5-000"><strong>10. How does the median change if all incomes increase by $5,000?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-standard-deviation-change-if-all-incomes-increase-by-5-000"><strong>11. How does the standard deviation change if all incomes increase by $5,000?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-interquartile-range-change-if-all-incomes-increase-by-5-000"><strong>12. How does the interquartile range change if all incomes increase by $5,000?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-median-house-price-is-342-000-what-percentage-of-homes-sold-for-more-than-that"><strong>13. The median house price is $342,000. What percentage of homes sold for more than that?</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#topic-understanding-the-shape-of-a-distribution">🎓 Topic: Understanding the <strong>Shape of a Distribution</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-we-mean-by-shape-of-a-distribution">1. 📌 <strong>What Do We Mean by “Shape of a Distribution”?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-types-of-distribution-shapes">2. 🔄 <strong>Main Types of Distribution Shapes</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-symmetric-distribution-also-called-normal-or-bell-shaped">🟢 a) <strong>Symmetric Distribution</strong> (also called “normal” or bell-shaped)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-right-skewed-positively-skewed">🔵 b) <strong>Right-Skewed (Positively Skewed)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-left-skewed-negatively-skewed">🔴 c) <strong>Left-Skewed (Negatively Skewed)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-uniform-distribution">🟡 d) <strong>Uniform Distribution</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-bimodal-distribution">🟠 e) <strong>Bimodal Distribution</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-you-spot-these-shapes">3. 🧠 <strong>How Can You Spot These Shapes?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-the-shape-matter-in-data-analysis">4. ✅ <strong>Why Does the Shape Matter in Data Analysis?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analogy-to-wrap-it-up">✨ Analogy to Wrap It Up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">🎯 Summary</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-divide-by-n-1-for-sample-variance">📌 <strong>Why Do We Divide by (n – 1) for Sample Variance?</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-reason">✅ <strong>Key Reason</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-happening">🔍 <strong>What’s Happening</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-n-1">📊 <strong>Why (n – 1)?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bottom-line">🎓 <strong>Bottom Line</strong>:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-covariance-and-correlation">Understanding Covariance and Correlation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance">Covariance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation">Correlation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson-correlation-coefficient">Pearson Correlation Coefficient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spearman-rank-correlation">Spearman Rank Correlation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases-in-data-science">Use Cases in Data Science</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
