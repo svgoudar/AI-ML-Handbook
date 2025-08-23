@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Probability Distributions &#8212; My sample book</title>
+    <title>Probability Distribution &#8212; My sample book</title>
   
   
   
@@ -187,16 +187,10 @@
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="01_probability.html">What is Probability?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_probability_types.html">Types of Probability</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="03_probability_rules.html">Rules of Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="discrete/bernoulli.html">Bernoulli Distribution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="discrete/binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="discrete/poisson.html">Poisson Distribution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="discrete/geometric.html">Geometric Distribution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="discrete/uniform.html">Discrete Uniform Distribution</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="03_probability_rules.html">Rules of Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="continuous/index.html">Continuous Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -396,7 +390,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Probability Distributions</h1>
+    <h1>Probability Distribution</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -406,98 +400,99 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-distribution">Probability Distribution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-probability-distribution-functions">Types of Probability Distribution Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cumulative-distribution-function-cdf">Cumulative Distribution Function (CDF)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-relevance">Real-World Relevance</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Probability Distribution</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-probability-distribution-functions">Types of Probability Distribution Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cumulative-distribution-function-cdf">Cumulative Distribution Function (CDF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-relevance">Real-World Relevance</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-probability-distribution">Types of Probability Distribution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-understanding-distributions-is-important">Why Understanding Distributions is Important:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-probability-distribution">Types of Probability Distribution</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-understanding-distributions-is-important">Why Understanding Distributions is Important:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-gaussian-distribution">🎯 <strong>Normal (Gaussian) Distribution</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">✅ <strong>Definition:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-characteristics">🧠 <strong>Key Characteristics:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">📌 <strong>Notation:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">📊 <strong>Parameters:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdf-probability-density-function">📌 <strong>PDF (Probability Density Function):</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-normally-distributed-data">📈 <strong>Examples of Normally Distributed Data:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-rule-689599-7-rule">📐 <strong>Empirical Rule (68–95–99.7 Rule):</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters">🔍 <strong>Why This Matters:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-notes">📚 <strong>Further Notes:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-normal-distribution"><strong>Standard Normal Distribution</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-formula">3. <strong>Z-Score Formula</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-z-score-important">4. <strong>Why is Z-Score Important?</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-in-real-world-scenarios">5. <strong>Applications in Real-World Scenarios</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standardization-in-machine-learning">📌 <em>Standardization in Machine Learning</em></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-gaussian-distribution">🎯 <strong>Normal (Gaussian) Distribution</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">✅ <strong>Definition:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-characteristics">🧠 <strong>Key Characteristics:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">📌 <strong>Notation:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">📊 <strong>Parameters:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdf-probability-density-function">📌 <strong>PDF (Probability Density Function):</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-normally-distributed-data">📈 <strong>Examples of Normally Distributed Data:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-rule-689599-7-rule">📐 <strong>Empirical Rule (68–95–99.7 Rule):</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters">🔍 <strong>Why This Matters:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-notes">📚 <strong>Further Notes:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-normal-distribution"><strong>Standard Normal Distribution</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-formula">3. <strong>Z-Score Formula</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-z-score-important">4. <strong>Why is Z-Score Important?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-in-real-world-scenarios">5. <strong>Applications in Real-World Scenarios</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standardization-in-machine-learning">📌 <em>Standardization in Machine Learning</em></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-understanding">6. <strong>Visual Understanding</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-understanding">6. <strong>Visual Understanding</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">✅ <strong>Key Takeaways</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#topic-uniform-distribution-in-statistics">🎯 <strong>Topic: Uniform Distribution in Statistics</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-uniform-distribution-rectangular-distribution">📈 <strong>1. Continuous Uniform Distribution (Rectangular Distribution)</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ <strong>Definition:</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">📌 <strong>Key Concepts:</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-median-variance">📊 <strong>Mean, Median, Variance:</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">📍 <strong>Example:</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">✅ <strong>Key Takeaways</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topic-uniform-distribution-in-statistics">🎯 <strong>Topic: Uniform Distribution in Statistics</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-uniform-distribution-rectangular-distribution">📈 <strong>1. Continuous Uniform Distribution (Rectangular Distribution)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ <strong>Definition:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">📌 <strong>Key Concepts:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-median-variance">📊 <strong>Mean, Median, Variance:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">📍 <strong>Example:</strong></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-uniform-distribution">🎲 <strong>2. Discrete Uniform Distribution</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">✅ <strong>Definition:</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">📌 <strong>Key Concepts:</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-median">📊 <strong>Mean, Median:</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">📍 <strong>Examples:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-uniform-distribution">🎲 <strong>2. Discrete Uniform Distribution</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">✅ <strong>Definition:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">📌 <strong>Key Concepts:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-median">📊 <strong>Mean, Median:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">📍 <strong>Examples:</strong></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-points">✅ <strong>Summary Points:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-normal-distribution">🎯 <strong>Log-Normal Distribution</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">✅ <strong>Definition:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-relationship">🔁 <strong>Transformation Relationship:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-and-characteristics">📊 <strong>Shape and Characteristics:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-check-for-log-normality">🧪 <strong>How to Check for Log-Normality:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-examples-that-follow-log-normal-distribution">🧠 <strong>Real-World Examples That Follow Log-Normal Distribution:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-key-concepts">🔁 <strong>Summary of Key Concepts:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-law-distribution">🎥 **Power Law Distribution **</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">🔹 <strong>Definition</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">🔹 <strong>Key Characteristics</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">🔹 <strong>Examples</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">🔹 <strong>Visualization</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-power-law-to-normal">🔹 <strong>Transforming Power Law to Normal</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pareto-distribution">🔹 <strong>Pareto Distribution</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validation">🔹 <strong>Validation</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">🎥 <strong>Pareto Distribution</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">🔹 <strong>Definition</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">🔹 <strong>Key Concepts</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-to-normal">🔹 <strong>Transformation to Normal</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases-examples">🔹 <strong>Use Cases &amp; Examples</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-insight">🔹 <strong>Key Insight</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#central-limit-theorem">🎥 **Central Limit Theorem **</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">📘 <strong>Definition</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">🔹 <strong>Key Concepts</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-scenarios">🔹 <strong>Two Scenarios</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-population-is-normally-distributed">✅ Case 1: Population is Normally Distributed</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-population-is-not-normally-distributed">✅ Case 2: Population is NOT Normally Distributed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-points">✅ <strong>Summary Points:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-normal-distribution">🎯 <strong>Log-Normal Distribution</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">✅ <strong>Definition:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-relationship">🔁 <strong>Transformation Relationship:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-and-characteristics">📊 <strong>Shape and Characteristics:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-check-for-log-normality">🧪 <strong>How to Check for Log-Normality:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-examples-that-follow-log-normal-distribution">🧠 <strong>Real-World Examples That Follow Log-Normal Distribution:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-key-concepts">🔁 <strong>Summary of Key Concepts:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-law-distribution">🎥 **Power Law Distribution **</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">🔹 <strong>Definition</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">🔹 <strong>Key Characteristics</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">🔹 <strong>Examples</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">🔹 <strong>Visualization</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-power-law-to-normal">🔹 <strong>Transforming Power Law to Normal</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pareto-distribution">🔹 <strong>Pareto Distribution</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation">🔹 <strong>Validation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">🎥 <strong>Pareto Distribution</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">🔹 <strong>Definition</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">🔹 <strong>Key Concepts</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-to-normal">🔹 <strong>Transformation to Normal</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases-examples">🔹 <strong>Use Cases &amp; Examples</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-insight">🔹 <strong>Key Insight</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#central-limit-theorem">🎥 **Central Limit Theorem **</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">📘 <strong>Definition</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">🔹 <strong>Key Concepts</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-scenarios">🔹 <strong>Two Scenarios</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-population-is-normally-distributed">✅ Case 1: Population is Normally Distributed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-population-is-not-normally-distributed">✅ Case 2: Population is NOT Normally Distributed</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clt-implications">🔍 <strong>CLT Implications</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-in-mean-standard-deviation">📊 <strong>Changes in Mean &amp; Standard Deviation</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-life-use-of-clt">🛠️ <strong>Real-Life Use of CLT</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimates">🎥 <strong>Estimates</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-estimate">🔍 <strong>What is an Estimate?</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-estimates">📌 <strong>Types of Estimates</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#point-estimate">1. <strong>Point Estimate</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case">✅ Use Case:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interval-estimate">2. <strong>Interval Estimate</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">✅ Use Case:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clt-implications">🔍 <strong>CLT Implications</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-in-mean-standard-deviation">📊 <strong>Changes in Mean &amp; Standard Deviation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-life-use-of-clt">🛠️ <strong>Real-Life Use of CLT</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimates">🎥 <strong>Estimates</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-estimate">🔍 <strong>What is an Estimate?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-estimates">📌 <strong>Types of Estimates</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-estimate">1. <strong>Point Estimate</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case">✅ Use Case:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interval-estimate">2. <strong>Interval Estimate</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">✅ Use Case:</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">💡 Key Insight</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">💡 Key Insight</a></li>
 </ul>
 </li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -508,21 +503,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="probability-distributions">
-<h1>Probability Distributions<a class="headerlink" href="#probability-distributions" title="Link to this heading">#</a></h1>
-<p>Probability distributions describe how the values of a random variable are spread or distributed.<br />
-They provide a mathematical framework to model uncertainty and make predictions.</p>
-<p>Distributions are broadly classified into:</p>
-<ul class="simple">
-<li><p><strong>Discrete Probability Distributions</strong> → For variables that take <strong>countable outcomes</strong> (e.g., coin toss, number of defects).</p></li>
-<li><p><strong>Continuous Probability Distributions</strong> → For variables that take <strong>any value within an interval</strong> (e.g., height, weight, time).</p></li>
-</ul>
-<section id="probability-distribution">
-<h2>Probability Distribution<a class="headerlink" href="#probability-distribution" title="Link to this heading">#</a></h2>
+  <section id="probability-distribution">
+<h1>Probability Distribution<a class="headerlink" href="#probability-distribution" title="Link to this heading">#</a></h1>
 <p><strong>Probability Distribution Functions (PDFs)</strong> describe how probabilities are distributed over the values of a random variable. They are essential for understanding the characteristics and behavior of data.</p>
 <hr class="docutils" />
 <section id="types-of-probability-distribution-functions">
-<h3>Types of Probability Distribution Functions<a class="headerlink" href="#types-of-probability-distribution-functions" title="Link to this heading">#</a></h3>
+<h2>Types of Probability Distribution Functions<a class="headerlink" href="#types-of-probability-distribution-functions" title="Link to this heading">#</a></h2>
 <p>There are two primary types of probability distribution functions, distinguished by the nature of the random variable they describe:</p>
 <ol class="arabic simple">
 <li><p><strong>Probability Mass Function (PMF):</strong></p>
@@ -651,7 +637,7 @@ It&#39;s the height of the curve, representing where values are more concentrate
 </div>
 </section>
 <section id="cumulative-distribution-function-cdf">
-<h3>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Link to this heading">#</a></h3>
+<h2>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Link to this heading">#</a></h2>
 <p>The <strong>Cumulative Distribution Function (CDF)</strong> (denoted as <span class="math notranslate nohighlight">\(F(x)\)</span>) provides the probability that a random variable <span class="math notranslate nohighlight">\(X\)</span> will take a value <strong>less than or equal to</strong> a specific value <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <ul class="simple">
 <li><p><strong>For PMF (Discrete Variables):</strong> The CDF at a given point is the sum of probabilities of all outcomes up to that point. For the dice example, <span class="math notranslate nohighlight">\(F(2) = P(X \le 2) = P(X=1) + P(X=2) = 1/6 + 1/6 = 2/6 = 1/3\)</span>.</p></li>
@@ -721,7 +707,7 @@ The slope of the CDF at any point corresponds to the probability density at that
 </div>
 </section>
 <section id="real-world-relevance">
-<h3>Real-World Relevance<a class="headerlink" href="#real-world-relevance" title="Link to this heading">#</a></h3>
+<h2>Real-World Relevance<a class="headerlink" href="#real-world-relevance" title="Link to this heading">#</a></h2>
 <p>Understanding probability distribution functions is crucial for:</p>
 <ul class="simple">
 <li><p><strong>Data Analysis:</strong> Different datasets often follow different distributions (e.g., normal, log-normal, binomial, Bernoulli), each conveying unique insights about the data’s behavior.</p></li>
@@ -731,7 +717,7 @@ The slope of the CDF at any point corresponds to the probability density at that
 </section>
 </section>
 <section id="types-of-probability-distribution">
-<h2>Types of Probability Distribution<a class="headerlink" href="#types-of-probability-distribution" title="Link to this heading">#</a></h2>
+<h1>Types of Probability Distribution<a class="headerlink" href="#types-of-probability-distribution" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p><strong>Bernoulli Distribution</strong>:</p>
 <ul>
@@ -777,7 +763,7 @@ The slope of the CDF at any point corresponds to the probability density at that
 </ul>
 <hr class="docutils" />
 <section id="why-understanding-distributions-is-important">
-<h3>Why Understanding Distributions is Important:<a class="headerlink" href="#why-understanding-distributions-is-important" title="Link to this heading">#</a></h3>
+<h2>Why Understanding Distributions is Important:<a class="headerlink" href="#why-understanding-distributions-is-important" title="Link to this heading">#</a></h2>
 <p>The speaker provides a practical example using a <strong>house price prediction dataset</strong>. Different features within this dataset will follow different distributions:</p>
 <ul class="simple">
 <li><p><strong>Size of the house</strong>: <strong>Continuous random variable</strong> (uses PDF).</p></li>
@@ -1027,15 +1013,15 @@ This PMF helps visualize the distribution as distinct bars for each outcome.</p>
 </section>
 </section>
 <section id="normal-gaussian-distribution">
-<h2>🎯 <strong>Normal (Gaussian) Distribution</strong><a class="headerlink" href="#normal-gaussian-distribution" title="Link to this heading">#</a></h2>
+<h1>🎯 <strong>Normal (Gaussian) Distribution</strong><a class="headerlink" href="#normal-gaussian-distribution" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <section id="definition">
-<h3>✅ <strong>Definition:</strong><a class="headerlink" href="#definition" title="Link to this heading">#</a></h3>
+<h2>✅ <strong>Definition:</strong><a class="headerlink" href="#definition" title="Link to this heading">#</a></h2>
 <p>The <strong>Normal distribution</strong> (or <strong>Gaussian distribution</strong>) is a <strong>continuous probability distribution</strong> for a <strong>real-valued random variable</strong>. It is widely used because many <strong>real-world datasets</strong> (like heights, weights, IQ scores, etc.) tend to follow this distribution.</p>
 </section>
 <hr class="docutils" />
 <section id="key-characteristics">
-<h3>🧠 <strong>Key Characteristics:</strong><a class="headerlink" href="#key-characteristics" title="Link to this heading">#</a></h3>
+<h2>🧠 <strong>Key Characteristics:</strong><a class="headerlink" href="#key-characteristics" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Continuous Distribution</strong> → Applies to <strong>real-valued random variables</strong></p></li>
 <li><p><strong>Bell-shaped curve</strong> → Symmetric about the mean</p></li>
@@ -1045,7 +1031,7 @@ This PMF helps visualize the distribution as distinct bars for each outcome.</p>
 </section>
 <hr class="docutils" />
 <section id="notation">
-<h3>📌 <strong>Notation:</strong><a class="headerlink" href="#notation" title="Link to this heading">#</a></h3>
+<h2>📌 <strong>Notation:</strong><a class="headerlink" href="#notation" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 X \sim \mathcal{N}(\mu, \sigma^2)
@@ -1058,7 +1044,7 @@ X \sim \mathcal{N}(\mu, \sigma^2)
 </section>
 <hr class="docutils" />
 <section id="parameters">
-<h3>📊 <strong>Parameters:</strong><a class="headerlink" href="#parameters" title="Link to this heading">#</a></h3>
+<h2>📊 <strong>Parameters:</strong><a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Mean (μ)</strong>: Central value of the distribution</p></li>
 <li><p><strong>Variance (σ²)</strong>: Measures the spread</p></li>
@@ -1068,7 +1054,7 @@ X \sim \mathcal{N}(\mu, \sigma^2)
 </section>
 <hr class="docutils" />
 <section id="pdf-probability-density-function">
-<h3>📌 <strong>PDF (Probability Density Function):</strong><a class="headerlink" href="#pdf-probability-density-function" title="Link to this heading">#</a></h3>
+<h2>📌 <strong>PDF (Probability Density Function):</strong><a class="headerlink" href="#pdf-probability-density-function" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{ -\frac{1}{2} \left( \frac{x - \mu}{\sigma} \right)^2 }
@@ -1083,7 +1069,7 @@ f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{ -\frac{1}{2} \left( \frac{x - \mu}{\sigm
 </section>
 <hr class="docutils" />
 <section id="examples-of-normally-distributed-data">
-<h3>📈 <strong>Examples of Normally Distributed Data:</strong><a class="headerlink" href="#examples-of-normally-distributed-data" title="Link to this heading">#</a></h3>
+<h2>📈 <strong>Examples of Normally Distributed Data:</strong><a class="headerlink" href="#examples-of-normally-distributed-data" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Heights</strong> and <strong>weights</strong> of students in a class</p></li>
 <li><p><strong>Petal length</strong> in the Iris dataset</p></li>
@@ -1092,7 +1078,7 @@ f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{ -\frac{1}{2} \left( \frac{x - \mu}{\sigm
 </section>
 <hr class="docutils" />
 <section id="empirical-rule-689599-7-rule">
-<h3>📐 <strong>Empirical Rule (68–95–99.7 Rule):</strong><a class="headerlink" href="#empirical-rule-689599-7-rule" title="Link to this heading">#</a></h3>
+<h2>📐 <strong>Empirical Rule (68–95–99.7 Rule):</strong><a class="headerlink" href="#empirical-rule-689599-7-rule" title="Link to this heading">#</a></h2>
 <p>If data follows a normal distribution:</p>
 <ul class="simple">
 <li><p><strong>68%</strong> of data falls within <strong>±1 standard deviation</strong> of the mean</p></li>
@@ -1115,7 +1101,7 @@ P(\mu - 3\sigma \leq X \leq \mu + 3\sigma) \approx 99.7\%
 </section>
 <hr class="docutils" />
 <section id="why-this-matters">
-<h3>🔍 <strong>Why This Matters:</strong><a class="headerlink" href="#why-this-matters" title="Link to this heading">#</a></h3>
+<h2>🔍 <strong>Why This Matters:</strong><a class="headerlink" href="#why-this-matters" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Many <strong>statistical models assume normality</strong></p></li>
 <li><p>Helps in identifying <strong>outliers</strong>, building <strong>confidence intervals</strong>, and performing <strong>hypothesis testing</strong></p></li>
@@ -1124,7 +1110,7 @@ P(\mu - 3\sigma \leq X \leq \mu + 3\sigma) \approx 99.7\%
 </section>
 <hr class="docutils" />
 <section id="further-notes">
-<h3>📚 <strong>Further Notes:</strong><a class="headerlink" href="#further-notes" title="Link to this heading">#</a></h3>
+<h2>📚 <strong>Further Notes:</strong><a class="headerlink" href="#further-notes" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>To <strong>test if data follows a normal distribution</strong>, use <strong>Q-Q plots</strong></p></li>
 <li><p>The <strong>area under the PDF curve is always 1</strong>, and <strong>PDF values are not direct probabilities</strong>, but <strong>densities</strong></p></li>
@@ -1183,7 +1169,7 @@ P(\mu - 3\sigma \leq X \leq \mu + 3\sigma) \approx 99.7\%
 </div>
 </section>
 <section id="standard-normal-distribution">
-<h3><strong>Standard Normal Distribution</strong><a class="headerlink" href="#standard-normal-distribution" title="Link to this heading">#</a></h3>
+<h2><strong>Standard Normal Distribution</strong><a class="headerlink" href="#standard-normal-distribution" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>It’s a special case of the normal distribution.</p></li>
 <li><p>Defined by:</p>
@@ -1197,7 +1183,7 @@ P(\mu - 3\sigma \leq X \leq \mu + 3\sigma) \approx 99.7\%
 </section>
 <hr class="docutils" />
 <section id="z-score-formula">
-<h3>3. <strong>Z-Score Formula</strong><a class="headerlink" href="#z-score-formula" title="Link to this heading">#</a></h3>
+<h2>3. <strong>Z-Score Formula</strong><a class="headerlink" href="#z-score-formula" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 Z = \frac{X_i - \mu}{\sigma}
@@ -1213,7 +1199,7 @@ Z = \frac{X_i - \mu}{\sigma}
 </section>
 <hr class="docutils" />
 <section id="why-is-z-score-important">
-<h3>4. <strong>Why is Z-Score Important?</strong><a class="headerlink" href="#why-is-z-score-important" title="Link to this heading">#</a></h3>
+<h2>4. <strong>Why is Z-Score Important?</strong><a class="headerlink" href="#why-is-z-score-important" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Allows us to <strong>standardize data</strong>, making it comparable.</p></li>
 <li><p>Essential for:</p>
@@ -1227,9 +1213,9 @@ Z = \frac{X_i - \mu}{\sigma}
 </section>
 <hr class="docutils" />
 <section id="applications-in-real-world-scenarios">
-<h3>5. <strong>Applications in Real-World Scenarios</strong><a class="headerlink" href="#applications-in-real-world-scenarios" title="Link to this heading">#</a></h3>
+<h2>5. <strong>Applications in Real-World Scenarios</strong><a class="headerlink" href="#applications-in-real-world-scenarios" title="Link to this heading">#</a></h2>
 <section id="standardization-in-machine-learning">
-<h4>📌 <em>Standardization in Machine Learning</em><a class="headerlink" href="#standardization-in-machine-learning" title="Link to this heading">#</a></h4>
+<h3>📌 <em>Standardization in Machine Learning</em><a class="headerlink" href="#standardization-in-machine-learning" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>Consider a dataset with different features: <strong>age, weight, height, salary</strong> — all having different units.</p></li>
 <li><p>Algorithms (e.g., Linear Regression, Clustering) perform better when features are on the <strong>same scale</strong>.</p></li>
@@ -1251,7 +1237,7 @@ Z = \frac{X_i - \mu}{\sigma}
 </section>
 <hr class="docutils" />
 <section id="visual-understanding">
-<h3>6. <strong>Visual Understanding</strong><a class="headerlink" href="#visual-understanding" title="Link to this heading">#</a></h3>
+<h2>6. <strong>Visual Understanding</strong><a class="headerlink" href="#visual-understanding" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>On a bell curve:</p>
 <ul>
@@ -1260,11 +1246,11 @@ Z = \frac{X_i - \mu}{\sigma}
 </ul>
 </li>
 </ul>
-</section>
-</section>
 <hr class="docutils" />
+</section>
+</section>
 <section id="key-takeaways">
-<h2>✅ <strong>Key Takeaways</strong><a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h2>
+<h1>✅ <strong>Key Takeaways</strong><a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p><strong>Z-Score</strong> is a transformation that makes data standardized.</p></li>
 <li><p><strong>Standard Normal Distribution</strong> simplifies analysis by having a fixed scale (μ = 0, σ = 1).</p></li>
@@ -1351,14 +1337,14 @@ Z = \frac{X_i - \mu}{\sigma}
 <p>Here’s a structured <strong>summary</strong> of your video script on <strong>uniform distribution</strong>:</p>
 <hr class="docutils" />
 <section id="topic-uniform-distribution-in-statistics">
-<h3>🎯 <strong>Topic: Uniform Distribution in Statistics</strong><a class="headerlink" href="#topic-uniform-distribution-in-statistics" title="Link to this heading">#</a></h3>
+<h2>🎯 <strong>Topic: Uniform Distribution in Statistics</strong><a class="headerlink" href="#topic-uniform-distribution-in-statistics" title="Link to this heading">#</a></h2>
 <p>Uniform distribution is of two types:</p>
 </section>
 <hr class="docutils" />
 <section id="continuous-uniform-distribution-rectangular-distribution">
-<h3>📈 <strong>1. Continuous Uniform Distribution (Rectangular Distribution)</strong><a class="headerlink" href="#continuous-uniform-distribution-rectangular-distribution" title="Link to this heading">#</a></h3>
+<h2>📈 <strong>1. Continuous Uniform Distribution (Rectangular Distribution)</strong><a class="headerlink" href="#continuous-uniform-distribution-rectangular-distribution" title="Link to this heading">#</a></h2>
 <section id="id1">
-<h4>✅ <strong>Definition:</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<h3>✅ <strong>Definition:</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Applies to <strong>continuous random variables</strong>.</p></li>
 <li><p>Every value in the interval <strong>[a, b]</strong> is equally likely.</p></li>
@@ -1366,7 +1352,7 @@ Z = \frac{X_i - \mu}{\sigma}
 </ul>
 </section>
 <section id="key-concepts">
-<h4>📌 <strong>Key Concepts:</strong><a class="headerlink" href="#key-concepts" title="Link to this heading">#</a></h4>
+<h3>📌 <strong>Key Concepts:</strong><a class="headerlink" href="#key-concepts" title="Link to this heading">#</a></h3>
 <ul>
 <li><p><strong>PDF (Probability Density Function):</strong></p>
 <div class="math notranslate nohighlight">
@@ -1392,14 +1378,14 @@ Z = \frac{X_i - \mu}{\sigma}
 </ul>
 </section>
 <section id="mean-median-variance">
-<h4>📊 <strong>Mean, Median, Variance:</strong><a class="headerlink" href="#mean-median-variance" title="Link to this heading">#</a></h4>
+<h3>📊 <strong>Mean, Median, Variance:</strong><a class="headerlink" href="#mean-median-variance" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Mean = Median = <span class="math notranslate nohighlight">\(\frac{a + b}{2}\)</span></p></li>
 <li><p>Variance = <span class="math notranslate nohighlight">\(\frac{(b - a)^2}{12}\)</span></p></li>
 </ul>
 </section>
 <section id="example">
-<h4>📍 <strong>Example:</strong><a class="headerlink" href="#example" title="Link to this heading">#</a></h4>
+<h3>📍 <strong>Example:</strong><a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>Daily candy sales are uniformly distributed between 10 and 40.</p></li>
 <li><p>Find probability of sales between 15 and 30:</p>
@@ -1419,15 +1405,15 @@ Z = \frac{X_i - \mu}{\sigma}
 </section>
 <hr class="docutils" />
 <section id="discrete-uniform-distribution">
-<h3>🎲 <strong>2. Discrete Uniform Distribution</strong><a class="headerlink" href="#discrete-uniform-distribution" title="Link to this heading">#</a></h3>
+<h2>🎲 <strong>2. Discrete Uniform Distribution</strong><a class="headerlink" href="#discrete-uniform-distribution" title="Link to this heading">#</a></h2>
 <section id="id2">
-<h4>✅ <strong>Definition:</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<h3>✅ <strong>Definition:</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Applies to <strong>discrete random variables</strong> with a <strong>finite set of equally likely outcomes</strong>.</p></li>
 </ul>
 </section>
 <section id="id3">
-<h4>📌 <strong>Key Concepts:</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<h3>📌 <strong>Key Concepts:</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>PMF (Probability Mass Function):</p>
 <div class="math notranslate nohighlight">
@@ -1440,13 +1426,13 @@ Z = \frac{X_i - \mu}{\sigma}
 </ul>
 </section>
 <section id="mean-median">
-<h4>📊 <strong>Mean, Median:</strong><a class="headerlink" href="#mean-median" title="Link to this heading">#</a></h4>
+<h3>📊 <strong>Mean, Median:</strong><a class="headerlink" href="#mean-median" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Mean = Median = <span class="math notranslate nohighlight">\(\frac{a + b}{2}\)</span></p></li>
 </ul>
 </section>
 <section id="examples">
-<h4>📍 <strong>Examples:</strong><a class="headerlink" href="#examples" title="Link to this heading">#</a></h4>
+<h3>📍 <strong>Examples:</strong><a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Rolling a fair die:</strong>
 Outcomes = 1 to 6
@@ -1459,7 +1445,7 @@ Each has <span class="math notranslate nohighlight">\(P = \frac{1}{2}\)</span></
 </section>
 <hr class="docutils" />
 <section id="summary-points">
-<h3>✅ <strong>Summary Points:</strong><a class="headerlink" href="#summary-points" title="Link to this heading">#</a></h3>
+<h2>✅ <strong>Summary Points:</strong><a class="headerlink" href="#summary-points" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Uniform distributions are <strong>symmetrical</strong>.</p></li>
 <li><p><strong>Continuous</strong> uses <strong>PDF</strong>; <strong>Discrete</strong> uses <strong>PMF</strong>.</p></li>
@@ -1470,11 +1456,11 @@ Each has <span class="math notranslate nohighlight">\(P = \frac{1}{2}\)</span></
 <p>Let me know if you’d like slides or visuals built from this summary!</p>
 </section>
 <section id="log-normal-distribution">
-<h3>🎯 <strong>Log-Normal Distribution</strong><a class="headerlink" href="#log-normal-distribution" title="Link to this heading">#</a></h3>
+<h2>🎯 <strong>Log-Normal Distribution</strong><a class="headerlink" href="#log-normal-distribution" title="Link to this heading">#</a></h2>
 </section>
 <hr class="docutils" />
 <section id="id4">
-<h3>✅ <strong>Definition:</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<h2>✅ <strong>Definition:</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>A <strong>log-normal distribution</strong> is a continuous probability distribution of a <strong>random variable X</strong>, where:</p>
 <ul class="simple">
 <li><p>The <strong>logarithm of X</strong> (i.e., <span class="math notranslate nohighlight">\(Y = \ln(X)\)</span>) is <strong>normally distributed</strong>.</p></li>
@@ -1483,7 +1469,7 @@ Each has <span class="math notranslate nohighlight">\(P = \frac{1}{2}\)</span></
 </section>
 <hr class="docutils" />
 <section id="transformation-relationship">
-<h3>🔁 <strong>Transformation Relationship:</strong><a class="headerlink" href="#transformation-relationship" title="Link to this heading">#</a></h3>
+<h2>🔁 <strong>Transformation Relationship:</strong><a class="headerlink" href="#transformation-relationship" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(X \sim \text{LogNormal} \Rightarrow Y = \ln(X) \sim \text{Normal}\)</span></p></li>
 <li><p>Conversely, if <span class="math notranslate nohighlight">\(Y \sim \text{Normal} \Rightarrow X = e^Y \sim \text{LogNormal}\)</span></p></li>
@@ -1491,7 +1477,7 @@ Each has <span class="math notranslate nohighlight">\(P = \frac{1}{2}\)</span></
 </section>
 <hr class="docutils" />
 <section id="shape-and-characteristics">
-<h3>📊 <strong>Shape and Characteristics:</strong><a class="headerlink" href="#shape-and-characteristics" title="Link to this heading">#</a></h3>
+<h2>📊 <strong>Shape and Characteristics:</strong><a class="headerlink" href="#shape-and-characteristics" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Right-skewed</strong> distribution (long tail to the right).</p></li>
 <li><p><strong>Not symmetric</strong> like the normal distribution.</p></li>
@@ -1500,7 +1486,7 @@ Each has <span class="math notranslate nohighlight">\(P = \frac{1}{2}\)</span></
 </section>
 <hr class="docutils" />
 <section id="how-to-check-for-log-normality">
-<h3>🧪 <strong>How to Check for Log-Normality:</strong><a class="headerlink" href="#how-to-check-for-log-normality" title="Link to this heading">#</a></h3>
+<h2>🧪 <strong>How to Check for Log-Normality:</strong><a class="headerlink" href="#how-to-check-for-log-normality" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Use a <strong>Q-Q plot</strong> (Quantile-Quantile Plot).</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(\ln(X)\)</span> plots approximately on a straight line in the Q-Q plot, then X follows a log-normal distribution.</p></li>
@@ -1508,7 +1494,7 @@ Each has <span class="math notranslate nohighlight">\(P = \frac{1}{2}\)</span></
 </section>
 <hr class="docutils" />
 <section id="real-world-examples-that-follow-log-normal-distribution">
-<h3>🧠 <strong>Real-World Examples That Follow Log-Normal Distribution:</strong><a class="headerlink" href="#real-world-examples-that-follow-log-normal-distribution" title="Link to this heading">#</a></h3>
+<h2>🧠 <strong>Real-World Examples That Follow Log-Normal Distribution:</strong><a class="headerlink" href="#real-world-examples-that-follow-log-normal-distribution" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>Wealth Distribution</strong>:</p>
 <ul class="simple">
@@ -1535,7 +1521,7 @@ Each has <span class="math notranslate nohighlight">\(P = \frac{1}{2}\)</span></
 </section>
 <hr class="docutils" />
 <section id="summary-of-key-concepts">
-<h3>🔁 <strong>Summary of Key Concepts:</strong><a class="headerlink" href="#summary-of-key-concepts" title="Link to this heading">#</a></h3>
+<h2>🔁 <strong>Summary of Key Concepts:</strong><a class="headerlink" href="#summary-of-key-concepts" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Concept</p></th>
@@ -1595,12 +1581,12 @@ Each has <span class="math notranslate nohighlight">\(P = \frac{1}{2}\)</span></
 </div>
 </section>
 <section id="power-law-distribution">
-<h3>🎥 **Power Law Distribution **<a class="headerlink" href="#power-law-distribution" title="Link to this heading">#</a></h3>
+<h2>🎥 **Power Law Distribution **<a class="headerlink" href="#power-law-distribution" title="Link to this heading">#</a></h2>
 <p>In this video, we dive into <strong>Power Law Distribution</strong>, a <strong>non-Gaussian</strong> distribution that appears in many real-world datasets. It’s especially useful to understand <strong>uneven, imbalanced relationships</strong> in data.</p>
 </section>
 <hr class="docutils" />
 <section id="id5">
-<h3>🔹 <strong>Definition</strong><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<h2>🔹 <strong>Definition</strong><a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>A <strong>power law</strong> describes a <strong>functional relationship</strong> between two variables where:</p>
 <ul class="simple">
 <li><p>A relative change in one variable results in a <strong>proportional relative change</strong> in the other,</p></li>
@@ -1610,7 +1596,7 @@ Each has <span class="math notranslate nohighlight">\(P = \frac{1}{2}\)</span></
 </section>
 <hr class="docutils" />
 <section id="id6">
-<h3>🔹 <strong>Key Characteristics</strong><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<h2>🔹 <strong>Key Characteristics</strong><a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>It follows the <strong>Pareto Principle</strong> or the <strong>80/20 Rule</strong>.</p></li>
 <li><p><strong>20% of causes</strong> are responsible for <strong>80% of effects</strong>.</p></li>
@@ -1619,7 +1605,7 @@ Each has <span class="math notranslate nohighlight">\(P = \frac{1}{2}\)</span></
 </section>
 <hr class="docutils" />
 <section id="id7">
-<h3>🔹 <strong>Examples</strong><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<h2>🔹 <strong>Examples</strong><a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>IPL Matches</strong>: 20% of teams win 80% of the matches.</p></li>
 <li><p><strong>Wealth Distribution</strong>: 20% of the population holds 80% of the wealth.</p></li>
@@ -1630,14 +1616,14 @@ Each has <span class="math notranslate nohighlight">\(P = \frac{1}{2}\)</span></
 </section>
 <hr class="docutils" />
 <section id="visualization">
-<h3>🔹 <strong>Visualization</strong><a class="headerlink" href="#visualization" title="Link to this heading">#</a></h3>
+<h2>🔹 <strong>Visualization</strong><a class="headerlink" href="#visualization" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Compared to normal or log-normal curves, <strong>power law curves</strong> sharply drop and <strong>extend long toward the right</strong>, showing <strong>rare but significant</strong> events in the tail.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
 <section id="transforming-power-law-to-normal">
-<h3>🔹 <strong>Transforming Power Law to Normal</strong><a class="headerlink" href="#transforming-power-law-to-normal" title="Link to this heading">#</a></h3>
+<h2>🔹 <strong>Transforming Power Law to Normal</strong><a class="headerlink" href="#transforming-power-law-to-normal" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Just like <strong>log-normal data</strong> can be converted into normal data using a <strong>log transform</strong>, power law data can be normalized using a <strong>Box-Cox Transformation</strong>.</p></li>
 <li><p>This is crucial for <strong>machine learning models</strong> that assume normally distributed input features.</p></li>
@@ -1645,7 +1631,7 @@ Each has <span class="math notranslate nohighlight">\(P = \frac{1}{2}\)</span></
 </section>
 <hr class="docutils" />
 <section id="pareto-distribution">
-<h3>🔹 <strong>Pareto Distribution</strong><a class="headerlink" href="#pareto-distribution" title="Link to this heading">#</a></h3>
+<h2>🔹 <strong>Pareto Distribution</strong><a class="headerlink" href="#pareto-distribution" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>A specific type of <strong>power law distribution</strong>.</p></li>
 <li><p>Also follows the 80/20 rule.</p></li>
@@ -1654,7 +1640,7 @@ Each has <span class="math notranslate nohighlight">\(P = \frac{1}{2}\)</span></
 </section>
 <hr class="docutils" />
 <section id="validation">
-<h3>🔹 <strong>Validation</strong><a class="headerlink" href="#validation" title="Link to this heading">#</a></h3>
+<h2>🔹 <strong>Validation</strong><a class="headerlink" href="#validation" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>To confirm normality after transformation, use <strong>Q-Q Plots</strong>.</p></li>
 </ul>
@@ -1723,12 +1709,12 @@ Each has <span class="math notranslate nohighlight">\(P = \frac{1}{2}\)</span></
 </div>
 </section>
 <section id="id8">
-<h3>🎥 <strong>Pareto Distribution</strong><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<h2>🎥 <strong>Pareto Distribution</strong><a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>In this video, we explore the <strong>Pareto distribution</strong>, which is a specific case of the <strong>Power Law Distribution</strong>. It’s a <strong>non-Gaussian distribution</strong> and is widely recognized for modeling <strong>imbalanced, real-world phenomena</strong>.</p>
 </section>
 <hr class="docutils" />
 <section id="id9">
-<h3>🔹 <strong>Definition</strong><a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<h2>🔹 <strong>Definition</strong><a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The <strong>Pareto distribution</strong> follows the <strong>Power Law</strong>, where a small number of causes account for a large portion of the effect — also known as the <strong>80/20 rule</strong>.</p></li>
 <li><p>Mathematically, it is governed by a shape parameter <strong>α (alpha)</strong>.</p></li>
@@ -1737,7 +1723,7 @@ Each has <span class="math notranslate nohighlight">\(P = \frac{1}{2}\)</span></
 </section>
 <hr class="docutils" />
 <section id="id10">
-<h3>🔹 <strong>Key Concepts</strong><a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<h2>🔹 <strong>Key Concepts</strong><a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Alpha (α)</strong>: Controls the steepness of the curve. Higher α means the curve becomes sharper and peaks more quickly.</p></li>
 <li><p><strong>PDF Shape</strong>: Always right-skewed with a <strong>long tail</strong>, indicating rare but high-impact events.</p></li>
@@ -1746,7 +1732,7 @@ Each has <span class="math notranslate nohighlight">\(P = \frac{1}{2}\)</span></
 </section>
 <hr class="docutils" />
 <section id="transformation-to-normal">
-<h3>🔹 <strong>Transformation to Normal</strong><a class="headerlink" href="#transformation-to-normal" title="Link to this heading">#</a></h3>
+<h2>🔹 <strong>Transformation to Normal</strong><a class="headerlink" href="#transformation-to-normal" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Just like <strong>log-normal data</strong> can be transformed into a <strong>normal distribution</strong> using a <strong>log transformation</strong>, Pareto-distributed data can be transformed using a <strong>Box-Cox transformation</strong>.</p></li>
 <li><p>This is important in <strong>machine learning</strong>, where many algorithms assume normally distributed inputs.</p></li>
@@ -1754,7 +1740,7 @@ Each has <span class="math notranslate nohighlight">\(P = \frac{1}{2}\)</span></
 </section>
 <hr class="docutils" />
 <section id="use-cases-examples">
-<h3>🔹 <strong>Use Cases &amp; Examples</strong><a class="headerlink" href="#use-cases-examples" title="Link to this heading">#</a></h3>
+<h2>🔹 <strong>Use Cases &amp; Examples</strong><a class="headerlink" href="#use-cases-examples" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>IT Industry – Work Distribution</strong>:
 20% of the team does 80% of the work.</p></li>
@@ -1768,7 +1754,7 @@ Solving 20% of critical bugs addresses 80% of defect issues.</p></li>
 </section>
 <hr class="docutils" />
 <section id="key-insight">
-<h3>🔹 <strong>Key Insight</strong><a class="headerlink" href="#key-insight" title="Link to this heading">#</a></h3>
+<h2>🔹 <strong>Key Insight</strong><a class="headerlink" href="#key-insight" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Pareto Distribution</strong> is useful to model <strong>inequality, concentration, and dominance</strong> in real-world systems.</p></li>
 <li><p>It <strong>always follows a power law</strong> and can be normalized using transformation techniques for statistical modeling and machine learning.</p></li>
@@ -1807,11 +1793,11 @@ Solving 20% of critical bugs addresses 80% of defect issues.</p></li>
 </div>
 </section>
 <section id="central-limit-theorem">
-<h3>🎥 **Central Limit Theorem **<a class="headerlink" href="#central-limit-theorem" title="Link to this heading">#</a></h3>
+<h2>🎥 **Central Limit Theorem **<a class="headerlink" href="#central-limit-theorem" title="Link to this heading">#</a></h2>
 </section>
 <hr class="docutils" />
 <section id="id11">
-<h3>📘 <strong>Definition</strong><a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<h2>📘 <strong>Definition</strong><a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <p>The <strong>Central Limit Theorem (CLT)</strong> states that:</p>
 <blockquote>
 <div><p>The <strong>sampling distribution of the sample mean</strong> will tend to be <strong>normally distributed</strong>, <strong>regardless of the original population distribution</strong>, provided the <strong>sample size is sufficiently large</strong>.</p>
@@ -1819,7 +1805,7 @@ Solving 20% of critical bugs addresses 80% of defect issues.</p></li>
 </section>
 <hr class="docutils" />
 <section id="id12">
-<h3>🔹 <strong>Key Concepts</strong><a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<h2>🔹 <strong>Key Concepts</strong><a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>Sampling Distribution</strong>:
 The probability distribution of a statistic (like the mean) from <strong>multiple samples</strong> drawn from a population.</p></li>
@@ -1833,16 +1819,16 @@ The probability distribution of a statistic (like the mean) from <strong>multipl
 </section>
 <hr class="docutils" />
 <section id="two-scenarios">
-<h3>🔹 <strong>Two Scenarios</strong><a class="headerlink" href="#two-scenarios" title="Link to this heading">#</a></h3>
+<h2>🔹 <strong>Two Scenarios</strong><a class="headerlink" href="#two-scenarios" title="Link to this heading">#</a></h2>
 <section id="case-1-population-is-normally-distributed">
-<h4>✅ Case 1: Population is Normally Distributed<a class="headerlink" href="#case-1-population-is-normally-distributed" title="Link to this heading">#</a></h4>
+<h3>✅ Case 1: Population is Normally Distributed<a class="headerlink" href="#case-1-population-is-normally-distributed" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Sample size <strong>n</strong> can be any value.</p></li>
 <li><p>Sampling distribution of the sample mean will be <strong>normal</strong>.</p></li>
 </ul>
 </section>
 <section id="case-2-population-is-not-normally-distributed">
-<h4>✅ Case 2: Population is NOT Normally Distributed<a class="headerlink" href="#case-2-population-is-not-normally-distributed" title="Link to this heading">#</a></h4>
+<h3>✅ Case 2: Population is NOT Normally Distributed<a class="headerlink" href="#case-2-population-is-not-normally-distributed" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Sample size <strong>n ≥ 30</strong> required.</p></li>
 <li><p>Sampling distribution of the sample mean <strong>still becomes approximately normal</strong>.</p></li>
@@ -1851,7 +1837,7 @@ The probability distribution of a statistic (like the mean) from <strong>multipl
 </section>
 <hr class="docutils" />
 <section id="clt-implications">
-<h3>🔍 <strong>CLT Implications</strong><a class="headerlink" href="#clt-implications" title="Link to this heading">#</a></h3>
+<h2>🔍 <strong>CLT Implications</strong><a class="headerlink" href="#clt-implications" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Regardless of the shape of the population distribution, the <strong>mean of the sample means</strong> will tend toward a <strong>normal distribution</strong> as the number of samples increases.</p></li>
 <li><p>This helps us <strong>approximate probabilities</strong> using the <strong>normal distribution curve</strong>, even when working with non-normal populations.</p></li>
@@ -1859,7 +1845,7 @@ The probability distribution of a statistic (like the mean) from <strong>multipl
 </section>
 <hr class="docutils" />
 <section id="changes-in-mean-standard-deviation">
-<h3>📊 <strong>Changes in Mean &amp; Standard Deviation</strong><a class="headerlink" href="#changes-in-mean-standard-deviation" title="Link to this heading">#</a></h3>
+<h2>📊 <strong>Changes in Mean &amp; Standard Deviation</strong><a class="headerlink" href="#changes-in-mean-standard-deviation" title="Link to this heading">#</a></h2>
 <p>When sampling is performed:</p>
 <ul class="simple">
 <li><p><strong>Sample Mean (x̄)</strong> ≈ <strong>Population Mean (μ)</strong></p></li>
@@ -1875,7 +1861,7 @@ Where:</p>
 </section>
 <hr class="docutils" />
 <section id="real-life-use-of-clt">
-<h3>🛠️ <strong>Real-Life Use of CLT</strong><a class="headerlink" href="#real-life-use-of-clt" title="Link to this heading">#</a></h3>
+<h2>🛠️ <strong>Real-Life Use of CLT</strong><a class="headerlink" href="#real-life-use-of-clt" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>It underpins most statistical methods in <strong>data science</strong> and <strong>machine learning</strong>.</p></li>
 <li><p>Enables the use of <strong>Z-scores</strong>, <strong>t-tests</strong>, and <strong>confidence intervals</strong> even with non-normal data — as long as sample size is large.</p></li>
@@ -1915,16 +1901,16 @@ Where:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/16e10e55891b65e526ee70fca7f7ffb2f23a9b7b4a33f018728a840da67f6d2d.png" src="../../_images/16e10e55891b65e526ee70fca7f7ffb2f23a9b7b4a33f018728a840da67f6d2d.png" />
+<img alt="../../_images/363652cd2d59ced6d61cedc842d6a2a865009a511d53a6e7a21781c4789939d8.png" src="../../_images/363652cd2d59ced6d61cedc842d6a2a865009a511d53a6e7a21781c4789939d8.png" />
 </div>
 </div>
 </section>
 <section id="estimates">
-<h3>🎥 <strong>Estimates</strong><a class="headerlink" href="#estimates" title="Link to this heading">#</a></h3>
+<h2>🎥 <strong>Estimates</strong><a class="headerlink" href="#estimates" title="Link to this heading">#</a></h2>
 </section>
 <hr class="docutils" />
 <section id="what-is-an-estimate">
-<h3>🔍 <strong>What is an Estimate?</strong><a class="headerlink" href="#what-is-an-estimate" title="Link to this heading">#</a></h3>
+<h2>🔍 <strong>What is an Estimate?</strong><a class="headerlink" href="#what-is-an-estimate" title="Link to this heading">#</a></h2>
 <p>An <strong>estimate</strong> is an <strong>observed numerical value</strong> used to infer or <strong>approximate an unknown population parameter</strong>.</p>
 <blockquote>
 <div><p>It plays a central role in <strong>inferential statistics</strong>, which is used to make predictions or decisions about a population based on sample data.</p>
@@ -1932,9 +1918,9 @@ Where:</p>
 </section>
 <hr class="docutils" />
 <section id="types-of-estimates">
-<h3>📌 <strong>Types of Estimates</strong><a class="headerlink" href="#types-of-estimates" title="Link to this heading">#</a></h3>
+<h2>📌 <strong>Types of Estimates</strong><a class="headerlink" href="#types-of-estimates" title="Link to this heading">#</a></h2>
 <section id="point-estimate">
-<h4>1. <strong>Point Estimate</strong><a class="headerlink" href="#point-estimate" title="Link to this heading">#</a></h4>
+<h3>1. <strong>Point Estimate</strong><a class="headerlink" href="#point-estimate" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>A <strong>single numerical value</strong> used to estimate an unknown population parameter.</p></li>
 <li><p><strong>Example</strong>:
@@ -1943,7 +1929,7 @@ then <span class="math notranslate nohighlight">\(\bar{x}\)</span> is a <strong>
 </ul>
 </section>
 <section id="use-case">
-<h4>✅ Use Case:<a class="headerlink" href="#use-case" title="Link to this heading">#</a></h4>
+<h3>✅ Use Case:<a class="headerlink" href="#use-case" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>You draw a sample from a population.</p></li>
 <li><p>You compute its mean (say 60).</p></li>
@@ -1953,7 +1939,7 @@ then <span class="math notranslate nohighlight">\(\bar{x}\)</span> is a <strong>
 </section>
 <hr class="docutils" />
 <section id="interval-estimate">
-<h4>2. <strong>Interval Estimate</strong><a class="headerlink" href="#interval-estimate" title="Link to this heading">#</a></h4>
+<h3>2. <strong>Interval Estimate</strong><a class="headerlink" href="#interval-estimate" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>A <strong>range of values</strong> used to estimate the population parameter.</p></li>
 <li><p>Expressed as:</p>
@@ -1966,7 +1952,7 @@ then <span class="math notranslate nohighlight">\(\bar{x}\)</span> is a <strong>
 </ul>
 </section>
 <section id="id13">
-<h4>✅ Use Case:<a class="headerlink" href="#id13" title="Link to this heading">#</a></h4>
+<h3>✅ Use Case:<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Sample mean = 60</p></li>
 <li><p>Instead of just saying 60, you specify a range: <strong>55 to 65</strong></p></li>
@@ -1977,7 +1963,7 @@ then <span class="math notranslate nohighlight">\(\bar{x}\)</span> is a <strong>
 </section>
 <hr class="docutils" />
 <section id="id14">
-<h3>💡 Key Insight<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<h2>💡 Key Insight<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Point Estimate</strong> = precise but possibly inaccurate</p></li>
 <li><p><strong>Interval Estimate</strong> = broader but more reliable</p></li>
@@ -2028,7 +2014,6 @@ then <span class="math notranslate nohighlight">\(\bar{x}\)</span> is a <strong>
 </div>
 </section>
 </section>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2076,98 +2061,99 @@ then <span class="math notranslate nohighlight">\(\bar{x}\)</span> is a <strong>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-distribution">Probability Distribution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-probability-distribution-functions">Types of Probability Distribution Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cumulative-distribution-function-cdf">Cumulative Distribution Function (CDF)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-relevance">Real-World Relevance</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Probability Distribution</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-probability-distribution-functions">Types of Probability Distribution Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cumulative-distribution-function-cdf">Cumulative Distribution Function (CDF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-relevance">Real-World Relevance</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-probability-distribution">Types of Probability Distribution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-understanding-distributions-is-important">Why Understanding Distributions is Important:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-probability-distribution">Types of Probability Distribution</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-understanding-distributions-is-important">Why Understanding Distributions is Important:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-gaussian-distribution">🎯 <strong>Normal (Gaussian) Distribution</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">✅ <strong>Definition:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-characteristics">🧠 <strong>Key Characteristics:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">📌 <strong>Notation:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">📊 <strong>Parameters:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdf-probability-density-function">📌 <strong>PDF (Probability Density Function):</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-normally-distributed-data">📈 <strong>Examples of Normally Distributed Data:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-rule-689599-7-rule">📐 <strong>Empirical Rule (68–95–99.7 Rule):</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters">🔍 <strong>Why This Matters:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-notes">📚 <strong>Further Notes:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-normal-distribution"><strong>Standard Normal Distribution</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-formula">3. <strong>Z-Score Formula</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-z-score-important">4. <strong>Why is Z-Score Important?</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-in-real-world-scenarios">5. <strong>Applications in Real-World Scenarios</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standardization-in-machine-learning">📌 <em>Standardization in Machine Learning</em></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-gaussian-distribution">🎯 <strong>Normal (Gaussian) Distribution</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">✅ <strong>Definition:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-characteristics">🧠 <strong>Key Characteristics:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">📌 <strong>Notation:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">📊 <strong>Parameters:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdf-probability-density-function">📌 <strong>PDF (Probability Density Function):</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-normally-distributed-data">📈 <strong>Examples of Normally Distributed Data:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-rule-689599-7-rule">📐 <strong>Empirical Rule (68–95–99.7 Rule):</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters">🔍 <strong>Why This Matters:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-notes">📚 <strong>Further Notes:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-normal-distribution"><strong>Standard Normal Distribution</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-formula">3. <strong>Z-Score Formula</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-z-score-important">4. <strong>Why is Z-Score Important?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-in-real-world-scenarios">5. <strong>Applications in Real-World Scenarios</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standardization-in-machine-learning">📌 <em>Standardization in Machine Learning</em></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-understanding">6. <strong>Visual Understanding</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-understanding">6. <strong>Visual Understanding</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">✅ <strong>Key Takeaways</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#topic-uniform-distribution-in-statistics">🎯 <strong>Topic: Uniform Distribution in Statistics</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-uniform-distribution-rectangular-distribution">📈 <strong>1. Continuous Uniform Distribution (Rectangular Distribution)</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ <strong>Definition:</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">📌 <strong>Key Concepts:</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-median-variance">📊 <strong>Mean, Median, Variance:</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">📍 <strong>Example:</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">✅ <strong>Key Takeaways</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topic-uniform-distribution-in-statistics">🎯 <strong>Topic: Uniform Distribution in Statistics</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-uniform-distribution-rectangular-distribution">📈 <strong>1. Continuous Uniform Distribution (Rectangular Distribution)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ <strong>Definition:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">📌 <strong>Key Concepts:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-median-variance">📊 <strong>Mean, Median, Variance:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">📍 <strong>Example:</strong></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-uniform-distribution">🎲 <strong>2. Discrete Uniform Distribution</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">✅ <strong>Definition:</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">📌 <strong>Key Concepts:</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-median">📊 <strong>Mean, Median:</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">📍 <strong>Examples:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-uniform-distribution">🎲 <strong>2. Discrete Uniform Distribution</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">✅ <strong>Definition:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">📌 <strong>Key Concepts:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-median">📊 <strong>Mean, Median:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">📍 <strong>Examples:</strong></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-points">✅ <strong>Summary Points:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-normal-distribution">🎯 <strong>Log-Normal Distribution</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">✅ <strong>Definition:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-relationship">🔁 <strong>Transformation Relationship:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-and-characteristics">📊 <strong>Shape and Characteristics:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-check-for-log-normality">🧪 <strong>How to Check for Log-Normality:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-examples-that-follow-log-normal-distribution">🧠 <strong>Real-World Examples That Follow Log-Normal Distribution:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-key-concepts">🔁 <strong>Summary of Key Concepts:</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-law-distribution">🎥 **Power Law Distribution **</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">🔹 <strong>Definition</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">🔹 <strong>Key Characteristics</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">🔹 <strong>Examples</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">🔹 <strong>Visualization</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-power-law-to-normal">🔹 <strong>Transforming Power Law to Normal</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pareto-distribution">🔹 <strong>Pareto Distribution</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validation">🔹 <strong>Validation</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">🎥 <strong>Pareto Distribution</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">🔹 <strong>Definition</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">🔹 <strong>Key Concepts</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-to-normal">🔹 <strong>Transformation to Normal</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases-examples">🔹 <strong>Use Cases &amp; Examples</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-insight">🔹 <strong>Key Insight</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#central-limit-theorem">🎥 **Central Limit Theorem **</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">📘 <strong>Definition</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">🔹 <strong>Key Concepts</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-scenarios">🔹 <strong>Two Scenarios</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-population-is-normally-distributed">✅ Case 1: Population is Normally Distributed</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-population-is-not-normally-distributed">✅ Case 2: Population is NOT Normally Distributed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-points">✅ <strong>Summary Points:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-normal-distribution">🎯 <strong>Log-Normal Distribution</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">✅ <strong>Definition:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-relationship">🔁 <strong>Transformation Relationship:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-and-characteristics">📊 <strong>Shape and Characteristics:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-check-for-log-normality">🧪 <strong>How to Check for Log-Normality:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-examples-that-follow-log-normal-distribution">🧠 <strong>Real-World Examples That Follow Log-Normal Distribution:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-key-concepts">🔁 <strong>Summary of Key Concepts:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-law-distribution">🎥 **Power Law Distribution **</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">🔹 <strong>Definition</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">🔹 <strong>Key Characteristics</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">🔹 <strong>Examples</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">🔹 <strong>Visualization</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-power-law-to-normal">🔹 <strong>Transforming Power Law to Normal</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pareto-distribution">🔹 <strong>Pareto Distribution</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation">🔹 <strong>Validation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">🎥 <strong>Pareto Distribution</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">🔹 <strong>Definition</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">🔹 <strong>Key Concepts</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-to-normal">🔹 <strong>Transformation to Normal</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases-examples">🔹 <strong>Use Cases &amp; Examples</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-insight">🔹 <strong>Key Insight</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#central-limit-theorem">🎥 **Central Limit Theorem **</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">📘 <strong>Definition</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">🔹 <strong>Key Concepts</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-scenarios">🔹 <strong>Two Scenarios</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-population-is-normally-distributed">✅ Case 1: Population is Normally Distributed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-population-is-not-normally-distributed">✅ Case 2: Population is NOT Normally Distributed</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clt-implications">🔍 <strong>CLT Implications</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-in-mean-standard-deviation">📊 <strong>Changes in Mean &amp; Standard Deviation</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-life-use-of-clt">🛠️ <strong>Real-Life Use of CLT</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimates">🎥 <strong>Estimates</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-estimate">🔍 <strong>What is an Estimate?</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-estimates">📌 <strong>Types of Estimates</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#point-estimate">1. <strong>Point Estimate</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case">✅ Use Case:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interval-estimate">2. <strong>Interval Estimate</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">✅ Use Case:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clt-implications">🔍 <strong>CLT Implications</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-in-mean-standard-deviation">📊 <strong>Changes in Mean &amp; Standard Deviation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-life-use-of-clt">🛠️ <strong>Real-Life Use of CLT</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimates">🎥 <strong>Estimates</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-estimate">🔍 <strong>What is an Estimate?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-estimates">📌 <strong>Types of Estimates</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-estimate">1. <strong>Point Estimate</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case">✅ Use Case:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interval-estimate">2. <strong>Interval Estimate</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">✅ Use Case:</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">💡 Key Insight</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">💡 Key Insight</a></li>
 </ul>
 </li>
 </ul>
+
   </nav></div>
 
 </div></div>
