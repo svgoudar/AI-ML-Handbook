@@ -42,3 +42,115 @@
   font-size: 1.1rem;
   color: var(--pst-color-primary);
 }
+
+/* ============================
+   General Markdown Styling
+   ============================ */
+div.text_cell_render {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333333;
+}
+
+/* Headings */
+div.text_cell_render h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.2em;
+    color: #1F2937;
+    margin-bottom: 0.5em;
+}
+div.text_cell_render h2 {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+}
+div.text_cell_render h3 {
+    font-size: 1.4em;
+    margin-bottom: 0.4em;
+}
+
+/* ============================
+   Code Cell Styling
+   ============================ */
+div.input_area {
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    background-color: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+/* Output Cells */
+div.output_area pre {
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #111827;
+}
+
+/* ============================
+   Grid & Card Styling
+   ============================ */
+.grid-item-card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grid-item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Header in card */
+.grid-item-card .grid-header {
+    padding: 0.8rem 1rem;
+    font-weight: 600;
+    font-size: 1.1em;
+    color: #FFFFFF;
+}
+
+/* Body in card */
+.grid-item-card .grid-body {
+    padding: 1rem;
+    font-size: 0.95em;
+    color: #1F2937;
+    background-color: #F3F4F6;
+}
+
+/* Grid Title */
+.grid-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 0.3em;
+}
+
+/* Grid Subtitle */
+.grid-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95em;
+    color: #4B5563;
+}
+
+/* ============================
+   Links & Hover
+   ============================ */
+a {
+    color: #2563EB;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================
+   Footnotes
+   ============================ */
+.footnote {
+    font-size: 0.85em;
+    color: #6B7280;
+}

@@ -1,3 +1,9 @@
+---
+noteId: "cdb2dbe0802d11f0bc7d15f1720af5a0"
+tags: []
+
+---
+
 # Discrete Probability Distributions
 
 A **discrete probability distribution** describes the probabilities of outcomes of a *discrete random variable* — one that takes only **countable values** (finite or infinite).  

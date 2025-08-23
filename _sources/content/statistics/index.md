@@ -166,3 +166,8 @@ Statistics provides the **tools to understand data** and make reliable decisions
 * **Inferential** → Predict & conclude
 * **Data types** → Nominal, Ordinal, Interval, Ratio
 * **Probability & Sampling** → Foundation for inference
+
+## Section table of contents
+
+```{tableofcontents}
+```

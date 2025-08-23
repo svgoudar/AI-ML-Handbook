@@ -1,3 +1,9 @@
+---
+noteId: "ce2a07b0802d11f0bc7d15f1720af5a0"
+tags: []
+
+---
+
 # Types of content source files
 
 Jupyter Book supports many kinds of source files for your book's content.
