@@ -1,0 +1,44 @@
+.grid-center {
+  text-align: center;
+}
+
+/* Enlarge the grid card */
+.sd-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+  min-height: 100px;   /* makes card taller */
+  min-width: 150px;    /* makes card wider */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers content vertically */
+}
+
+/* Hover effect */
+.sd-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Header color (auto light/dark) */
+.bg-grid-header {
+  background-color: var(--pst-color-surface);  /* adapts to theme */
+  color: var(--pst-color-primary);
+  font-weight: bold;
+  text-align: center;
+  padding: 0.5rem;
+  border-bottom: 2px solid var(--pst-color-primary);
+}
+
+/* Body color (auto light/dark) */
+.bg-grid-body {
+  background-color: var(--pst-color-background);
+  color: var(--pst-color-text-base);
+  padding: 0.8rem;
+}
+
+/* Accent text style */
+.grid-title {
+  font-size: 1.1rem;
+  color: var(--pst-color-primary);
+}

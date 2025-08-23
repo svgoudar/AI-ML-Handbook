@@ -1,0 +1,92 @@
+Traceback (most recent call last):
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 664, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import folium
+m = folium.Map(
+    location=[45.372, -121.6972],
+    zoom_start=12,
+    tiles='Stamen Terrain'
+)
+
+folium.Marker(
+    location=[45.3288, -121.6625],
+    popup='Mt. Hood Meadows',
+    icon=folium.Icon(icon='cloud')
+).add_to(m)
+
+folium.Marker(
+    location=[45.3311, -121.7113],
+    popup='Timberline Lodge',
+    icon=folium.Icon(color='green')
+).add_to(m)
+
+folium.Marker(
+    location=[45.3300, -121.6823],
+    popup='Some Other Location',
+    icon=folium.Icon(color='red', icon='info-sign')
+).add_to(m)
+
+m
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mValueError[39m                                Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[7][39m[32m, line 2[39m
+[32m      1[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mfolium[39;00m
+[32m----> [39m[32m2[39m m = [43mfolium[49m[43m.[49m[43mMap[49m[43m([49m
+[32m      3[39m [43m    [49m[43mlocation[49m[43m=[49m[43m[[49m[32;43m45.372[39;49m[43m,[49m[43m [49m[43m-[49m[32;43m121.6972[39;49m[43m][49m[43m,[49m
+[32m      4[39m [43m    [49m[43mzoom_start[49m[43m=[49m[32;43m12[39;49m[43m,[49m
+[32m      5[39m [43m    [49m[43mtiles[49m[43m=[49m[33;43m'[39;49m[33;43mStamen Terrain[39;49m[33;43m'[39;49m
+[32m      6[39m [43m)[49m
+[32m      8[39m folium.Marker(
+[32m      9[39m     location=[[32m45.3288[39m, -[32m121.6625[39m],
+[32m     10[39m     popup=[33m'[39m[33mMt. Hood Meadows[39m[33m'[39m,
+[32m     11[39m     icon=folium.Icon(icon=[33m'[39m[33mcloud[39m[33m'[39m)
+[32m     12[39m ).add_to(m)
+[32m     14[39m folium.Marker(
+[32m     15[39m     location=[[32m45.3311[39m, -[32m121.7113[39m],
+[32m     16[39m     popup=[33m'[39m[33mTimberline Lodge[39m[33m'[39m,
+[32m     17[39m     icon=folium.Icon(color=[33m'[39m[33mgreen[39m[33m'[39m)
+[32m     18[39m ).add_to(m)
+
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python312\Lib\site-packages\folium\folium.py:345[39m, in [36mMap.__init__[39m[34m(self, location, width, height, left, top, position, tiles, attr, min_zoom, max_zoom, zoom_start, min_lat, max_lat, min_lon, max_lon, max_bounds, crs, control_scale, prefer_canvas, no_touch, disable_3d, png_enabled, zoom_control, font_size, **kwargs)[39m
+[32m    343[39m     [38;5;28mself[39m.add_child(tiles)
+[32m    344[39m [38;5;28;01melif[39;00m tiles:
+[32m--> [39m[32m345[39m     tile_layer = [43mTileLayer[49m[43m([49m
+[32m    346[39m [43m        [49m[43mtiles[49m[43m=[49m[43mtiles[49m[43m,[49m[43m [49m[43mattr[49m[43m=[49m[43mattr[49m[43m,[49m[43m [49m[43mmin_zoom[49m[43m=[49m[43mmin_zoom[49m[43m,[49m[43m [49m[43mmax_zoom[49m[43m=[49m[43mmax_zoom[49m
+[32m    347[39m [43m    [49m[43m)[49m
+[32m    348[39m     [38;5;28mself[39m.add_child(tile_layer, name=tile_layer.tile_name)
+
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python312\Lib\site-packages\folium\raster_layers.py:142[39m, in [36mTileLayer.__init__[39m[34m(self, tiles, min_zoom, max_zoom, max_native_zoom, attr, detect_retina, name, overlay, control, show, no_wrap, subdomains, tms, opacity, **kwargs)[39m
+[32m    140[39m [38;5;28mself[39m.tiles = tiles
+[32m    141[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m attr:
+[32m--> [39m[32m142[39m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([33m"[39m[33mCustom tiles must have an attribution.[39m[33m"[39m)
+[32m    144[39m [38;5;28mself[39m.options = remove_empty(
+[32m    145[39m     min_zoom=min_zoom [38;5;129;01mor[39;00m [32m0[39m,
+[32m    146[39m     max_zoom=max_zoom [38;5;129;01mor[39;00m [32m18[39m,
+[32m   (...)[39m[32m    154[39m     **kwargs,
+[32m    155[39m )
+
+[31mValueError[39m: Custom tiles must have an attribution.
+ValueError: Custom tiles must have an attribution.
+

@@ -34,7 +34,11 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=280e34b8" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -45,8 +49,9 @@
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/copybutton.js?v=7f8ff830"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/tabs.js?v=3ee01567"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -57,11 +62,12 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'introduction';</script>
-    <link rel="icon" href="_static/logo.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Table of Contents" href="table_of_contents.html" />
+    <link rel="next" title="Probability Distributions" href="content/probability/index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -173,9 +179,39 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="table_of_contents.html">Table of Contents</a></li>
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="content/probability/index.html">Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/probability/01_probability.html">What is Probability?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/probability/02_probability_types.html">Types of Probability</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="content/probability/03_probability_rules.html">Rules of Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="content/probability/discrete/bernoulli.html">Bernoulli Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/probability/discrete/binomial.html">Binomial Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/probability/discrete/poisson.html">Poisson Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/probability/discrete/geometric.html">Geometric Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/probability/discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/probability/discrete/uniform.html">Discrete Uniform Distribution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="content/probability/continuous/index.html">Continuous Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="content/probability/continuous/normal.html">Normal (Gaussian) Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/probability/continuous/exponential.html">Exponential Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/probability/continuous/uniform.html">Continuous Uniform Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/probability/continuous/gamma.html">Gamma Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/probability/continuous/beta.html">Beta Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/probability/continuous/student_t.html">Student’s t-Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/probability/continuous/chi_square.html">Chi-Square Distribution</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -241,23 +277,6 @@
   <i class="fab fa-github"></i>
   </span>
 <span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/edit/master/docs/introduction.ipynb" target="_blank"
-   class="btn btn-sm btn-source-edit-button dropdown-item"
-   title="Suggest edit"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="btn__text-container">Suggest edit</span>
 </a>
 </li>
       
@@ -388,9 +407,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-portfolio">About This Portfolio</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-is-this-for">Who Is This For?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-this-portfolio">How to Use This Portfolio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents-overview">Contents Overview</a></li>
 </ul>
             </nav>
         </div>
@@ -402,66 +419,39 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+  <section id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
 <p>Welcome to my <strong>Machine Learning Tutorial Portfolio</strong>! 🚀</p>
 <p>This portfolio is designed to guide learners through the fundamentals and advanced concepts of Machine Learning, from theory to hands-on implementation.</p>
-<hr class="docutils" />
-<section id="about-this-portfolio">
-<h2>About This Portfolio<a class="headerlink" href="#about-this-portfolio" title="Link to this heading">#</a></h2>
-<p>In this portfolio, you will find:</p>
-<ul class="simple">
-<li><p><strong>Step-by-step tutorials</strong> on popular Machine Learning algorithms such as:</p>
-<ul>
-<li><p>Linear Regression</p></li>
-<li><p>Logistic Regression</p></li>
-<li><p>Decision Trees &amp; Random Forests</p></li>
-<li><p>Support Vector Machines (SVM)</p></li>
-<li><p>Naive Bayes</p></li>
-<li><p>K-Means &amp; Hierarchical Clustering</p></li>
-<li><p>XGBoost &amp; Gradient Boosting</p></li>
-</ul>
-</li>
-<li><p><strong>Practical projects</strong> demonstrating real-world applications:</p>
-<ul>
-<li><p>Predictive modeling</p></li>
-<li><p>Data visualization dashboards</p></li>
-<li><p>Model deployment with FastAPI</p></li>
-</ul>
-</li>
-<li><p><strong>Best practices</strong> in Machine Learning:</p>
-<ul>
-<li><p>Data preprocessing &amp; feature engineering</p></li>
-<li><p>Model evaluation &amp; validation</p></li>
-<li><p>Avoiding data leakage</p></li>
-<li><p>Hyperparameter tuning</p></li>
-</ul>
-</li>
-</ul>
-</section>
-<hr class="docutils" />
-<section id="who-is-this-for">
-<h2>Who Is This For?<a class="headerlink" href="#who-is-this-for" title="Link to this heading">#</a></h2>
-<p>This portfolio is perfect for:</p>
-<ul class="simple">
-<li><p>Beginners who want a solid foundation in Machine Learning</p></li>
-<li><p>Data enthusiasts looking to implement real-world ML projects</p></li>
-<li><p>Professionals aiming to deploy ML models in production environments</p></li>
-</ul>
-</section>
-<hr class="docutils" />
-<section id="how-to-use-this-portfolio">
-<h2>How to Use This Portfolio<a class="headerlink" href="#how-to-use-this-portfolio" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Navigate through the chapters listed in the <strong>Table of Contents</strong>.</p></li>
-<li><p>Open the <strong>Jupyter Notebooks</strong> to see code examples, explanations, and visualizations.</p></li>
-<li><p>Experiment with the notebooks by modifying code or trying your own datasets.</p></li>
-<li><p>Apply the concepts to your projects or learning exercises.</p></li>
-</ol>
-<hr class="docutils" />
 <blockquote>
 <div><p>“Machine Learning is a journey, not just a destination. Explore, experiment, and build!”</p>
 </div></blockquote>
+<section id="contents-overview">
+<h2>Contents Overview<a class="headerlink" href="#contents-overview" title="Link to this heading">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-3 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-header bg-grid-header docutils">
+<p class="sd-card-text"><span class="grid-title">Probability</span></p>
+</div>
+<div class="sd-card-body grid-center bg-grid-body docutils">
+<p class="sd-card-text">Probability theory</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="content/probability/index.html"><span class="doc">Probability Distributions</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">MyST Markdown ✨</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Write MyST Markdown to create enriched documents with publication-quality features.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="content/probability/index.html"><span class="doc">Probability Distributions</span></a></div>
+</div>
+</div>
+</div>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -498,11 +488,11 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="table_of_contents.html"
+       href="content/probability/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Table of Contents</p>
+        <p class="prev-next-title">Probability Distributions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -522,9 +512,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-portfolio">About This Portfolio</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-is-this-for">Who Is This For?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-this-portfolio">How to Use This Portfolio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents-overview">Contents Overview</a></li>
 </ul>
   </nav></div>
 
