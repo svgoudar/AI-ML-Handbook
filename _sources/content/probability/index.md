@@ -1,11 +1,16 @@
-# Probability Distributions
+---
+noteId: "44f56b707f6e11f0bc7d15f1720af5a0"
+tags: []
 
-Probability distributions describe how the values of a random variable are spread or distributed.  
-They provide a mathematical framework to model uncertainty and make predictions.
+---
 
-Distributions are broadly classified into:
+# Probability
 
-- **Discrete Probability Distributions** → For variables that take **countable outcomes** (e.g., coin toss, number of defects).  
-- **Continuous Probability Distributions** → For variables that take **any value within an interval** (e.g., height, weight, time).
+Jupyter Book supports many kinds of source files for your book's content.
+These sections cover the major types of content and how you can control their behavior in Jupyter Book.
+See the list of sections to the left for information about each type.
+
+## Section table of contents
 
 ```{tableofcontents}
+```
