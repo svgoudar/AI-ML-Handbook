@@ -1,9 +1,3 @@
----
-noteId: "6d38be40801111f0bc7d15f1720af5a0"
-tags: []
-
----
-
 # Continuous Probability Distributions
 
 A **continuous probability distribution** describes outcomes of a *continuous random variable* — one that can take **any value within an interval**.  

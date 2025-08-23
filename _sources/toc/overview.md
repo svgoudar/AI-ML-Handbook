@@ -1,9 +1,3 @@
----
-noteId: "70db8780801111f0bc7d15f1720af5a0"
-tags: []
-
----
-
 # Overview
 
 This is a short overview of the major components and steps in building a Jupyter Book. See the other pages in this guide for more in-depth information.

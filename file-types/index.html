@@ -32,10 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=280e34b8" />
@@ -439,19 +439,22 @@ See the list of sections to the left for information about each type.</p>
 <h2>Allowed content types<a class="headerlink" href="#allowed-content-types" title="Link to this heading">#</a></h2>
 <p>In general, these are the types of content supported by Jupyter Book (along with
 links to their section in this book):</p>
-<p><a class="reference internal" href="markdown.html"><span class="std std-doc">Markdown files</span></a>
-: These are text files written in either CommonMark or in MyST Markdown.</p>
-<p><a class="reference internal" href="notebooks.html"><span class="std std-doc">Jupyter notebooks</span></a>
-: AKA, <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> files. These files can contain Markdown cells with MyST Markdown.
-: A Jupyter notebook can utilise any program kernel that implements the <a class="reference external" href="http://jupyter-client.readthedocs.io/en/latest/messaging.html">Jupyter messaging protocol</a> for executing code.
+<dl class="simple myst">
+<dt><a class="reference internal" href="markdown.html"><span class="std std-doc">Markdown files</span></a></dt><dd><p>These are text files written in either CommonMark or in MyST Markdown.</p>
+</dd>
+<dt><a class="reference internal" href="notebooks.html"><span class="std std-doc">Jupyter notebooks</span></a></dt><dd><p>AKA, <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> files. These files can contain Markdown cells with MyST Markdown.</p>
+</dd>
+<dd><p>A Jupyter notebook can utilise any program kernel that implements the <a class="reference external" href="http://jupyter-client.readthedocs.io/en/latest/messaging.html">Jupyter messaging protocol</a> for executing code.
 There are kernels available for <a class="reference external" href="http://ipython.org/notebook.html">Python</a>, <a class="reference external" href="https://github.com/JuliaLang/IJulia.jl">Julia</a>, <a class="reference external" href="https://github.com/minad/iruby">Ruby</a>, <a class="reference external" href="https://github.com/gibiansky/IHaskell">Haskell</a> and <a class="reference external" href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">many other languages</a>.</p>
-<p><a class="reference internal" href="myst-notebooks.html"><span class="std std-doc">MyST Markdown notebooks</span></a>
-: These are Markdown files (ending in <code class="docutils literal notranslate"><span class="pre">.md</span></code>) that will be <em>converted to a notebook and executed</em>.</p>
-<p><a class="reference internal" href="restructuredtext.html"><span class="std std-doc">reStructuredText</span></a>.
-: These are text files used by the Sphinx documentation engine (which is used by Jupyter Book).
+</dd>
+<dt><a class="reference internal" href="myst-notebooks.html"><span class="std std-doc">MyST Markdown notebooks</span></a></dt><dd><p>These are Markdown files (ending in <code class="docutils literal notranslate"><span class="pre">.md</span></code>) that will be <em>converted to a notebook and executed</em>.</p>
+</dd>
+<dt><a class="reference internal" href="restructuredtext.html"><span class="std std-doc">reStructuredText</span></a>.</dt><dd><p>These are text files used by the Sphinx documentation engine (which is used by Jupyter Book).
 It is recommended to use MyST Markdown instead.</p>
-<p><a class="reference internal" href="jupytext.html#file-types-custom"><span class="std std-ref">Custom notebook formats</span></a>
-: Any other file type can be <em>auto-converted</em> before execution by assigning it a custom Python function, for example those provided by the Jupytext conversion tool.</p>
+</dd>
+<dt><a class="reference internal" href="jupytext.html#file-types-custom"><span class="std std-ref">Custom notebook formats</span></a></dt><dd><p>Any other file type can be <em>auto-converted</em> before execution by assigning it a custom Python function, for example those provided by the Jupytext conversion tool.</p>
+</dd>
+</dl>
 </section>
 <section id="rules-for-all-content-types">
 <span id="rules-all-content-types"></span><h2>Rules for all content types<a class="headerlink" href="#rules-for-all-content-types" title="Link to this heading">#</a></h2>

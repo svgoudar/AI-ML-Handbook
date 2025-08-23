@@ -1,9 +1,3 @@
----
-noteId: "6eb8f5a0801111f0bc7d15f1720af5a0"
-tags: []
-
----
-
 # 📊 Statistics
 
 *Understanding Data with Clarity and Purpose*

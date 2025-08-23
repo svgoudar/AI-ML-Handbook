@@ -32,10 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=280e34b8" />
@@ -464,17 +464,19 @@ To do so, use the following command:</p>
 </pre></div>
 </div>
 <p>Here is a brief explanation of each key:</p>
-<p><code class="docutils literal notranslate"><span class="pre">format:</span></code>
-: Defines the structure of this Table of Contents (e.g., how to interpret the key names). <code class="docutils literal notranslate"><span class="pre">jb-book</span></code> tells Jupyter Book to expect <code class="docutils literal notranslate"><span class="pre">chapters</span></code> and <code class="docutils literal notranslate"><span class="pre">parts</span></code> terminology (see below for details).</p>
-<p><code class="docutils literal notranslate"><span class="pre">root:</span></code>
-: The first page of your book (aka, the “root page”).
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">format:</span></code></dt><dd><p>Defines the structure of this Table of Contents (e.g., how to interpret the key names). <code class="docutils literal notranslate"><span class="pre">jb-book</span></code> tells Jupyter Book to expect <code class="docutils literal notranslate"><span class="pre">chapters</span></code> and <code class="docutils literal notranslate"><span class="pre">parts</span></code> terminology (see below for details).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">root:</span></code></dt><dd><p>The first page of your book (aka, the “root page”).
 It is the landing page for the HTML of your book.
 All paths for chapters/sections will be relative to this root document.</p>
-<p><code class="docutils literal notranslate"><span class="pre">chapters:</span></code>
-: A list of entries, each of which maps onto <strong>chapters</strong> of your book.</p>
-<p><code class="docutils literal notranslate"><span class="pre">file:</span></code>
-: A path to a file that contains the content for a chapter / section.
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">chapters:</span></code></dt><dd><p>A list of entries, each of which maps onto <strong>chapters</strong> of your book.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">file:</span></code></dt><dd><p>A path to a file that contains the content for a chapter / section.
 These paths are <em>relative</em> to the <code class="docutils literal notranslate"><span class="pre">root:</span></code> document.</p>
+</dd>
+</dl>
 <section id="use-chapter-sub-sections">
 <h3>Use chapter sub-sections<a class="headerlink" href="#use-chapter-sub-sections" title="Link to this heading">#</a></h3>
 <p>You may optionally split a chapter across multiple files (each making up a <strong>section</strong> of the chapter).
@@ -489,10 +491,12 @@ To do so, use the <code class="docutils literal notranslate"><span class="pre">s
 </pre></div>
 </div>
 <p>Here’s a brief explanation of <code class="docutils literal notranslate"><span class="pre">sections:</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">sections:</span></code>
-: A list of entries that define <strong>sub-sections</strong> of a chapter.
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">sections:</span></code></dt><dd><p>A list of entries that define <strong>sub-sections</strong> of a chapter.
 This is useful if you’d like to split a chapter across multiple pages.
 See <a class="reference internal" href="sections-headers.html#toc-structure"><span class="std std-ref">How headers and sections map onto to book structure</span></a> for more information.</p>
+</dd>
+</dl>
 </section>
 <section id="use-parts-to-organize-chapters">
 <h3>Use parts to organize chapters<a class="headerlink" href="#use-parts-to-organize-chapters" title="Link to this heading">#</a></h3>
@@ -515,9 +519,11 @@ See <a class="reference internal" href="sections-headers.html#toc-structure"><sp
 </pre></div>
 </div>
 <p>Here’s a brief explanation of <code class="docutils literal notranslate"><span class="pre">parts:</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">parts:</span></code>
-: A list of entries, each of which defines a chapter.
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">parts:</span></code></dt><dd><p>A list of entries, each of which defines a chapter.
 This is useful if you’d like to use different groups of chapters.</p>
+</dd>
+</dl>
 </section>
 </section>
 <section id="structure-of-an-article">
@@ -566,16 +572,18 @@ To do so, use the <code class="docutils literal notranslate"><span class="pre">f
 <h2>Types of content entries<a class="headerlink" href="#types-of-content-entries" title="Link to this heading">#</a></h2>
 <p>There are several types of entries that you may provide in order to point to specific types of content.
 Here is a quick overview:</p>
-<p><code class="docutils literal notranslate"><span class="pre">file:</span></code>
-: A path that points to a local text file, which defines the content of this entry (the chapter, section, or sub-section).
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">file:</span></code></dt><dd><p>A path that points to a local text file, which defines the content of this entry (the chapter, section, or sub-section).
 These paths should be relative to your <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> file.</p>
-<p><code class="docutils literal notranslate"><span class="pre">glob:</span></code>
-: A <a class="reference external" href="https://docs.python.org/3/library/glob.html">glob-like pattern</a> that can be used to match against <strong>multiple local files</strong>.
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">glob:</span></code></dt><dd><p>A <a class="reference external" href="https://docs.python.org/3/library/glob.html">glob-like pattern</a> that can be used to match against <strong>multiple local files</strong>.
 Each of these files will be collected and inserted into your content, in the order that <code class="docutils literal notranslate"><span class="pre">glob</span></code> discovers them.</p>
-<p><code class="docutils literal notranslate"><span class="pre">url:</span></code>
-: An external link to a website (starting with <code class="docutils literal notranslate"><span class="pre">http</span></code> or <code class="docutils literal notranslate"><span class="pre">https</span></code>).
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">url:</span></code></dt><dd><p>An external link to a website (starting with <code class="docutils literal notranslate"><span class="pre">http</span></code> or <code class="docutils literal notranslate"><span class="pre">https</span></code>).
 This will be inserted into your book’s Table of Contents, though it will not affect your book’s structure (like numbering).</p>
 <p>When a <code class="docutils literal notranslate"><span class="pre">title:</span></code> entry is provided its text is used instead of the full URL.</p>
+</dd>
+</dl>
 <p>Here is an example to show all three types:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jb-book</span>
 <span class="nt">root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">index</span>
