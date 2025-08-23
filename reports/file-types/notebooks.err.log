@@ -49,8 +49,8 @@ folium.Marker(
 m
 ------------------
 
-[31m---------------------------------------------------------------------------[39m
-[31mValueError[39m                                Traceback (most recent call last)
+[31m-------------------------------------------------------------[39m
+[31mValueError[39m                  Traceback (most recent call last)
 [36mCell[39m[36m [39m[32mIn[7][39m[32m, line 2[39m
 [32m      1[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mfolium[39;00m
 [32m----> [39m[32m2[39m m = [43mfolium[49m[43m.[49m[43mMap[49m[43m([49m
