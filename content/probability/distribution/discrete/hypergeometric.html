@@ -32,10 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=38150eaf" />
@@ -62,6 +62,8 @@
     <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/probability/distribution/discrete/hypergeometric';</script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -184,10 +186,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../../toc.html">Table of contents</a></li>
-</ul>
-<ul class="current nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">🎲 Probability</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../01_probability.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../02_probability_types.html">Types of Probability</a></li>
@@ -202,7 +201,7 @@
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="index.html">Discrete Probability Distributions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="bernoulli.html">Bernoulli Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="poisson.html">Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poisson.html">The Poisson Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="geometric.html">Geometric Distribution</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">Hypergeometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="uniform.html">Discrete Uniform Distribution</a></li>
@@ -211,11 +210,11 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../continuous/index.html">Continuous Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/normal.html">Normal (Gaussian) Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/exponential.html">Exponential Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../continuous/uniform.html">Continuous Uniform Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../continuous/uniform.html">Uniform Continuous Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/gamma.html">Gamma Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/beta.html">Beta Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../continuous/chi_square.html">Chi-Square Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../continuous/chi_square.html"><strong>Chi-Square (χ²) Distribution</strong></a></li>
 </ul>
 </details></li>
 </ul>
@@ -410,7 +409,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -426,6 +427,19 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-hypergeometric-distribution">🔹 <strong>What is the Hypergeometric Distribution?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters">🔹 <strong>Key Parameters</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-mass-function-pmf">🔹 <strong>Probability Mass Function (PMF)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">🔹 <strong>Statistical Measures</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-card-drawing">🔹 <strong>Example: Card Drawing</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">🔹 <strong>Applications</strong></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -437,7 +451,138 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hypergeometric-distribution">
 <h1>Hypergeometric Distribution<a class="headerlink" href="#hypergeometric-distribution" title="Link to this heading">#</a></h1>
-<p>This section covers the Hypergeometric distribution, which describes the probability of k successes in n draws from a finite population without replacement.</p>
+<section id="what-is-the-hypergeometric-distribution">
+<h2>🔹 <strong>What is the Hypergeometric Distribution?</strong><a class="headerlink" href="#what-is-the-hypergeometric-distribution" title="Link to this heading">#</a></h2>
+<p>The <strong>Hypergeometric Distribution</strong> models the probability of getting a certain number of “successes” when <strong>sampling <em>without replacement</em></strong> from a finite population that contains both successes and failures.</p>
+<p>This makes it different from the <strong>Binomial Distribution</strong>, which assumes independent trials (sampling <em>with replacement</em> or infinite population).</p>
+</section>
+<hr class="docutils" />
+<section id="key-parameters">
+<h2>🔹 <strong>Key Parameters</strong><a class="headerlink" href="#key-parameters" title="Link to this heading">#</a></h2>
+<p>The hypergeometric distribution depends on 3 main parameters:</p>
+<ol class="arabic simple">
+<li><p><strong>Population size (N):</strong> The total number of items in the population.</p></li>
+<li><p><strong>Number of successes in the population (K):</strong> The count of items labeled as “success” in the population.</p></li>
+<li><p><strong>Number of draws (n):</strong> How many items are drawn (without replacement).</p></li>
+<li><p><strong>Random variable (X):</strong> The number of observed successes in those draws.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="probability-mass-function-pmf">
+<h2>🔹 <strong>Probability Mass Function (PMF)</strong><a class="headerlink" href="#probability-mass-function-pmf" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+P(X = x) = \frac{\binom{K}{x} \cdot \binom{N-K}{n-x}}{\binom{N}{n}}
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\binom{K}{x}\)</span> = ways to choose <span class="math notranslate nohighlight">\(x\)</span> successes from <span class="math notranslate nohighlight">\(K\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\binom{N-K}{n-x}\)</span> = ways to choose the remaining <span class="math notranslate nohighlight">\(n-x\)</span> from failures.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\binom{N}{n}\)</span> = total ways to choose <span class="math notranslate nohighlight">\(n\)</span> items from the population.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="statistical-measures">
+<h2>🔹 <strong>Statistical Measures</strong><a class="headerlink" href="#statistical-measures" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><strong>Mean (Expected Value):</strong></p>
+<div class="math notranslate nohighlight">
+\[
+  E[X] = n \cdot \frac{K}{N}
+  \]</div>
+</li>
+<li><p><strong>Variance:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+  Var(X) = n \cdot \frac{K}{N} \cdot \left(1 - \frac{K}{N}\right) \cdot \frac{N-n}{N-1}
+  \]</div>
+</li>
+</ul>
+<blockquote>
+<div><p>Notice the extra factor <span class="math notranslate nohighlight">\(\frac{N-n}{N-1}\)</span>, which accounts for <strong>lack of independence</strong> (since sampling is without replacement).</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="example-card-drawing">
+<h2>🔹 <strong>Example: Card Drawing</strong><a class="headerlink" href="#example-card-drawing" title="Link to this heading">#</a></h2>
+<p>Suppose you have a <strong>deck of 52 playing cards (N=52)</strong>.</p>
+<ul class="simple">
+<li><p><strong>Successes (K=4):</strong> Let’s say we define “success” as drawing an Ace.</p></li>
+<li><p><strong>Draws (n=5):</strong> You draw 5 cards without replacement.</p></li>
+<li><p><strong>Question:</strong> What’s the probability of getting exactly 2 Aces?</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+P(X=2) = \frac{\binom{4}{2} \cdot \binom{48}{3}}{\binom{52}{5}}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2>🔹 <strong>Applications</strong><a class="headerlink" href="#applications" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Quality control (finding defective items in a batch).</p></li>
+<li><p>Card games and lottery problems.</p></li>
+<li><p>Ecological studies (sampling species from a habitat).</p></li>
+<li><p>Any situation of <strong>finite population sampling without replacement</strong>.</p></li>
+</ul>
+<hr class="docutils" />
+<p>✅ In short:</p>
+<ul class="simple">
+<li><p>Use <strong>Binomial</strong> when trials are independent (replacement allowed or infinite population).</p></li>
+<li><p>Use <strong>Hypergeometric</strong> when <strong>sampling without replacement</strong> from a finite group.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">hypergeom</span>
+
+<span class="c1"># Hypergeometric parameters (card example)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">52</span>   <span class="c1"># population size (deck size)</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">4</span>    <span class="c1"># number of &quot;successes&quot; in population (Aces)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>    <span class="c1"># number of draws (cards drawn without replacement)</span>
+
+<span class="c1"># Support of X: possible number of aces drawn</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># PMF</span>
+<span class="n">pmf</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+<span class="c1"># Probability of exactly 2 aces</span>
+<span class="n">p_x_eq_2</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+<span class="c1"># Mean and variance</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">var</span> <span class="o">=</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+<span class="c1"># --- Plot PMF ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pmf</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hypergeometric PMF: N=</span><span class="si">{</span><span class="n">N</span><span class="si">}</span><span class="s1">, K=</span><span class="si">{</span><span class="n">K</span><span class="si">}</span><span class="s1">, n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of Aces Drawn (x)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;P(X = x)&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">xi</span><span class="p">,</span> <span class="n">pi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pmf</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">pi</span> <span class="o">+</span> <span class="mf">0.005</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">pi</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Print key stats</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P(X = 2) = </span><span class="si">{</span><span class="n">p_x_eq_2</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean = </span><span class="si">{</span><span class="n">mean</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Variance = </span><span class="si">{</span><span class="n">var</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/221efcf6dc48d1f5419f94d7717f6c81332176dcc9ac4ce4e009d618de3c710f.png" src="../../../../_images/221efcf6dc48d1f5419f94d7717f6c81332176dcc9ac4ce4e009d618de3c710f.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P(X = 2) = 0.0399
+Mean = 0.385
+Variance = 0.327
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -494,6 +639,26 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-hypergeometric-distribution">🔹 <strong>What is the Hypergeometric Distribution?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters">🔹 <strong>Key Parameters</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-mass-function-pmf">🔹 <strong>Probability Mass Function (PMF)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">🔹 <strong>Statistical Measures</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-card-drawing">🔹 <strong>Example: Card Drawing</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">🔹 <strong>Applications</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

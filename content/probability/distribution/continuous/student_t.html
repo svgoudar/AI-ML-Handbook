@@ -32,10 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=38150eaf" />
@@ -62,10 +62,12 @@
     <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/probability/distribution/continuous/student_t';</script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Chi-Square Distribution" href="chi_square.html" />
+    <link rel="next" title="Chi-Square (χ²) Distribution" href="chi_square.html" />
     <link rel="prev" title="Beta Distribution" href="beta.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -184,10 +186,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../../toc.html">Table of contents</a></li>
-</ul>
-<ul class="current nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">🎲 Probability</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../01_probability.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../02_probability_types.html">Types of Probability</a></li>
@@ -202,7 +201,7 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/bernoulli.html">Bernoulli Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../discrete/poisson.html">Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../discrete/poisson.html">The Poisson Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/geometric.html">Geometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/uniform.html">Discrete Uniform Distribution</a></li>
@@ -211,11 +210,11 @@
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="index.html">Continuous Probability Distributions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="normal.html">Normal (Gaussian) Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="exponential.html">Exponential Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="uniform.html">Continuous Uniform Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uniform.html">Uniform Continuous Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gamma.html">Gamma Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="beta.html">Beta Distribution</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">Student’s t-Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="chi_square.html">Chi-Square Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chi_square.html"><strong>Chi-Square (χ²) Distribution</strong></a></li>
 </ul>
 </details></li>
 </ul>
@@ -410,7 +409,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -426,6 +427,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">🔑 <strong>Key Features</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">🎯 <strong>Applications</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-to-normal-distribution">📊 <strong>Relation to Normal Distribution</strong></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -435,9 +446,107 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="student-s-t-distribution">
-<h1>Student’s t-Distribution<a class="headerlink" href="#student-s-t-distribution" title="Link to this heading">#</a></h1>
-<p>This section covers the Student’s t-distribution, which arises when estimating the mean of a normally distributed population in situations where the sample size is small.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="students-t-distribution">
+<h1>Student’s t-Distribution<a class="headerlink" href="#students-t-distribution" title="Link to this heading">#</a></h1>
+<p>The <strong>t-distribution</strong> is a probability distribution that is very similar to the <strong>normal distribution</strong> (bell-shaped and symmetric) but has <strong>heavier tails</strong>.</p>
+<p>It was introduced by William Sealy Gosset under the pen name <em>“Student”</em>.</p>
+<hr class="docutils" />
+<section id="key-features">
+<h2>🔑 <strong>Key Features</strong><a class="headerlink" href="#key-features" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Shape</strong>:</p>
+<ul class="simple">
+<li><p>Bell-shaped and symmetric around zero.</p></li>
+<li><p>Tails are heavier than the normal distribution → more probability of extreme values.</p></li>
+</ul>
+</li>
+<li><p><strong>Parameter</strong>:</p>
+<ul class="simple">
+<li><p><strong>Degrees of Freedom (ν or df):</strong></p>
+<ul>
+<li><p>Determines the shape of the distribution.</p></li>
+<li><p>Lower df → heavier tails.</p></li>
+<li><p>As df → ∞, the t-distribution approaches the standard normal distribution.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Probability Density Function (PDF):</strong></p>
+<div class="math notranslate nohighlight">
+\[
+   f(t) = \frac{\Gamma\left(\frac{\nu+1}{2}\right)}{\sqrt{\nu \pi}\,\Gamma\left(\frac{\nu}{2}\right)} \left(1 + \frac{t^2}{\nu}\right)^{-\frac{\nu+1}{2}}
+   \]</div>
+<p>where <span class="math notranslate nohighlight">\(\nu\)</span> = degrees of freedom.</p>
+</li>
+<li><p><strong>Statistical Measures</strong>:</p>
+<ul class="simple">
+<li><p><strong>Mean</strong> = 0 (for ν &gt; 1)</p></li>
+<li><p><strong>Variance</strong> = <span class="math notranslate nohighlight">\(\frac{\nu}{\nu - 2}\)</span> (for ν &gt; 2)</p></li>
+<li><p><strong>Heavier tails</strong> mean higher chance of outliers compared to normal distribution.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2>🎯 <strong>Applications</strong><a class="headerlink" href="#applications" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Small Sample Sizes</strong>: Used when the sample size is small and population variance is unknown.</p></li>
+<li><p><strong>t-Tests</strong>: Hypothesis testing for means (e.g., one-sample t-test, two-sample t-test).</p></li>
+<li><p><strong>Confidence Intervals</strong>: Used to calculate confidence intervals for the mean when variance is estimated from the sample.</p></li>
+<li><p><strong>Robustness</strong>: Handles uncertainty better when data is limited.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="relation-to-normal-distribution">
+<h2>📊 <strong>Relation to Normal Distribution</strong><a class="headerlink" href="#relation-to-normal-distribution" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Both are symmetric and bell-shaped.</p></li>
+<li><p>With large sample sizes (high df), t-distribution ≈ normal distribution.</p></li>
+<li><p>With small df, t-distribution has <strong>fatter tails</strong>, making it more conservative.</p></li>
+</ul>
+<hr class="docutils" />
+<p>✅ <strong>In short</strong>:
+The <strong>Student’s t-distribution</strong> is crucial in <strong>inferential statistics</strong>, especially for <strong>hypothesis testing</strong> and <strong>confidence intervals</strong> when dealing with small samples or unknown population variance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">t</span><span class="p">,</span> <span class="n">norm</span>
+
+<span class="c1"># Values</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># Degrees of freedom to demonstrate</span>
+<span class="n">dfs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Plot t-distributions for different degrees of freedom</span>
+<span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">dfs</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;t-distribution (df=</span><span class="si">{</span><span class="n">df</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot standard normal distribution for comparison</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Normal distribution&quot;</span><span class="p">)</span>
+
+<span class="c1"># Style</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Student&#39;s t-distribution vs Normal distribution&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Density&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/140eff336414ffbc089663f6738786fb6061959ac08ab8b1cea62f875a4ca4e8.png" src="../../../../_images/140eff336414ffbc089663f6738786fb6061959ac08ab8b1cea62f875a4ca4e8.png" />
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -484,7 +593,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chi-Square Distribution</p>
+        <p class="prev-next-title"><strong>Chi-Square (χ²) Distribution</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -494,6 +603,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">🔑 <strong>Key Features</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">🎯 <strong>Applications</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-to-normal-distribution">📊 <strong>Relation to Normal Distribution</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

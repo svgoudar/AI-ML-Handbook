@@ -32,10 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=38150eaf" />
@@ -62,11 +62,13 @@
     <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/probability/distribution/discrete/geometric';</script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Hypergeometric Distribution" href="hypergeometric.html" />
-    <link rel="prev" title="Poisson Distribution" href="poisson.html" />
+    <link rel="prev" title="The Poisson Distribution" href="poisson.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,10 +186,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../../toc.html">Table of contents</a></li>
-</ul>
-<ul class="current nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">🎲 Probability</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../01_probability.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../02_probability_types.html">Types of Probability</a></li>
@@ -202,7 +201,7 @@
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="index.html">Discrete Probability Distributions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="bernoulli.html">Bernoulli Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="poisson.html">Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poisson.html">The Poisson Distribution</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">Geometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hypergeometric.html">Hypergeometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="uniform.html">Discrete Uniform Distribution</a></li>
@@ -211,11 +210,11 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../continuous/index.html">Continuous Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/normal.html">Normal (Gaussian) Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/exponential.html">Exponential Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../continuous/uniform.html">Continuous Uniform Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../continuous/uniform.html">Uniform Continuous Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/gamma.html">Gamma Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/beta.html">Beta Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../continuous/chi_square.html">Chi-Square Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../continuous/chi_square.html"><strong>Chi-Square (χ²) Distribution</strong></a></li>
 </ul>
 </details></li>
 </ul>
@@ -410,7 +409,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -426,6 +427,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">🔑 <strong>Key Concepts</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulas">📝 <strong>Formulas</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">🎯 <strong>Applications</strong></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -437,7 +448,121 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="geometric-distribution">
 <h1>Geometric Distribution<a class="headerlink" href="#geometric-distribution" title="Link to this heading">#</a></h1>
-<p>This section covers the Geometric distribution, which models the number of trials needed to get the first success in repeated, independent Bernoulli trials.</p>
+<p>The <strong>Geometric Distribution</strong> models the number of trials needed until the <strong>first success</strong> occurs in a sequence of independent <strong>Bernoulli trials</strong> (yes/no experiments).</p>
+<hr class="docutils" />
+<section id="key-concepts">
+<h2>🔑 <strong>Key Concepts</strong><a class="headerlink" href="#key-concepts" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Bernoulli Trial</strong>: An experiment with exactly two outcomes: <em>success</em> (probability = <span class="math notranslate nohighlight">\(p\)</span>) or <em>failure</em> (probability = <span class="math notranslate nohighlight">\(1-p\)</span>).</p></li>
+<li><p><strong>Geometric Random Variable (X)</strong>: The number of trials until the <strong>first success</strong> happens.</p></li>
+</ul>
+<p>For example:</p>
+<ul class="simple">
+<li><p>Tossing a coin until it lands <strong>heads</strong>.</p></li>
+<li><p>Testing products until finding the first <strong>defective</strong> one.</p></li>
+<li><p>Calling customers until the <strong>first person answers</strong>.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="formulas">
+<h2>📝 <strong>Formulas</strong><a class="headerlink" href="#formulas" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Probability Mass Function (PMF):</strong></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+P(X = k) = (1-p)^{k-1} \cdot p, \quad k = 1, 2, 3, \dots
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p\)</span>: Probability of success</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span>: The trial on which the first success occurs</p></li>
+</ul>
+<p>👉 Example: If <span class="math notranslate nohighlight">\(p = 0.2\)</span>, then the probability that the first success happens on the <strong>3rd trial</strong> is:
+<span class="math notranslate nohighlight">\((1-0.2)^{2} \cdot 0.2 = 0.128\)</span>.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="2">
+<li><p><strong>Cumulative Distribution Function (CDF):</strong></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+P(X \leq k) = 1 - (1-p)^k
+\]</div>
+<p>This gives the probability that success occurs <strong>on or before trial <span class="math notranslate nohighlight">\(k\)</span></strong>.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li><p><strong>Statistical Measures:</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Mean (Expected Value)</strong>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+E[X] = \frac{1}{p}
+\]</div>
+<p>(average number of trials until first success)</p>
+<ul class="simple">
+<li><p><strong>Variance</strong>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+Var(X) = \frac{1-p}{p^2}
+\]</div>
+<ul class="simple">
+<li><p><strong>Mode</strong>: Always at <span class="math notranslate nohighlight">\(k=1\)</span> (success happens on the very first trial is the most likely outcome).</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="applications">
+<h2>🎯 <strong>Applications</strong><a class="headerlink" href="#applications" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Quality control</strong>: Number of items checked until the first defective product appears.</p></li>
+<li><p><strong>Marketing</strong>: Number of calls until the first lead converts.</p></li>
+<li><p><strong>Reliability engineering</strong>: Time until the first system failure.</p></li>
+</ul>
+<hr class="docutils" />
+<p>✅ <strong>Key Insight</strong>:
+The geometric distribution is all about <strong>“waiting time until first success”</strong>, unlike the <strong>binomial distribution</strong>, which counts the <strong>total number of successes in a fixed number of trials</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">geom</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">0.3</span>   <span class="c1"># probability of success</span>
+<span class="n">k_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>  <span class="c1"># number of trials</span>
+
+<span class="c1"># PMF and CDF</span>
+<span class="n">pmf_values</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k_values</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="n">cdf_values</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">k_values</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+<span class="c1"># Plot PMF</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">k_values</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">pmf_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Geometric Distribution - PMF (p=0.3)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Trial (k)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;P(X=k)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot CDF</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">k_values</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">cdf_values</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Geometric Distribution - CDF (p=0.3)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Trial (k)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;P(X ≤ k)&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/432c7b5830dd0505b6b0f4c67940334d03820aa52e2e1029cee751d737df02f5.png" src="../../../../_images/432c7b5830dd0505b6b0f4c67940334d03820aa52e2e1029cee751d737df02f5.png" />
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -476,7 +601,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Poisson Distribution</p>
+        <p class="prev-next-title">The Poisson Distribution</p>
       </div>
     </a>
     <a class="right-next"
@@ -494,6 +619,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">🔑 <strong>Key Concepts</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulas">📝 <strong>Formulas</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">🎯 <strong>Applications</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

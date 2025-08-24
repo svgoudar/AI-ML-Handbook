@@ -32,10 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=38150eaf" />
@@ -186,10 +186,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../../toc.html">Table of contents</a></li>
-</ul>
-<ul class="current nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">🎲 Probability</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../01_probability.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../02_probability_types.html">Types of Probability</a></li>
@@ -204,7 +201,7 @@
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="index.html">Discrete Probability Distributions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">Bernoulli Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="poisson.html">Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poisson.html">The Poisson Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="geometric.html">Geometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hypergeometric.html">Hypergeometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="uniform.html">Discrete Uniform Distribution</a></li>
@@ -213,11 +210,11 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../continuous/index.html">Continuous Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/normal.html">Normal (Gaussian) Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/exponential.html">Exponential Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../continuous/uniform.html">Continuous Uniform Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../continuous/uniform.html">Uniform Continuous Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/gamma.html">Gamma Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/beta.html">Beta Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../continuous/chi_square.html">Chi-Square Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../continuous/chi_square.html"><strong>Chi-Square (χ²) Distribution</strong></a></li>
 </ul>
 </details></li>
 </ul>
@@ -490,6 +487,108 @@ document.write(`
 <li><p><strong>Variance:</strong> <span class="math notranslate nohighlight">\(\text{Var}(X) = p(1-p)\)</span></p></li>
 <li><p><strong>Standard Deviation:</strong> <span class="math notranslate nohighlight">\(\sqrt{p(1-p)}\)</span></p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">bernoulli_pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the Probability Mass Function (PMF) for a Bernoulli distribution.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        k (int): The outcome (0 for failure, 1 for success).</span>
+<span class="sd">        p (float): The probability of success (0 &lt;= p &lt;= 1).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: The probability of the outcome k.</span>
+<span class="sd">               Returns 0 if k is not 0 or 1.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Probability &#39;p&#39; must be between 0 and 1.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">p</span>
+    <span class="k">elif</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">p</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span> <span class="c1"># k must be 0 or 1 for Bernoulli</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_bernoulli_pmf</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plots the Probability Mass Function (PMF) of a Bernoulli distribution.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        p (float): The probability of success (0 &lt;= p &lt;= 1).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Probability &#39;p&#39; must be between 0 and 1.&quot;</span><span class="p">)</span>
+
+    <span class="n">outcomes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># Possible outcomes for Bernoulli: Failure (0) or Success (1)</span>
+    <span class="c1"># Calculate the probability for each outcome using the bernoulli_pmf function</span>
+    <span class="n">probabilities</span> <span class="o">=</span> <span class="p">[</span><span class="n">bernoulli_pmf</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">bernoulli_pmf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">)]</span>
+
+    <span class="c1"># Create a new figure for the plot with a specified size</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="c1"># Create a bar chart:</span>
+    <span class="c1"># - `outcomes` are the x-axis values (0 and 1)</span>
+    <span class="c1"># - `probabilities` are the heights of the bars</span>
+    <span class="c1"># - `color` assigns different colors to the bars</span>
+    <span class="c1"># - `width` controls the width of the bars</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">outcomes</span><span class="p">,</span> <span class="n">probabilities</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="s1">&#39;lightcoral&#39;</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+
+    <span class="c1"># Set x-axis ticks and labels for better readability</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">outcomes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Failure (0)&#39;</span><span class="p">,</span> <span class="s1">&#39;Success (1)&#39;</span><span class="p">])</span>
+    <span class="c1"># Set the label for the y-axis</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+    <span class="c1"># Set the title of the plot, including the probability &#39;p&#39; value</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Bernoulli Distribution PMF (p=</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+    <span class="c1"># Set the y-axis limits from 0 to 1, as probabilities are between 0 and 1</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># Add a horizontal grid for easier reading of probability values</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+    <span class="c1"># Add text labels on top of each bar to show the exact probability value</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">probabilities</span><span class="p">):</span>
+        <span class="c1"># `plt.text` places text at a given x, y coordinate.</span>
+        <span class="c1"># `ha=&#39;center&#39;` aligns the text horizontally in the center of the bar.</span>
+        <span class="c1"># `prob + 0.02` places the text slightly above the bar.</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">outcomes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">prob</span> <span class="o">+</span> <span class="mf">0.02</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prob</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Display the plot</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># --- Example Usage ---</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Example 1: Probability of success = 0.7</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Generating Bernoulli PMF plot for p = 0.7:&quot;</span><span class="p">)</span>
+    <span class="n">plot_bernoulli_pmf</span><span class="p">(</span><span class="mf">0.7</span><span class="p">)</span>
+
+    <span class="c1"># Example 2: Probability of success = 0.5 (equal chance for success/failure)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Generating Bernoulli PMF plot for p = 0.5:&quot;</span><span class="p">)</span>
+    <span class="n">plot_bernoulli_pmf</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="c1"># Example 3: Probability of success = 0.2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Generating Bernoulli PMF plot for p = 0.2:&quot;</span><span class="p">)</span>
+    <span class="n">plot_bernoulli_pmf</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating Bernoulli PMF plot for p = 0.7:
+</pre></div>
+</div>
+<img alt="../../../../_images/726d0e8b82f4ab3a7b9904046a722c1bba84ffc5d89eb264bb619e91a0424b35.png" src="../../../../_images/726d0e8b82f4ab3a7b9904046a722c1bba84ffc5d89eb264bb619e91a0424b35.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating Bernoulli PMF plot for p = 0.5:
+</pre></div>
+</div>
+<img alt="../../../../_images/1d190026f6db175b430e3cec7c4a9dc1e0086d0404989fdefdba7794e8740913.png" src="../../../../_images/1d190026f6db175b430e3cec7c4a9dc1e0086d0404989fdefdba7794e8740913.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating Bernoulli PMF plot for p = 0.2:
+</pre></div>
+</div>
+<img alt="../../../../_images/cce0c94c7af94f09c6304b01bec9373c2a1060035d5f2230ffc0695825714fb6.png" src="../../../../_images/cce0c94c7af94f09c6304b01bec9373c2a1060035d5f2230ffc0695825714fb6.png" />
+</div>
+</div>
 </section>
 </section>
 

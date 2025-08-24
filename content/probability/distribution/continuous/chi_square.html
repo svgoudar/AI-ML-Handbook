@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Chi-Square Distribution &#8212; My sample book</title>
+    <title>Chi-Square (χ²) Distribution &#8212; My sample book</title>
   
   
   
@@ -62,6 +62,8 @@
     <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/probability/distribution/continuous/chi_square';</script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -184,10 +186,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../../toc.html">Table of contents</a></li>
-</ul>
-<ul class="current nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">🎲 Probability</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../01_probability.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../02_probability_types.html">Types of Probability</a></li>
@@ -202,7 +201,7 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/bernoulli.html">Bernoulli Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../discrete/poisson.html">Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../discrete/poisson.html">The Poisson Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/geometric.html">Geometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/uniform.html">Discrete Uniform Distribution</a></li>
@@ -211,11 +210,11 @@
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="index.html">Continuous Probability Distributions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="normal.html">Normal (Gaussian) Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="exponential.html">Exponential Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="uniform.html">Continuous Uniform Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uniform.html">Uniform Continuous Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gamma.html">Gamma Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="beta.html">Beta Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l4 current active"><a class="current reference internal" href="#">Chi-Square Distribution</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Chi-Square (χ²) Distribution</a></li>
 </ul>
 </details></li>
 </ul>
@@ -410,7 +409,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -421,11 +422,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Chi-Square Distribution</h1>
+    <h1>Chi-Square (χ²) Distribution</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">🔹 <strong>Definition</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components">🔹 <strong>Key Components</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-in-statistics">🔹 <strong>Applications in Statistics</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">🔹 <strong>Example</strong></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -435,9 +447,125 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="chi-square-distribution">
-<h1>Chi-Square Distribution<a class="headerlink" href="#chi-square-distribution" title="Link to this heading">#</a></h1>
-<p>This section covers the Chi-Square distribution, which is widely used in hypothesis testing and construction of confidence intervals.</p>
+  <section id="chi-square-2-distribution">
+<h1>Chi-Square (χ²) Distribution<a class="headerlink" href="#chi-square-2-distribution" title="Link to this heading">#</a></h1>
+<p>The <strong>Chi-Square distribution</strong> is a probability distribution that arises frequently in statistics, especially in <strong>hypothesis testing</strong> and <strong>confidence interval estimation</strong>.</p>
+<hr class="docutils" />
+<section id="definition">
+<h2>🔹 <strong>Definition</strong><a class="headerlink" href="#definition" title="Link to this heading">#</a></h2>
+<p>The Chi-Square distribution is the distribution of the <strong>sum of the squares of independent standard normal random variables</strong>.</p>
+<p>If</p>
+<div class="math notranslate nohighlight">
+\[
+Z_1, Z_2, \dots, Z_k \sim N(0,1) \quad \text{(independent standard normal variables)},
+\]</div>
+<p>then</p>
+<div class="math notranslate nohighlight">
+\[
+\chi^2 = Z_1^2 + Z_2^2 + \dots + Z_k^2
+\]</div>
+<p>follows a <strong>Chi-Square distribution with <span class="math notranslate nohighlight">\(k\)</span> degrees of freedom (df)</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="key-components">
+<h2>🔹 <strong>Key Components</strong><a class="headerlink" href="#key-components" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Degrees of Freedom (df, k):</strong></p>
+<ul class="simple">
+<li><p>Number of independent standard normal variables being squared and summed.</p></li>
+<li><p>Controls the shape of the distribution.</p></li>
+<li><p>Small df → skewed distribution.
+Large df → approximates a <strong>normal distribution</strong>.</p></li>
+</ul>
+</li>
+<li><p><strong>Shape Characteristics:</strong></p>
+<ul class="simple">
+<li><p>Always <strong>non-negative</strong> (χ² ≥ 0), because it’s a sum of squares.</p></li>
+<li><p><strong>Right-skewed</strong>, especially when df is small.</p></li>
+<li><p>As df increases, the distribution becomes more symmetric.</p></li>
+</ul>
+</li>
+<li><p><strong>Mean and Variance:</strong></p>
+<ul class="simple">
+<li><p>Mean = <span class="math notranslate nohighlight">\(k\)</span> (degrees of freedom)</p></li>
+<li><p>Variance = <span class="math notranslate nohighlight">\(2k\)</span></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="applications-in-statistics">
+<h2>🔹 <strong>Applications in Statistics</strong><a class="headerlink" href="#applications-in-statistics" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Chi-Square Test for Independence</strong></p>
+<ul class="simple">
+<li><p>Used in contingency tables to test whether two categorical variables are independent.</p></li>
+<li><p>Example: Does gender influence product preference?</p></li>
+</ul>
+</li>
+<li><p><strong>Chi-Square Goodness-of-Fit Test</strong></p>
+<ul class="simple">
+<li><p>Checks if observed data follows a particular distribution.</p></li>
+<li><p>Example: Do dice rolls follow a uniform distribution?</p></li>
+</ul>
+</li>
+<li><p><strong>Chi-Square Test for Variance</strong></p>
+<ul class="simple">
+<li><p>Used to test hypotheses about population variance.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="example">
+<h2>🔹 <strong>Example</strong><a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
+<p>Suppose you toss a die 60 times and record frequencies:</p>
+<ul class="simple">
+<li><p>Expected frequency for each face = 10 (since fair die, probability = 1/6).</p></li>
+<li><p>You compare observed vs expected frequencies using a χ² statistic:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}
+\]</div>
+<p>If χ² is too large compared to the critical value for df=5, we reject the hypothesis that the die is fair.</p>
+<hr class="docutils" />
+<p>✅ <strong>In summary</strong>:
+The Chi-Square distribution is the backbone for many tests involving <strong>categorical data</strong> and <strong>variance</strong>, built on the idea of squaring standard normal random variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">chi2</span>
+
+<span class="c1"># Values for x-axis</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># Different degrees of freedom</span>
+<span class="n">dfs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Plot Chi-Square distributions</span>
+<span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">dfs</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">chi2</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;df=</span><span class="si">{</span><span class="n">df</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot styling</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Chi-Square Distribution for Different Degrees of Freedom&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability Density&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/78cc90218b1cf27d90088fcefd6437055a7534827d738150392d306faa8cab80.png" src="../../../../_images/78cc90218b1cf27d90088fcefd6437055a7534827d738150392d306faa8cab80.png" />
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -494,6 +622,24 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">🔹 <strong>Definition</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components">🔹 <strong>Key Components</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-in-statistics">🔹 <strong>Applications in Statistics</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">🔹 <strong>Example</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
