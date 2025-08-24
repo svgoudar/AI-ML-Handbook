@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Inferential Statistics &#8212; My sample book</title>
+    <title>Probability Functions Overview &#8212; My sample book</title>
   
   
   
@@ -62,11 +62,13 @@
     <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/statistics/inferential/index';</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/probability/functions/overview';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Probability Distributions" href="probability_distributions.html" />
-    <link rel="prev" title="Measures of Central Tendency" href="../descriptive/part1.html" />
+    <link rel="next" title="Probability Density Function (PDF)" href="01_pdf.html" />
+    <link rel="prev" title="Rules of Probability" href="../03_probability_rules.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -187,53 +189,53 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../toc.html">Table of contents</a></li>
 </ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../probability/index.html">🎲 Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../probability/01_probability.html">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../probability/02_probability_types.html">Types of Probability</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../probability/03_probability_rules.html">Rules of Probability</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../probability/functions/overview.html">Probability Functions Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../probability/functions/01_pdf.html">Probability Density Function (PDF)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../probability/functions/02_pmf.html">Probability Mass Function (PMF):</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../probability/functions/03_cdf.html">Cumulative Distribution Function (CDF)</a></li>
-</ul>
-</details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../probability/distribution/index.html">Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../probability/distribution/discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/bernoulli.html">Bernoulli Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/poisson.html">Poisson Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/geometric.html">Geometric Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/uniform.html">Discrete Uniform Distribution</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../probability/distribution/continuous/index.html">Continuous Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/normal.html">Normal (Gaussian) Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/exponential.html">Exponential Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/uniform.html">Continuous Uniform Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/gamma.html">Gamma Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/beta.html">Beta Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/chi_square.html">Chi-Square Distribution</a></li>
-</ul>
-</details></li>
-</ul>
-</details></li>
-</ul>
-</details></li>
-</ul>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">📊 Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../overview.html">Overview</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../descriptive/index.html">Descriptive Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../descriptive/part1.html">Measures of Central Tendency</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">🎲 Probability</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../01_probability.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_probability_types.html">Types of Probability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_probability_rules.html">Rules of Probability</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Probability Functions Overview</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="01_pdf.html">Probability Density Function (PDF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_pmf.html">Probability Mass Function (PMF):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_cdf.html">Cumulative Distribution Function (CDF)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Inferential Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="probability_distributions.html">Probability Distributions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="estimation.html">Estimation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hypothesis_testing.html">Hypothesis Testing</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../distribution/index.html">Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../distribution/discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/discrete/bernoulli.html">Bernoulli Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/discrete/binomial.html">Binomial Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/discrete/poisson.html">Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/discrete/geometric.html">Geometric Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/discrete/uniform.html">Discrete Uniform Distribution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../distribution/continuous/index.html">Continuous Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/continuous/normal.html">Normal (Gaussian) Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/continuous/exponential.html">Exponential Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/continuous/uniform.html">Continuous Uniform Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/continuous/gamma.html">Gamma Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/continuous/beta.html">Beta Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/continuous/student_t.html">Student’s t-Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/continuous/chi_square.html">Chi-Square Distribution</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../statistics/index.html">📊 Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../statistics/overview.html">Overview</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../statistics/descriptive/index.html">Descriptive Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/part1.html">Measures of Central Tendency</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../statistics/inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/probability_distributions.html">Probability Distributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/estimation.html">Estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/hypothesis_testing.html">Hypothesis Testing</a></li>
 </ul>
 </details></li>
 </ul>
@@ -309,7 +311,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/statistics/inferential/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/functions/overview.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -339,7 +341,7 @@
       
       
       
-      <li><a href="../../../_sources/content/statistics/inferential/index.md" target="_blank"
+      <li><a href="../../../_sources/content/probability/functions/overview.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -349,7 +351,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -410,7 +412,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -421,11 +425,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Inferential Statistics</h1>
+    <h1>Probability Functions Overview</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-probability-distribution-function"><strong>What is a Probability Distribution Function?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-random-variables-probability-mass-function-pmf"><strong>1. Discrete Random Variables</strong> → <em>Probability Mass Function (PMF)</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-random-variables-probability-density-function-pdf"><strong>2. Continuous Random Variables</strong> → <em>Probability Density Function (PDF)</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cumulative-distribution-function-cdf"><strong>3. Cumulative Distribution Function (CDF)</strong></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -435,16 +450,109 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="inferential-statistics">
-<h1>Inferential Statistics<a class="headerlink" href="#inferential-statistics" title="Link to this heading">#</a></h1>
-<p>This section covers methods for making inferences and predictions about populations based on sample data.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="probability-functions-overview">
+<h1>Probability Functions Overview<a class="headerlink" href="#probability-functions-overview" title="Link to this heading">#</a></h1>
+<p>Probability functions describe how probabilities are assigned to outcomes of random variables. Depending on whether the variable is <strong>discrete</strong> or <strong>continuous</strong>, we use different functions.</p>
+<section id="what-is-a-probability-distribution-function">
+<h2><strong>What is a Probability Distribution Function?</strong><a class="headerlink" href="#what-is-a-probability-distribution-function" title="Link to this heading">#</a></h2>
+<p>A <strong>probability distribution function</strong> tells us how the probabilities of different outcomes are spread across the possible values of a random variable.</p>
+<p>It answers:
+➡️ <em>“If I pick a value of this random variable, what is the chance it occurs?”</em></p>
+<p>There are two main types depending on whether the variable is <strong>discrete</strong> or <strong>continuous</strong>:</p>
+<hr class="docutils" />
+</section>
+<section id="discrete-random-variables-probability-mass-function-pmf">
+<h2><strong>1. Discrete Random Variables</strong> → <em>Probability Mass Function (PMF)</em><a class="headerlink" href="#discrete-random-variables-probability-mass-function-pmf" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Used when outcomes are <strong>countable</strong> (like rolling a die or flipping a coin).</p></li>
+<li><p>PMF gives the probability of each exact value.</p></li>
+</ul>
+<p>Example:
+For a fair die 🎲,</p>
+<div class="math notranslate nohighlight">
+\[
+P(X=k) = \frac{1}{6}, \quad k = 1,2,3,4,5,6
+\]</div>
+<hr class="docutils" />
+</section>
+<section id="continuous-random-variables-probability-density-function-pdf">
+<h2><strong>2. Continuous Random Variables</strong> → <em>Probability Density Function (PDF)</em><a class="headerlink" href="#continuous-random-variables-probability-density-function-pdf" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Used when outcomes can take <strong>any value in a range</strong> (like height, weight, or time).</p></li>
+<li><p>PDF doesn’t give probabilities directly; instead, <strong>areas under the curve</strong> represent probabilities.</p></li>
+</ul>
+<p>Example:
+If heights follow a <strong>normal distribution</strong>,</p>
+<div class="math notranslate nohighlight">
+\[
+P(a \leq X \leq b) = \int_a^b f(x)\,dx
+\]</div>
+<p>(where <span class="math notranslate nohighlight">\(f(x)\)</span> is the PDF).</p>
+<hr class="docutils" />
+</section>
+<section id="cumulative-distribution-function-cdf">
+<h2><strong>3. Cumulative Distribution Function (CDF)</strong><a class="headerlink" href="#cumulative-distribution-function-cdf" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Applies to both discrete &amp; continuous variables.</p></li>
+<li><p>Describes the probability that a random variable is <strong>less than or equal to</strong> some value.</p></li>
+</ul>
+<p>Formally:</p>
+<div class="math notranslate nohighlight">
+\[
+F(x) = P(X \leq x)
+\]</div>
+<p>Example:
+For a die,</p>
+<div class="math notranslate nohighlight">
+\[
+F(3) = P(X \leq 3) = P(1) + P(2) + P(3) = \frac{3}{6} = 0.5
+\]</div>
+<hr class="docutils" />
+<p>✅ <strong>In short:</strong></p>
+<ul class="simple">
+<li><p><strong>PMF</strong> → exact probability of discrete outcomes</p></li>
+<li><p><strong>PDF</strong> → describes shape of probability for continuous outcomes</p></li>
+<li><p><strong>CDF</strong> → cumulative probability up to a value</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Variable Type</p></th>
+<th class="head"><p>What it Represents</p></th>
+<th class="head"><p>Key Feature</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>PMF</strong></p></td>
+<td><p>Discrete</p></td>
+<td><p>Probability of exact outcome</p></td>
+<td><p>Sum of all probs = 1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PDF</strong></p></td>
+<td><p>Continuous</p></td>
+<td><p>Probability density (not direct probability)</p></td>
+<td><p>Area under curve = 1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>CDF</strong></p></td>
+<td><p>Both</p></td>
+<td><p>Probability that value ≤ x</p></td>
+<td><p>Always non-decreasing</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Click here for Types of Probability Functions</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="probability_distributions.html">Probability Distributions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="estimation.html">Estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hypothesis_testing.html">Hypothesis Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_pdf.html">Probability Density Function (PDF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_pmf.html">Probability Mass Function (PMF):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_cdf.html">Cumulative Distribution Function (CDF)</a></li>
 </ul>
 </div>
+</div>
+</details></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -460,7 +568,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./content\statistics\inferential"
+            path: "./content\probability\functions"
         },
         predefinedOutput: true
     }
@@ -478,20 +586,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../descriptive/part1.html"
+       href="../03_probability_rules.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Measures of Central Tendency</p>
+        <p class="prev-next-title">Rules of Probability</p>
       </div>
     </a>
     <a class="right-next"
-       href="probability_distributions.html"
+       href="01_pdf.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Probability Distributions</p>
+        <p class="prev-next-title">Probability Density Function (PDF)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -501,6 +609,24 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-probability-distribution-function"><strong>What is a Probability Distribution Function?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-random-variables-probability-mass-function-pmf"><strong>1. Discrete Random Variables</strong> → <em>Probability Mass Function (PMF)</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-random-variables-probability-density-function-pdf"><strong>2. Continuous Random Variables</strong> → <em>Probability Density Function (PDF)</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cumulative-distribution-function-cdf"><strong>3. Cumulative Distribution Function (CDF)</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -6,5 +6,5 @@ tags: []
 
 # Table of contents
 
+```{dropdown} Sections in this page
 ```{tableofcontents}
-```

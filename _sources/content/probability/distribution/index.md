@@ -14,4 +14,5 @@ Distributions are broadly classified into:
 - **Discrete Probability Distributions** → For variables that take **countable outcomes** (e.g., coin toss, number of defects).  
 - **Continuous Probability Distributions** → For variables that take **any value within an interval** (e.g., height, weight, time).
 
+```{dropdown} Sections in this page
 ```{tableofcontents}

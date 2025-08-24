@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Probability Distributions &#8212; My sample book</title>
+    <title>Probability Density Function (PDF) &#8212; My sample book</title>
   
   
   
@@ -64,11 +64,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/probability/distribution/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/probability/functions/01_pdf';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Discrete Probability Distributions" href="discrete/index.html" />
-    <link rel="prev" title="Cumulative Distribution Function (CDF)" href="../functions/03_cdf.html" />
+    <link rel="next" title="Probability Mass Function (PMF):" href="02_pmf.html" />
+    <link rel="prev" title="Probability Functions Overview" href="overview.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -194,30 +194,30 @@
 <li class="toctree-l2"><a class="reference internal" href="../01_probability.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02_probability_types.html">Types of Probability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03_probability_rules.html">Rules of Probability</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../functions/overview.html">Probability Functions Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../functions/01_pdf.html">Probability Density Function (PDF)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../functions/02_pmf.html">Probability Mass Function (PMF):</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../functions/03_cdf.html">Cumulative Distribution Function (CDF)</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="overview.html">Probability Functions Overview</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Probability Density Function (PDF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_pmf.html">Probability Mass Function (PMF):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_cdf.html">Cumulative Distribution Function (CDF)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Probability Distributions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="discrete/bernoulli.html">Bernoulli Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discrete/binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discrete/poisson.html">Poisson Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discrete/geometric.html">Geometric Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="discrete/uniform.html">Discrete Uniform Distribution</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../distribution/index.html">Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../distribution/discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/discrete/bernoulli.html">Bernoulli Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/discrete/binomial.html">Binomial Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/discrete/poisson.html">Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/discrete/geometric.html">Geometric Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/discrete/uniform.html">Discrete Uniform Distribution</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="continuous/index.html">Continuous Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="continuous/normal.html">Normal (Gaussian) Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="continuous/exponential.html">Exponential Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="continuous/uniform.html">Continuous Uniform Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="continuous/gamma.html">Gamma Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="continuous/beta.html">Beta Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="continuous/student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="continuous/chi_square.html">Chi-Square Distribution</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../distribution/continuous/index.html">Continuous Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/continuous/normal.html">Normal (Gaussian) Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/continuous/exponential.html">Exponential Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/continuous/uniform.html">Continuous Uniform Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/continuous/gamma.html">Gamma Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/continuous/beta.html">Beta Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/continuous/student_t.html">Student’s t-Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distribution/continuous/chi_square.html">Chi-Square Distribution</a></li>
 </ul>
 </details></li>
 </ul>
@@ -311,7 +311,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/functions/01_pdf.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -341,7 +341,7 @@
       
       
       
-      <li><a href="../../../_sources/content/probability/distribution/index.md" target="_blank"
+      <li><a href="../../../_sources/content/probability/functions/01_pdf.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -351,7 +351,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -412,7 +412,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -423,11 +425,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Probability Distributions</h1>
+    <h1>Probability Density Function (PDF)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-characteristics-of-a-pdf"><strong>Key Characteristics of a PDF</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures-from-pdf"><strong>Statistical Measures from PDF</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-distributions-using-pdf"><strong>Examples of Distributions Using PDF</strong></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -437,43 +449,134 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="probability-distributions">
-<h1>Probability Distributions<a class="headerlink" href="#probability-distributions" title="Link to this heading">#</a></h1>
-<p>Probability distributions describe how the values of a random variable are spread or distributed.<br />
-They provide a mathematical framework to model uncertainty and make predictions.</p>
-<p>Distributions are broadly classified into:</p>
-<ul class="simple">
-<li><p><strong>Discrete Probability Distributions</strong> → For variables that take <strong>countable outcomes</strong> (e.g., coin toss, number of defects).</p></li>
-<li><p><strong>Continuous Probability Distributions</strong> → For variables that take <strong>any value within an interval</strong> (e.g., height, weight, time).</p></li>
-</ul>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Sections in this page</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<div class="toctree-wrapper compound">
+  <section id="probability-density-function-pdf">
+<h1>Probability Density Function (PDF)<a class="headerlink" href="#probability-density-function-pdf" title="Link to this heading">#</a></h1>
+<p>The <strong>Probability Density Function (PDF)</strong> describes how probabilities are distributed for <strong>continuous random variables</strong>—variables that can take infinitely many values within a range (e.g., age, weight, salary).</p>
+<section id="key-characteristics-of-a-pdf">
+<h2><strong>Key Characteristics of a PDF</strong><a class="headerlink" href="#key-characteristics-of-a-pdf" title="Link to this heading">#</a></h2>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="discrete/index.html">Discrete Probability Distributions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="discrete/bernoulli.html">Bernoulli Distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="discrete/binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="discrete/poisson.html">Poisson Distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="discrete/geometric.html">Geometric Distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="discrete/uniform.html">Discrete Uniform Distribution</a></li>
+<li><p><strong>Distribution of Continuous Variables</strong>
+The PDF shows how probability is spread across possible values. Instead of assigning probability to exact points (as in discrete variables), we calculate the probability over a <strong>range</strong> of values.</p></li>
+<li><p><strong>Properties</strong></p>
+<ul>
+<li><p><strong>Non-Negativity:</strong> <span class="math notranslate nohighlight">\(f(x) \geq 0\)</span> for all <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+<li><p><strong>Total Area = 1:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+    \int_{-\infty}^{\infty} f(x)\,dx = 1
+    \]</div>
+<p>Ensures the random variable takes some value.</p>
+</li>
+<li><p><strong>Probability as Area:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+    P(a \leq X \leq b) = \int_a^b f(x)\,dx
+    \]</div>
+<p>Probability is represented by the <strong>area under the curve</strong> between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+</li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="continuous/index.html">Continuous Probability Distributions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="continuous/normal.html">Normal (Gaussian) Distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="continuous/exponential.html">Exponential Distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="continuous/uniform.html">Continuous Uniform Distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="continuous/gamma.html">Gamma Distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="continuous/beta.html">Beta Distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="continuous/student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="continuous/chi_square.html">Chi-Square Distribution</a></li>
-</ul>
+<li><p><strong>Connection to CDF</strong>
+The <strong>Cumulative Distribution Function (CDF)</strong>, <span class="math notranslate nohighlight">\(F(x)\)</span>, gives the probability that <span class="math notranslate nohighlight">\(X \leq x\)</span>. The PDF is its derivative:</p>
+<div class="math notranslate nohighlight">
+\[
+  f(x) = \frac{d}{dx}F(x)
+  \]</div>
 </li>
 </ul>
+</section>
+<hr class="docutils" />
+<section id="statistical-measures-from-pdf">
+<h2><strong>Statistical Measures from PDF</strong><a class="headerlink" href="#statistical-measures-from-pdf" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><strong>Mean (Expected Value):</strong>
+The weighted average of all possible values:</p>
+<div class="math notranslate nohighlight">
+\[
+  \mu = E[X] = \int_{-\infty}^{\infty} x \, f(x)\, dx
+  \]</div>
+</li>
+<li><p><strong>Variance:</strong>
+The measure of spread around the mean:</p>
+<div class="math notranslate nohighlight">
+\[
+  \sigma^2 = Var(X) = \int_{-\infty}^{\infty} (x-\mu)^2 f(x)\, dx
+  \]</div>
+</li>
+<li><p><strong>Standard Deviation:</strong>
+Square root of variance, gives spread in original units:</p>
+<div class="math notranslate nohighlight">
+\[
+  \sigma = \sqrt{Var(X)}
+  \]</div>
+</li>
+<li><p><strong>Median:</strong>
+The value <span class="math notranslate nohighlight">\(m\)</span> where half the probability lies below it:</p>
+<div class="math notranslate nohighlight">
+\[
+  P(X \leq m) = 0.5
+  \]</div>
+</li>
+<li><p><strong>Mode:</strong>
+The value of <span class="math notranslate nohighlight">\(x\)</span> where the PDF reaches its maximum, i.e., the most likely outcome.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="examples-of-distributions-using-pdf">
+<h2><strong>Examples of Distributions Using PDF</strong><a class="headerlink" href="#examples-of-distributions-using-pdf" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Normal (Gaussian) Distribution</strong> – symmetric bell curve (e.g., heights, test scores).</p></li>
+<li><p><strong>Exponential Distribution</strong> – models waiting times.</p></li>
+<li><p><strong>Log-Normal Distribution</strong> – used for salaries, prices, etc.</p></li>
+</ul>
+<hr class="docutils" />
+<p>📌 <strong>In real-world use</strong>: For example, in house price prediction, the <strong>mean</strong> gives the average price, the <strong>variance</strong> shows how spread out prices are, the <strong>median</strong> indicates the typical house price, and the <strong>PDF curve</strong> models the full distribution of house prices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+
+<span class="c1"># Parameters for Normal Distribution</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mi">50</span>   <span class="c1"># Mean</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Standard Deviation</span>
+
+<span class="c1"># Generate x values</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">mu</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">sigma</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">pdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+<span class="n">cdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+
+<span class="c1"># Plot PDF with statistical measures</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;PDF (Normal Distribution)&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+
+<span class="c1"># Mean</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Mean = </span><span class="si">{</span><span class="n">mu</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Median (same as mean for normal)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Median = </span><span class="si">{</span><span class="n">mu</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Mode (same as mean for normal)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-.&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Mode = </span><span class="si">{</span><span class="n">mu</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Variance region (1 std dev)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">mu</span><span class="o">-</span><span class="n">sigma</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">mu</span><span class="o">+</span><span class="n">sigma</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;1 Std Dev Range&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Normal Distribution PDF with Statistical Measures&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X values&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability Density&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
 </div>
-</details></section>
+<div class="cell_output docutils container">
+<img alt="../../../_images/05dfb6ed1133364c5985f3a9be6f6fbba0d3a3682cdf694367c4dbd5fb39b94b.png" src="../../../_images/05dfb6ed1133364c5985f3a9be6f6fbba0d3a3682cdf694367c4dbd5fb39b94b.png" />
+</div>
+</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -488,7 +591,7 @@ They provide a mathematical framework to model uncertainty and make predictions.
         },
         kernelOptions: {
             name: "python3",
-            path: "./content\probability\distribution"
+            path: "./content\probability\functions"
         },
         predefinedOutput: true
     }
@@ -506,20 +609,20 @@ They provide a mathematical framework to model uncertainty and make predictions.
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../functions/03_cdf.html"
+       href="overview.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Cumulative Distribution Function (CDF)</p>
+        <p class="prev-next-title">Probability Functions Overview</p>
       </div>
     </a>
     <a class="right-next"
-       href="discrete/index.html"
+       href="02_pmf.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Discrete Probability Distributions</p>
+        <p class="prev-next-title">Probability Mass Function (PMF):</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -529,6 +632,23 @@ They provide a mathematical framework to model uncertainty and make predictions.
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-characteristics-of-a-pdf"><strong>Key Characteristics of a PDF</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures-from-pdf"><strong>Statistical Measures from PDF</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-distributions-using-pdf"><strong>Examples of Distributions Using PDF</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
