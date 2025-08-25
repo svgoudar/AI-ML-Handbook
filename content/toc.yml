@@ -1,5 +1,6 @@
 format: jb-book
 root: introduction
+
 parts:
 - chapters:
   - file: content/probability/index
@@ -7,9 +8,6 @@ parts:
     - file: content/probability/01_probability
     - file: content/probability/02_probability_types
     - file: content/probability/03_probability_rules
-    - file: content/probability/functions/overview
-      sections:
-      - glob: content/probability/functions/*
     - file: content/probability/distribution/index
       sections:
       - file: content/probability/distribution/discrete/index
@@ -32,7 +30,6 @@ parts:
 - chapters:
   - file: content/statistics/index
     sections:
-    - file: content/statistics/overview   
     - file: content/statistics/descriptive/index
       sections:
       - file: content/statistics/descriptive/part1

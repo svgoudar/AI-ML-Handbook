@@ -38,6 +38,7 @@ html:
       logo_only: false
       collapse_navigation: true
       sticky_navigation: true
+      navigation_depth: 4
       prev_next_buttons_location: both
       extra_navbar: ""
       extra_footer: ""
@@ -45,16 +46,6 @@ html:
 sphinx:
   recursive_update: true
   config:
-    html_theme_options:
-      use_edit_page_button: True
-      use_repository_button: True
-      use_issues_button: True
-      navigation_depth: 4   # how many heading levels to show
-      collapse_navigation: True
-      rightsidebar: False   # keep sidebar on left
-      # 👇 THIS controls RHS contents
-      show_navbar_depth: 4
-      show_toc_level: 4     
     myst_enable_extensions:
       - colon_fence
       - deflist
@@ -125,6 +116,3 @@ sphinx:
     - sphinxext.rediraffe
     - sphinx_proof
     - sphinx_examples
-    - sphinx_togglebutton
-    - sphinx_design
-    - sphinx_copybutton
