@@ -10,6 +10,10 @@ logo: logo.png
 execute:
   execute_notebooks: force
 
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
+  notebook_interface: "classic"
+
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:
@@ -21,8 +25,7 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/executablebooks/jupyter-book  # Online location of your book
-  path_to_book: docs  # Optional path to your book, relative to the repository root
+  url: https://github.com/svgoudar/AI-ML-Handbook  # Online location of your book
   branch: master  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
@@ -41,6 +44,15 @@ html:
       prev_next_buttons_location: both
       extra_navbar: ""
       extra_footer: ""
+      home_page_in_toc: true
+      use_fullscreen_button: true
+      use_download_button: true
+      extra_navbar: ""
+      extra_footer: ""
+      announcement: ""                # Top banner for announcements
+      use_sidenotes: false            # Margin notes
+      show_toc_level: 2               # How deep to show TOC
+      search_bar_text: "Search..."
 
 sphinx:
   recursive_update: true
