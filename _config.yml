@@ -140,3 +140,8 @@ sphinx:
     - sphinx_togglebutton
     - sphinx_design
     - sphinx_copybutton
+    - hoverxref.extension
+  
+hoverxref_auto_ref: true
+hoverxref_domains: ["std"]
+hoverxref_roles: ["ref", "term"]

@@ -27,3 +27,5 @@ sphinx-examples
 sphinx-togglebutton
 sphinx-design
 sphinx-copybutton
+sphinx-hoverxref
+sphinx-autobuild
