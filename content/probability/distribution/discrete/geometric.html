@@ -37,14 +37,24 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/micromodal.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=38150eaf" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=98f05e74" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -52,6 +62,9 @@
     <script src="../../../../_static/copybutton.js?v=7f8ff830"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../_static/js/micromodal.min.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -68,7 +81,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Hypergeometric Distribution" href="hypergeometric.html" />
-    <link rel="prev" title="The Poisson Distribution" href="poisson.html" />
+    <link rel="prev" title="The Poisson Distribution (Discrete)" href="poisson.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -201,7 +214,7 @@
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="index.html">Discrete Probability Distributions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="bernoulli.html">Bernoulli Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="poisson.html">The Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poisson.html">The Poisson Distribution (Discrete)</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">Geometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hypergeometric.html">Hypergeometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="uniform.html">Discrete Uniform Distribution</a></li>
@@ -214,7 +227,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../continuous/gamma.html">Gamma Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/beta.html">Beta Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../continuous/chi_square.html"><strong>Chi-Square (χ²) Distribution</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../continuous/chi_square.html">Chi-Square Distribution</a></li>
 </ul>
 </details></li>
 </ul>
@@ -230,7 +243,6 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../statistics/inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/probability_distributions.html">Probability Distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/estimation.html">Estimation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/hypothesis_testing.html">Hypothesis Testing</a></li>
 </ul>
@@ -283,6 +295,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/probability/distribution/discrete/geometric.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -291,7 +334,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -308,7 +351,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/discrete/geometric.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/discrete/geometric.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -432,9 +475,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">🔑 <strong>Key Concepts</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulas">📝 <strong>Formulas</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">🎯 <strong>Applications</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memoryless-property">Memoryless Property</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
 </ul>
             </nav>
         </div>
@@ -446,82 +491,141 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="geometric-distribution">
-<h1>Geometric Distribution<a class="headerlink" href="#geometric-distribution" title="Link to this heading">#</a></h1>
-<p>The <strong>Geometric Distribution</strong> models the number of trials needed until the <strong>first success</strong> occurs in a sequence of independent <strong>Bernoulli trials</strong> (yes/no experiments).</p>
-<hr class="docutils" />
-<section id="key-concepts">
-<h2>🔑 <strong>Key Concepts</strong><a class="headerlink" href="#key-concepts" title="Link to this heading">#</a></h2>
+  <nav class="contents local" id="contents" role="doc-toc">
 <ul class="simple">
-<li><p><strong>Bernoulli Trial</strong>: An experiment with exactly two outcomes: <em>success</em> (probability = <span class="math notranslate nohighlight">\(p\)</span>) or <em>failure</em> (probability = <span class="math notranslate nohighlight">\(1-p\)</span>).</p></li>
-<li><p><strong>Geometric Random Variable (X)</strong>: The number of trials until the <strong>first success</strong> happens.</p></li>
+<li><p><a class="reference internal" href="#geometric-distribution" id="id1">Geometric Distribution</a></p>
+<ul>
+<li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#statistical-measures" id="id3">Statistical Measures</a></p></li>
+<li><p><a class="reference internal" href="#memoryless-property" id="id4">Memoryless Property</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id5">Examples</a></p></li>
+<li><p><a class="reference internal" href="#applications" id="id6">Applications</a></p></li>
 </ul>
-<p>For example:</p>
-<ul class="simple">
-<li><p>Tossing a coin until it lands <strong>heads</strong>.</p></li>
-<li><p>Testing products until finding the first <strong>defective</strong> one.</p></li>
-<li><p>Calling customers until the <strong>first person answers</strong>.</p></li>
+</li>
 </ul>
+</nav>
+<section class="tex2jax_ignore mathjax_ignore" id="geometric-distribution">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Geometric Distribution</a><a class="headerlink" href="#geometric-distribution" title="Link to this heading">#</a></h1>
+<p>The <strong>Geometric Distribution</strong> is a <strong>discrete probability distribution</strong> that models the number of <strong>Bernoulli trials needed to get the first success</strong>.</p>
+<p>👉 In simple words: <em>It answers the question — “How many trials until the first success?”</em></p>
 <hr class="docutils" />
+<section id="parameters">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(p\)</span></strong> = probability of success in each trial (<span class="math notranslate nohighlight">\(0 &lt; p \leq 1\)</span>)</p></li>
+</ul>
+<p>There are <strong>two common definitions</strong> of the Geometric distribution:</p>
+<ol class="arabic">
+<li><p><strong>Trials until first success (including success trial):</strong></p>
+<div class="math notranslate nohighlight">
+\[
+   P(X = k) = (1-p)^{k-1}p, \quad k = 1,2,3,\dots
+   \]</div>
+<p>(Here <span class="math notranslate nohighlight">\(X\)</span> counts total trials until the first success).</p>
+</li>
+<li><p><strong>Failures before first success:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+   P(Y = k) = (1-p)^k p, \quad k = 0,1,2,\dots
+   \]</div>
+<p>(Here <span class="math notranslate nohighlight">\(Y\)</span> counts failures before success).</p>
+</li>
+</ol>
 </section>
-<section id="formulas">
-<h2>📝 <strong>Formulas</strong><a class="headerlink" href="#formulas" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="statistical-measures">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Statistical Measures</a><a class="headerlink" href="#statistical-measures" title="Link to this heading">#</a></h2>
+<p>For <strong>definition 1</strong> (counting trials):</p>
+<ul>
+<li><p><strong>Mean (Expected Value):</strong></p>
+<div class="math notranslate nohighlight">
+\[
+  E[X] = \frac{1}{p}
+  \]</div>
+</li>
+<li><p><strong>Variance:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+  Var[X] = \frac{1-p}{p^2}
+  \]</div>
+</li>
+<li><p><strong>Mode:</strong>
+Always 1 (most likely the first trial succeeds).</p></li>
+<li><p><strong>Skewness:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{2-p}{\sqrt{1-p}}
+  \]</div>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="memoryless-property">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Memoryless Property</a><a class="headerlink" href="#memoryless-property" title="Link to this heading">#</a></h2>
+<p>The Geometric distribution is the <strong>only discrete distribution with the memoryless property</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+P(X &gt; m+n \mid X &gt; m) = P(X &gt; n)
+\]</div>
+<p>👉 Meaning: The probability of waiting longer does <strong>not depend on how long you’ve already waited</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="examples">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p><strong>Probability Mass Function (PMF):</strong></p></li>
+<li><p><strong>Coin Toss:</strong>
+Toss a fair coin (<span class="math notranslate nohighlight">\(p = 0.5\)</span>).</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X = 1\)</span>: success on the first toss → <span class="math notranslate nohighlight">\(P(X=1) = 0.5\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(X = 2\)</span>: first toss tails, second toss heads → <span class="math notranslate nohighlight">\(P(X=2) = 0.25\)</span>.</p></li>
+<li><p>On average, <span class="math notranslate nohighlight">\(E[X] = 1/p = 2\)</span> tosses are needed.</p></li>
+</ul>
+</li>
 </ol>
+<hr class="docutils" />
+<ol class="arabic" start="2">
+<li><p><strong>Customer Calls at a Helpline:</strong>
+Suppose each call has a <strong>20% chance (<span class="math notranslate nohighlight">\(p = 0.2\)</span>)</strong> of being a satisfied customer.</p>
+<ul>
+<li><p>Expected number of calls until first satisfied customer: <span class="math notranslate nohighlight">\(E[X] = 1/0.2 = 5\)</span>.</p></li>
+<li><p>Probability that the 3rd call is the first satisfied one:</p>
 <div class="math notranslate nohighlight">
 \[
-P(X = k) = (1-p)^{k-1} \cdot p, \quad k = 1, 2, 3, \dots
-\]</div>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(p\)</span>: Probability of success</p></li>
-<li><p><span class="math notranslate nohighlight">\(k\)</span>: The trial on which the first success occurs</p></li>
+     P(X=3) = (1-0.2)^2(0.2) = 0.128
+     \]</div>
+</li>
 </ul>
-<p>👉 Example: If <span class="math notranslate nohighlight">\(p = 0.2\)</span>, then the probability that the first success happens on the <strong>3rd trial</strong> is:
-<span class="math notranslate nohighlight">\((1-0.2)^{2} \cdot 0.2 = 0.128\)</span>.</p>
-<hr class="docutils" />
-<ol class="arabic simple" start="2">
-<li><p><strong>Cumulative Distribution Function (CDF):</strong></p></li>
+</li>
 </ol>
+<hr class="docutils" />
+<ol class="arabic" start="3">
+<li><p><strong>Machine Failures:</strong>
+A machine has a <strong>5% chance (<span class="math notranslate nohighlight">\(p = 0.05\)</span>)</strong> of breaking down each day.</p>
+<ul>
+<li><p>Expected number of days until breakdown: <span class="math notranslate nohighlight">\(E[X] = 1/0.05 = 20\)</span>.</p></li>
+<li><p>Probability breakdown happens exactly on day 10:</p>
 <div class="math notranslate nohighlight">
 \[
-P(X \leq k) = 1 - (1-p)^k
-\]</div>
-<p>This gives the probability that success occurs <strong>on or before trial <span class="math notranslate nohighlight">\(k\)</span></strong>.</p>
-<hr class="docutils" />
-<ol class="arabic simple" start="3">
-<li><p><strong>Statistical Measures:</strong></p></li>
+     P(X=10) = (0.95)^9(0.05) \approx 0.0318
+     \]</div>
+</li>
+</ul>
+</li>
 </ol>
-<ul class="simple">
-<li><p><strong>Mean (Expected Value)</strong>:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[
-E[X] = \frac{1}{p}
-\]</div>
-<p>(average number of trials until first success)</p>
-<ul class="simple">
-<li><p><strong>Variance</strong>:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[
-Var(X) = \frac{1-p}{p^2}
-\]</div>
-<ul class="simple">
-<li><p><strong>Mode</strong>: Always at <span class="math notranslate nohighlight">\(k=1\)</span> (success happens on the very first trial is the most likely outcome).</p></li>
-</ul>
-<hr class="docutils" />
 </section>
-<section id="applications">
-<h2>🎯 <strong>Applications</strong><a class="headerlink" href="#applications" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Quality control</strong>: Number of items checked until the first defective product appears.</p></li>
-<li><p><strong>Marketing</strong>: Number of calls until the first lead converts.</p></li>
-<li><p><strong>Reliability engineering</strong>: Time until the first system failure.</p></li>
-</ul>
 <hr class="docutils" />
-<p>✅ <strong>Key Insight</strong>:
-The geometric distribution is all about <strong>“waiting time until first success”</strong>, unlike the <strong>binomial distribution</strong>, which counts the <strong>total number of successes in a fixed number of trials</strong>.</p>
+<section id="applications">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Applications</a><a class="headerlink" href="#applications" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Quality control</strong> → Number of items tested until first defective one.</p></li>
+<li><p><strong>Telecommunications</strong> → Number of calls until first connection success.</p></li>
+<li><p><strong>Reliability engineering</strong> → Days until first failure of a machine.</p></li>
+<li><p><strong>Clinical trials</strong> → Patients tested until first recovery.</p></li>
+</ol>
+<hr class="docutils" />
+<p>✅ <strong>In short:</strong>
+The <strong>Geometric distribution</strong> models the waiting time until the first success in repeated Bernoulli trials.
+It’s <strong>memoryless</strong> and has wide applications in <strong>telecom, reliability, and experiments</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -601,7 +705,7 @@ The geometric distribution is all about <strong>“waiting time until first succ
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">The Poisson Distribution</p>
+        <p class="prev-next-title">The Poisson Distribution (Discrete)</p>
       </div>
     </a>
     <a class="right-next"
@@ -629,9 +733,11 @@ The geometric distribution is all about <strong>“waiting time until first succ
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">🔑 <strong>Key Concepts</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulas">📝 <strong>Formulas</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">🎯 <strong>Applications</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memoryless-property">Memoryless Property</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
 </ul>
   </nav></div>
 

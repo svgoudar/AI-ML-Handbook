@@ -37,14 +37,24 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
     <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/micromodal.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=38150eaf" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=98f05e74" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
+    <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -52,6 +62,9 @@
     <script src="../../../_static/copybutton.js?v=7f8ff830"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../_static/js/hoverxref.js"></script>
+    <script src="../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../_static/js/micromodal.min.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -201,7 +214,7 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../probability/distribution/discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/bernoulli.html">Bernoulli Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/poisson.html">The Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/poisson.html">The Poisson Distribution (Discrete)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/geometric.html">Geometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/uniform.html">Discrete Uniform Distribution</a></li>
@@ -214,7 +227,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/gamma.html">Gamma Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/beta.html">Beta Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/chi_square.html"><strong>Chi-Square (χ²) Distribution</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/chi_square.html">Chi-Square Distribution</a></li>
 </ul>
 </details></li>
 </ul>
@@ -230,7 +243,6 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../inferential/probability_distributions.html">Probability Distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../inferential/estimation.html">Estimation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../inferential/hypothesis_testing.html">Hypothesis Testing</a></li>
 </ul>
@@ -283,6 +295,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/statistics/descriptive/part1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -291,7 +334,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -308,7 +351,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/statistics/descriptive/part1.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/statistics/descriptive/part1.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -433,9 +476,9 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-average">Mean (Average)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#median"><strong>Median</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mode"><strong>Mode</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-demonstration"><strong>Python Demonstration</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#median">Median</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mode">Mode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-demonstration">Python Demonstration</a></li>
 </ul>
             </nav>
         </div>
@@ -447,11 +490,23 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="measures-of-central-tendency">
-<h1>Measures of Central Tendency<a class="headerlink" href="#measures-of-central-tendency" title="Link to this heading">#</a></h1>
+  <nav class="contents local" id="contents" role="doc-toc">
+<ul class="simple">
+<li><p><a class="reference internal" href="#measures-of-central-tendency" id="id1">Measures of Central Tendency</a></p>
+<ul>
+<li><p><a class="reference internal" href="#mean-average" id="id2">Mean (Average)</a></p></li>
+<li><p><a class="reference internal" href="#median" id="id3">Median</a></p></li>
+<li><p><a class="reference internal" href="#mode" id="id4">Mode</a></p></li>
+<li><p><a class="reference internal" href="#python-demonstration" id="id5">Python Demonstration</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section class="tex2jax_ignore mathjax_ignore" id="measures-of-central-tendency">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Measures of Central Tendency</a><a class="headerlink" href="#measures-of-central-tendency" title="Link to this heading">#</a></h1>
 <p>Measures of central tendency describe the <strong>“center”</strong> or typical value of a dataset. The main measures are <strong>Mean</strong>, <strong>Median</strong>, and <strong>Mode</strong>.</p>
 <section id="mean-average">
-<h2>Mean (Average)<a class="headerlink" href="#mean-average" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Mean (Average)</a><a class="headerlink" href="#mean-average" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Definition:</strong> The sum of all data points divided by the total number of points.</p></li>
 <li><p><strong>Formula:</strong></p></li>
@@ -490,7 +545,7 @@ document.write(`
 <hr class="docutils" />
 </section>
 <section id="median">
-<h2><strong>Median</strong><a class="headerlink" href="#median" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Median</a><a class="headerlink" href="#median" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Definition:</strong> The middle value in a sorted dataset.</p></li>
 <li><p><strong>Steps:</strong></p>
@@ -525,7 +580,7 @@ Dataset: 3, 5, 7, 8 → <strong>Median = (5+7)/2 = 6</strong></p></li>
 <hr class="docutils" />
 </section>
 <section id="mode">
-<h2><strong>Mode</strong><a class="headerlink" href="#mode" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Mode</a><a class="headerlink" href="#mode" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Definition:</strong> The most frequently occurring value in the dataset.</p></li>
 <li><p><strong>Properties:</strong></p>
@@ -553,7 +608,7 @@ Dataset: 3, 5, 7, 8 → <strong>Median = (5+7)/2 = 6</strong></p></li>
 <hr class="docutils" />
 </section>
 <section id="python-demonstration">
-<h2><strong>Python Demonstration</strong><a class="headerlink" href="#python-demonstration" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Python Demonstration</a><a class="headerlink" href="#python-demonstration" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statistics</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
@@ -570,7 +625,7 @@ Dataset: 3, 5, 7, 8 → <strong>Median = (5+7)/2 = 6</strong></p></li>
 </pre></div>
 </div>
 <hr class="docutils" />
-<p>✅ <strong>Summary of Use Cases:</strong></p>
+<p>✅ Summary of Use Cases:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Measure</p></th>
@@ -635,7 +690,7 @@ Dataset: 3, 5, 7, 8 → <strong>Median = (5+7)/2 = 6</strong></p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/edd9a79787e13ff0e578fcc0a7b638dbc77d9ffe94c8fe61226c64d136f9132a.png" src="../../../_images/edd9a79787e13ff0e578fcc0a7b638dbc77d9ffe94c8fe61226c64d136f9132a.png" />
+<img alt="../../../_images/4aaae174607efd31b4ee66cbe8d1faa99ccb1e3c98e26fd3e878eecdde08e29b.png" src="../../../_images/4aaae174607efd31b4ee66cbe8d1faa99ccb1e3c98e26fd3e878eecdde08e29b.png" />
 </div>
 </div>
 </section>
@@ -706,9 +761,9 @@ Dataset: 3, 5, 7, 8 → <strong>Median = (5+7)/2 = 6</strong></p></li>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-average">Mean (Average)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#median"><strong>Median</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mode"><strong>Mode</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-demonstration"><strong>Python Demonstration</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#median">Median</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mode">Mode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-demonstration">Python Demonstration</a></li>
 </ul>
   </nav></div>
 

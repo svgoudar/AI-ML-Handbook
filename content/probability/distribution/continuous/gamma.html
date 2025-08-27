@@ -37,14 +37,24 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/micromodal.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=38150eaf" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=98f05e74" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -52,6 +62,9 @@
     <script src="../../../../_static/copybutton.js?v=7f8ff830"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../_static/js/micromodal.min.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -201,7 +214,7 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/bernoulli.html">Bernoulli Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../discrete/poisson.html">The Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../discrete/poisson.html">The Poisson Distribution (Discrete)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/geometric.html">Geometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/uniform.html">Discrete Uniform Distribution</a></li>
@@ -214,7 +227,7 @@
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">Gamma Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="beta.html">Beta Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="chi_square.html"><strong>Chi-Square (χ²) Distribution</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chi_square.html">Chi-Square Distribution</a></li>
 </ul>
 </details></li>
 </ul>
@@ -230,7 +243,6 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../statistics/inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/probability_distributions.html">Probability Distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/estimation.html">Estimation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/hypothesis_testing.html">Hypothesis Testing</a></li>
 </ul>
@@ -283,6 +295,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/probability/distribution/continuous/gamma.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -291,7 +334,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -308,7 +351,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/continuous/gamma.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/continuous/gamma.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -409,7 +452,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -425,6 +470,18 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-of-the-gamma-distribution">Parameters of the Gamma Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-density-function-pdf">Probability Density Function (PDF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -434,8 +491,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="gamma-distribution">
-<h1>Gamma Distribution<a class="headerlink" href="#gamma-distribution" title="Link to this heading">#</a></h1>
+  <nav class="contents local" id="contents" role="doc-toc">
+<ul class="simple">
+<li><p><a class="reference internal" href="#gamma-distribution" id="id1">Gamma Distribution</a></p>
+<ul>
+<li><p><a class="reference internal" href="#parameters-of-the-gamma-distribution" id="id2">Parameters of the Gamma Distribution</a></p></li>
+<li><p><a class="reference internal" href="#probability-density-function-pdf" id="id3">Probability Density Function (PDF)</a></p></li>
+<li><p><a class="reference internal" href="#statistical-measures" id="id4">Statistical Measures</a></p></li>
+<li><p><a class="reference internal" href="#applications" id="id5">Applications</a></p></li>
+<li><p><a class="reference internal" href="#example" id="id6">Example:</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="gamma-distribution">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Gamma Distribution</a><a class="headerlink" href="#gamma-distribution" title="Link to this heading">#</a></h1>
 <p>The <strong>Gamma Distribution</strong> is a continuous probability distribution used to model the <strong>time until the occurrence of a certain number of events</strong> in a <strong>Poisson process</strong> (a process where events happen independently at a constant rate).</p>
 <p>It generalizes the <strong>Exponential Distribution</strong>:</p>
 <ul class="simple">
@@ -443,7 +513,8 @@ document.write(`
 <li><p>Gamma distribution = time until the <strong>k-th</strong> event.</p></li>
 </ul>
 <hr class="docutils" />
-<p><strong>Parameters of the Gamma Distribution</strong></p>
+<section id="parameters-of-the-gamma-distribution">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Parameters of the Gamma Distribution</a><a class="headerlink" href="#parameters-of-the-gamma-distribution" title="Link to this heading">#</a></h2>
 <p>The Gamma distribution is described by two parameters:</p>
 <ol class="arabic simple">
 <li><p><strong>Shape parameter (<span class="math notranslate nohighlight">\(k\)</span> or <span class="math notranslate nohighlight">\(\alpha\)</span>):</strong></p>
@@ -460,8 +531,10 @@ document.write(`
 </ul>
 </li>
 </ol>
+</section>
 <hr class="docutils" />
-<p><strong>Probability Density Function (PDF)</strong></p>
+<section id="probability-density-function-pdf">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Probability Density Function (PDF)</a><a class="headerlink" href="#probability-density-function-pdf" title="Link to this heading">#</a></h2>
 <p>For <span class="math notranslate nohighlight">\(x &gt; 0\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -476,8 +549,10 @@ f(x; k, \lambda) = \frac{\lambda^k x^{k-1} e^{-\lambda x}}{\Gamma(k)}
   \]</div>
 </li>
 </ul>
+</section>
 <hr class="docutils" />
-<p><strong>Statistical Properties</strong></p>
+<section id="statistical-measures">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Statistical Measures</a><a class="headerlink" href="#statistical-measures" title="Link to this heading">#</a></h2>
 <ul>
 <li><p><strong>Mean:</strong></p>
 <div class="math notranslate nohighlight">
@@ -504,17 +579,21 @@ f(x; k, \lambda) = \frac{\lambda^k x^{k-1} e^{-\lambda x}}{\Gamma(k)}
   \]</div>
 </li>
 </ul>
+</section>
 <hr class="docutils" />
-<p><strong>Applications</strong></p>
+<section id="applications">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Applications</a><a class="headerlink" href="#applications" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Waiting times:</strong> Time until multiple arrivals in a queue (e.g., time until 5th customer arrives).</p></li>
 <li><p><strong>Rainfall modeling:</strong> Total rainfall in a given time period.</p></li>
 <li><p><strong>Insurance/Finance:</strong> Modeling claim sizes or risk assessment.</p></li>
 <li><p><strong>Engineering:</strong> Time-to-failure models when failure depends on multiple causes.</p></li>
 </ul>
+</section>
 <hr class="docutils" />
-<p>✅ <strong>Example</strong>:
-Suppose a call center receives calls at a rate of <strong>2 per minute</strong>. What is the distribution of the waiting time until the <strong>3rd call</strong>?</p>
+<section id="example">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Example:</a><a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
+<p>Suppose a call center receives calls at a rate of <strong>2 per minute</strong>. What is the distribution of the waiting time until the <strong>3rd call</strong>?</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(k = 3\)</span> (waiting for 3 events)</p></li>
 <li><p><span class="math notranslate nohighlight">\(\lambda = 2\)</span> (calls per minute)</p></li>
@@ -562,9 +641,10 @@ Suppose a call center receives calls at a rate of <strong>2 per minute</strong>.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/a8fb955b8186ebb08483bfc9638a6490c177b9f1155543058ee6232a286dc01c.png" src="../../../../_images/a8fb955b8186ebb08483bfc9638a6490c177b9f1155543058ee6232a286dc01c.png" />
+<img alt="../../../../_images/e0cf8a700869acf5fb68985ff5e2e89bf677d878da45e57f336fdba77a32b0ad.png" src="../../../../_images/e0cf8a700869acf5fb68985ff5e2e89bf677d878da45e57f336fdba77a32b0ad.png" />
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -621,6 +701,25 @@ Suppose a call center receives calls at a rate of <strong>2 per minute</strong>.
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-of-the-gamma-distribution">Parameters of the Gamma Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-density-function-pdf">Probability Density Function (PDF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

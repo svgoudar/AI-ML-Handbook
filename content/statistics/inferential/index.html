@@ -32,19 +32,29 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.custom.css?v=7bc2f056" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.bundle.min.css?v=37217874" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-shadow.min.css?v=6227e517" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-punk.min.css?v=94669e23" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-noir.min.css?v=21a39f42" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-light.min.css?v=a18b2449" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-borderless.min.css?v=dbff53e4" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/micromodal.css?v=d7bf34ee" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=38150eaf" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=b0f8a588" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
+    <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -52,6 +62,9 @@
     <script src="../../../_static/copybutton.js?v=7f8ff830"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../_static/js/hoverxref.js?v=c95ade4f"></script>
+    <script src="../../../_static/js/tooltipster.bundle.min.js?v=18bf091b"></script>
+    <script src="../../../_static/js/micromodal.min.js?v=04d6302d"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -62,10 +75,12 @@
     <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/statistics/inferential/index';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Probability Distributions" href="probability_distributions.html" />
+    <link rel="next" title="Estimation" href="estimation.html" />
     <link rel="prev" title="Measures of Central Tendency" href="../descriptive/part1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -199,20 +214,20 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../probability/distribution/discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/bernoulli.html">Bernoulli Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/poisson.html">The Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/poisson.html">The Poisson Distribution (Discrete)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/geometric.html">Geometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/uniform.html">Discrete Uniform Distribution</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../probability/distribution/continuous/index.html">Continuous Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/normal.html">Normal (Gaussian) Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/normal.html">Normal Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/exponential.html">Exponential Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/uniform.html">Uniform Continuous Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/gamma.html">Gamma Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/beta.html">Beta Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/chi_square.html"><strong>Chi-Square (χ²) Distribution</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/chi_square.html">Chi-Square Distribution</a></li>
 </ul>
 </details></li>
 </ul>
@@ -228,7 +243,6 @@
 </ul>
 </details></li>
 <li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Inferential Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="probability_distributions.html">Probability Distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="estimation.html">Estimation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hypothesis_testing.html">Hypothesis Testing</a></li>
 </ul>
@@ -281,6 +295,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/statistics/inferential/index.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -289,7 +334,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -306,7 +351,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/statistics/inferential/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/statistics/inferential/index.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -336,7 +381,7 @@
       
       
       
-      <li><a href="../../../_sources/content/statistics/inferential/index.md" target="_blank"
+      <li><a href="../../../_sources/content/statistics/inferential/index.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -346,7 +391,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -432,12 +477,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="inferential-statistics">
-<h1>Inferential Statistics<a class="headerlink" href="#inferential-statistics" title="Link to this heading">#</a></h1>
+  <nav class="contents local" id="contents" role="doc-toc">
+<ul class="simple">
+<li><p><a class="reference internal" href="#inferential-statistics" id="id1">Inferential Statistics</a></p></li>
+</ul>
+</nav>
+<section class="tex2jax_ignore mathjax_ignore" id="inferential-statistics">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Inferential Statistics</a><a class="headerlink" href="#inferential-statistics" title="Link to this heading">#</a></h1>
 <p>This section covers methods for making inferences and predictions about populations based on sample data.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="probability_distributions.html">Probability Distributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="estimation.html">Estimation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hypothesis_testing.html">Hypothesis Testing</a></li>
 </ul>
@@ -484,11 +533,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="probability_distributions.html"
+       href="estimation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Probability Distributions</p>
+        <p class="prev-next-title">Estimation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>The Poisson Distribution &#8212; My sample book</title>
+    <title>The Poisson Distribution (Discrete) &#8212; My sample book</title>
   
   
   
@@ -37,14 +37,24 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/micromodal.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=38150eaf" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=98f05e74" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -52,6 +62,9 @@
     <script src="../../../../_static/copybutton.js?v=7f8ff830"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../_static/js/micromodal.min.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -201,7 +214,7 @@
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="index.html">Discrete Probability Distributions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="bernoulli.html">Bernoulli Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4 current active"><a class="current reference internal" href="#">The Poisson Distribution</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">The Poisson Distribution (Discrete)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="geometric.html">Geometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hypergeometric.html">Hypergeometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="uniform.html">Discrete Uniform Distribution</a></li>
@@ -214,7 +227,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../continuous/gamma.html">Gamma Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/beta.html">Beta Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../continuous/chi_square.html"><strong>Chi-Square (χ²) Distribution</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../continuous/chi_square.html">Chi-Square Distribution</a></li>
 </ul>
 </details></li>
 </ul>
@@ -230,7 +243,6 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../statistics/inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/probability_distributions.html">Probability Distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/estimation.html">Estimation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/hypothesis_testing.html">Hypothesis Testing</a></li>
 </ul>
@@ -283,6 +295,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/probability/distribution/discrete/poisson.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -291,7 +334,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -308,7 +351,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/discrete/poisson.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/discrete/poisson.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -422,7 +465,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>The Poisson Distribution</h1>
+    <h1>The Poisson Distribution (Discrete)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -432,12 +475,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">🔑 Key Features</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics">📊 Characteristics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#related-functions-in-r">⚙️ Related Functions in R</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-to-other-distributions">🔗 Relationship to Other Distributions</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-mass-function-pmf">Probability Mass Function (PMF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics">Characteristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
 </ul>
             </nav>
         </div>
@@ -449,63 +492,140 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="the-poisson-distribution">
-<h1>The Poisson Distribution<a class="headerlink" href="#the-poisson-distribution" title="Link to this heading">#</a></h1>
-<p>The <strong>Poisson distribution</strong> is a probability distribution that models the <strong>number of times an event occurs within a fixed interval of time or space</strong>, assuming the events occur independently and at a constant average rate.</p>
-<section id="key-features">
-<h2>🔑 Key Features<a class="headerlink" href="#key-features" title="Link to this heading">#</a></h2>
+  <nav class="contents local" id="contents" role="doc-toc">
 <ul class="simple">
-<li><p><strong>Purpose</strong>:
-Used to describe and predict how many times an event happens in a given interval.</p>
+<li><p><a class="reference internal" href="#the-poisson-distribution-discrete" id="id1">The Poisson Distribution (Discrete)</a></p>
 <ul>
-<li><p>Example: estimating how many users visit a website in one minute, or how many phone calls arrive at a call center in an hour.</p></li>
+<li><p><a class="reference internal" href="#probability-mass-function-pmf" id="id2">Probability Mass Function (PMF)</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id3">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#statistical-measures" id="id4">Statistical Measures</a></p></li>
+<li><p><a class="reference internal" href="#characteristics" id="id5">Characteristics</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id6">Examples</a></p></li>
+<li><p><a class="reference internal" href="#applications" id="id7">Applications</a></p></li>
 </ul>
 </li>
-<li><p><strong>Parameter</strong>:</p>
-<ul>
-<li><p><strong><span class="math notranslate nohighlight">\(\lambda\)</span> (lambda)</strong> = the expected (mean) number of events per interval.</p></li>
-<li><p>Both the <strong>mean and variance</strong> of a Poisson distribution are equal to <span class="math notranslate nohighlight">\(\lambda\)</span>.</p></li>
 </ul>
-</li>
-<li><p><strong>Assumptions</strong>:</p>
-<ol class="arabic simple">
-<li><p>Events occur <strong>independently</strong>.</p></li>
-<li><p>The <strong>rate (<span class="math notranslate nohighlight">\(\lambda\)</span>) remains constant</strong> within the observed interval.</p></li>
-<li><p>Two events cannot occur <strong>at exactly the same instant</strong> (events are discrete).</p></li>
-</ol>
-</li>
+</nav>
+<section id="the-poisson-distribution-discrete">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">The Poisson Distribution (Discrete)</a><a class="headerlink" href="#the-poisson-distribution-discrete" title="Link to this heading">#</a></h1>
+<p>The <strong>Poisson distribution</strong> is a <strong>discrete probability distribution</strong> that models the number of times an event occurs in a fixed interval of time, space, distance, or area, <strong>when events occur independently and at a constant average rate</strong>.</p>
+<hr class="docutils" />
+<section id="probability-mass-function-pmf">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Probability Mass Function (PMF)</a><a class="headerlink" href="#probability-mass-function-pmf" title="Link to this heading">#</a></h2>
+<p>For a Poisson random variable <span class="math notranslate nohighlight">\(X \sim Poisson(\lambda)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+P(X = k) = \frac{e^{-\lambda} \lambda^k}{k!}, \quad k = 0, 1, 2, \dots
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k\)</span> = number of occurrences (discrete values)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda &gt; 0\)</span> = average rate of events per interval</p></li>
+<li><p><span class="math notranslate nohighlight">\(e \approx 2.718\)</span> (Euler’s constant)</p></li>
 </ul>
+</section>
+<hr class="docutils" />
+<section id="parameters">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(\lambda\)</span> (lambda)</strong> = expected number of events per interval</p></li>
+<li><p>Distribution is completely defined by <span class="math notranslate nohighlight">\(\lambda\)</span>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="statistical-measures">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Statistical Measures</a><a class="headerlink" href="#statistical-measures" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Mean (Expected Value):</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+E[X] = \lambda
+\]</div>
+<ul class="simple">
+<li><p><strong>Variance:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+Var[X] = \lambda
+\]</div>
+<ul class="simple">
+<li><p><strong>Standard Deviation:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\sigma = \sqrt{\lambda}
+\]</div>
+<ul class="simple">
+<li><p><strong>Skewness:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\text{Skewness} = \frac{1}{\sqrt{\lambda}}
+\]</div>
+<ul class="simple">
+<li><p><strong>Excess Kurtosis:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\text{Kurtosis} = \frac{1}{\lambda}
+\]</div>
+</section>
 <hr class="docutils" />
 <section id="characteristics">
-<h3>📊 Characteristics<a class="headerlink" href="#characteristics" title="Link to this heading">#</a></h3>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Characteristics</a><a class="headerlink" href="#characteristics" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Discrete:</strong> takes integer values <span class="math notranslate nohighlight">\(k = 0,1,2,\dots\)</span></p></li>
+<li><p><strong>Equal mean and variance</strong> (<span class="math notranslate nohighlight">\(E[X] = Var[X] = \lambda\)</span>)</p></li>
+<li><p><strong>Shape depends on <span class="math notranslate nohighlight">\(\lambda\)</span>:</strong></p>
 <ul class="simple">
-<li><p>A higher <span class="math notranslate nohighlight">\(\lambda\)</span> produces a distribution that looks more symmetric and bell-shaped.</p></li>
-<li><p>A lower <span class="math notranslate nohighlight">\(\lambda\)</span> produces a more skewed distribution with most of the mass near zero.</p></li>
-<li><p>Special case in <strong>count data modeling</strong>: Poisson is widely used for event-frequency data, like defects per unit, website clicks, or server requests.</p></li>
-</ul>
-</section>
-<hr class="docutils" />
-<section id="related-functions-in-r">
-<h3>⚙️ Related Functions in R<a class="headerlink" href="#related-functions-in-r" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">rpois(n,</span> <span class="pre">lambda)</span></code>: Generate <code class="docutils literal notranslate"><span class="pre">n</span></code> random values from a Poisson distribution with mean <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
-<ul>
-<li><p>Example: <code class="docutils literal notranslate"><span class="pre">rpois(100,</span> <span class="pre">lambda</span> <span class="pre">=</span> <span class="pre">2)</span></code> → simulates 100 minutes of calls if the average rate is 2 calls per minute.</p></li>
+<li><p>Small <span class="math notranslate nohighlight">\(\lambda\)</span>: distribution skewed right (most mass near 0).</p></li>
+<li><p>Large <span class="math notranslate nohighlight">\(\lambda\)</span>: approaches <strong>Normal distribution</strong>.</p></li>
 </ul>
 </li>
-</ul>
+<li><p><strong>Additivity:</strong> If <span class="math notranslate nohighlight">\(X_1 \sim Poisson(\lambda_1)\)</span> and <span class="math notranslate nohighlight">\(X_2 \sim Poisson(\lambda_2)\)</span>, then <span class="math notranslate nohighlight">\(X_1 + X_2 \sim Poisson(\lambda_1 + \lambda_2)\)</span>.</p></li>
+</ol>
 </section>
 <hr class="docutils" />
-<section id="relationship-to-other-distributions">
-<h3>🔗 Relationship to Other Distributions<a class="headerlink" href="#relationship-to-other-distributions" title="Link to this heading">#</a></h3>
+<section id="examples">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Call center problem:</strong>
+If a call center receives on average <span class="math notranslate nohighlight">\(\lambda = 3\)</span> calls per minute, what is the probability of receiving exactly 5 calls in a minute?</p>
+<div class="math notranslate nohighlight">
+\[
+   P(X=5) = \frac{e^{-3} 3^5}{5!} = \frac{e^{-3} \cdot 243}{120} \approx 0.1008
+   \]</div>
+<p>✅ About <strong>10% chance</strong> of getting exactly 5 calls.</p>
+</li>
+</ol>
+<hr class="docutils" />
+<ol class="arabic" start="2">
+<li><p><strong>Website traffic:</strong>
+Suppose a website receives on average <span class="math notranslate nohighlight">\(\lambda = 10\)</span> visits per hour.</p>
 <ul class="simple">
-<li><p><strong>Exponential distribution</strong>: Models the <strong>time between consecutive events</strong> when events follow a Poisson process.</p></li>
-<li><p><strong>Weibull distribution</strong>: Generalizes the exponential by allowing event rates to change over time, useful for reliability and survival analysis.</p></li>
-<li><p><strong>Generalized Linear Models (GLMs)</strong>: Poisson is a key distribution for modeling count data in regression.</p></li>
+<li><p>Probability of <strong>no visits in an hour</strong>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+   P(X=0) = \frac{e^{-10} 10^0}{0!} = e^{-10} \approx 0.000045
+   \]</div>
+<p>✅ Almost impossible to have zero visits.</p>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Applications</a><a class="headerlink" href="#applications" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Event counts in time/space</strong> (calls, arrivals, clicks, earthquakes, defects, etc.)</p></li>
+<li><p><strong>Reliability engineering</strong> (number of failures per unit time).</p></li>
+<li><p><strong>Biostatistics</strong> (disease cases in a region).</p></li>
+<li><p><strong>Queueing theory</strong> (customers arriving in a queue).</p></li>
 </ul>
 <hr class="docutils" />
-<p>✅ <strong>Key Takeaway</strong>:
-The Poisson distribution is ideal for modeling <strong>event counts in fixed intervals</strong>, provided the events occur independently and at a constant average rate.</p>
+<p>✅ <strong>In short:</strong>
+The <strong>Poisson distribution is a discrete distribution</strong> where the probability of observing <span class="math notranslate nohighlight">\(k\)</span> events depends only on the <strong>average rate <span class="math notranslate nohighlight">\(\lambda\)</span></strong>. Its key property is <strong>mean = variance = <span class="math notranslate nohighlight">\(\lambda\)</span></strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -543,10 +663,9 @@ The Poisson distribution is ideal for modeling <strong>event counts in fixed int
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/5a7380b6fac51120832a34315469a9ded43669858ca6895838852b2d50fb2f34.png" src="../../../../_images/5a7380b6fac51120832a34315469a9ded43669858ca6895838852b2d50fb2f34.png" />
+<img alt="../../../../_images/464ecb7612cd6c8f66d64b0ad91515e8be31bfc9a652177d1d182d3c75a9937f.png" src="../../../../_images/464ecb7612cd6c8f66d64b0ad91515e8be31bfc9a652177d1d182d3c75a9937f.png" />
 </div>
 </div>
-</section>
 </section>
 </section>
 
@@ -614,12 +733,12 @@ The Poisson distribution is ideal for modeling <strong>event counts in fixed int
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">🔑 Key Features</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics">📊 Characteristics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#related-functions-in-r">⚙️ Related Functions in R</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-to-other-distributions">🔗 Relationship to Other Distributions</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-mass-function-pmf">Probability Mass Function (PMF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics">Characteristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
 </ul>
   </nav></div>
 

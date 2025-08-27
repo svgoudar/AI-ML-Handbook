@@ -1,3 +1,54 @@
+ a {
+    word-wrap: break-word;
+    color: var(--pst-color-text-muted);
+} 
+
+
+/* .bd-toc .toc-entry a.reference.internal {
+  text-decoration: none;
+} */
+
+/* 
+.bd-toc .toc-entry a.reference.internal:hover {
+  text-decoration: none;
+  color: #356f99;  
+} */
+
+a.reference.internal {
+  text-decoration: none !important;
+  color: var(--pst-color-text-muted);
+}
+
+a.reference.internal:hover {
+    color: var(--pst-color-link-hover);
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: max(3px, .1875rem, .12em);
+}
+
+
+/*
+a.reference.internal {
+  color: #356f99;
+  text-decoration: none;       
+}
+
+a.reference.internal:hover {
+    color: var(--pst-color-link-hover);
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: max(3px, .1875rem, .12em);
+} 
+
+.sidebar-primary-item a.reference.internal {
+  color: var(--pst-color-text-muted);
+  text-decoration: none;
+}
+
+.sidebar-secondary-item a.reference.internal {
+  color: var(--pst-color-text-muted);
+  text-decoration: none;
+}
+*/
+
 .grid-center {
   text-align: center;
 }
@@ -38,10 +89,7 @@
 }
 
 /* Accent text style */
-.grid-title {
-  font-size: 1.1rem;
-  color: var(--pst-color-primary);
-}
+
 
 /* ============================
    General Markdown Styling
@@ -126,6 +174,8 @@ div.output_area pre {
     font-size: 1.2em;
     font-weight: 600;
     margin-bottom: 0.3em;
+    font-size: 1.1rem;
+    color: #356f99;;
 }
 
 /* Grid Subtitle */
@@ -138,14 +188,7 @@ div.output_area pre {
 /* ============================
    Links & Hover
    ============================ */
-a {
-    color: #2563EB;
-    text-decoration: none;
-}
 
-a:hover {
-    text-decoration: underline;
-}
 
 /* ============================
    Footnotes
@@ -153,4 +196,10 @@ a:hover {
 .footnote {
     font-size: 0.85em;
     color: #6B7280;
+}
+
+a.colab-badge img {
+  content: url("_static/colab-icon.svg");
+  width: 32px;
+  height: 32px;
 }

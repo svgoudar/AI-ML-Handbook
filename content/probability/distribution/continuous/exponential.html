@@ -37,14 +37,24 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/micromodal.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=38150eaf" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=98f05e74" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -52,6 +62,9 @@
     <script src="../../../../_static/copybutton.js?v=7f8ff830"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../_static/js/micromodal.min.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -201,7 +214,7 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/bernoulli.html">Bernoulli Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../discrete/poisson.html">The Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../discrete/poisson.html">The Poisson Distribution (Discrete)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/geometric.html">Geometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/uniform.html">Discrete Uniform Distribution</a></li>
@@ -214,7 +227,7 @@
 <li class="toctree-l4"><a class="reference internal" href="gamma.html">Gamma Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="beta.html">Beta Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="chi_square.html"><strong>Chi-Square (χ²) Distribution</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chi_square.html">Chi-Square Distribution</a></li>
 </ul>
 </details></li>
 </ul>
@@ -230,7 +243,6 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../statistics/inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/probability_distributions.html">Probability Distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/estimation.html">Estimation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/hypothesis_testing.html">Hypothesis Testing</a></li>
 </ul>
@@ -283,6 +295,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/probability/distribution/continuous/exponential.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -291,7 +334,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -308,7 +351,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/continuous/exponential.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/continuous/exponential.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -409,7 +452,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -425,6 +470,18 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-density-function-pdf">Probability Density Function (PDF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cumulative-distribution-function-cdf">Cumulative Distribution Function (CDF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-property-memorylessness">Key Property: Memorylessness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -434,77 +491,119 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="exponential-distribution">
-<h1>Exponential Distribution<a class="headerlink" href="#exponential-distribution" title="Link to this heading">#</a></h1>
-<p>The <strong>Exponential Distribution</strong> is a <strong>continuous probability distribution</strong> that models the <strong>time between independent events</strong> occurring at a constant average rate.</p>
+  <nav class="contents local" id="contents" role="doc-toc">
 <ul class="simple">
-<li><p>It is often used to model <strong>waiting times</strong> or <strong>lifetimes</strong>.</p></li>
-<li><p>Example: The time between arrivals of buses at a station, the lifespan of a light bulb, or the time until the next customer enters a shop.</p></li>
+<li><p><a class="reference internal" href="#exponential-distribution" id="id1">Exponential Distribution</a></p>
+<ul>
+<li><p><a class="reference internal" href="#probability-density-function-pdf" id="id2">Probability Density Function (PDF)</a></p></li>
+<li><p><a class="reference internal" href="#cumulative-distribution-function-cdf" id="id3">Cumulative Distribution Function (CDF)</a></p></li>
+<li><p><a class="reference internal" href="#statistical-measures" id="id4">Statistical Measures</a></p></li>
+<li><p><a class="reference internal" href="#key-property-memorylessness" id="id5">Key Property: Memorylessness</a></p></li>
+<li><p><a class="reference internal" href="#applications" id="id6">Applications</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="exponential-distribution">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Exponential Distribution</a><a class="headerlink" href="#exponential-distribution" title="Link to this heading">#</a></h1>
+<p>The <strong>Exponential Distribution</strong> is a <strong>continuous probability distribution</strong> commonly used to model the <strong>time between independent events</strong> that occur at a <strong>constant average rate</strong>.</p>
+<ul class="simple">
+<li><p>It is particularly suited for <strong>waiting times</strong> or <strong>lifetimes</strong>.</p></li>
+<li><p><strong>Examples:</strong></p>
+<ul>
+<li><p>Time between bus arrivals at a station</p></li>
+<li><p>Lifetime of a light bulb</p></li>
+<li><p>Time until the next customer arrives in a store</p></li>
+</ul>
+</li>
 </ul>
 <hr class="docutils" />
-<p><strong>Probability Density Function (PDF)</strong></p>
-<p>For a rate parameter <span class="math notranslate nohighlight">\(\lambda &gt; 0\)</span>:</p>
+<section id="probability-density-function-pdf">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Probability Density Function (PDF)</a><a class="headerlink" href="#probability-density-function-pdf" title="Link to this heading">#</a></h2>
+<p>For a <strong>rate parameter</strong> <span class="math notranslate nohighlight">\(\lambda &gt; 0\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 f(x; \lambda) = \lambda e^{-\lambda x}, \quad x \geq 0
 \]</div>
+<p>Where:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(x\)</span>: the time until the next event</p></li>
-<li><p><span class="math notranslate nohighlight">\(\lambda\)</span>: the rate (events per unit time)</p></li>
-<li><p>The distribution is <strong>right-skewed</strong> (long tail to the right).</p></li>
+<li><p><span class="math notranslate nohighlight">\(x\)</span> = waiting time (time until the next event)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda\)</span> = rate of events per unit time</p></li>
 </ul>
+<p>👉 The distribution is <strong>right-skewed</strong>, meaning it has a <strong>long tail</strong> extending to the right.</p>
+</section>
 <hr class="docutils" />
-<p><strong>Cumulative Distribution Function (CDF)</strong></p>
+<section id="cumulative-distribution-function-cdf">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Cumulative Distribution Function (CDF)</a><a class="headerlink" href="#cumulative-distribution-function-cdf" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 F(x; \lambda) = P(X \leq x) = 1 - e^{-\lambda x}, \quad x \geq 0
 \]</div>
-<p>This gives the probability that the waiting time is <strong>less than or equal to <span class="math notranslate nohighlight">\(x\)</span></strong>.</p>
+<p>This represents the probability that the waiting time is <strong>less than or equal to <span class="math notranslate nohighlight">\(x\)</span></strong>.</p>
+</section>
 <hr class="docutils" />
-<p><strong>Key Properties</strong></p>
-<ol class="arabic">
-<li><p><strong>Mean (Expected Value):</strong></p>
-<div class="math notranslate nohighlight">
-\[
-   E[X] = \frac{1}{\lambda}
-   \]</div>
-<p>→ On average, the waiting time is the reciprocal of the rate.</p>
-</li>
-<li><p><strong>Variance:</strong></p>
-<div class="math notranslate nohighlight">
-\[
-   Var(X) = \frac{1}{\lambda^2}
-   \]</div>
-</li>
-<li><p><strong>Memoryless Property</strong>:</p>
+<section id="statistical-measures">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Statistical Measures</a><a class="headerlink" href="#statistical-measures" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>The exponential distribution is <strong>memoryless</strong>:</p></li>
+<li><p><strong>Mean (Expected Value):</strong></p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
-   P(X &gt; s + t \mid X &gt; s) = P(X &gt; t)
-   \]</div>
+E[X] = \frac{1}{\lambda}
+\]</div>
 <ul class="simple">
-<li><p>Meaning: the probability of waiting another time <span class="math notranslate nohighlight">\(t\)</span> is independent of how much time has already passed.</p></li>
-<li><p>Example: If a light bulb has been running for 1 year, the probability it survives another 6 months is the same as for a brand new bulb.</p></li>
+<li><p><strong>Variance:</strong></p></li>
 </ul>
-</li>
+<div class="math notranslate nohighlight">
+\[
+Var[X] = \frac{1}{\lambda^2}
+\]</div>
+<ul class="simple">
+<li><p><strong>Mode:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+0
+\]</div>
+<ul class="simple">
+<li><p><strong>Skewness:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+2
+\]</div>
+<ul class="simple">
+<li><p><strong>Excess Kurtosis:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+6
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="key-property-memorylessness">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Key Property: Memorylessness</a><a class="headerlink" href="#key-property-memorylessness" title="Link to this heading">#</a></h2>
+<p>The Exponential distribution is the <strong>only continuous distribution</strong> with the <strong>memoryless property</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+P(X &gt; s+t \mid X &gt; s) = P(X &gt; t)
+\]</div>
+<p>➡️ This means the probability of waiting an additional time <span class="math notranslate nohighlight">\(t\)</span> does <strong>not depend</strong> on how long you have already waited.</p>
+<p><em>Example:</em>
+If a light bulb has lasted 1 year, its probability of surviving another 6 months is the same as that of a brand-new bulb.</p>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Applications</a><a class="headerlink" href="#applications" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Reliability Analysis</strong> – Modeling the lifetime of components.</p></li>
+<li><p><strong>Queueing Theory</strong> – Describing the time between customer arrivals.</p></li>
+<li><p><strong>Poisson Processes</strong> – Modeling <strong>interarrival times</strong> between events.</p></li>
+<li><p><strong>Survival Analysis</strong> – Estimating the time until death or failure.</p></li>
 </ol>
 <hr class="docutils" />
-<p><strong>Applications</strong></p>
-<ul class="simple">
-<li><p><strong>Reliability analysis</strong> → modeling component lifetimes.</p></li>
-<li><p><strong>Queueing theory</strong> → time between arrivals of customers.</p></li>
-<li><p><strong>Poisson processes</strong> → the exponential distribution models the interarrival times between Poisson events.</p></li>
-<li><p><strong>Survival analysis</strong> → time until death or failure.</p></li>
-</ul>
-<hr class="docutils" />
-<p>✅ <strong>In short</strong>:</p>
-<ul class="simple">
-<li><p>The <strong>Exponential distribution</strong> models <strong>waiting times</strong>.</p></li>
-<li><p>Its shape depends on the rate parameter <span class="math notranslate nohighlight">\(\lambda\)</span>.</p></li>
-<li><p>It is the only continuous distribution with the <strong>memoryless property</strong>.</p></li>
-</ul>
+<p>✅ <strong>In summary:</strong>
+The <strong>Exponential distribution</strong> is a simple yet powerful tool to model <strong>waiting times</strong>. Its shape is governed by the rate parameter <span class="math notranslate nohighlight">\(\lambda\)</span>, and it is unique for having the <strong>memoryless property</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -547,15 +646,16 @@ F(x; \lambda) = P(X \leq x) = 1 - e^{-\lambda x}, \quad x \geq 0
 &lt;&gt;:25: SyntaxWarning: invalid escape sequence &#39;\l&#39;
 &lt;&gt;:14: SyntaxWarning: invalid escape sequence &#39;\l&#39;
 &lt;&gt;:25: SyntaxWarning: invalid escape sequence &#39;\l&#39;
-C:\Users\sangouda\AppData\Local\Temp\ipykernel_35832\261168679.py:14: SyntaxWarning: invalid escape sequence &#39;\l&#39;
+C:\Users\sangouda\AppData\Local\Temp\ipykernel_19256\261168679.py:14: SyntaxWarning: invalid escape sequence &#39;\l&#39;
   plt.plot(x, pdf, label=f&quot;$\lambda$={l}&quot;)
-C:\Users\sangouda\AppData\Local\Temp\ipykernel_35832\261168679.py:25: SyntaxWarning: invalid escape sequence &#39;\l&#39;
+C:\Users\sangouda\AppData\Local\Temp\ipykernel_19256\261168679.py:25: SyntaxWarning: invalid escape sequence &#39;\l&#39;
   plt.plot(x, cdf, label=f&quot;$\lambda$={l}&quot;)
 </pre></div>
 </div>
 <img alt="../../../../_images/a724409986fc91708101bbe97e098b952b3a4e08307293b81d5aa63cdad7fe71.png" src="../../../../_images/a724409986fc91708101bbe97e098b952b3a4e08307293b81d5aa63cdad7fe71.png" />
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -612,6 +712,25 @@ C:\Users\sangouda\AppData\Local\Temp\ipykernel_35832\261168679.py:25: SyntaxWarn
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-density-function-pdf">Probability Density Function (PDF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cumulative-distribution-function-cdf">Cumulative Distribution Function (CDF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-property-memorylessness">Key Property: Memorylessness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

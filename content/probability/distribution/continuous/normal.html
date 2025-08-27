@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Normal (Gaussian) Distribution &#8212; My sample book</title>
+    <title>Normal Distribution &#8212; My sample book</title>
   
   
   
@@ -32,19 +32,29 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.custom.css?v=7bc2f056" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.bundle.min.css?v=37217874" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-shadow.min.css?v=6227e517" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-punk.min.css?v=94669e23" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-noir.min.css?v=21a39f42" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-light.min.css?v=a18b2449" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-borderless.min.css?v=dbff53e4" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/micromodal.css?v=d7bf34ee" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=38150eaf" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=b0f8a588" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -52,6 +62,9 @@
     <script src="../../../../_static/copybutton.js?v=7f8ff830"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../../_static/js/hoverxref.js?v=c95ade4f"></script>
+    <script src="../../../../_static/js/tooltipster.bundle.min.js?v=18bf091b"></script>
+    <script src="../../../../_static/js/micromodal.min.js?v=04d6302d"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -201,20 +214,20 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/bernoulli.html">Bernoulli Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../discrete/poisson.html">The Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../discrete/poisson.html">The Poisson Distribution (Discrete)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/geometric.html">Geometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/uniform.html">Discrete Uniform Distribution</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="index.html">Continuous Probability Distributions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l4 current active"><a class="current reference internal" href="#">Normal (Gaussian) Distribution</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Normal Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="exponential.html">Exponential Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="uniform.html">Uniform Continuous Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gamma.html">Gamma Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="beta.html">Beta Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="chi_square.html"><strong>Chi-Square (χ²) Distribution</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chi_square.html">Chi-Square Distribution</a></li>
 </ul>
 </details></li>
 </ul>
@@ -230,7 +243,6 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../statistics/inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/probability_distributions.html">Probability Distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/estimation.html">Estimation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/hypothesis_testing.html">Hypothesis Testing</a></li>
 </ul>
@@ -283,6 +295,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/probability/distribution/continuous/normal.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -291,7 +334,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -308,7 +351,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/continuous/normal.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/continuous/normal.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -422,7 +465,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Normal (Gaussian) Distribution</h1>
+    <h1>Normal Distribution</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -432,15 +475,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">✅ <strong>Definition:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-characteristics">🧠 <strong>Key Characteristics:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">📌 <strong>Notation:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">📊 <strong>Parameters:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdf-probability-density-function">📌 <strong>PDF (Probability Density Function):</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-normally-distributed-data">📈 <strong>Examples of Normally Distributed Data:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-rule-689599-7-rule">📐 <strong>Empirical Rule (68–95–99.7 Rule):</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters">🔍 <strong>Why This Matters:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-notes">📚 <strong>Further Notes:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-characteristics">Key Characteristics:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">Notation:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdf-probability-density-function">PDF (Probability Density Function):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-normally-distributed-data">Examples of Normally Distributed Data:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-rule-689599-7-rule">Empirical Rule (68–95–99.7 Rule):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters">Why This Matters:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-notes">Further Notes:</a></li>
 </ul>
             </nav>
         </div>
@@ -452,14 +497,27 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="normal-gaussian-distribution">
-<h1>Normal (Gaussian) Distribution<a class="headerlink" href="#normal-gaussian-distribution" title="Link to this heading">#</a></h1>
-<section id="definition">
-<h2>✅ <strong>Definition:</strong><a class="headerlink" href="#definition" title="Link to this heading">#</a></h2>
+  <nav class="contents local" id="contents" role="doc-toc">
+<ul class="simple">
+<li><p><a class="reference internal" href="#normal-distribution" id="id1">Normal Distribution</a></p>
+<ul>
+<li><p><a class="reference internal" href="#key-characteristics" id="id2">Key Characteristics:</a></p></li>
+<li><p><a class="reference internal" href="#notation" id="id3">Notation:</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id4">Parameters:</a></p></li>
+<li><p><a class="reference internal" href="#pdf-probability-density-function" id="id5">PDF (Probability Density Function):</a></p></li>
+<li><p><a class="reference internal" href="#examples-of-normally-distributed-data" id="id6">Examples of Normally Distributed Data:</a></p></li>
+<li><p><a class="reference internal" href="#statistical-measures" id="id7">Statistical Measures</a></p></li>
+<li><p><a class="reference internal" href="#further-notes" id="id8">Further Notes:</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section class="tex2jax_ignore mathjax_ignore" id="normal-distribution">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Normal Distribution</a><a class="headerlink" href="#normal-distribution" title="Link to this heading">#</a></h1>
 <p>The <strong>Normal distribution</strong> (or <strong>Gaussian distribution</strong>) is a <strong>continuous probability distribution</strong> for a <strong>real-valued random variable</strong>. It is widely used because many <strong>real-world datasets</strong> (like heights, weights, IQ scores, etc.) tend to follow this distribution.</p>
-</section>
+<hr class="docutils" />
 <section id="key-characteristics">
-<h2>🧠 <strong>Key Characteristics:</strong><a class="headerlink" href="#key-characteristics" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Key Characteristics:</a><a class="headerlink" href="#key-characteristics" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Continuous Distribution</strong> → Applies to <strong>real-valued random variables</strong></p></li>
 <li><p><strong>Bell-shaped curve</strong> → Symmetric about the mean</p></li>
@@ -468,7 +526,7 @@ document.write(`
 </ul>
 </section>
 <section id="notation">
-<h2>📌 <strong>Notation:</strong><a class="headerlink" href="#notation" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Notation:</a><a class="headerlink" href="#notation" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 X \sim \mathcal{N}(\mu, \sigma^2)
@@ -481,7 +539,7 @@ X \sim \mathcal{N}(\mu, \sigma^2)
 </section>
 <hr class="docutils" />
 <section id="parameters">
-<h2>📊 <strong>Parameters:</strong><a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Parameters:</a><a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Mean (μ)</strong>: Central value of the distribution</p></li>
 <li><p><strong>Variance (σ²)</strong>: Measures the spread</p></li>
@@ -491,7 +549,7 @@ X \sim \mathcal{N}(\mu, \sigma^2)
 </section>
 <hr class="docutils" />
 <section id="pdf-probability-density-function">
-<h2>📌 <strong>PDF (Probability Density Function):</strong><a class="headerlink" href="#pdf-probability-density-function" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">PDF (Probability Density Function):</a><a class="headerlink" href="#pdf-probability-density-function" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{ -\frac{1}{2} \left( \frac{x - \mu}{\sigma} \right)^2 }
@@ -506,7 +564,7 @@ f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{ -\frac{1}{2} \left( \frac{x - \mu}{\sigm
 </section>
 <hr class="docutils" />
 <section id="examples-of-normally-distributed-data">
-<h2>📈 <strong>Examples of Normally Distributed Data:</strong><a class="headerlink" href="#examples-of-normally-distributed-data" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Examples of Normally Distributed Data:</a><a class="headerlink" href="#examples-of-normally-distributed-data" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Heights</strong> and <strong>weights</strong> of students in a class</p></li>
 <li><p><strong>Petal length</strong> in the Iris dataset</p></li>
@@ -514,8 +572,72 @@ f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{ -\frac{1}{2} \left( \frac{x - \mu}{\sigm
 </ul>
 </section>
 <hr class="docutils" />
+<section id="statistical-measures">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Statistical Measures</a><a class="headerlink" href="#statistical-measures" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Mean (Expected Value):</strong></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+E[X] = \mu
+\]</div>
+<p>The mean defines the <strong>center</strong> of the distribution (the peak of the bell curve).</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="2">
+<li><p><strong>Median:</strong></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+Median = \mu
+\]</div>
+<p>Since the distribution is <strong>symmetric</strong>, the mean, median, and mode are all equal.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li><p><strong>Mode:</strong></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+Mode = \mu
+\]</div>
+<p>The most likely value is at the center.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="4">
+<li><p><strong>Variance:</strong></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+Var[X] = \sigma^2
+\]</div>
+<p>Determines how <strong>spread out</strong> the data is. A larger variance means a wider bell curve.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="5">
+<li><p><strong>Standard Deviation:</strong></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+SD = \sigma
+\]</div>
+<p>The standard deviation measures the <strong>typical deviation</strong> from the mean.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="6">
+<li><p><strong>Skewness:</strong></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+Skewness = 0
+\]</div>
+<p>The Normal distribution is <strong>perfectly symmetric</strong>.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="7">
+<li><p><strong>Excess Kurtosis:</strong></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+Kurtosis = 0
+\]</div>
+<p>The Normal distribution has <strong>mesokurtic tails</strong>, meaning its tails are neither too heavy nor too light compared to other distributions.</p>
 <section id="empirical-rule-689599-7-rule">
-<h2>📐 <strong>Empirical Rule (68–95–99.7 Rule):</strong><a class="headerlink" href="#empirical-rule-689599-7-rule" title="Link to this heading">#</a></h2>
+<h3>Empirical Rule (68–95–99.7 Rule):<a class="headerlink" href="#empirical-rule-689599-7-rule" title="Link to this heading">#</a></h3>
 <p>If data follows a normal distribution:</p>
 <ul class="simple">
 <li><p><strong>68%</strong> of data falls within <strong>±1 standard deviation</strong> of the mean</p></li>
@@ -538,16 +660,17 @@ P(\mu - 3\sigma \leq X \leq \mu + 3\sigma) \approx 99.7\%
 </section>
 <hr class="docutils" />
 <section id="why-this-matters">
-<h2>🔍 <strong>Why This Matters:</strong><a class="headerlink" href="#why-this-matters" title="Link to this heading">#</a></h2>
+<h3>Why This Matters:<a class="headerlink" href="#why-this-matters" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Many <strong>statistical models assume normality</strong></p></li>
 <li><p>Helps in identifying <strong>outliers</strong>, building <strong>confidence intervals</strong>, and performing <strong>hypothesis testing</strong></p></li>
 <li><p><strong>Foundational for z-tests</strong>, t-tests, and many machine learning techniques</p></li>
 </ul>
 </section>
+</section>
 <hr class="docutils" />
 <section id="further-notes">
-<h2>📚 <strong>Further Notes:</strong><a class="headerlink" href="#further-notes" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Further Notes:</a><a class="headerlink" href="#further-notes" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>To <strong>test if data follows a normal distribution</strong>, use <strong>Q-Q plots</strong></p></li>
 <li><p>The <strong>area under the PDF curve is always 1</strong>, and <strong>PDF values are not direct probabilities</strong>, but <strong>densities</strong></p></li>
@@ -670,15 +793,17 @@ P(\mu - 3\sigma \leq X \leq \mu + 3\sigma) \approx 99.7\%
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">✅ <strong>Definition:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-characteristics">🧠 <strong>Key Characteristics:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">📌 <strong>Notation:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">📊 <strong>Parameters:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdf-probability-density-function">📌 <strong>PDF (Probability Density Function):</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-normally-distributed-data">📈 <strong>Examples of Normally Distributed Data:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-rule-689599-7-rule">📐 <strong>Empirical Rule (68–95–99.7 Rule):</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters">🔍 <strong>Why This Matters:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-notes">📚 <strong>Further Notes:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-characteristics">Key Characteristics:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">Notation:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdf-probability-density-function">PDF (Probability Density Function):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-normally-distributed-data">Examples of Normally Distributed Data:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-rule-689599-7-rule">Empirical Rule (68–95–99.7 Rule):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters">Why This Matters:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-notes">Further Notes:</a></li>
 </ul>
   </nav></div>
 

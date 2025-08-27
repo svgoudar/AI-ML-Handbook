@@ -37,14 +37,24 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/micromodal.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=38150eaf" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=98f05e74" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -52,6 +62,9 @@
     <script src="../../../../_static/copybutton.js?v=7f8ff830"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../_static/js/micromodal.min.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -201,7 +214,7 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/bernoulli.html">Bernoulli Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../discrete/poisson.html">The Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../discrete/poisson.html">The Poisson Distribution (Discrete)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/geometric.html">Geometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/uniform.html">Discrete Uniform Distribution</a></li>
@@ -214,7 +227,7 @@
 <li class="toctree-l4"><a class="reference internal" href="gamma.html">Gamma Distribution</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">Beta Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="chi_square.html"><strong>Chi-Square (χ²) Distribution</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chi_square.html">Chi-Square Distribution</a></li>
 </ul>
 </details></li>
 </ul>
@@ -230,7 +243,6 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../statistics/inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/probability_distributions.html">Probability Distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/estimation.html">Estimation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/hypothesis_testing.html">Hypothesis Testing</a></li>
 </ul>
@@ -283,6 +295,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/probability/distribution/continuous/beta.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -291,7 +334,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -308,7 +351,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/continuous/beta.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/continuous/beta.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -409,7 +452,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -425,6 +470,18 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-parameters">Interpretation of Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shapes-of-the-beta-distribution">Shapes of the Beta Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -434,12 +491,25 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="beta-distribution">
-<h1>Beta Distribution<a class="headerlink" href="#beta-distribution" title="Link to this heading">#</a></h1>
+  <nav class="contents local" id="contents" role="doc-toc">
+<ul class="simple">
+<li><p><a class="reference internal" href="#beta-distribution" id="id1">Beta Distribution</a></p>
+<ul>
+<li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#interpretation-of-parameters" id="id3">Interpretation of Parameters</a></p></li>
+<li><p><a class="reference internal" href="#statistical-measures" id="id4">Statistical Measures</a></p></li>
+<li><p><a class="reference internal" href="#shapes-of-the-beta-distribution" id="id5">Shapes of the Beta Distribution</a></p></li>
+<li><p><a class="reference internal" href="#applications" id="id6">Applications</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="beta-distribution">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Beta Distribution</a><a class="headerlink" href="#beta-distribution" title="Link to this heading">#</a></h1>
 <p>The <strong>Beta Distribution</strong> is a <strong>continuous probability distribution</strong> defined on the interval <strong>[0, 1]</strong>.
 It is very flexible and is mainly used to model <strong>random variables that represent probabilities or proportions</strong>.</p>
-<hr class="docutils" />
-<p><strong>Parameters</strong></p>
+<section id="parameters">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
 <p>The Beta distribution is controlled by <strong>two shape parameters</strong>:</p>
 <ul class="simple">
 <li><p><strong>α (alpha)</strong></p></li>
@@ -455,15 +525,19 @@ f(x; \alpha, \beta) = \frac{1}{B(\alpha, \beta)} x^{\alpha - 1} (1 - x)^{\beta -
 <li><p><span class="math notranslate nohighlight">\(B(\alpha, \beta)\)</span> is the <strong>Beta function</strong>, which ensures that the total probability integrates to 1.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\alpha &gt; 0, \; \beta &gt; 0\)</span>.</p></li>
 </ul>
+</section>
 <hr class="docutils" />
-<p><strong>Interpretation of Parameters</strong></p>
+<section id="interpretation-of-parameters">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Interpretation of Parameters</a><a class="headerlink" href="#interpretation-of-parameters" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>α (alpha)</strong> = prior “successes”</p></li>
 <li><p><strong>β (beta)</strong> = prior “failures”</p></li>
 </ul>
 <p>So, the Beta distribution can be seen as a way of modeling <strong>beliefs about probabilities</strong> based on prior evidence.</p>
+</section>
 <hr class="docutils" />
-<p><strong>Statistical Measures</strong></p>
+<section id="statistical-measures">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Statistical Measures</a><a class="headerlink" href="#statistical-measures" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Mean (Expected Value):</strong></p></li>
 </ul>
@@ -478,8 +552,10 @@ E[X] = \frac{\alpha}{\alpha + \beta}
 \[
 Var[X] = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)}
 \]</div>
+</section>
 <hr class="docutils" />
-<p><strong>Shapes of the Beta Distribution</strong></p>
+<section id="shapes-of-the-beta-distribution">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Shapes of the Beta Distribution</a><a class="headerlink" href="#shapes-of-the-beta-distribution" title="Link to this heading">#</a></h2>
 <p>Depending on <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>, the Beta distribution takes different shapes:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\alpha = \beta = 1\)</span>: <strong>Uniform distribution</strong> (all outcomes equally likely).</p></li>
@@ -487,8 +563,10 @@ Var[X] = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)}
 <li><p><span class="math notranslate nohighlight">\(\alpha &lt; \beta\)</span>: Distribution skewed towards 0 (failure more likely).</p></li>
 <li><p>Large <span class="math notranslate nohighlight">\(\alpha, \beta\)</span>: The distribution becomes more <strong>peaked</strong> (concentrated around the mean).</p></li>
 </ul>
+</section>
 <hr class="docutils" />
-<p><strong>Applications</strong></p>
+<section id="applications">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Applications</a><a class="headerlink" href="#applications" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>Bayesian Statistics</strong> – Beta distribution is the <strong>conjugate prior</strong> for the Bernoulli and Binomial distributions (very common in Bayesian inference).</p>
 <ul class="simple">
@@ -533,6 +611,7 @@ The Beta distribution is a powerful and flexible way to model <strong>uncertaint
 <img alt="../../../../_images/dc74212a35ab105f8f87c27d89524756015a5a7f4fb4725d74c0916966654a40.png" src="../../../../_images/dc74212a35ab105f8f87c27d89524756015a5a7f4fb4725d74c0916966654a40.png" />
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -589,6 +668,25 @@ The Beta distribution is a powerful and flexible way to model <strong>uncertaint
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-parameters">Interpretation of Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shapes-of-the-beta-distribution">Shapes of the Beta Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

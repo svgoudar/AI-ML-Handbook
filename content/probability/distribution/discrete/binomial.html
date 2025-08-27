@@ -37,14 +37,24 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/micromodal.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=38150eaf" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=98f05e74" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -52,6 +62,9 @@
     <script src="../../../../_static/copybutton.js?v=7f8ff830"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../_static/js/micromodal.min.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -67,7 +80,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/probability/distribution/discrete/binomial';</script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="The Poisson Distribution" href="poisson.html" />
+    <link rel="next" title="The Poisson Distribution (Discrete)" href="poisson.html" />
     <link rel="prev" title="Bernoulli Distribution" href="bernoulli.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -201,7 +214,7 @@
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="index.html">Discrete Probability Distributions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="bernoulli.html">Bernoulli Distribution</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="poisson.html">The Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poisson.html">The Poisson Distribution (Discrete)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="geometric.html">Geometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hypergeometric.html">Hypergeometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="uniform.html">Discrete Uniform Distribution</a></li>
@@ -214,7 +227,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../continuous/gamma.html">Gamma Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/beta.html">Beta Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../continuous/student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../continuous/chi_square.html"><strong>Chi-Square (χ²) Distribution</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../continuous/chi_square.html">Chi-Square Distribution</a></li>
 </ul>
 </details></li>
 </ul>
@@ -230,7 +243,6 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../statistics/inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/probability_distributions.html">Probability Distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/estimation.html">Estimation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/hypothesis_testing.html">Hypothesis Testing</a></li>
 </ul>
@@ -283,6 +295,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/probability/distribution/discrete/binomial.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -291,7 +334,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -308,7 +351,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/discrete/binomial.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/discrete/binomial.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -432,12 +475,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-concepts">🔑 Core Concepts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-applications">🎯 Purpose &amp; Applications</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-characteristics">⚙️ Parameters &amp; Characteristics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-functions">🧮 Probability Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-with-the-normal-distribution">📈 Approximation with the Normal Distribution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">🌟 Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-to-other-distributions">Relationship to Other Distributions</a></li>
 </ul>
             </nav>
         </div>
@@ -449,92 +492,166 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="binomial-distribution">
-<h1>Binomial Distribution<a class="headerlink" href="#binomial-distribution" title="Link to this heading">#</a></h1>
-<p>The <strong>Binomial Distribution</strong> is a probability distribution that models the number of <strong>successes</strong> in a fixed number of independent trials, where each trial has the same probability of success. It is especially useful for analyzing <strong>binary (yes/no, success/failure, 0/1)</strong> outcomes, which are common in real-world scenarios such as click/no-click, purchase/no-purchase, or survive/die.</p>
-<hr class="docutils" />
-<section id="core-concepts">
-<h2>🔑 Core Concepts<a class="headerlink" href="#core-concepts" title="Link to this heading">#</a></h2>
+  <nav class="contents local" id="contents" role="doc-toc">
 <ul class="simple">
-<li><p><strong>Trial</strong>: A single experiment with two possible outcomes (e.g., flipping a coin).</p></li>
-<li><p><strong>Success</strong>: The specific outcome of interest (not necessarily “good” — e.g., detecting fraud, a loan default).</p></li>
-<li><p><strong>Binomial</strong>: Refers to two possible outcomes — success (1) or failure (0).</p></li>
-<li><p><strong>Bernoulli Trial</strong>: A single binomial trial with success probability <code class="docutils literal notranslate"><span class="pre">p</span></code> and failure probability <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">p</span></code>.</p></li>
-</ul>
-</section>
-<hr class="docutils" />
-<section id="purpose-applications">
-<h2>🎯 Purpose &amp; Applications<a class="headerlink" href="#purpose-applications" title="Link to this heading">#</a></h2>
-<p>The binomial distribution answers questions like:</p>
-<ul class="simple">
-<li><p><em>What is the probability of exactly 3 heads in 10 coin flips?</em></p></li>
-<li><p><em>If the probability of a click converting to a sale is 0.02, what’s the chance of seeing 0 sales from 200 clicks?</em></p></li>
-</ul>
-<p>This makes it widely used in <strong>analytics, finance, quality control, marketing, and risk modeling</strong>.</p>
-</section>
-<hr class="docutils" />
-<section id="parameters-characteristics">
-<h2>⚙️ Parameters &amp; Characteristics<a class="headerlink" href="#parameters-characteristics" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Number of trials (n)</strong>: Fixed number of independent experiments.</p></li>
-<li><p><strong>Probability of success (p)</strong>: The chance of success in a single trial.</p></li>
-<li><p><strong>Number of successes (x)</strong>: The outcome being measured.</p></li>
-</ul>
-<p><strong>Key formulas:</strong></p>
+<li><p><a class="reference internal" href="#binomial-distribution" id="id1">Binomial Distribution</a></p>
 <ul>
-<li><p><strong>Mean (expected value):</strong></p>
+<li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#interpretation" id="id3">Interpretation</a></p></li>
+<li><p><a class="reference internal" href="#statistical-measures" id="id4">Statistical Measures</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id5">Examples</a></p></li>
+<li><p><a class="reference internal" href="#applications" id="id6">Applications</a></p></li>
+<li><p><a class="reference internal" href="#relationship-to-other-distributions" id="id7">Relationship to Other Distributions</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="binomial-distribution">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Binomial Distribution</a><a class="headerlink" href="#binomial-distribution" title="Link to this heading">#</a></h1>
+<p>The <strong>Binomial Distribution</strong> is a <strong>discrete probability distribution</strong> that models the number of <strong>successes</strong> in a fixed number of <strong>independent Bernoulli trials</strong>, each with the same probability of success <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p>👉 In simple terms: It answers <strong>“How many successes will I get if I repeat a Bernoulli trial <span class="math notranslate nohighlight">\(n\)</span> times?”</strong></p>
+<hr class="docutils" />
+<section id="parameters">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
+<p>The Binomial distribution is defined by:</p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(n\)</span></strong> = number of trials (fixed, positive integer)</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(p\)</span></strong> = probability of success in each trial (<span class="math notranslate nohighlight">\(0 \leq p \leq 1\)</span>)</p></li>
+</ul>
+<p>The probability mass function (PMF) is:</p>
 <div class="math notranslate nohighlight">
 \[
-  \mu = n \cdot p
-  \]</div>
-</li>
-<li><p><strong>Variance:</strong></p>
-<div class="math notranslate nohighlight">
-\[
-  \sigma^2 = n \cdot p \cdot (1 - p)
-  \]</div>
-</li>
-</ul>
-<p>These provide insights into the <strong>expected number of successes</strong> and the <strong>spread</strong> of possible outcomes.</p>
-</section>
-<hr class="docutils" />
-<section id="probability-functions">
-<h2>🧮 Probability Functions<a class="headerlink" href="#probability-functions" title="Link to this heading">#</a></h2>
-<p>In R (common in statistics):</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">dbinom(x,</span> <span class="pre">n,</span> <span class="pre">p)</span></code> → Probability of <strong>exactly x successes</strong></p>
-<ul>
-<li><p>Example: <code class="docutils literal notranslate"><span class="pre">dbinom(2,</span> <span class="pre">5,</span> <span class="pre">0.1)</span></code> → P(exactly 2 successes in 5 trials with p=0.1)</p></li>
-</ul>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pbinom(q,</span> <span class="pre">n,</span> <span class="pre">p)</span></code> → Probability of <strong>q or fewer successes</strong></p>
-<ul>
-<li><p>Example: <code class="docutils literal notranslate"><span class="pre">pbinom(2,</span> <span class="pre">5,</span> <span class="pre">0.1)</span></code> → P(≤2 successes in 5 trials with p=0.1)</p></li>
-</ul>
-</li>
-</ul>
-</section>
-<hr class="docutils" />
-<section id="approximation-with-the-normal-distribution">
-<h2>📈 Approximation with the Normal Distribution<a class="headerlink" href="#approximation-with-the-normal-distribution" title="Link to this heading">#</a></h2>
-<p>When the number of trials <code class="docutils literal notranslate"><span class="pre">n</span></code> is large and <code class="docutils literal notranslate"><span class="pre">p</span></code> is not too close to 0 or 1, the binomial distribution closely resembles the <strong>normal distribution</strong>:</p>
-<div class="math notranslate nohighlight">
-\[
-X \sim Binomial(n, p) \;\;\; \approx \;\;\; Normal(\mu = n \cdot p, \, \sigma^2 = n \cdot p \cdot (1-p))
+P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad k = 0,1,2,\dots,n
 \]</div>
-<p>This approximation simplifies calculations for large datasets.</p>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k\)</span> = number of successes</p></li>
+<li><p><span class="math notranslate nohighlight">\(\binom{n}{k} = \frac{n!}{k!(n-k)!}\)</span> (binomial coefficient)</p></li>
+</ul>
 </section>
 <hr class="docutils" />
-<section id="key-takeaways">
-<h2>🌟 Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h2>
+<section id="interpretation">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Interpretation</a><a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>A <strong>binomial trial</strong> has only two possible outcomes: success (p) or failure (1-p).</p></li>
-<li><p>The <strong>binomial distribution</strong> models the probability of observing a given number of successes across multiple trials.</p></li>
-<li><p>Its <strong>mean and variance</strong> are determined by the number of trials and probability of success.</p></li>
-<li><p>For large samples, it can be <strong>approximated by the normal distribution</strong>.</p></li>
+<li><p>Each trial is <strong>independent</strong>.</p></li>
+<li><p>The probability of success <strong>does not change</strong> across trials.</p></li>
+<li><p>Example: Tossing a fair coin 10 times and counting the number of heads.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="statistical-measures">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Statistical Measures</a><a class="headerlink" href="#statistical-measures" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Mean (Expected Value):</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+E[X] = np
+\]</div>
+<ul class="simple">
+<li><p><strong>Variance:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+Var[X] = np(1-p)
+\]</div>
+<ul class="simple">
+<li><p><strong>Standard Deviation:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\sigma = \sqrt{np(1-p)}
+\]</div>
+<ul class="simple">
+<li><p><strong>Mode:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\text{Mode} = \lfloor (n+1)p \rfloor \quad \text{or} \quad \lfloor (n+1)p \rfloor - 1
+\]</div>
+<ul class="simple">
+<li><p><strong>Skewness:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\text{Skewness} = \frac{1 - 2p}{\sqrt{np(1-p)}}
+\]</div>
+<ul class="simple">
+<li><p><strong>Excess Kurtosis:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\text{Excess Kurtosis} = \frac{1 - 6p(1-p)}{np(1-p)}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="examples">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Coin Tossing:</strong>
+Toss a fair coin (<span class="math notranslate nohighlight">\(p = 0.5\)</span>) <strong>10 times</strong> (<span class="math notranslate nohighlight">\(n = 10\)</span>).</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X\)</span> = number of heads.</p></li>
+<li><p><span class="math notranslate nohighlight">\(E[X] = np = 10 \times 0.5 = 5\)</span>.</p></li>
+<li><p>On average, you expect 5 heads in 10 tosses.</p></li>
+</ul>
+</li>
+</ol>
+<hr class="docutils" />
+<ol class="arabic" start="2">
+<li><p><strong>Quality Control in Manufacturing:</strong>
+Suppose a factory produces chips with a <strong>2% defect rate</strong> (<span class="math notranslate nohighlight">\(p = 0.02\)</span>).
+If you test <span class="math notranslate nohighlight">\(n = 100\)</span> chips,</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X\)</span> = number of defective chips.</p></li>
+<li><p><span class="math notranslate nohighlight">\(E[X] = 100 \times 0.02 = 2\)</span>.</p></li>
+<li><p>The probability of finding <strong>exactly 3 defective chips</strong>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+   P(X=3) = \binom{100}{3}(0.02)^3(0.98)^{97}
+   \]</div>
+</li>
+</ol>
+<hr class="docutils" />
+<ol class="arabic" start="3">
+<li><p><strong>Elections / Surveys:</strong>
+In a survey, each person supports a candidate with probability <span class="math notranslate nohighlight">\(p = 0.6\)</span>.
+If <span class="math notranslate nohighlight">\(n = 10\)</span> people are asked,</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X\)</span> = number of supporters.</p></li>
+<li><p><span class="math notranslate nohighlight">\(E[X] = 10 \times 0.6 = 6\)</span>.</p></li>
+<li><p>The probability that <strong>exactly 7 people</strong> support the candidate is:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+   P(X=7) = \binom{10}{7}(0.6)^7(0.4)^3
+   \]</div>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Applications</a><a class="headerlink" href="#applications" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Coin Tossing / Repeated Experiments</strong> → Number of heads in multiple tosses.</p></li>
+<li><p><strong>Quality Control</strong> → Number of defective items in a batch.</p></li>
+<li><p><strong>Elections / Surveys</strong> → Number of people in a sample supporting a candidate.</p></li>
+<li><p><strong>Clinical Trials</strong> → Number of patients recovering after treatment.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="relationship-to-other-distributions">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Relationship to Other Distributions</a><a class="headerlink" href="#relationship-to-other-distributions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(n = 1\)</span>, the <strong>Binomial</strong> reduces to the <strong>Bernoulli</strong> distribution.</p></li>
+<li><p>For large <span class="math notranslate nohighlight">\(n\)</span> and small <span class="math notranslate nohighlight">\(p\)</span>, it approximates the <strong>Poisson</strong> distribution.</p></li>
+<li><p>For large <span class="math notranslate nohighlight">\(n\)</span>, it approximates the <strong>Normal distribution</strong> (Central Limit Theorem).</p></li>
 </ul>
 <hr class="docutils" />
-<p>✨ Fun Fact: The <strong>quincunx (Galton board)</strong> visually demonstrates how repeated binary outcomes accumulate into the familiar bell-shaped curve, illustrating the link between the binomial and normal distributions.</p>
+<p>✅ <strong>In short:</strong>
+The <strong>Binomial distribution</strong> models the <strong>number of successes</strong> in <span class="math notranslate nohighlight">\(n\)</span> independent trials with success probability <span class="math notranslate nohighlight">\(p\)</span>.
+It’s a natural extension of the <strong>Bernoulli distribution</strong>, widely used in <strong>probability, statistics, and data science</strong>.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Aspect</p></th>
@@ -662,7 +779,7 @@ X \sim Binomial(n, p) \;\;\; \approx \;\;\; Normal(\mu = n \cdot p, \, \sigma^2 
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">The Poisson Distribution</p>
+        <p class="prev-next-title">The Poisson Distribution (Discrete)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -682,12 +799,12 @@ X \sim Binomial(n, p) \;\;\; \approx \;\;\; Normal(\mu = n \cdot p, \, \sigma^2 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-concepts">🔑 Core Concepts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-applications">🎯 Purpose &amp; Applications</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-characteristics">⚙️ Parameters &amp; Characteristics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-functions">🧮 Probability Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-with-the-normal-distribution">📈 Approximation with the Normal Distribution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">🌟 Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-to-other-distributions">Relationship to Other Distributions</a></li>
 </ul>
   </nav></div>
 

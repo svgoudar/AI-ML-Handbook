@@ -37,14 +37,24 @@
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/micromodal.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=38150eaf" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=98f05e74" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -52,6 +62,9 @@
     <script src="../../_static/copybutton.js?v=7f8ff830"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../_static/js/hoverxref.js"></script>
+    <script src="../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../_static/js/micromodal.min.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -62,6 +75,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/statistics/overview';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -199,7 +214,7 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../probability/distribution/discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/bernoulli.html">Bernoulli Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/poisson.html">The Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/poisson.html">The Poisson Distribution (Discrete)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/geometric.html">Geometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/uniform.html">Discrete Uniform Distribution</a></li>
@@ -212,7 +227,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/gamma.html">Gamma Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/beta.html">Beta Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/chi_square.html"><strong>Chi-Square (χ²) Distribution</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/chi_square.html">Chi-Square Distribution</a></li>
 </ul>
 </details></li>
 </ul>
@@ -228,7 +243,6 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="inferential/probability_distributions.html">Probability Distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="inferential/estimation.html">Estimation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="inferential/hypothesis_testing.html">Hypothesis Testing</a></li>
 </ul>
@@ -281,6 +295,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/statistics/overview.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -289,7 +334,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -306,7 +351,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/statistics/overview.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/statistics/overview.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -469,8 +514,26 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h1>
+  <nav class="contents local" id="contents" role="doc-toc">
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id1">Overview</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-is-statistics" id="id2">1. 🔎 What is Statistics?</a></p></li>
+<li><p><a class="reference internal" href="#types-of-data" id="id3">2. 🔢 Types of Data</a></p></li>
+<li><p><a class="reference internal" href="#scales-of-measurement" id="id4">3. 📏 Scales of Measurement</a></p></li>
+<li><p><a class="reference internal" href="#descriptive-vs-inferential-statistics" id="id5">4. 📈 Descriptive vs Inferential Statistics</a></p></li>
+<li><p><a class="reference internal" href="#basics-of-probability" id="id6">5. 🎲 Basics of Probability</a></p></li>
+<li><p><a class="reference internal" href="#population-vs-sample" id="id7">6. 👥 Population vs Sample</a></p></li>
+<li><p><a class="reference internal" href="#data-collection" id="id8">7. 📦 Data Collection</a></p></li>
+<li><p><a class="reference internal" href="#observational-vs-experimental" id="id9">8. ⚖️ Observational vs Experimental</a></p></li>
+<li><p><a class="reference internal" href="#sampling-techniques" id="id10">9. 🎯 Sampling Techniques</a></p></li>
+<li><p><a class="reference internal" href="#data-cleaning-basics" id="id11">10. 🧹 Data Cleaning Basics</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section class="tex2jax_ignore mathjax_ignore" id="overview">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p><em>Understanding Data with Clarity and Purpose</em></p></li>
 </ul>
@@ -478,7 +541,7 @@ document.write(`
 It forms the foundation for data-driven decisions in business, science, government, and technology.</p>
 <hr class="docutils" />
 <section id="what-is-statistics">
-<h2>1. 🔎 What is Statistics?<a class="headerlink" href="#what-is-statistics" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. 🔎 What is Statistics?</a><a class="headerlink" href="#what-is-statistics" title="Link to this heading">#</a></h2>
 <p><strong>Definition:</strong>
 Statistics is the discipline that involves <strong>collecting</strong>, <strong>organizing</strong>, <strong>summarizing</strong>, <strong>analyzing</strong>, and <strong>interpreting data</strong>.</p>
 <p><strong>Two main branches:</strong></p>
@@ -491,7 +554,7 @@ Statistics is the discipline that involves <strong>collecting</strong>, <strong>
 </section>
 <hr class="docutils" />
 <section id="types-of-data">
-<h2>2. 🔢 Types of Data<a class="headerlink" href="#types-of-data" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">2. 🔢 Types of Data</a><a class="headerlink" href="#types-of-data" title="Link to this heading">#</a></h2>
 <section id="a-qualitative-categorical-data">
 <h3>a) <strong>Qualitative (Categorical) Data</strong><a class="headerlink" href="#a-qualitative-categorical-data" title="Link to this heading">#</a></h3>
 <ul class="simple">
@@ -519,7 +582,7 @@ Statistics is the discipline that involves <strong>collecting</strong>, <strong>
 </section>
 <hr class="docutils" />
 <section id="scales-of-measurement">
-<h2>3. 📏 Scales of Measurement<a class="headerlink" href="#scales-of-measurement" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">3. 📏 Scales of Measurement</a><a class="headerlink" href="#scales-of-measurement" title="Link to this heading">#</a></h2>
 <p>The four fundamental measurement scales:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -566,7 +629,7 @@ Statistics is the discipline that involves <strong>collecting</strong>, <strong>
 </section>
 <hr class="docutils" />
 <section id="descriptive-vs-inferential-statistics">
-<h2>4. 📈 Descriptive vs Inferential Statistics<a class="headerlink" href="#descriptive-vs-inferential-statistics" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">4. 📈 Descriptive vs Inferential Statistics</a><a class="headerlink" href="#descriptive-vs-inferential-statistics" title="Link to this heading">#</a></h2>
 <section id="descriptive-statistics">
 <h3>✏️ Descriptive Statistics<a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h3>
 <ul class="simple">
@@ -597,7 +660,7 @@ Statistics is the discipline that involves <strong>collecting</strong>, <strong>
 </section>
 <hr class="docutils" />
 <section id="basics-of-probability">
-<h2>5. 🎲 Basics of Probability<a class="headerlink" href="#basics-of-probability" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">5. 🎲 Basics of Probability</a><a class="headerlink" href="#basics-of-probability" title="Link to this heading">#</a></h2>
 <p>Probability = likelihood of an event (0 = impossible, 1 = certain).</p>
 <ul class="simple">
 <li><p><strong>Independent Events</strong> → One doesn’t affect the other (coin tosses).</p></li>
@@ -607,7 +670,7 @@ Statistics is the discipline that involves <strong>collecting</strong>, <strong>
 </section>
 <hr class="docutils" />
 <section id="population-vs-sample">
-<h2>6. 👥 Population vs Sample<a class="headerlink" href="#population-vs-sample" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">6. 👥 Population vs Sample</a><a class="headerlink" href="#population-vs-sample" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Term</p></th>
@@ -631,7 +694,7 @@ Statistics is the discipline that involves <strong>collecting</strong>, <strong>
 </section>
 <hr class="docutils" />
 <section id="data-collection">
-<h2>7. 📦 Data Collection<a class="headerlink" href="#data-collection" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">7. 📦 Data Collection</a><a class="headerlink" href="#data-collection" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Observational Study</strong> → Researcher observes, no control
 <em>Example</em>: Surveying opinions.</p></li>
@@ -641,7 +704,7 @@ Statistics is the discipline that involves <strong>collecting</strong>, <strong>
 </section>
 <hr class="docutils" />
 <section id="observational-vs-experimental">
-<h2>8. ⚖️ Observational vs Experimental<a class="headerlink" href="#observational-vs-experimental" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">8. ⚖️ Observational vs Experimental</a><a class="headerlink" href="#observational-vs-experimental" title="Link to this heading">#</a></h2>
 <section id="observational-study">
 <h3>Observational Study<a class="headerlink" href="#observational-study" title="Link to this heading">#</a></h3>
 <ul class="simple">
@@ -666,7 +729,7 @@ Statistics is the discipline that involves <strong>collecting</strong>, <strong>
 </section>
 <hr class="docutils" />
 <section id="sampling-techniques">
-<h2>9. 🎯 Sampling Techniques<a class="headerlink" href="#sampling-techniques" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">9. 🎯 Sampling Techniques</a><a class="headerlink" href="#sampling-techniques" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>Simple Random Sampling</strong> → Everyone has equal chance.
 <em>Example</em>: Randomly selecting phone numbers.</p></li>
@@ -686,7 +749,7 @@ Statistics is the discipline that involves <strong>collecting</strong>, <strong>
 </section>
 <hr class="docutils" />
 <section id="data-cleaning-basics">
-<h2>10. 🧹 Data Cleaning Basics<a class="headerlink" href="#data-cleaning-basics" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">10. 🧹 Data Cleaning Basics</a><a class="headerlink" href="#data-cleaning-basics" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Missing Values</strong> → Fill in blanks (e.g., with mean).</p></li>
 <li><p><strong>Outliers</strong> → Detect unusual values (e.g., extreme income).</p></li>

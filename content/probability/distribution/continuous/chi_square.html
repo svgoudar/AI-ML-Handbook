@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Chi-Square (χ²) Distribution &#8212; My sample book</title>
+    <title>Chi-Square Distribution &#8212; My sample book</title>
   
   
   
@@ -32,19 +32,29 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/micromodal.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=38150eaf" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=98f05e74" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -52,6 +62,9 @@
     <script src="../../../../_static/copybutton.js?v=7f8ff830"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../_static/js/micromodal.min.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -201,7 +214,7 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/bernoulli.html">Bernoulli Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../discrete/poisson.html">The Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../discrete/poisson.html">The Poisson Distribution (Discrete)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/geometric.html">Geometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/uniform.html">Discrete Uniform Distribution</a></li>
@@ -214,7 +227,7 @@
 <li class="toctree-l4"><a class="reference internal" href="gamma.html">Gamma Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="beta.html">Beta Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="student_t.html">Student’s t-Distribution</a></li>
-<li class="toctree-l4 current active"><a class="current reference internal" href="#">Chi-Square (χ²) Distribution</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Chi-Square Distribution</a></li>
 </ul>
 </details></li>
 </ul>
@@ -230,7 +243,6 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../statistics/inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/probability_distributions.html">Probability Distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/estimation.html">Estimation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/hypothesis_testing.html">Hypothesis Testing</a></li>
 </ul>
@@ -283,6 +295,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/probability/distribution/continuous/chi_square.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -291,7 +334,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -308,7 +351,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/continuous/chi_square.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/continuous/chi_square.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -422,7 +465,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Chi-Square (χ²) Distribution</h1>
+    <h1>Chi-Square Distribution</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -432,10 +475,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">🔹 <strong>Definition</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components">🔹 <strong>Key Components</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-in-statistics">🔹 <strong>Applications in Statistics</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">🔹 <strong>Example</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-density-function-pdf">Probability Density Function (PDF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shapes-of-the-chi-square-distribution">Shapes of the Chi-Square Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
 </ul>
             </nav>
         </div>
@@ -447,91 +491,121 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="chi-square-2-distribution">
-<h1>Chi-Square (χ²) Distribution<a class="headerlink" href="#chi-square-2-distribution" title="Link to this heading">#</a></h1>
-<p>The <strong>Chi-Square distribution</strong> is a probability distribution that arises frequently in statistics, especially in <strong>hypothesis testing</strong> and <strong>confidence interval estimation</strong>.</p>
+  <nav class="contents local" id="contents" role="doc-toc">
+<ul class="simple">
+<li><p><a class="reference internal" href="#chi-square-distribution" id="id1">Chi-Square Distribution</a></p>
+<ul>
+<li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#probability-density-function-pdf" id="id3">Probability Density Function (PDF)</a></p></li>
+<li><p><a class="reference internal" href="#statistical-measures" id="id4">Statistical Measures</a></p></li>
+<li><p><a class="reference internal" href="#shapes-of-the-chi-square-distribution" id="id5">Shapes of the Chi-Square Distribution</a></p></li>
+<li><p><a class="reference internal" href="#applications" id="id6">Applications</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="chi-square-distribution">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Chi-Square Distribution</a><a class="headerlink" href="#chi-square-distribution" title="Link to this heading">#</a></h1>
+<p>The <strong>Chi-Square Distribution</strong> (<span class="math notranslate nohighlight">\(\chi^2\)</span>) is a <strong>continuous probability distribution</strong> that arises often in statistics, especially in <strong>hypothesis testing</strong> and <strong>goodness-of-fit tests</strong>.
+It is a special case of the <strong>Gamma distribution</strong>.</p>
 <hr class="docutils" />
-<section id="definition">
-<h2>🔹 <strong>Definition</strong><a class="headerlink" href="#definition" title="Link to this heading">#</a></h2>
-<p>The Chi-Square distribution is the distribution of the <strong>sum of the squares of independent standard normal random variables</strong>.</p>
-<p>If</p>
+<section id="parameters">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
+<p>The distribution is determined by a single parameter:</p>
+<ul class="simple">
+<li><p><strong>Degrees of freedom (k or df)</strong> – a positive integer that usually corresponds to the number of independent standard normal random variables being squared and summed.</p></li>
+</ul>
+<p>If <span class="math notranslate nohighlight">\(Z_1, Z_2, \dots, Z_k \sim N(0,1)\)</span>, then</p>
 <div class="math notranslate nohighlight">
 \[
-Z_1, Z_2, \dots, Z_k \sim N(0,1) \quad \text{(independent standard normal variables)},
+X = \sum_{i=1}^k Z_i^2 \sim \chi^2(k)
 \]</div>
-<p>then</p>
-<div class="math notranslate nohighlight">
-\[
-\chi^2 = Z_1^2 + Z_2^2 + \dots + Z_k^2
-\]</div>
-<p>follows a <strong>Chi-Square distribution with <span class="math notranslate nohighlight">\(k\)</span> degrees of freedom (df)</strong>.</p>
 </section>
 <hr class="docutils" />
-<section id="key-components">
-<h2>🔹 <strong>Key Components</strong><a class="headerlink" href="#key-components" title="Link to this heading">#</a></h2>
+<section id="probability-density-function-pdf">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Probability Density Function (PDF)</a><a class="headerlink" href="#probability-density-function-pdf" title="Link to this heading">#</a></h2>
+<p>For a Chi-square random variable <span class="math notranslate nohighlight">\(X \sim \chi^2(k)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x; k) = \frac{1}{2^{k/2}\Gamma(k/2)} x^{\frac{k}{2}-1} e^{-x/2}, \quad x &gt; 0
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k\)</span> = degrees of freedom</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Gamma(\cdot)\)</span> = Gamma function</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="statistical-measures">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Statistical Measures</a><a class="headerlink" href="#statistical-measures" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Mean (Expected Value):</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+E[X] = k
+\]</div>
+<ul class="simple">
+<li><p><strong>Variance:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+Var[X] = 2k
+\]</div>
+<ul class="simple">
+<li><p><strong>Standard Deviation:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\sigma = \sqrt{2k}
+\]</div>
+<ul class="simple">
+<li><p><strong>Mode:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\text{Mode} =
+\begin{cases}
+k - 2 &amp; \text{if } k \geq 2 \\
+0 &amp; \text{if } 0 &lt; k &lt; 2
+\end{cases}
+\end{split}\]</div>
+<ul class="simple">
+<li><p><strong>Skewness:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\text{Skewness} = \sqrt{\frac{8}{k}}
+\]</div>
+<ul class="simple">
+<li><p><strong>Kurtosis (Excess):</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\text{Kurtosis} = \frac{12}{k}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="shapes-of-the-chi-square-distribution">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Shapes of the Chi-Square Distribution</a><a class="headerlink" href="#shapes-of-the-chi-square-distribution" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Small df (1–2):</strong> Highly skewed right, peak near 0.</p></li>
+<li><p><strong>Moderate df (5–10):</strong> Skew decreases, distribution spreads.</p></li>
+<li><p><strong>Large df (&gt;30):</strong> Approaches a <strong>Normal distribution</strong> <span class="math notranslate nohighlight">\(N(k, 2k)\)</span>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Applications</a><a class="headerlink" href="#applications" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p><strong>Degrees of Freedom (df, k):</strong></p>
-<ul class="simple">
-<li><p>Number of independent standard normal variables being squared and summed.</p></li>
-<li><p>Controls the shape of the distribution.</p></li>
-<li><p>Small df → skewed distribution.
-Large df → approximates a <strong>normal distribution</strong>.</p></li>
-</ul>
-</li>
-<li><p><strong>Shape Characteristics:</strong></p>
-<ul class="simple">
-<li><p>Always <strong>non-negative</strong> (χ² ≥ 0), because it’s a sum of squares.</p></li>
-<li><p><strong>Right-skewed</strong>, especially when df is small.</p></li>
-<li><p>As df increases, the distribution becomes more symmetric.</p></li>
-</ul>
-</li>
-<li><p><strong>Mean and Variance:</strong></p>
-<ul class="simple">
-<li><p>Mean = <span class="math notranslate nohighlight">\(k\)</span> (degrees of freedom)</p></li>
-<li><p>Variance = <span class="math notranslate nohighlight">\(2k\)</span></p></li>
-</ul>
-</li>
+<li><p><strong>Goodness-of-Fit Tests</strong> – Compare observed vs. expected frequencies.</p></li>
+<li><p><strong>Test of Independence</strong> – Used in contingency tables (Chi-square test of independence).</p></li>
+<li><p><strong>Variance Estimation</strong> – Sampling distribution of variance is Chi-square.</p></li>
+<li><p><strong>Confidence Intervals</strong> – For population variance and standard deviation.</p></li>
 </ol>
-</section>
 <hr class="docutils" />
-<section id="applications-in-statistics">
-<h2>🔹 <strong>Applications in Statistics</strong><a class="headerlink" href="#applications-in-statistics" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p><strong>Chi-Square Test for Independence</strong></p>
-<ul class="simple">
-<li><p>Used in contingency tables to test whether two categorical variables are independent.</p></li>
-<li><p>Example: Does gender influence product preference?</p></li>
-</ul>
-</li>
-<li><p><strong>Chi-Square Goodness-of-Fit Test</strong></p>
-<ul class="simple">
-<li><p>Checks if observed data follows a particular distribution.</p></li>
-<li><p>Example: Do dice rolls follow a uniform distribution?</p></li>
-</ul>
-</li>
-<li><p><strong>Chi-Square Test for Variance</strong></p>
-<ul class="simple">
-<li><p>Used to test hypotheses about population variance.</p></li>
-</ul>
-</li>
-</ol>
-</section>
-<hr class="docutils" />
-<section id="example">
-<h2>🔹 <strong>Example</strong><a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
-<p>Suppose you toss a die 60 times and record frequencies:</p>
-<ul class="simple">
-<li><p>Expected frequency for each face = 10 (since fair die, probability = 1/6).</p></li>
-<li><p>You compare observed vs expected frequencies using a χ² statistic:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[
-\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}
-\]</div>
-<p>If χ² is too large compared to the critical value for df=5, we reject the hypothesis that the die is fair.</p>
-<hr class="docutils" />
-<p>✅ <strong>In summary</strong>:
-The Chi-Square distribution is the backbone for many tests involving <strong>categorical data</strong> and <strong>variance</strong>, built on the idea of squaring standard normal random variables.</p>
+<p>✅ <strong>In short:</strong>
+The Chi-square distribution is central to <strong>inferential statistics</strong>, especially for tests involving <strong>categorical data, variances, and independence</strong>. Its shape depends on the <strong>degrees of freedom</strong>, and with large df, it approximates the <strong>normal distribution</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -632,10 +706,11 @@ The Chi-Square distribution is the backbone for many tests involving <strong>cat
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">🔹 <strong>Definition</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components">🔹 <strong>Key Components</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-in-statistics">🔹 <strong>Applications in Statistics</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">🔹 <strong>Example</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-density-function-pdf">Probability Density Function (PDF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shapes-of-the-chi-square-distribution">Shapes of the Chi-Square Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
 </ul>
   </nav></div>
 

@@ -37,14 +37,24 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/micromodal.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=38150eaf" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=98f05e74" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -52,6 +62,9 @@
     <script src="../../../../_static/copybutton.js?v=7f8ff830"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../_static/js/micromodal.min.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -67,7 +80,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/probability/distribution/continuous/student_t';</script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Chi-Square (χ²) Distribution" href="chi_square.html" />
+    <link rel="next" title="Chi-Square Distribution" href="chi_square.html" />
     <link rel="prev" title="Beta Distribution" href="beta.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -201,7 +214,7 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/bernoulli.html">Bernoulli Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/binomial.html">Binomial Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../discrete/poisson.html">The Poisson Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../discrete/poisson.html">The Poisson Distribution (Discrete)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/geometric.html">Geometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../discrete/uniform.html">Discrete Uniform Distribution</a></li>
@@ -214,7 +227,7 @@
 <li class="toctree-l4"><a class="reference internal" href="gamma.html">Gamma Distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="beta.html">Beta Distribution</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">Student’s t-Distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="chi_square.html"><strong>Chi-Square (χ²) Distribution</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chi_square.html">Chi-Square Distribution</a></li>
 </ul>
 </details></li>
 </ul>
@@ -230,7 +243,6 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../statistics/inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/probability_distributions.html">Probability Distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/estimation.html">Estimation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../statistics/inferential/hypothesis_testing.html">Hypothesis Testing</a></li>
 </ul>
@@ -283,6 +295,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/probability/distribution/continuous/student_t.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -291,7 +334,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -308,7 +351,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/continuous/student_t.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/probability/distribution/continuous/student_t.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -432,9 +475,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">🔑 <strong>Key Features</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">🎯 <strong>Applications</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-to-normal-distribution">📊 <strong>Relation to Normal Distribution</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">Key Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-to-normal-distribution">Relation to Normal Distribution</a></li>
 </ul>
             </nav>
         </div>
@@ -446,13 +492,24 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="students-t-distribution">
-<h1>Student’s t-Distribution<a class="headerlink" href="#students-t-distribution" title="Link to this heading">#</a></h1>
+  <nav class="contents local" id="contents" role="doc-toc">
+<ul class="simple">
+<li><p><a class="reference internal" href="#students-t-distribution" id="id1">Student’s t-Distribution</a></p>
+<ul>
+<li><p><a class="reference internal" href="#key-features" id="id2">Key Features</a></p></li>
+<li><p><a class="reference internal" href="#applications" id="id3">Applications</a></p></li>
+<li><p><a class="reference internal" href="#relation-to-normal-distribution" id="id4">Relation to Normal Distribution</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section class="tex2jax_ignore mathjax_ignore" id="students-t-distribution">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Student’s t-Distribution</a><a class="headerlink" href="#students-t-distribution" title="Link to this heading">#</a></h1>
 <p>The <strong>t-distribution</strong> is a probability distribution that is very similar to the <strong>normal distribution</strong> (bell-shaped and symmetric) but has <strong>heavier tails</strong>.</p>
 <p>It was introduced by William Sealy Gosset under the pen name <em>“Student”</em>.</p>
 <hr class="docutils" />
 <section id="key-features">
-<h2>🔑 <strong>Key Features</strong><a class="headerlink" href="#key-features" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Key Features</a><a class="headerlink" href="#key-features" title="Link to this heading">#</a></h2>
 <ol class="arabic">
 <li><p><strong>Shape</strong>:</p>
 <ul class="simple">
@@ -478,18 +535,73 @@ document.write(`
    \]</div>
 <p>where <span class="math notranslate nohighlight">\(\nu\)</span> = degrees of freedom.</p>
 </li>
-<li><p><strong>Statistical Measures</strong>:</p>
-<ul class="simple">
-<li><p><strong>Mean</strong> = 0 (for ν &gt; 1)</p></li>
-<li><p><strong>Variance</strong> = <span class="math notranslate nohighlight">\(\frac{\nu}{\nu - 2}\)</span> (for ν &gt; 2)</p></li>
-<li><p><strong>Heavier tails</strong> mean higher chance of outliers compared to normal distribution.</p></li>
-</ul>
-</li>
 </ol>
+<section id="statistical-measures">
+<h3>Statistical Measures<a class="headerlink" href="#statistical-measures" title="Link to this heading">#</a></h3>
+<p><strong>Mean (Expected Value):</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+E[X] =
+\begin{cases} 
+0 &amp; \text{if } \nu &gt; 1 \\
+\text{undefined} &amp; \text{if } \nu \leq 1
+\end{cases}
+\end{split}\]</div>
+<p>The mean is <strong>0</strong> (symmetric about 0) for most cases.</p>
+<hr class="docutils" />
+<p><strong>Median:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+Median = 0
+\]</div>
+<p>Because the distribution is symmetric.</p>
+<hr class="docutils" />
+<p><strong>Mode:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+Mode = 0
+\]</div>
+<p>The peak is always at the center.</p>
+<hr class="docutils" />
+<p><strong>Variance:</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Var[X] =
+\begin{cases} 
+\frac{\nu}{\nu - 2} &amp; \text{if } \nu &gt; 2 \\
+\infty &amp; \text{if } 1 &lt; \nu \leq 2 \\
+\text{undefined} &amp; \text{if } \nu \leq 1
+\end{cases}
+\end{split}\]</div>
+<p>So the variance only exists for <strong>ν &gt; 2</strong>.</p>
+<hr class="docutils" />
+<p><strong>Standard Deviation:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+SD = \sqrt{\frac{\nu}{\nu - 2}}, \quad \nu &gt; 2
+\]</div>
+<hr class="docutils" />
+<p><strong>Skewness:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+Skewness = 0, \quad \nu &gt; 3
+\]</div>
+<p>The distribution is symmetric, so skewness is zero when defined.</p>
+<hr class="docutils" />
+<p><strong>Excess Kurtosis:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+Kurtosis = \frac{6}{\nu - 4}, \quad \nu &gt; 4
+\]</div>
+<ul class="simple">
+<li><p>For small ν (few degrees of freedom), kurtosis is <strong>large</strong> (heavier tails).</p></li>
+<li><p>As ν → ∞, kurtosis → 0 (approaching Normal distribution).</p></li>
+</ul>
+</section>
 </section>
 <hr class="docutils" />
 <section id="applications">
-<h2>🎯 <strong>Applications</strong><a class="headerlink" href="#applications" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Applications</a><a class="headerlink" href="#applications" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Small Sample Sizes</strong>: Used when the sample size is small and population variance is unknown.</p></li>
 <li><p><strong>t-Tests</strong>: Hypothesis testing for means (e.g., one-sample t-test, two-sample t-test).</p></li>
@@ -499,7 +611,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="relation-to-normal-distribution">
-<h2>📊 <strong>Relation to Normal Distribution</strong><a class="headerlink" href="#relation-to-normal-distribution" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Relation to Normal Distribution</a><a class="headerlink" href="#relation-to-normal-distribution" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Both are symmetric and bell-shaped.</p></li>
 <li><p>With large sample sizes (high df), t-distribution ≈ normal distribution.</p></li>
@@ -593,7 +705,7 @@ The <strong>Student’s t-distribution</strong> is crucial in <strong>inferentia
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><strong>Chi-Square (χ²) Distribution</strong></p>
+        <p class="prev-next-title">Chi-Square Distribution</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -613,9 +725,12 @@ The <strong>Student’s t-distribution</strong> is crucial in <strong>inferentia
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">🔑 <strong>Key Features</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">🎯 <strong>Applications</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-to-normal-distribution">📊 <strong>Relation to Normal Distribution</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">Key Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-to-normal-distribution">Relation to Normal Distribution</a></li>
 </ul>
   </nav></div>
 
