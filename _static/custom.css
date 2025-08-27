@@ -3,16 +3,11 @@
     color: var(--pst-color-text-muted);
 } 
 
+a:visited {
+    color: var(--pst-color-text-muted);
+}
 
-/* .bd-toc .toc-entry a.reference.internal {
-  text-decoration: none;
-} */
 
-/* 
-.bd-toc .toc-entry a.reference.internal:hover {
-  text-decoration: none;
-  color: #356f99;  
-} */
 
 a.reference.internal {
   text-decoration: none !important;
@@ -25,29 +20,6 @@ a.reference.internal:hover {
     text-decoration-thickness: max(3px, .1875rem, .12em);
 }
 
-
-/*
-a.reference.internal {
-  color: #356f99;
-  text-decoration: none;       
-}
-
-a.reference.internal:hover {
-    color: var(--pst-color-link-hover);
-    text-decoration-skip-ink: none;
-    text-decoration-thickness: max(3px, .1875rem, .12em);
-} 
-
-.sidebar-primary-item a.reference.internal {
-  color: var(--pst-color-text-muted);
-  text-decoration: none;
-}
-
-.sidebar-secondary-item a.reference.internal {
-  color: var(--pst-color-text-muted);
-  text-decoration: none;
-}
-*/
 
 .grid-center {
   text-align: center;
