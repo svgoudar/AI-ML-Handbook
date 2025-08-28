@@ -32,19 +32,19 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-examples.css?v=e236af4b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.bundle.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-punk.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-noir.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-light.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.custom.css?v=7bc2f056" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.bundle.min.css?v=37217874" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-shadow.min.css?v=6227e517" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-punk.min.css?v=94669e23" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-noir.min.css?v=21a39f42" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-light.min.css?v=a18b2449" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-borderless.min.css?v=dbff53e4" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/micromodal.css?v=d7bf34ee" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=6528377c" />
   
@@ -62,9 +62,9 @@
     <script src="../../../../_static/copybutton.js?v=7f8ff830"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../../../_static/tabs.js?v=3ee01567"></script>
-    <script src="../../../../_static/js/hoverxref.js"></script>
-    <script src="../../../../_static/js/tooltipster.bundle.min.js"></script>
-    <script src="../../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../../_static/js/hoverxref.js?v=c95ade4f"></script>
+    <script src="../../../../_static/js/tooltipster.bundle.min.js?v=18bf091b"></script>
+    <script src="../../../../_static/js/micromodal.min.js?v=04d6302d"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -497,7 +497,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <nav class="contents local" id="contents" role="doc-toc">
+  <nav class="contents" id="contents" role="doc-toc">
+<p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#normal-distribution" id="id1">Normal Distribution</a></p>
 <ul>
@@ -506,8 +507,13 @@ document.write(`
 <li><p><a class="reference internal" href="#parameters" id="id4">Parameters:</a></p></li>
 <li><p><a class="reference internal" href="#pdf-probability-density-function" id="id5">PDF (Probability Density Function):</a></p></li>
 <li><p><a class="reference internal" href="#examples-of-normally-distributed-data" id="id6">Examples of Normally Distributed Data:</a></p></li>
-<li><p><a class="reference internal" href="#statistical-measures" id="id7">Statistical Measures</a></p></li>
-<li><p><a class="reference internal" href="#further-notes" id="id8">Further Notes:</a></p></li>
+<li><p><a class="reference internal" href="#statistical-measures" id="id7">Statistical Measures</a></p>
+<ul>
+<li><p><a class="reference internal" href="#empirical-rule-689599-7-rule" id="id8">Empirical Rule (68–95–99.7 Rule):</a></p></li>
+<li><p><a class="reference internal" href="#why-this-matters" id="id9">Why This Matters:</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#further-notes" id="id10">Further Notes:</a></p></li>
 </ul>
 </li>
 </ul>
@@ -637,7 +643,7 @@ Kurtosis = 0
 \]</div>
 <p>The Normal distribution has <strong>mesokurtic tails</strong>, meaning its tails are neither too heavy nor too light compared to other distributions.</p>
 <section id="empirical-rule-689599-7-rule">
-<h3>Empirical Rule (68–95–99.7 Rule):<a class="headerlink" href="#empirical-rule-689599-7-rule" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Empirical Rule (68–95–99.7 Rule):</a><a class="headerlink" href="#empirical-rule-689599-7-rule" title="Link to this heading">#</a></h3>
 <p>If data follows a normal distribution:</p>
 <ul class="simple">
 <li><p><strong>68%</strong> of data falls within <strong>±1 standard deviation</strong> of the mean</p></li>
@@ -660,7 +666,7 @@ P(\mu - 3\sigma \leq X \leq \mu + 3\sigma) \approx 99.7\%
 </section>
 <hr class="docutils" />
 <section id="why-this-matters">
-<h3>Why This Matters:<a class="headerlink" href="#why-this-matters" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Why This Matters:</a><a class="headerlink" href="#why-this-matters" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Many <strong>statistical models assume normality</strong></p></li>
 <li><p>Helps in identifying <strong>outliers</strong>, building <strong>confidence intervals</strong>, and performing <strong>hypothesis testing</strong></p></li>
@@ -670,7 +676,7 @@ P(\mu - 3\sigma \leq X \leq \mu + 3\sigma) \approx 99.7\%
 </section>
 <hr class="docutils" />
 <section id="further-notes">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">Further Notes:</a><a class="headerlink" href="#further-notes" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Further Notes:</a><a class="headerlink" href="#further-notes" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>To <strong>test if data follows a normal distribution</strong>, use <strong>Q-Q plots</strong></p></li>
 <li><p>The <strong>area under the PDF curve is always 1</strong>, and <strong>PDF values are not direct probabilities</strong>, but <strong>densities</strong></p></li>

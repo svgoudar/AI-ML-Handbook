@@ -32,19 +32,19 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-examples.css?v=e236af4b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.bundle.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-punk.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-noir.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-light.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.custom.css?v=7bc2f056" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.bundle.min.css?v=37217874" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-shadow.min.css?v=6227e517" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-punk.min.css?v=94669e23" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-noir.min.css?v=21a39f42" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-light.min.css?v=a18b2449" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-borderless.min.css?v=dbff53e4" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/micromodal.css?v=d7bf34ee" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=6528377c" />
   
@@ -62,9 +62,9 @@
     <script src="../../../../_static/copybutton.js?v=7f8ff830"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../../../_static/tabs.js?v=3ee01567"></script>
-    <script src="../../../../_static/js/hoverxref.js"></script>
-    <script src="../../../../_static/js/tooltipster.bundle.min.js"></script>
-    <script src="../../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../../_static/js/hoverxref.js?v=c95ade4f"></script>
+    <script src="../../../../_static/js/tooltipster.bundle.min.js?v=18bf091b"></script>
+    <script src="../../../../_static/js/micromodal.min.js?v=04d6302d"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -496,15 +496,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <nav class="contents local" id="contents" role="doc-toc">
+  <nav class="contents" id="contents" role="doc-toc">
+<p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#hypergeometric-distribution" id="id1">Hypergeometric Distribution</a></p>
 <ul>
 <li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
 <li><p><a class="reference internal" href="#probability-mass-function-pmf" id="id3">Probability Mass Function (PMF)</a></p></li>
 <li><p><a class="reference internal" href="#statistical-measures" id="id4">Statistical Measures</a></p></li>
-<li><p><a class="reference internal" href="#examples" id="id5">Examples</a></p></li>
-<li><p><a class="reference internal" href="#applications" id="id6">Applications</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id5">Examples</a></p>
+<ul>
+<li><p><a class="reference internal" href="#deck-of-cards" id="id6">1. <strong>Deck of Cards 🎴</strong></a></p></li>
+<li><p><a class="reference internal" href="#quality-control" id="id7">2. <strong>Quality Control 🏭</strong></a></p></li>
+<li><p><a class="reference internal" href="#lottery-sampling" id="id8">3. <strong>Lottery / Sampling 🎟️</strong></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#applications" id="id9">Applications</a></p></li>
 </ul>
 </li>
 </ul>
@@ -560,7 +567,7 @@ Var[X] = n \cdot \frac{K}{N} \cdot \left(1 - \frac{K}{N}\right) \cdot \frac{N-n}
 <section id="examples">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
 <section id="deck-of-cards">
-<h3>1. <strong>Deck of Cards 🎴</strong><a class="headerlink" href="#deck-of-cards" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">1. <strong>Deck of Cards 🎴</strong></a><a class="headerlink" href="#deck-of-cards" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(N = 52\)</span> (cards in deck)</p></li>
 <li><p><span class="math notranslate nohighlight">\(K = 13\)</span> (hearts)</p></li>
@@ -575,7 +582,7 @@ P(X=2) = \frac{\binom{13}{2}\binom{39}{3}}{\binom{52}{5}} \approx 0.274
 </section>
 <hr class="docutils" />
 <section id="quality-control">
-<h3>2. <strong>Quality Control 🏭</strong><a class="headerlink" href="#quality-control" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">2. <strong>Quality Control 🏭</strong></a><a class="headerlink" href="#quality-control" title="Link to this heading">#</a></h3>
 <p>Suppose a batch of <span class="math notranslate nohighlight">\(N = 20\)</span> chips has <span class="math notranslate nohighlight">\(K = 5\)</span> defective chips.
 We randomly test <span class="math notranslate nohighlight">\(n = 4\)</span>.</p>
 <ul class="simple">
@@ -589,7 +596,7 @@ P(X=1) = \frac{\binom{5}{1}\binom{15}{3}}{\binom{20}{4}} \approx 0.395
 </section>
 <hr class="docutils" />
 <section id="lottery-sampling">
-<h3>3. <strong>Lottery / Sampling 🎟️</strong><a class="headerlink" href="#lottery-sampling" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">3. <strong>Lottery / Sampling 🎟️</strong></a><a class="headerlink" href="#lottery-sampling" title="Link to this heading">#</a></h3>
 <p>In a lottery, 100 tickets exist, 10 are winners.
 If you buy 5 tickets (<span class="math notranslate nohighlight">\(N=100, K=10, n=5\)</span>), probability you win exactly 2 prizes:</p>
 <div class="math notranslate nohighlight">
@@ -601,7 +608,7 @@ P(X=2) = \frac{\binom{10}{2}\binom{90}{3}}{\binom{100}{5}} \approx 0.074
 </section>
 <hr class="docutils" />
 <section id="applications">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Applications</a><a class="headerlink" href="#applications" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Applications</a><a class="headerlink" href="#applications" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>Card games</strong> → probabilities when drawing without replacement.</p></li>
 <li><p><strong>Quality assurance</strong> → defective vs non-defective items in batches.</p></li>
