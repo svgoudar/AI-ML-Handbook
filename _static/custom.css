@@ -1,3 +1,26 @@
+ a {
+    word-wrap: break-word;
+    color: var(--pst-color-text-muted);
+} 
+
+a:visited {
+    color: var(--pst-color-text-muted);
+}
+
+
+
+a.reference.internal {
+  text-decoration: none !important;
+  color: var(--pst-color-text-muted);
+}
+
+a.reference.internal:hover {
+    color: var(--pst-color-link-hover);
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: max(3px, .1875rem, .12em);
+}
+
+
 .grid-center {
   text-align: center;
 }
@@ -38,10 +61,7 @@
 }
 
 /* Accent text style */
-.grid-title {
-  font-size: 1.1rem;
-  color: var(--pst-color-primary);
-}
+
 
 /* ============================
    General Markdown Styling
@@ -126,6 +146,8 @@ div.output_area pre {
     font-size: 1.2em;
     font-weight: 600;
     margin-bottom: 0.3em;
+    font-size: 1.1rem;
+    color: #356f99;;
 }
 
 /* Grid Subtitle */
@@ -138,14 +160,7 @@ div.output_area pre {
 /* ============================
    Links & Hover
    ============================ */
-a {
-    color: #2563EB;
-    text-decoration: none;
-}
 
-a:hover {
-    text-decoration: underline;
-}
 
 /* ============================
    Footnotes

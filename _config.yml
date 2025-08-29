@@ -34,7 +34,7 @@ html:
   use_issues_button: true
   use_repository_button: true
   extra_css:
-    - custom.css
+    -  _static/custom.css
   theme:
     name: sphinx_book_theme
     options:
@@ -42,16 +42,12 @@ html:
       collapse_navigation: true
       sticky_navigation: true
       prev_next_buttons_location: both
-      extra_navbar: ""
-      extra_footer: ""
       home_page_in_toc: true
       use_fullscreen_button: true
       use_download_button: true
-      extra_navbar: ""
-      extra_footer: ""
       announcement: ""                # Top banner for announcements
-      use_sidenotes: false            # Margin notes
-      show_toc_level: 2               # How deep to show TOC
+      use_sidenotes: true            # Margin notes
+      show_toc_level: 3               # How deep to show TOC
       search_bar_text: "Search..."
 
 sphinx:
@@ -141,7 +137,12 @@ sphinx:
     - sphinx_design
     - sphinx_copybutton
     - hoverxref.extension
-  
-hoverxref_auto_ref: true
-hoverxref_domains: ["std"]
-hoverxref_roles: ["ref", "term"]
+
+# hoverxref_role_types:
+#   ref: tooltip
+#   numref: tooltip
+#   term: tooltip
+
+# hoverxref_auto_ref: true
+# hoverxref_domains: ["std"]
+# hoverxref_roles: ["ref", "term"]

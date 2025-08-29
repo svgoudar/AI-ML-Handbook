@@ -8,4 +8,5 @@ tags: []
 
 ```{dropdown} Sections in this page
 ```{tableofcontents}
+:class: mytoc
 

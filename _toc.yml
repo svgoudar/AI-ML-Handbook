@@ -29,16 +29,14 @@ parts:
         - file: content/probability/distribution/continuous/beta
         - file: content/probability/distribution/continuous/student_t
         - file: content/probability/distribution/continuous/chi_square
+    - file: content/probability/q_and_a
 - chapters:
   - file: content/statistics/index
     sections:
     - file: content/statistics/overview   
     - file: content/statistics/descriptive/index
       sections:
-      - file: content/statistics/descriptive/part1
+      - glob: content/statistics/descriptive/*
     - file: content/statistics/inferential/index
       sections:
-      - file: content/statistics/inferential/probability_distributions
-      - file: content/statistics/inferential/estimation
-      - file: content/statistics/inferential/hypothesis_testing
-    
+      - glob: content/statistics/inferential/*
