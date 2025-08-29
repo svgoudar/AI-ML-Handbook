@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Random Variables &#8212; My sample book</title>
+    <title>Student’s t-Distribution &#8212; My sample book</title>
   
   
   
@@ -80,6 +80,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/statistics/inferential/04_part';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Decision Guide: t-Test vs Z-Test" href="05_part.html" />
+    <link rel="prev" title="Hypothesis Testing with Z-test" href="03_part.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -141,8 +143,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -235,8 +235,8 @@
 </ul>
 </details></li>
 </ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">📊 Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">📊 Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../descriptive/index.html">Descriptive Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../descriptive/01_part.html">Measures of Central Tendency</a></li>
@@ -250,7 +250,24 @@
 
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Inferential Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_part.html">Hypothesis Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_part.html">P-Value, CI and α</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_part.html">Hypothesis Testing with Z-test</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Student’s t-Distribution</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="05_part.html">Decision Guide: t-Test vs Z-Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_part.html">Type I and Type II Errors in Hypothesis Testing</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="07_part.html">Histogram and Skewness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="08_part.html">Covariance</a></li>
+
 </ul>
 </details></li>
 </ul>
@@ -471,7 +488,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Random Variables</h1>
+    <h1>Student’s t-Distribution</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -481,10 +498,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-random-processes">Examples of Random Processes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-random-variables">Types of Random Variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-idea">Key Idea</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Student’s t-Distribution</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-statement">Problem Statement</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-set-up-hypotheses">Step 1: Set Up Hypotheses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-determine-test-statistic">Step 2: Determine Test Statistic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-calculate-t-value">Step 3: Calculate t-value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-determine-critical-t-value">Step 4: Determine Critical t-value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-compare-t-value-with-t-critical">Step 5: Compare t-value with t-critical</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-conclusion">Step 6: Conclusion</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Problem Statement</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-summary">Solution Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-guide-t-test-vs-z-test">Decision Guide: t-Test vs Z-Test</a></li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -498,72 +527,296 @@ document.write(`
   <nav class="contents" id="contents" role="doc-toc">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#random-variables" id="id1">Random Variables</a></p>
+<li><p><a class="reference internal" href="#students-t-distribution" id="id2">Student’s t-Distribution</a></p></li>
+<li><p><a class="reference internal" href="#problem-statement" id="id3">Problem Statement</a></p></li>
+<li><p><a class="reference internal" href="#solution" id="id4">Solution</a></p>
 <ul>
-<li><p><a class="reference internal" href="#examples-of-random-processes" id="id2">Examples of Random Processes</a></p></li>
-<li><p><a class="reference internal" href="#types-of-random-variables" id="id3">Types of Random Variables</a></p></li>
-<li><p><a class="reference internal" href="#key-idea" id="id4">Key Idea</a></p></li>
+<li><p><a class="reference internal" href="#step-1-set-up-hypotheses" id="id5">Step 1: Set Up Hypotheses</a></p></li>
+<li><p><a class="reference internal" href="#step-2-determine-test-statistic" id="id6">Step 2: Determine Test Statistic</a></p></li>
+<li><p><a class="reference internal" href="#step-3-calculate-t-value" id="id7">Step 3: Calculate t-value</a></p></li>
+<li><p><a class="reference internal" href="#step-4-determine-critical-t-value" id="id8">Step 4: Determine Critical t-value</a></p></li>
+<li><p><a class="reference internal" href="#step-5-compare-t-value-with-t-critical" id="id9">Step 5: Compare t-value with t-critical</a></p></li>
+<li><p><a class="reference internal" href="#step-6-conclusion" id="id10">Step 6: Conclusion</a></p></li>
 </ul>
 </li>
+<li><p><a class="reference internal" href="#id1" id="id11">Problem Statement</a></p></li>
+<li><p><a class="reference internal" href="#solution-summary" id="id12">Solution Summary</a></p></li>
+<li><p><a class="reference internal" href="#decision-guide-t-test-vs-z-test" id="id13">Decision Guide: t-Test vs Z-Test</a></p></li>
 </ul>
 </nav>
-<section id="random-variables">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink">Random Variables</a><a class="headerlink" href="#random-variables" title="Link to this heading">#</a></h1>
+<section id="students-t-distribution">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">Student’s t-Distribution</a><a class="headerlink" href="#students-t-distribution" title="Link to this heading">#</a></h1>
+<ol class="arabic">
+<li><p><strong>When to Use t-Distribution</strong></p>
 <ul class="simple">
-<li><p>A <strong>random variable</strong> is a function whose values are derived from a process or experiment.</p></li>
-<li><p>Denoted by a <strong>capital letter</strong> (e.g., <span class="math notranslate nohighlight">\(X\)</span>).</p></li>
-</ul>
-<hr class="docutils" />
-<section id="examples-of-random-processes">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Examples of Random Processes</a><a class="headerlink" href="#examples-of-random-processes" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p><strong>Tossing a coin</strong> → Outcomes: Head / Tail</p>
-<ul class="simple">
-<li><p>Assign values: Head = 0, Tail = 1</p></li>
-<li><p>→ Discrete random variable</p></li>
+<li><p>In <strong>Z-tests</strong>, we require the <strong>population standard deviation (σ)</strong>.</p></li>
+<li><p>Often, <strong>σ is unknown</strong>, which makes Z-tests inapplicable.</p></li>
+<li><p>In such cases, we use <strong>Student’s t-distribution</strong> with the <strong>sample standard deviation (s)</strong>.</p></li>
 </ul>
 </li>
-<li><p><strong>Rolling a dice</strong> → Outcomes: 1,2,3,4,5,6</p>
+<li><p><strong>t-Test Formula</strong></p>
+<div class="math notranslate nohighlight">
+\[
+   t = \frac{\bar{X} - \mu}{s / \sqrt{n}}
+   \]</div>
 <ul class="simple">
-<li><p>→ Discrete random variable</p></li>
+<li><p><span class="math notranslate nohighlight">\(\bar{X}\)</span> = sample mean</p></li>
+<li><p>μ = population mean (hypothesized)</p></li>
+<li><p>s = <strong>sample standard deviation</strong></p></li>
+<li><p>n = sample size</p></li>
 </ul>
 </li>
-<li><p><strong>Rainfall tomorrow (in inches)</strong> → Possible values: 1.1, 5.5, 10.75, … (any real number ≥ 0)</p>
-<ul class="simple">
-<li><p>→ Continuous random variable</p></li>
+<li><p><strong>Degree of Freedom (DOF)</strong></p>
+<ul>
+<li><p>Important parameter for t-distribution.</p></li>
+<li><p>Formula:</p>
+<div class="math notranslate nohighlight">
+\[
+     \text{DOF} = n - 1
+     \]</div>
+</li>
+<li><p>Example: For 3 people and 3 chairs, only 2 people have options → DOF = 2.</p></li>
 </ul>
 </li>
-<li><p><strong>Height of people at an event</strong> → 150 cm, 160.1 cm, …</p>
+<li><p><strong>t-Table</strong></p>
 <ul class="simple">
-<li><p>→ Continuous random variable</p></li>
+<li><p>Similar to Z-table but depends on <strong>DOF</strong>.</p></li>
+<li><p>Provides <strong>critical values</strong> for <strong>one-tailed</strong> or <strong>two-tailed tests</strong> based on <strong>confidence levels</strong>.</p></li>
+<li><p>Used to determine if we <strong>reject or fail to reject the null hypothesis</strong>.</p></li>
+</ul>
+</li>
+<li><p><strong>Key Points</strong></p>
+<ul class="simple">
+<li><p>t-distribution is used when <strong>population standard deviation is unknown</strong>.</p></li>
+<li><p>Sample standard deviation replaces population standard deviation.</p></li>
+<li><p>DOF adjusts the shape of the t-distribution.</p></li>
+<li><p>t-table helps in hypothesis testing (one-tailed and two-tailed).</p></li>
 </ul>
 </li>
 </ol>
 </section>
-<hr class="docutils" />
-<section id="types-of-random-variables">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Types of Random Variables</a><a class="headerlink" href="#types-of-random-variables" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p><strong>Discrete Random Variable</strong></p>
+<section id="problem-statement">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">Problem Statement</a><a class="headerlink" href="#problem-statement" title="Link to this heading">#</a></h1>
+<p>A nutritionist claims that a new diet plan helps reduce weight by an average of <strong>5 kg</strong> in one month. To verify this, a sample of <strong>10 participants</strong> follows the diet plan for a month. At the end of the month, the sample shows an <strong>average weight loss of 4.2 kg</strong> with a <strong>sample standard deviation of 0.8 kg</strong>.</p>
+<p><strong>Question:</strong> At a <strong>5% significance level</strong>, can we conclude that the diet plan reduces weight by <strong>less than the claimed 5 kg</strong>?</p>
+<p><strong>Notes:</strong></p>
 <ul class="simple">
-<li><p>Takes <strong>countable values</strong> (whole numbers).</p></li>
-<li><p>Examples: Coin toss, dice roll.</p></li>
+<li><p>Population standard deviation is <strong>unknown</strong>.</p></li>
+<li><p>Use <strong>Student’s t-test</strong> (one-tailed, left-tailed test).</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="solution">
+<h1><a class="toc-backref" href="#id4" role="doc-backlink">Solution</a><a class="headerlink" href="#solution" title="Link to this heading">#</a></h1>
+<section id="step-1-set-up-hypotheses">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Step 1: Set Up Hypotheses</a><a class="headerlink" href="#step-1-set-up-hypotheses" title="Link to this heading">#</a></h2>
+<p>Since we want to test if the <strong>weight loss is less than 5 kg</strong>, this is a <strong>left-tailed t-test</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+H_0: \mu = 5 \quad (\text{Diet plan reduces 5 kg})
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+H_1: \mu &lt; 5 \quad (\text{Diet plan reduces less than 5 kg})
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-2-determine-test-statistic">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Step 2: Determine Test Statistic</a><a class="headerlink" href="#step-2-determine-test-statistic" title="Link to this heading">#</a></h2>
+<p>The <strong>t-test formula</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+t = \frac{\bar{X} - \mu}{s / \sqrt{n}}
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\bar{X} = 4.2\)</span> (sample mean)</p></li>
+<li><p>μ = 5 (claimed mean)</p></li>
+<li><p>s = 0.8 (sample standard deviation)</p></li>
+<li><p>n = 10 (sample size)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="step-3-calculate-t-value">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Step 3: Calculate t-value</a><a class="headerlink" href="#step-3-calculate-t-value" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Standard error (SE):</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+SE = \frac{s}{\sqrt{n}} = \frac{0.8}{\sqrt{10}} \approx \frac{0.8}{3.162} \approx 0.253
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>t-value:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+t = \frac{4.2 - 5}{0.253} = \frac{-0.8}{0.253} \approx -3.16
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-4-determine-critical-t-value">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Step 4: Determine Critical t-value</a><a class="headerlink" href="#step-4-determine-critical-t-value" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Degrees of Freedom: <span class="math notranslate nohighlight">\(df = n - 1 = 10 - 1 = 9\)</span></p></li>
+<li><p>Significance level: α = 0.05, left-tailed test</p></li>
+<li><p>From <strong>t-table</strong>, critical t-value <span class="math notranslate nohighlight">\(t_{critical} \approx -1.833\)</span></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="step-5-compare-t-value-with-t-critical">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Step 5: Compare t-value with t-critical</a><a class="headerlink" href="#step-5-compare-t-value-with-t-critical" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+t_{calculated} = -3.16 \quad \text{vs} \quad t_{critical} = -1.833
+\]</div>
+<ul class="simple">
+<li><p>Since <strong>t_calculated &lt; t_critical</strong>, we <strong>reject the null hypothesis</strong>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="step-6-conclusion">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Step 6: Conclusion</a><a class="headerlink" href="#step-6-conclusion" title="Link to this heading">#</a></h2>
+<p>At <strong>5% significance level</strong>, there is <strong>enough evidence</strong> to conclude that the diet plan reduces weight by <strong>less than the claimed 5 kg</strong>.</p>
+<hr class="docutils" />
+<p>✅ <strong>Summary Table</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sample mean (<span class="math notranslate nohighlight">\(\bar{X}\)</span>)</p></td>
+<td><p>4.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Claimed mean (μ)</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>Sample std dev (s)</p></td>
+<td><p>0.8</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sample size (n)</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>Degrees of freedom</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_calculated</p></td>
+<td><p>-3.16</p></td>
+</tr>
+<tr class="row-even"><td><p>t_critical (α=0.05)</p></td>
+<td><p>-1.833</p></td>
+</tr>
+<tr class="row-odd"><td><p>Decision</p></td>
+<td><p>Reject H0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="id1">
+<h1><a class="toc-backref" href="#id11" role="doc-backlink">Problem Statement</a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>A team of researchers wants to test a new medication to see if it has an effect on intelligence. The population average IQ is <strong>100</strong>. A sample of <strong>30 participants</strong> who took the medication has a mean IQ of <strong>140</strong> with a <strong>sample standard deviation of 20</strong>.</p>
+<p><strong>Question:</strong> At a <strong>95% confidence level (α = 0.05)</strong>, can we conclude that the medication affects intelligence?</p>
+<ul class="simple">
+<li><p><strong>Notes:</strong></p>
+<ul>
+<li><p>Population standard deviation is unknown → use <strong>t-test</strong></p></li>
+<li><p>Effect could be <strong>positive or negative</strong> → <strong>two-tailed test</strong></p></li>
 </ul>
 </li>
-<li><p><strong>Continuous Random Variable</strong></p>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="solution-summary">
+<h1><a class="toc-backref" href="#id12" role="doc-backlink">Solution Summary</a><a class="headerlink" href="#solution-summary" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><strong>Hypotheses</strong></p>
 <ul class="simple">
-<li><p>Takes <strong>any value (including fractions)</strong> within a range, often infinite.</p></li>
-<li><p>Examples: Rainfall amount, human height.</p></li>
+<li><p><span class="math notranslate nohighlight">\(H_0: \mu = 100\)</span> (no effect)</p></li>
+<li><p><span class="math notranslate nohighlight">\(H_1: \mu \neq 100\)</span> (medication has an effect)</p></li>
+</ul>
+</li>
+<li><p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p>Sample size: n = 30</p></li>
+<li><p>Sample mean: <span class="math notranslate nohighlight">\(\bar{X} = 140\)</span></p></li>
+<li><p>Sample standard deviation: s = 20</p></li>
+<li><p>Degrees of Freedom: <span class="math notranslate nohighlight">\(df = n - 1 = 29\)</span></p></li>
+<li><p>Confidence level: 95% → α = 0.05</p></li>
+</ul>
+</li>
+<li><p><strong>Critical t-value (two-tailed)</strong></p>
+<ul class="simple">
+<li><p>From t-table for df = 29, α = 0.05 → <span class="math notranslate nohighlight">\(t_{critical} = ±2.045\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>Test Statistic Calculation</strong></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+t = \frac{\bar{X} - \mu}{s / \sqrt{n}} = \frac{140 - 100}{20 / \sqrt{30}} \approx 10.96
+\]</div>
+<ol class="arabic simple" start="5">
+<li><p><strong>Decision Rule</strong></p>
+<ul class="simple">
+<li><p>Reject <span class="math notranslate nohighlight">\(H_0\)</span> if <span class="math notranslate nohighlight">\(t &lt; -2.045\)</span> or <span class="math notranslate nohighlight">\(t &gt; 2.045\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>Decision</strong></p>
+<ul class="simple">
+<li><p>t_calculated = 10.96 &gt; 2.045 → <strong>Reject H0</strong></p></li>
+</ul>
+</li>
+<li><p><strong>Conclusion</strong></p>
+<ul class="simple">
+<li><p>The medication <strong>has significantly affected intelligence</strong>.</p></li>
+<li><p>Since t &gt; 0, the effect is an <strong>increase in IQ</strong>.</p></li>
 </ul>
 </li>
 </ol>
-</section>
 <hr class="docutils" />
-<section id="key-idea">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Key Idea</a><a class="headerlink" href="#key-idea" title="Link to this heading">#</a></h2>
-<p>👉 A random variable is not just a number—it’s a <strong>function that maps the outcome of a random process to numerical values</strong>.</p>
-<p>Later, we can describe them further using <strong>probability mass function (PMF)</strong> for discrete variables and <strong>probability density function (PDF)</strong> for continuous variables.</p>
+<p><strong>Key Takeaways</strong></p>
+<ul class="simple">
+<li><p>Use <strong>t-test</strong> when population standard deviation is unknown.</p></li>
+<li><p><strong>Degrees of freedom</strong> affect the t-distribution.</p></li>
+<li><p>Compare <strong>t-statistic</strong> with <strong>t-critical values</strong> to decide whether to reject H0.</p></li>
+<li><p>Two-tailed test checks for both <strong>increase and decrease</strong> in effect.</p></li>
+</ul>
 </section>
+<section id="decision-guide-t-test-vs-z-test">
+<h1><a class="toc-backref" href="#id13" role="doc-backlink">Decision Guide: t-Test vs Z-Test</a><a class="headerlink" href="#decision-guide-t-test-vs-z-test" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Do you know the <strong>population standard deviation (σ)?</strong></p>
+<ul>
+<li><p><strong>No</strong></p>
+<ul>
+<li><p>Use <strong>t-test</strong></p></li>
+</ul>
+</li>
+<li><p><strong>Yes</strong></p>
+<ul>
+<li><p>Is <strong>sample size n &gt; 30?</strong></p>
+<ul>
+<li><p><strong>Yes</strong></p>
+<ul>
+<li><p>Use <strong>Z-test</strong></p></li>
+</ul>
+</li>
+<li><p><strong>No</strong></p>
+<ul>
+<li><p>Use <strong>t-test</strong></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </section>
 
     <script type="text/x-thebe-config">
@@ -596,6 +849,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="03_part.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Hypothesis Testing with Z-test</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_part.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Decision Guide: t-Test vs Z-Test</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -612,10 +883,22 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-random-processes">Examples of Random Processes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-random-variables">Types of Random Variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-idea">Key Idea</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Student’s t-Distribution</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-statement">Problem Statement</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-set-up-hypotheses">Step 1: Set Up Hypotheses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-determine-test-statistic">Step 2: Determine Test Statistic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-calculate-t-value">Step 3: Calculate t-value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-determine-critical-t-value">Step 4: Determine Critical t-value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-compare-t-value-with-t-critical">Step 5: Compare t-value with t-critical</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-conclusion">Step 6: Conclusion</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Problem Statement</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-summary">Solution Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-guide-t-test-vs-z-test">Decision Guide: t-Test vs Z-Test</a></li>
+</ul>
+
   </nav></div>
 
 </div></div>

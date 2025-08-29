@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Histogram and Skewness &#8212; My sample book</title>
+    <title>Bayesian Statistics &#8212; My sample book</title>
   
   
   
@@ -80,6 +80,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/statistics/inferential/07_part';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Confidence Interval (CI) &amp; Margin of Error" href="08_part.html" />
+    <link rel="prev" title="Type I and Type II Errors in Hypothesis Testing" href="06_part.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -141,8 +143,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -235,8 +235,8 @@
 </ul>
 </details></li>
 </ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">📊 Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">📊 Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../descriptive/index.html">Descriptive Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../descriptive/01_part.html">Measures of Central Tendency</a></li>
@@ -250,7 +250,29 @@
 
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Inferential Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_part.html">Hypothesis Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_part.html">P-Value, CI and α</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_part.html">Hypothesis Testing with Z-test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_part.html">Student’s t-Distribution</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="05_part.html">Decision Guide: t-Test vs Z-Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_part.html">Type I and Type II Errors in Hypothesis Testing</a></li>
+
+
+
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Bayesian Statistics</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="08_part.html">Confidence Interval (CI) &amp; Margin of Error</a></li>
+
+
+
 </ul>
 </details></li>
 </ul>
@@ -471,7 +493,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Histogram and Skewness</h1>
+    <h1>Bayesian Statistics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -481,15 +503,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram">Histogram</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">Skewness</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetrical-distribution-normal-gaussian">Symmetrical Distribution (Normal/Gaussian)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#right-skewed-positive-skew">Right-Skewed (Positive Skew)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#left-skewed-negative-skew">Left-Skewed (Negative Skew)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Bayesian Statistics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-vs-dependent-events">Independent vs Dependent Events</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bayes-theorem">Bayes Theorem</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-in-machine-learning-naive-bayes">Importance in Machine Learning (Naïve Bayes)</a></li>
 </ul>
-</li>
-</ul>
+
             </nav>
         </div>
     </div>
@@ -503,139 +522,81 @@ document.write(`
   <nav class="contents" id="contents" role="doc-toc">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#histogram-and-skewness" id="id1">Histogram and Skewness</a></p>
-<ul>
-<li><p><a class="reference internal" href="#histogram" id="id2">Histogram</a></p></li>
-<li><p><a class="reference internal" href="#skewness" id="id3">Skewness</a></p>
-<ul>
-<li><p><a class="reference internal" href="#symmetrical-distribution-normal-gaussian" id="id4">Symmetrical Distribution (Normal/Gaussian)</a></p></li>
-<li><p><a class="reference internal" href="#right-skewed-positive-skew" id="id5">Right-Skewed (Positive Skew)</a></p></li>
-<li><p><a class="reference internal" href="#left-skewed-negative-skew" id="id6">Left-Skewed (Negative Skew)</a></p></li>
-<li><p><a class="reference internal" href="#key-takeaways" id="id7">Key Takeaways</a></p></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><p><a class="reference internal" href="#bayesian-statistics" id="id1">Bayesian Statistics</a></p></li>
+<li><p><a class="reference internal" href="#independent-vs-dependent-events" id="id2">Independent vs Dependent Events</a></p></li>
+<li><p><a class="reference internal" href="#bayes-theorem" id="id3">Bayes Theorem</a></p></li>
+<li><p><a class="reference internal" href="#importance-in-machine-learning-naive-bayes" id="id4">Importance in Machine Learning (Naïve Bayes)</a></p></li>
 </ul>
 </nav>
-<section class="tex2jax_ignore mathjax_ignore" id="histogram-and-skewness">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink">Histogram and Skewness</a><a class="headerlink" href="#histogram-and-skewness" title="Link to this heading">#</a></h1>
-<section id="histogram">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Histogram</a><a class="headerlink" href="#histogram" title="Link to this heading">#</a></h2>
+<section id="bayesian-statistics">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Bayesian Statistics</a><a class="headerlink" href="#bayesian-statistics" title="Link to this heading">#</a></h1>
 <ul class="simple">
-<li><p><strong>Definition</strong>:
-A histogram is a graphical representation of the distribution of numerical data.</p>
+<li><p><strong>Definition</strong>: Bayesian statistics is an approach to data analysis and parameter estimation based on <strong>Bayes theorem</strong>.</p></li>
+<li><p><strong>Goal</strong>: Helps in updating beliefs about probabilities when new evidence is available.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="independent-vs-dependent-events">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">Independent vs Dependent Events</a><a class="headerlink" href="#independent-vs-dependent-events" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Independent Events</strong>: One event does not affect another.</p>
 <ul>
-<li><p>Shows <strong>shape, central tendency, and variability</strong>.</p></li>
-<li><p>Approximates the <strong>probability distribution</strong> of a continuous variable.</p></li>
+<li><p>Example: Rolling a die (P(1) = 1/6, independent of next roll).</p></li>
+<li><p>Example: Tossing a coin (P(Head) = 0.5, independent of next toss).</p></li>
 </ul>
 </li>
-<li><p><strong>Steps to Construct a Histogram</strong>:</p>
-<ol class="arabic simple">
-<li><p>Identify the range of data (min → max).</p></li>
-<li><p>Decide number of <strong>bins</strong> (e.g., 10 bins).</p></li>
-<li><p>Compute <strong>bin size</strong> = (max – min) ÷ bins.</p></li>
-<li><p>Count frequency of values in each bin.</p></li>
-<li><p>Plot bins on the x-axis and frequency on the y-axis.</p></li>
-</ol>
-</li>
-<li><p><strong>Relation to Probability Distribution</strong>:</p>
+<li><p><strong>Dependent Events</strong>: One event affects the probability of another.</p>
 <ul>
-<li><p>Histogram shows <strong>empirical distribution</strong>.</p></li>
-<li><p>By smoothing (using <strong>Kernel Density Estimation, KDE</strong>), we get the <strong>Probability Density Function (PDF)</strong>.</p></li>
+<li><p>Example: Bag with 3 yellow &amp; 2 red marbles.</p>
+<ul>
+<li><p>P(Red) = 2/5</p></li>
+<li><p>If Red is removed, P(Yellow) = 3/4 (changed due to prior event).</p></li>
+</ul>
+</li>
+<li><p>Leads to <strong>Conditional Probability</strong>:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(P(Red ∧ Yellow) = P(Red) × P(Yellow | Red)\)</span></p></li>
 </ul>
 </li>
 </ul>
-</section>
-<hr class="docutils" />
-<section id="skewness">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Skewness</a><a class="headerlink" href="#skewness" title="Link to this heading">#</a></h2>
-<p>Skewness shows how data is distributed around the mean.</p>
-<section id="symmetrical-distribution-normal-gaussian">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">Symmetrical Distribution (Normal/Gaussian)</a><a class="headerlink" href="#symmetrical-distribution-normal-gaussian" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Histogram forms a <strong>bell curve</strong>.</p></li>
-<li><p>Left and right sides are mirror images.</p></li>
-<li><p><strong>Mean = Median = Mode</strong>.</p></li>
-<li><p>In Boxplot: median lies exactly in the center.</p></li>
-<li><p>No skewness.</p></li>
+</li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="right-skewed-positive-skew">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Right-Skewed (Positive Skew)</a><a class="headerlink" href="#right-skewed-positive-skew" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Tail extends to the <strong>right</strong>.</p></li>
-<li><p>Outliers are on the <strong>higher values</strong> side.</p></li>
-<li><p>Example: <strong>Log-normal distribution</strong>.</p></li>
-<li><p>Relationship: <strong>Mean &gt; Median &gt; Mode</strong>.</p></li>
-<li><p>Boxplot: median shifts left, Q3–Q2 &gt; Q2–Q1.</p></li>
-</ul>
 </section>
+<section id="bayes-theorem">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">Bayes Theorem</a><a class="headerlink" href="#bayes-theorem" title="Link to this heading">#</a></h1>
+<ul>
+<li><p>Derived from conditional probability.</p></li>
+<li><p><strong>Formula</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+  P(A|B) = \frac{P(A) \cdot P(B|A)}{P(B)}
+  \]</div>
+</li>
+<li><p>Meaning: Probability of event <strong>A given B has occurred</strong>.</p></li>
+</ul>
 <hr class="docutils" />
-<section id="left-skewed-negative-skew">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Left-Skewed (Negative Skew)</a><a class="headerlink" href="#left-skewed-negative-skew" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Tail extends to the <strong>left</strong>.</p></li>
-<li><p>Outliers are on the <strong>lower values</strong> side.</p></li>
-<li><p>Relationship: <strong>Mean &lt; Median &lt; Mode</strong>.</p></li>
-<li><p>Boxplot: median shifts right, Q2–Q1 &gt; Q3–Q2.</p></li>
-</ul>
 </section>
+<section id="importance-in-machine-learning-naive-bayes">
+<h1><a class="toc-backref" href="#id4" role="doc-backlink">Importance in Machine Learning (Naïve Bayes)</a><a class="headerlink" href="#importance-in-machine-learning-naive-bayes" title="Link to this heading">#</a></h1>
+<ul>
+<li><p>Dataset Example: Features → (size of house, no. of rooms, location), Target → price.</p></li>
+<li><p>We use Bayes theorem to calculate probability of output (price) given features.</p></li>
+<li><p>Formula:</p>
+<div class="math notranslate nohighlight">
+\[
+  P(Y | X_1, X_2, X_3) = \frac{P(Y) \cdot P(X_1, X_2, X_3 | Y)}{P(X_1, X_2, X_3)}
+  \]</div>
+</li>
+<li><p>This is the foundation of <strong>Naïve Bayes Algorithm</strong>, widely used in classification tasks.</p></li>
+</ul>
 <hr class="docutils" />
-<section id="key-takeaways">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Key Takeaways</a><a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h3>
+<p>✅ <strong>Key Takeaways</strong></p>
 <ul class="simple">
-<li><p><strong>Histogram</strong> shows frequency distribution; <strong>KDE smoothing</strong> gives PDF.</p></li>
-<li><p><strong>Symmetrical distribution</strong> → Mean = Median = Mode.</p></li>
-<li><p><strong>Right Skew</strong> → Mean &gt; Median &gt; Mode.</p></li>
-<li><p><strong>Left Skew</strong> → Mean &lt; Median &lt; Mode.</p></li>
-<li><p><strong>Boxplots</strong> help visualize skewness and detect outliers.</p></li>
+<li><p>Bayes theorem connects prior probability (belief before evidence) with conditional probability (after seeing evidence).</p></li>
+<li><p>Independent vs dependent events help build intuition.</p></li>
+<li><p>In ML, Naïve Bayes applies Bayes theorem to predict outcomes based on features.</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="c1"># Function to generate distributions and plots</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">plot_skewness_examples</span><span class="p">():</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-    
-    <span class="c1"># Generate distributions</span>
-    <span class="n">normal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-    <span class="n">right_skew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-    <span class="n">left_skew</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-    
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">normal</span><span class="p">,</span> <span class="n">right_skew</span><span class="p">,</span> <span class="n">left_skew</span><span class="p">]</span>
-    <span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Symmetrical (Normal)&quot;</span><span class="p">,</span> <span class="s2">&quot;Right-Skewed (Positive)&quot;</span><span class="p">,</span> <span class="s2">&quot;Left-Skewed (Negative)&quot;</span><span class="p">]</span>
-    
-    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-    
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-        <span class="c1"># Histogram</span>
-        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Histogram: </span><span class="si">{</span><span class="n">titles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mean&quot;</span><span class="p">)</span>
-        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Median&quot;</span><span class="p">)</span>
-        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-        
-        <span class="c1"># Boxplot</span>
-        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">vert</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">boxprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;lightblue&quot;</span><span class="p">))</span>
-        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Boxplot: </span><span class="si">{</span><span class="n">titles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    
-    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="n">plot_skewness_examples</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/a1d2e48abe32759e239ad37c4b89ae624ba884d36cc192022535082d0216b919.png" src="../../../_images/a1d2e48abe32759e239ad37c4b89ae624ba884d36cc192022535082d0216b919.png" />
-</div>
-</div>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -668,6 +629,24 @@ A histogram is a graphical representation of the distribution of numerical data.
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="06_part.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Type I and Type II Errors in Hypothesis Testing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="08_part.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Confidence Interval (CI) &amp; Margin of Error</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -684,15 +663,12 @@ A histogram is a graphical representation of the distribution of numerical data.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram">Histogram</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">Skewness</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetrical-distribution-normal-gaussian">Symmetrical Distribution (Normal/Gaussian)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#right-skewed-positive-skew">Right-Skewed (Positive Skew)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#left-skewed-negative-skew">Left-Skewed (Negative Skew)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Bayesian Statistics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-vs-dependent-events">Independent vs Dependent Events</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bayes-theorem">Bayes Theorem</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-in-machine-learning-naive-bayes">Importance in Machine Learning (Naïve Bayes)</a></li>
 </ul>
-</li>
-</ul>
+
   </nav></div>
 
 </div></div>
