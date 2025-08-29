@@ -40,3 +40,8 @@ parts:
     - file: content/statistics/inferential/index
       sections:
       - glob: content/statistics/inferential/*
+- chapters:
+  - file: content/linear_algebra/index
+    sections:  
+    - glob: content/linear_algebra/*
+    
