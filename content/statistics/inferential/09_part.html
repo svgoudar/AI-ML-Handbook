@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Measures of Central Tendency &#8212; My sample book</title>
+    <title>Chi-Square Test (Goodness of Fit) &#8212; My sample book</title>
   
   
   
@@ -77,11 +77,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/statistics/descriptive/part1';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/statistics/inferential/09_part';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Inferential Statistics" href="../inferential/index.html" />
-    <link rel="prev" title="Descriptive Statistics" href="index.html" />
+    <link rel="next" title="ANOVA (Analysis of Variance)" href="10_part.html" />
+    <link rel="prev" title="Confidence Interval (CI) &amp; Margin of Error" href="08_part.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -232,21 +232,68 @@
 </details></li>
 </ul>
 </details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/q_and_a.html">🎯 Wrap up</a></li>
 </ul>
 </details></li>
 </ul>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">📊 Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../overview.html">Overview</a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Descriptive Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Measures of Central Tendency</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../descriptive/index.html">Descriptive Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/01_part.html">Measures of Central Tendency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/02_part.html">Measures of Dispersion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/03_part.html">Bessel’s Correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/04_part.html">Random Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/05_part.html">Percentage vs Percentile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/06_part.html">Five Number Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/07_part.html">Histogram and Skewness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/08_part.html">Covariance</a></li>
+
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../inferential/estimation.html">Estimation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../inferential/hypothesis_testing.html">Hypothesis Testing</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Inferential Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_part.html">Hypothesis Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_part.html">P-Value, CI and α</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_part.html">Hypothesis Testing with Z-test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_part.html">Student’s t-Distribution</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="05_part.html">Decision Guide: t-Test vs Z-Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_part.html">Type I and Type II Errors in Hypothesis Testing</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="07_part.html">Bayesian Statistics</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="08_part.html">Confidence Interval (CI) &amp; Margin of Error</a></li>
+
+
+
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Chi-Square Test (Goodness of Fit)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_part.html">ANOVA (Analysis of Variance)</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="11_part.html">Central Limit Theorem (CLT)</a></li>
 </ul>
 </details></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linear_algebra/index.html">↗️ Linear Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/01_part.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/02_part.html">Scalar &amp; Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/03_part.html">Multiplication on Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/04_part.html">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/05_part.html">Functions &amp; Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/06_part.html">Inverse Functions &amp; Identity Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/07_part.html">Eigenvectors and Eigenvalues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/08_part.html">Line, Plane and Hyperplane</a></li>
 </ul>
 </details></li>
 </ul>
@@ -303,7 +350,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/statistics/descriptive/part1.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/statistics/inferential/09_part.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -351,7 +398,7 @@
       
       
       
-      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/statistics/descriptive/part1.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/statistics/inferential/09_part.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -381,7 +428,7 @@
       
       
       
-      <li><a href="../../../_sources/content/statistics/descriptive/part1.ipynb" target="_blank"
+      <li><a href="../../../_sources/content/statistics/inferential/09_part.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -465,7 +512,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Measures of Central Tendency</h1>
+    <h1>Chi-Square Test (Goodness of Fit)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -475,10 +522,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-average">Mean (Average)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#median">Median</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mode">Mode</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-demonstration">Python Demonstration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-it">1. What is it?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">2. Key Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-bike-colors">3. Example 1 – Bike Colors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-left-vs-right-handed-students">4. Example 2 – Left vs. Right Handed Students</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formula">5. Formula</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#takeaway">6. Takeaway</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-statement">🎯 Problem Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-define-hypotheses">🔹 Step 1: Define Hypotheses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-expected-frequencies-based-on-2010-proportions-n-500">🔹 Step 2: Expected Frequencies (based on 2010 proportions &amp; n=500)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-degrees-of-freedom">🔹 Step 3: Degrees of Freedom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-critical-value">🔹 Step 4: Critical Value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-test-statistic-2-formula">🔹 Step 5: Test Statistic (χ² Formula)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-decision-rule">🔹 Step 6: Decision Rule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">✅ Conclusion</a></li>
 </ul>
             </nav>
         </div>
@@ -490,209 +547,185 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <nav class="contents local" id="contents" role="doc-toc">
+  <nav class="contents" id="contents" role="doc-toc">
+<p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#measures-of-central-tendency" id="id1">Measures of Central Tendency</a></p>
+<li><p><a class="reference internal" href="#chi-square-test-goodness-of-fit" id="id1">Chi-Square Test (Goodness of Fit)</a></p>
 <ul>
-<li><p><a class="reference internal" href="#mean-average" id="id2">Mean (Average)</a></p></li>
-<li><p><a class="reference internal" href="#median" id="id3">Median</a></p></li>
-<li><p><a class="reference internal" href="#mode" id="id4">Mode</a></p></li>
-<li><p><a class="reference internal" href="#python-demonstration" id="id5">Python Demonstration</a></p></li>
+<li><p><a class="reference internal" href="#what-is-it" id="id2">1. What is it?</a></p></li>
+<li><p><a class="reference internal" href="#key-concepts" id="id3">2. Key Concepts</a></p></li>
+<li><p><a class="reference internal" href="#example-1-bike-colors" id="id4">3. Example 1 – Bike Colors</a></p></li>
+<li><p><a class="reference internal" href="#example-2-left-vs-right-handed-students" id="id5">4. Example 2 – Left vs. Right Handed Students</a></p></li>
+<li><p><a class="reference internal" href="#formula" id="id6">5. Formula</a></p></li>
+<li><p><a class="reference internal" href="#takeaway" id="id7">6. Takeaway</a></p></li>
+<li><p><a class="reference internal" href="#problem-statement" id="id8">🎯 Problem Statement</a></p></li>
+<li><p><a class="reference internal" href="#step-1-define-hypotheses" id="id9">🔹 Step 1: Define Hypotheses</a></p></li>
+<li><p><a class="reference internal" href="#step-2-expected-frequencies-based-on-2010-proportions-n-500" id="id10">🔹 Step 2: Expected Frequencies (based on 2010 proportions &amp; n=500)</a></p></li>
+<li><p><a class="reference internal" href="#step-3-degrees-of-freedom" id="id11">🔹 Step 3: Degrees of Freedom</a></p></li>
+<li><p><a class="reference internal" href="#step-4-critical-value" id="id12">🔹 Step 4: Critical Value</a></p></li>
+<li><p><a class="reference internal" href="#step-5-test-statistic-2-formula" id="id13">🔹 Step 5: Test Statistic (χ² Formula)</a></p></li>
+<li><p><a class="reference internal" href="#step-6-decision-rule" id="id14">🔹 Step 6: Decision Rule</a></p></li>
+<li><p><a class="reference internal" href="#conclusion" id="id15">✅ Conclusion</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
-<section class="tex2jax_ignore mathjax_ignore" id="measures-of-central-tendency">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink">Measures of Central Tendency</a><a class="headerlink" href="#measures-of-central-tendency" title="Link to this heading">#</a></h1>
-<p>Measures of central tendency describe the <strong>“center”</strong> or typical value of a dataset. The main measures are <strong>Mean</strong>, <strong>Median</strong>, and <strong>Mode</strong>.</p>
-<section id="mean-average">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Mean (Average)</a><a class="headerlink" href="#mean-average" title="Link to this heading">#</a></h2>
+<section id="chi-square-test-goodness-of-fit">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Chi-Square Test (Goodness of Fit)</a><a class="headerlink" href="#chi-square-test-goodness-of-fit" title="Link to this heading">#</a></h1>
+<section id="what-is-it">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. What is it?</a><a class="headerlink" href="#what-is-it" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><strong>Definition:</strong> The sum of all data points divided by the total number of points.</p></li>
-<li><p><strong>Formula:</strong></p></li>
+<li><p>A <strong>non-parametric test</strong> used for <strong>categorical data</strong> (nominal/ordinal).</p></li>
+<li><p>Tests whether <strong>observed data</strong> fits a <strong>theoretical (expected) distribution</strong>.</p></li>
+<li><p>Often used to test <strong>population proportions</strong>.</p></li>
 </ul>
+</section>
+<hr class="docutils" />
+<section id="key-concepts">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">2. Key Concepts</a><a class="headerlink" href="#key-concepts" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Observed categorical distribution</strong> → Data collected from the sample.</p></li>
+<li><p><strong>Theoretical categorical distribution (Expected values)</strong> → Proportion based on a hypothesis/theory.</p></li>
+<li><p>The test checks whether observed proportions are consistent with expected proportions.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="example-1-bike-colors">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">3. Example 1 – Bike Colors</a><a class="headerlink" href="#example-1-bike-colors" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Theory: ⅓ like yellow, ⅓ like red, ⅓ like orange.</p></li>
+<li><p>Sample: 22 like yellow, 17 like red, 59 like orange.</p></li>
+<li><p>Question: Does the sample fit the theoretical distribution?</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="example-2-left-vs-right-handed-students">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">4. Example 2 – Left vs. Right Handed Students</a><a class="headerlink" href="#example-2-left-vs-right-handed-students" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Total students = 75</p></li>
+<li><p><strong>Observed</strong>: 11 left-handed, 64 right-handed</p></li>
+<li><p><strong>Theory</strong>: 12% of people are left-handed</p>
+<ul>
+<li><p>Expected left-handed = <span class="math notranslate nohighlight">\(0.12 \times 75 = 9\)</span></p></li>
+<li><p>Expected right-handed = <span class="math notranslate nohighlight">\(75 - 9 = 66\)</span></p></li>
+</ul>
+</li>
+<li><p>Comparison:</p>
+<ul>
+<li><p>Observed → (11, 64)</p></li>
+<li><p>Expected → (9, 66)</p></li>
+</ul>
+</li>
+<li><p>Next step: Apply <strong>Chi-Square formula</strong> to test if observed data fits theory.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="formula">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">5. Formula</a><a class="headerlink" href="#formula" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
-\text{Mean} = \frac{\sum x_i}{n}
+\chi^2 = \sum \frac{(O - E)^2}{E}
 \]</div>
+<p>Where:</p>
 <ul class="simple">
-<li><p><strong>Properties:</strong></p>
-<ol class="arabic simple">
-<li><p>Uses all observations.</p></li>
-<li><p>Sensitive to extreme values (outliers).</p></li>
-<li><p>Unique for a given dataset.</p></li>
-</ol>
-</li>
-<li><p><strong>Applications:</strong></p>
+<li><p><span class="math notranslate nohighlight">\(O\)</span> = Observed frequency</p></li>
+<li><p><span class="math notranslate nohighlight">\(E\)</span> = Expected frequency</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="takeaway">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">6. Takeaway</a><a class="headerlink" href="#takeaway" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Chi-Square Goodness of Fit Test</strong> checks if <strong>sample data aligns with theoretical distribution</strong>.</p></li>
+<li><p>Used only for <strong>categorical data</strong>.</p></li>
+<li><p>Requires <strong>Observed vs. Expected</strong> distributions.</p></li>
+<li><p>In practice → performed with <strong>hand calculations</strong> or <strong>Python/R</strong>.</p></li>
+</ul>
+</section>
+<section id="problem-statement">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">🎯 Problem Statement</a><a class="headerlink" href="#problem-statement" title="Link to this heading">#</a></h2>
 <ul>
-<li><p>Economic indicators (e.g., average income)</p></li>
-<li><p>Exam scores analysis</p></li>
-<li><p>Scientific measurements</p></li>
+<li><p><strong>2010 Census (Population Data / Expected Distribution):</strong></p>
+<ul class="simple">
+<li><p>Less than 50kg → 20%</p></li>
+<li><p>50–75kg → 30%</p></li>
+<li><p>Greater than 75kg → 50%</p></li>
 </ul>
 </li>
-<li><p><strong>When to use:</strong></p>
+<li><p><strong>2020 Sample (Observed Data, n = 500):</strong></p>
 <ul>
-<li><p>Data is <strong>symmetrically distributed</strong></p></li>
-<li><p>No extreme outliers</p></li>
+<li><p>&lt; 50kg → 140</p></li>
+<li><p>50–75kg → 160</p></li>
+<li><blockquote>
+<div><p>75kg → 200</p>
+</div></blockquote>
+</li>
 </ul>
 </li>
-<li><p><strong>Example:</strong> Dataset: 5, 7, 3, 8, 10</p></li>
+<li><p>Question: At <strong>α = 0.05</strong>, do weights in 2020 differ significantly from the 2010 distribution?</p></li>
 </ul>
+</section>
+<hr class="docutils" />
+<section id="step-1-define-hypotheses">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">🔹 Step 1: Define Hypotheses</a><a class="headerlink" href="#step-1-define-hypotheses" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>H₀ (Null Hypothesis):</strong> 2020 weight distribution fits the 2010 population proportions.</p></li>
+<li><p><strong>H₁ (Alternative Hypothesis):</strong> 2020 weight distribution does not fit the 2010 proportions.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="step-2-expected-frequencies-based-on-2010-proportions-n-500">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">🔹 Step 2: Expected Frequencies (based on 2010 proportions &amp; n=500)</a><a class="headerlink" href="#step-2-expected-frequencies-based-on-2010-proportions-n-500" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>&lt; 50kg → 0.2 × 500 = 100</p></li>
+<li><p>50–75kg → 0.3 × 500 = 150</p></li>
+<li><blockquote>
+<div><p>75kg → 0.5 × 500 = 250</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="step-3-degrees-of-freedom">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">🔹 Step 3: Degrees of Freedom</a><a class="headerlink" href="#step-3-degrees-of-freedom" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>df = (number of categories – 1) = 3 – 1 = <strong>2</strong></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="step-4-critical-value">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">🔹 Step 4: Critical Value</a><a class="headerlink" href="#step-4-critical-value" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>From Chi-Square table (α = 0.05, df = 2) → <strong>5.991</strong></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="step-5-test-statistic-2-formula">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">🔹 Step 5: Test Statistic (χ² Formula)</a><a class="headerlink" href="#step-5-test-statistic-2-formula" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
-\text{Mean} = \frac{5+7+3+8+10}{5} = 6.6
+χ² = \sum \frac{(O - E)^2}{E}
 \]</div>
-<hr class="docutils" />
-</section>
-<section id="median">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Median</a><a class="headerlink" href="#median" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><strong>Definition:</strong> The middle value in a sorted dataset.</p></li>
-<li><p><strong>Steps:</strong></p>
-<ol class="arabic simple">
-<li><p>Arrange data in ascending order.</p></li>
-<li><p>Odd number of values → middle value</p></li>
-<li><p>Even number of values → average of two middle values</p></li>
-</ol>
-</li>
-<li><p><strong>Properties:</strong></p>
-<ol class="arabic simple">
-<li><p>Not affected by extreme values (robust).</p></li>
-<li><p>Divides data into two equal halves.</p></li>
-<li><p>Unique for a given dataset.</p></li>
-</ol>
-</li>
-<li><p><strong>Applications:</strong></p>
-<ul>
-<li><p>Household income analysis (to avoid outlier effects)</p></li>
-<li><p>Real estate prices</p></li>
-<li><p>Skewed distributions</p></li>
+<li><p>For &lt;50kg → (140 − 100)² / 100 = 1600/100 = 16</p></li>
+<li><p>For 50–75kg → (160 − 150)² / 150 = 100/150 ≈ 0.67</p></li>
+<li><p>For &gt;75kg → (200 − 250)² / 250 = 2500/250 = 10</p></li>
 </ul>
-</li>
-<li><p><strong>When to use:</strong></p>
-<ul>
-<li><p>Data is <strong>skewed</strong> or contains outliers</p></li>
-</ul>
-</li>
-<li><p><strong>Example:</strong> Dataset: 3, 5, 7, 8, 10 → <strong>Median = 7</strong>
-Dataset: 3, 5, 7, 8 → <strong>Median = (5+7)/2 = 6</strong></p></li>
-</ul>
-<hr class="docutils" />
+<p><strong>χ² = 26.66</strong></p>
 </section>
-<section id="mode">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Mode</a><a class="headerlink" href="#mode" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="step-6-decision-rule">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">🔹 Step 6: Decision Rule</a><a class="headerlink" href="#step-6-decision-rule" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><strong>Definition:</strong> The most frequently occurring value in the dataset.</p></li>
-<li><p><strong>Properties:</strong></p>
-<ol class="arabic simple">
-<li><p>Can be <strong>more than one value</strong> (bimodal or multimodal).</p></li>
-<li><p>Can be used for <strong>categorical data</strong>.</p></li>
-<li><p>Not affected by extreme values.</p></li>
-</ol>
-</li>
-<li><p><strong>Applications:</strong></p>
-<ul>
-<li><p>Market research (most popular product)</p></li>
-<li><p>Education (most common grade)</p></li>
-<li><p>Categorical data analysis</p></li>
+<li><p>If χ² &gt; 5.991 → Reject H₀</p></li>
+<li><p>26.66 &gt; 5.991 → <strong>Reject H₀</strong></p></li>
 </ul>
-</li>
-<li><p><strong>When to use:</strong></p>
-<ul>
-<li><p>Data is <strong>categorical</strong></p></li>
-<li><p>Identify most common/repeated values</p></li>
-</ul>
-</li>
-<li><p><strong>Example:</strong> Dataset: 3, 5, 7, 7, 10 → <strong>Mode = 7</strong></p></li>
-</ul>
-<hr class="docutils" />
 </section>
-<section id="python-demonstration">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Python Demonstration</a><a class="headerlink" href="#python-demonstration" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statistics</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
-
-<span class="n">mean_value</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">median_value</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">mode_value</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mode</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
-
-<span class="n">mean_value</span><span class="p">,</span> <span class="n">median_value</span><span class="p">,</span> <span class="n">mode_value</span>
-</pre></div>
-</div>
-<p><strong>Output:</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mean</span><span class="p">:</span> <span class="mf">6.6</span><span class="p">,</span> <span class="n">Median</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="n">Mode</span><span class="p">:</span> <span class="mi">7</span>
-</pre></div>
-</div>
 <hr class="docutils" />
-<p>✅ Summary of Use Cases:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Measure</p></th>
-<th class="head"><p>Best for</p></th>
-<th class="head"><p>Sensitive to Outliers</p></th>
-<th class="head"><p>Data Type</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Mean</p></td>
-<td><p>Symmetric data</p></td>
-<td><p>Yes</p></td>
-<td><p>Numeric</p></td>
-</tr>
-<tr class="row-odd"><td><p>Median</p></td>
-<td><p>Skewed/outlier-prone data</p></td>
-<td><p>No</p></td>
-<td><p>Numeric</p></td>
-</tr>
-<tr class="row-even"><td><p>Mode</p></td>
-<td><p>Most frequent value</p></td>
-<td><p>No</p></td>
-<td><p>Numeric &amp; Categorical</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr class="docutils" />
-<p>If you like, I can also create a <strong>diagram showing mean, median, and mode on a skewed dataset</strong> to visualize their differences and practical use.</p>
-<p>Do you want me to do that?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
-
-<span class="c1"># Continuous dataset example</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Skewed continuous data</span>
-
-<span class="c1"># Calculate Mean, Median, Mode</span>
-<span class="n">mean_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">median_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">mode_result</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># rounding to estimate mode for continuous data</span>
-<span class="n">mode_val</span> <span class="o">=</span> <span class="n">mode_result</span><span class="o">.</span><span class="n">mode</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="c1"># Plot KDE</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-
-<span class="c1"># Add lines for Mean, Median, Mode</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mean_val</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Mean = </span><span class="si">{</span><span class="n">mean_val</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">median_val</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Median = </span><span class="si">{</span><span class="n">median_val</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mode_val</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Mode ≈ </span><span class="si">{</span><span class="n">mode_val</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mean, Median, and Mode on a Continuous Skewed Dataset (KDE)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Data Values&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Density&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/83cd4327e845c4b452c6b6fe5f9f3dff99eec9e1b891a1840eb6162139dd69d5.png" src="../../../_images/83cd4327e845c4b452c6b6fe5f9f3dff99eec9e1b891a1840eb6162139dd69d5.png" />
-</div>
-</div>
+<section id="conclusion">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">✅ Conclusion</a><a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>The <strong>2020 weight distribution is significantly different</strong> from the 2010 distribution.
+Weights of individuals in the population have <strong>changed over 10 years</strong>.</p>
 </section>
 </section>
 
@@ -705,16 +738,16 @@ Dataset: 3, 5, 7, 8 → <strong>Median = (5+7)/2 = 6</strong></p></li>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "py12"
         },
         kernelOptions: {
-            name: "python3",
-            path: "./content\statistics\descriptive"
+            name: "py12",
+            path: "./content\statistics\inferential"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'py12'</script>
 
                 </article>
               
@@ -727,20 +760,20 @@ Dataset: 3, 5, 7, 8 → <strong>Median = (5+7)/2 = 6</strong></p></li>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="08_part.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Descriptive Statistics</p>
+        <p class="prev-next-title">Confidence Interval (CI) &amp; Margin of Error</p>
       </div>
     </a>
     <a class="right-next"
-       href="../inferential/index.html"
+       href="10_part.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Inferential Statistics</p>
+        <p class="prev-next-title">ANOVA (Analysis of Variance)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -760,10 +793,20 @@ Dataset: 3, 5, 7, 8 → <strong>Median = (5+7)/2 = 6</strong></p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-average">Mean (Average)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#median">Median</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mode">Mode</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-demonstration">Python Demonstration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-it">1. What is it?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">2. Key Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-bike-colors">3. Example 1 – Bike Colors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-left-vs-right-handed-students">4. Example 2 – Left vs. Right Handed Students</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formula">5. Formula</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#takeaway">6. Takeaway</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-statement">🎯 Problem Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-define-hypotheses">🔹 Step 1: Define Hypotheses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-expected-frequencies-based-on-2010-proportions-n-500">🔹 Step 2: Expected Frequencies (based on 2010 proportions &amp; n=500)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-degrees-of-freedom">🔹 Step 3: Degrees of Freedom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-critical-value">🔹 Step 4: Critical Value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-test-statistic-2-formula">🔹 Step 5: Test Statistic (χ² Formula)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-decision-rule">🔹 Step 6: Decision Rule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">✅ Conclusion</a></li>
 </ul>
   </nav></div>
 

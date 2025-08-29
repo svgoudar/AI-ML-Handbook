@@ -1,0 +1,849 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Scalar &amp; Vectors &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=6528377c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=7f8ff830"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../_static/js/hoverxref.js"></script>
+    <script src="../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../_static/js/micromodal.min.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/linear_algebra/02_part';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Multiplication on Vectors" href="03_part.html" />
+    <link rel="prev" title="Overview" href="01_part.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../probability/index.html">🎲 Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../probability/01_probability.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../probability/02_probability_types.html">Types of Probability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../probability/03_probability_rules.html">Rules of Probability</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../probability/functions/overview.html">Probability Functions Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../probability/functions/01_pdf.html">Probability Density Function (PDF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../probability/functions/02_pmf.html">Probability Mass Function (PMF):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../probability/functions/03_cdf.html">Cumulative Distribution Function (CDF)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../probability/distribution/index.html">Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../probability/distribution/discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/bernoulli.html">Bernoulli Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/binomial.html">Binomial Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/poisson.html">The Poisson Distribution (Discrete)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/geometric.html">Geometric Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/uniform.html">Discrete Uniform Distribution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../probability/distribution/continuous/index.html">Continuous Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/normal.html">Normal Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/exponential.html">Exponential Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/uniform.html">Uniform Continuous Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/gamma.html">Gamma Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/beta.html">Beta Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/student_t.html">Student’s t-Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/chi_square.html">Chi-Square Distribution</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../probability/q_and_a.html">🎯 Wrap up</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../statistics/index.html">📊 Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../statistics/overview.html">Overview</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../statistics/descriptive/index.html">Descriptive Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../statistics/descriptive/01_part.html">Measures of Central Tendency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../statistics/descriptive/02_part.html">Measures of Dispersion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../statistics/descriptive/03_part.html">Bessel’s Correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../statistics/descriptive/04_part.html">Random Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../statistics/descriptive/05_part.html">Percentage vs Percentile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../statistics/descriptive/06_part.html">Five Number Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../statistics/descriptive/07_part.html">Histogram and Skewness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../statistics/descriptive/08_part.html">Covariance</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../statistics/inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../statistics/inferential/01_part.html">Hypothesis Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../statistics/inferential/02_part.html">P-Value, CI and α</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../statistics/inferential/03_part.html">Hypothesis Testing with Z-test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../statistics/inferential/04_part.html">Student’s t-Distribution</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../statistics/inferential/05_part.html">Decision Guide: t-Test vs Z-Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../statistics/inferential/06_part.html">Type I and Type II Errors in Hypothesis Testing</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../statistics/inferential/07_part.html">Bayesian Statistics</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../statistics/inferential/08_part.html">Confidence Interval (CI) &amp; Margin of Error</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../statistics/inferential/09_part.html">Chi-Square Test (Goodness of Fit)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../statistics/inferential/10_part.html">ANOVA (Analysis of Variance)</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../statistics/inferential/11_part.html">Central Limit Theorem (CLT)</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">↗️ Linear Algebra</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_part.html">Overview</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Scalar &amp; Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_part.html">Multiplication on Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_part.html">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_part.html">Functions &amp; Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_part.html">Inverse Functions &amp; Identity Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_part.html">Eigenvectors and Eigenvalues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_part.html">Line, Plane and Hyperplane</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/linear_algebra/02_part.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/linear_algebra/02_part.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/linear_algebra/02_part.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Scalar & Vectors</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar">Scalar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors">Vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-in-data-science">Applications in Data Science</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-concepts">Additional Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-addition-basics">1. Vector Addition Basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">2. Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3. Applications in Data Science</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <nav class="contents" id="contents" role="doc-toc">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#scalar-vectors" id="id2">Scalar &amp; Vectors</a></p>
+<ul>
+<li><p><a class="reference internal" href="#scalar" id="id3">Scalar</a></p></li>
+<li><p><a class="reference internal" href="#vectors" id="id4">Vectors</a></p></li>
+<li><p><a class="reference internal" href="#applications-in-data-science" id="id5">Applications in Data Science</a></p></li>
+<li><p><a class="reference internal" href="#additional-concepts" id="id6">Additional Concepts</a></p></li>
+<li><p><a class="reference internal" href="#vector-addition-basics" id="id7">1. Vector Addition Basics</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id8">2. Examples</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id9">3. Applications in Data Science</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="scalar-vectors">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">Scalar &amp; Vectors</a><a class="headerlink" href="#scalar-vectors" title="Link to this heading">#</a></h1>
+<section id="scalar">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Scalar</a><a class="headerlink" href="#scalar" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Definition:</strong> A scalar is a <strong>single numerical value</strong> that represents only <strong>magnitude</strong> (no direction).</p></li>
+<li><p><strong>Examples (Physics/Everyday life):</strong> Speed = 45 km/h, Temperature = 25°C.</p></li>
+<li><p><strong>Applications in Data Science:</strong></p>
+<ul>
+<li><p>Count of records in a dataset (e.g., total = 5).</p></li>
+<li><p>Mean/average of a feature (e.g., average age).</p></li>
+<li><p>Intercept term <strong>c</strong> in Linear Regression (<strong>y = mx + c</strong>) is a scalar.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="vectors">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Vectors</a><a class="headerlink" href="#vectors" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Definition (Physics):</strong> Numerical value with <strong>magnitude + direction</strong>.</p></li>
+<li><p><strong>Definition (Data Science):</strong> An <strong>ordered list of numbers</strong> representing a point in space or a quantity.</p></li>
+<li><p><strong>Examples:</strong></p>
+<ul>
+<li><p>Physics: Car speed = 45 km/h east (magnitude + direction).</p></li>
+<li><p>Data Science: Student record → (IQ=90, Study hours=3).</p></li>
+<li><p>Person’s weight over months → (70, 72, 75, 73).</p></li>
+</ul>
+</li>
+<li><p><strong>Geometric Representation:</strong></p>
+<ul>
+<li><p>2D vector → (x, y) point in coordinate space.</p></li>
+<li><p>Distance from origin calculated using <strong>Pythagoras theorem</strong>.</p></li>
+<li><p>Extended to 3D (x, y, z) and higher dimensions.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="applications-in-data-science">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Applications in Data Science</a><a class="headerlink" href="#applications-in-data-science" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Data Representation:</strong> Each record = a vector of features (F1, F2, F3…).</p></li>
+<li><p><strong>Visualization:</strong> In 2D/3D, vectors represent features like IQ vs Study Hours.</p></li>
+<li><p><strong>Classification Example:</strong> Logistic Regression separates vectors (records) into regions (Pass/Fail) using a line (<strong>y = mx + c</strong>).</p></li>
+<li><p><strong>High Dimensions:</strong> Data may exist in thousands of dimensions, but linear algebra supports computations.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="additional-concepts">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Additional Concepts</a><a class="headerlink" href="#additional-concepts" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Unit Vector:</strong> A vector with magnitude = 1, represented as î (x-axis), ĵ (y-axis).</p>
+<ul>
+<li><p>Example: (3,3) = 3î + 3ĵ.</p></li>
+</ul>
+</li>
+<li><p><strong>Vector Property:</strong> Same direction &amp; length remain constant even if the origin changes.</p></li>
+<li><p><strong>Real-World Examples:</strong></p>
+<ul>
+<li><p><strong>Gaming (GTA):</strong> Cars moving with speed and direction (vectors). Collision effects are computed using vector math.</p></li>
+<li><p><strong>Boat vs Waves:</strong> Direction and speed of vectors determine boat’s movement and effect of waves.</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<p>✅ Key Takeaway:</p>
+<ul class="simple">
+<li><p><strong>Scalars = magnitude only.</strong></p></li>
+<li><p><strong>Vectors = magnitude + direction (or ordered list of values).</strong></p></li>
+<li><p>In <strong>Data Science</strong>, every data point is a <strong>vector</strong>, making linear algebra essential for machine learning, regression, classification, and deep learning.</p></li>
+</ul>
+</section>
+<section id="vector-addition-basics">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">1. Vector Addition Basics</a><a class="headerlink" href="#vector-addition-basics" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><strong>Definition:</strong> To add two vectors, add their respective coordinates.</p>
+<ul class="simple">
+<li><p>Example:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(p_1 = (-4, 3)\)</span>, <span class="math notranslate nohighlight">\(p_2 = (5, 3)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(p_1 + p_2 = ( -4 + 5, 3 + 3 ) = (1, 6)\)</span></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>General Formula (n-dimensions):</strong></p>
+<div class="math notranslate nohighlight">
+\[
+  (x_1, y_1, z_1, \dots) + (x_2, y_2, z_2, \dots) = (x_1+x_2, y_1+y_2, z_1+z_2, \dots)
+  \]</div>
+</li>
+<li><p><strong>Geometric Interpretation:</strong> Moving along one vector and then another shifts the final position to the sum vector.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="examples">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">2. Examples</a><a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>2D Example:</strong></p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(A = (-2, -2)\)</span>, <span class="math notranslate nohighlight">\(B = (-1, -1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A + B = (-3, -3)\)</span>.</p></li>
+</ul>
+</li>
+<li><p><strong>3D Example (generalization):</strong></p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(A = (x_1, y_1, z_1)\)</span>, <span class="math notranslate nohighlight">\(B = (x_2, y_2, z_2)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A + B = (x_1+x_2, y_1+y_2, z_1+z_2)\)</span>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">3. Applications in Data Science</a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Sensor Data Aggregation</strong></p>
+<ul class="simple">
+<li><p>Multiple sensors provide vector outputs (e.g., humidity, temperature, heat).</p></li>
+<li><p>Combined readings obtained by adding vectors from each sensor.</p></li>
+</ul>
+</li>
+<li><p><strong>Feature Engineering / EDA</strong></p>
+<ul class="simple">
+<li><p>Adding feature vectors during preprocessing to create aggregated features.</p></li>
+</ul>
+</li>
+<li><p><strong>Natural Language Processing (NLP)</strong></p>
+<ul class="simple">
+<li><p><strong>Word Embeddings:</strong> Words are represented as vectors.</p></li>
+<li><p>Combining vectors (e.g., “data” + “science”) creates a new embedding for the combined phrase.</p></li>
+<li><p>Example:</p>
+<ul>
+<li><p>“data” = (0.2, 0.1, 0.4), “science” = (0.3, 0.7, 0.2)</p></li>
+<li><p>“data science” = (0.5, 0.8, 0.6).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Image Processing</strong></p>
+<ul class="simple">
+<li><p>Colored images use RGB channels (vectors).</p></li>
+<li><p>Converting to grayscale involves adding R, G, and B values and taking the average.</p></li>
+<li><p>Example:</p>
+<ul>
+<li><p>Red = (255, 128, 0), Green = (128, 255, 0), Blue = (64, 64, 255).</p></li>
+<li><p>Grayscale = average = (149, 149, 85).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr class="docutils" />
+<p><strong>Key Takeaway:</strong></p>
+<p>Vector addition is simply element-wise summation, but in <strong>data science</strong> it underpins:</p>
+<ul class="simple">
+<li><p>Data aggregation,</p></li>
+<li><p>Feature engineering,</p></li>
+<li><p>Word embeddings in NLP, and</p></li>
+<li><p>Image channel manipulation in computer vision.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content\linear_algebra"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_part.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Overview</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_part.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Multiplication on Vectors</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar">Scalar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors">Vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-in-data-science">Applications in Data Science</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-concepts">Additional Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-addition-basics">1. Vector Addition Basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">2. Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3. Applications in Data Science</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

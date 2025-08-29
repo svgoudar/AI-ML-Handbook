@@ -1,0 +1,1016 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ANOVA (Analysis of Variance) &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=6528377c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=7f8ff830"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../_static/js/hoverxref.js"></script>
+    <script src="../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../_static/js/micromodal.min.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/statistics/inferential/10_part';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Central Limit Theorem (CLT)" href="11_part.html" />
+    <link rel="prev" title="Chi-Square Test (Goodness of Fit)" href="09_part.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../probability/index.html">🎲 Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/01_probability.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/02_probability_types.html">Types of Probability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/03_probability_rules.html">Rules of Probability</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../probability/functions/overview.html">Probability Functions Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../probability/functions/01_pdf.html">Probability Density Function (PDF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../probability/functions/02_pmf.html">Probability Mass Function (PMF):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../probability/functions/03_cdf.html">Cumulative Distribution Function (CDF)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../probability/distribution/index.html">Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../probability/distribution/discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/bernoulli.html">Bernoulli Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/binomial.html">Binomial Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/poisson.html">The Poisson Distribution (Discrete)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/geometric.html">Geometric Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/uniform.html">Discrete Uniform Distribution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../probability/distribution/continuous/index.html">Continuous Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/normal.html">Normal Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/exponential.html">Exponential Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/uniform.html">Uniform Continuous Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/gamma.html">Gamma Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/beta.html">Beta Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/student_t.html">Student’s t-Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/chi_square.html">Chi-Square Distribution</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/q_and_a.html">🎯 Wrap up</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">📊 Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../descriptive/index.html">Descriptive Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/01_part.html">Measures of Central Tendency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/02_part.html">Measures of Dispersion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/03_part.html">Bessel’s Correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/04_part.html">Random Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/05_part.html">Percentage vs Percentile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/06_part.html">Five Number Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/07_part.html">Histogram and Skewness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/08_part.html">Covariance</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Inferential Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_part.html">Hypothesis Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_part.html">P-Value, CI and α</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_part.html">Hypothesis Testing with Z-test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_part.html">Student’s t-Distribution</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="05_part.html">Decision Guide: t-Test vs Z-Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_part.html">Type I and Type II Errors in Hypothesis Testing</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="07_part.html">Bayesian Statistics</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="08_part.html">Confidence Interval (CI) &amp; Margin of Error</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="09_part.html">Chi-Square Test (Goodness of Fit)</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">ANOVA (Analysis of Variance)</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="11_part.html">Central Limit Theorem (CLT)</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linear_algebra/index.html">↗️ Linear Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/01_part.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/02_part.html">Scalar &amp; Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/03_part.html">Multiplication on Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/04_part.html">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/05_part.html">Functions &amp; Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/06_part.html">Inverse Functions &amp; Identity Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/07_part.html">Eigenvectors and Eigenvalues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/08_part.html">Line, Plane and Hyperplane</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/statistics/inferential/10_part.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/statistics/inferential/10_part.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/content/statistics/inferential/10_part.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ANOVA (Analysis of Variance)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ANOVA (Analysis of Variance)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">1. Definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-important">2. Why Important?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components-of-anova">3. Key Components of ANOVA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factor-levels-examples">4. Factor &amp; Levels Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">5. What’s Next?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-of-anova">Assumptions of ANOVA</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-anova">Types of ANOVA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-in-anova">Hypothesis Testing in ANOVA</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem">4. Example Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-in-one-way-anova">5. Steps in One-Way ANOVA</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <nav class="contents" id="contents" role="doc-toc">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#anova-analysis-of-variance" id="id1">ANOVA (Analysis of Variance)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#definition" id="id2">1. Definition</a></p></li>
+<li><p><a class="reference internal" href="#why-important" id="id3">2. Why Important?</a></p></li>
+<li><p><a class="reference internal" href="#key-components-of-anova" id="id4">3. Key Components of ANOVA</a></p></li>
+<li><p><a class="reference internal" href="#factor-levels-examples" id="id5">4. Factor &amp; Levels Examples</a></p></li>
+<li><p><a class="reference internal" href="#whats-next" id="id6">5. What’s Next?</a></p></li>
+<li><p><a class="reference internal" href="#assumptions-of-anova" id="id7">Assumptions of ANOVA</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#types-of-anova" id="id8">Types of ANOVA</a></p></li>
+<li><p><a class="reference internal" href="#hypothesis-testing-in-anova" id="id9">Hypothesis Testing in ANOVA</a></p>
+<ul>
+<li><p><a class="reference internal" href="#example-problem" id="id10">4. Example Problem</a></p></li>
+<li><p><a class="reference internal" href="#steps-in-one-way-anova" id="id11">5. Steps in One-Way ANOVA</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="anova-analysis-of-variance">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">ANOVA (Analysis of Variance)</a><a class="headerlink" href="#anova-analysis-of-variance" title="Link to this heading">#</a></h1>
+<section id="definition">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Definition</a><a class="headerlink" href="#definition" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>ANOVA</strong> is a statistical method used to <strong>compare the means of two or more groups</strong>.</p></li>
+<li><p>If only two groups → t-test or z-test is usually applied.</p></li>
+<li><p>If <strong>three or more groups</strong> → ANOVA is more suitable.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="why-important">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">2. Why Important?</a><a class="headerlink" href="#why-important" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Widely used in <strong>data analysis</strong> and <strong>data science</strong>.</p></li>
+<li><p>Helps test whether differences among group means are statistically significant.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="key-components-of-anova">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">3. Key Components of ANOVA</a><a class="headerlink" href="#key-components-of-anova" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Factors</strong></p>
+<ul class="simple">
+<li><p>A factor is a variable under study.</p></li>
+<li><p>Example: <em>Medicine type</em> or <em>Mode of payment</em>.</p></li>
+</ul>
+</li>
+<li><p><strong>Levels</strong></p>
+<ul class="simple">
+<li><p>Different categories/values within a factor.</p></li>
+<li><p>Example (Medicine factor): Dosages like <strong>5mg, 10mg, 15mg</strong>.</p></li>
+<li><p>Example (Mode of payment factor): <strong>Google Pay, PhonePe, IMPS, NEFT, DD</strong>.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="factor-levels-examples">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">4. Factor &amp; Levels Examples</a><a class="headerlink" href="#factor-levels-examples" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Medicine</strong> → Factor</p>
+<ul>
+<li><p>Levels → Dosage (5mg, 10mg, 15mg).</p></li>
+</ul>
+</li>
+<li><p><strong>Mode of Payment</strong> → Factor</p>
+<ul>
+<li><p>Levels → UPI, IMPS, NEFT, Demand Draft, etc.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="whats-next">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">5. What’s Next?</a><a class="headerlink" href="#whats-next" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>In future lessons → discuss <strong>independent vs. dependent factors</strong>, <strong>assumptions of ANOVA</strong>, and <strong>types of ANOVA</strong> (One-way, Two-way, etc.).</p></li>
+</ul>
+<hr class="docutils" />
+<p>✅ <strong>Takeaway</strong>:
+ANOVA is used to compare group means when there are <strong>two or more groups</strong>, and it works with <strong>factors (variables)</strong> that have multiple <strong>levels (categories/values)</strong>.</p>
+</section>
+<section id="assumptions-of-anova">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Assumptions of ANOVA</a><a class="headerlink" href="#assumptions-of-anova" title="Link to this heading">#</a></h2>
+<p>To use <strong>ANOVA</strong> correctly, certain assumptions must be satisfied.</p>
+<ol class="arabic simple">
+<li><p><strong>Normality of Sampling Distribution</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>The <strong>sampling distribution of the mean</strong> should be <strong>normally distributed</strong>.</p></li>
+<li><p>This comes from the <strong>Central Limit Theorem (CLT)</strong>.</p></li>
+<li><p>In simple terms: group means should follow a <strong>Gaussian distribution</strong>.</p></li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p><strong>Absence of Outliers</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>Data should be <strong>free from extreme outliers</strong>, as they can distort results.</p></li>
+<li><p>Outliers must be detected and removed using methods like:</p>
+<ul>
+<li><p><strong>Boxplot / IQR method</strong></p></li>
+<li><p><strong>Z-score filtering</strong></p></li>
+<li><p>Other feature engineering techniques</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li><p><strong>Homogeneity of Variance (Equal Variances)</strong></p></li>
+</ol>
+<ul>
+<li><p>Variances across groups (levels of independent variables) must be <strong>equal</strong>.</p></li>
+<li><p>Example notation:</p>
+<div class="math notranslate nohighlight">
+\[
+  \sigma_1^2 = \sigma_2^2 = \sigma_3^2
+  \]</div>
+</li>
+<li><p>This ensures that group comparisons are fair.</p></li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="4">
+<li><p><strong>Independence &amp; Random Sampling</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>Samples must be:</p>
+<ul>
+<li><p><strong>Independent</strong> (one observation does not influence another).</p></li>
+<li><p><strong>Randomly selected</strong> (to avoid bias).</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<p>✅ <strong>Takeaway</strong>:
+ANOVA works reliably only when:</p>
+<ul class="simple">
+<li><p>Group means are normally distributed.</p></li>
+<li><p>No outliers distort the data.</p></li>
+<li><p>Variances across groups are equal.</p></li>
+<li><p>Samples are independent and randomly drawn.</p></li>
+</ul>
+</section>
+</section>
+<section id="types-of-anova">
+<h1><a class="toc-backref" href="#id8" role="doc-backlink">Types of ANOVA</a><a class="headerlink" href="#types-of-anova" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><strong>One-Way ANOVA</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Factor</strong>: 1</p></li>
+<li><p><strong>Levels</strong>: ≥ 2 (independent)</p></li>
+<li><p>Example: A doctor tests a new medication for headache relief.</p>
+<ul>
+<li><p>Groups: 10mg, 20mg, 30mg dosages</p></li>
+<li><p>Factor = Medication</p></li>
+<li><p>Levels = Different dosages (independent of each other)</p></li>
+</ul>
+</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><strong>Repeated Measures ANOVA</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Factor</strong>: 1</p></li>
+<li><p><strong>Levels</strong>: ≥ 2 (dependent)</p></li>
+<li><p>Example: Running performance of same individuals over <strong>Day 1, Day 2, Day 3</strong>.</p>
+<ul>
+<li><p>Factor = Running</p></li>
+<li><p>Levels = Days (dependent, since same participants measured repeatedly)</p></li>
+</ul>
+</li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p><strong>Factorial ANOVA</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Factors</strong>: ≥ 2</p></li>
+<li><p><strong>Levels</strong>: Each factor has ≥ 2 (independent or dependent)</p></li>
+<li><p>Example: Running data + Gender</p>
+<ul>
+<li><p>Factor 1 = Running (Day 1, Day 2, Day 3 → dependent levels)</p></li>
+<li><p>Factor 2 = Gender (Male, Female → independent levels)</p></li>
+</ul>
+</li>
+<li><p>Used when multiple factors influence the outcome simultaneously.</p></li>
+</ul>
+<p>✅ <strong>Key Idea:</strong></p>
+<ul class="simple">
+<li><p><strong>One-Way ANOVA</strong> → One factor, independent levels</p></li>
+<li><p><strong>Repeated Measures ANOVA</strong> → One factor, dependent levels</p></li>
+<li><p><strong>Factorial ANOVA</strong> → Two or more factors, each with ≥ 2 levels (independent or dependent)</p></li>
+</ul>
+</section>
+<section id="hypothesis-testing-in-anova">
+<h1><a class="toc-backref" href="#id9" role="doc-backlink">Hypothesis Testing in ANOVA</a><a class="headerlink" href="#hypothesis-testing-in-anova" title="Link to this heading">#</a></h1>
+<p><strong>1. Purpose of ANOVA</strong></p>
+<ul class="simple">
+<li><p>Compares the means of <strong>two or more groups</strong>.</p></li>
+<li><p>Uses <strong>variance</strong> to determine if group means differ significantly.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>2. Hypotheses</strong></p>
+<ul class="simple">
+<li><p><strong>Null Hypothesis (H₀):</strong>
+μ₁ = μ₂ = μ₃ … = μₖ (all means are equal)</p></li>
+<li><p><strong>Alternate Hypothesis (H₁):</strong>
+At least one mean is not equal.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>3. Test Statistic</strong></p>
+<ul>
+<li><p><strong>F-test</strong> is used.</p></li>
+<li><p>Formula:</p>
+<div class="math notranslate nohighlight">
+\[
+  F = \frac{\text{Variance Between Groups}}{\text{Variance Within Groups}}
+  \]</div>
+</li>
+</ul>
+<hr class="docutils" />
+<section id="example-problem">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">4. Example Problem</a><a class="headerlink" href="#example-problem" title="Link to this heading">#</a></h2>
+<p>Doctor tests a new medication for headache relief with <strong>three dosage levels</strong>:</p>
+<ul class="simple">
+<li><p>15 mg, 30 mg, 45 mg.</p></li>
+<li><p>Participants rate headache relief <strong>1–10</strong>.</p></li>
+</ul>
+<p>We test if there is a <strong>difference between mean relief scores</strong> at α = 0.05.</p>
+</section>
+<hr class="docutils" />
+<section id="steps-in-one-way-anova">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">5. Steps in One-Way ANOVA</a><a class="headerlink" href="#steps-in-one-way-anova" title="Link to this heading">#</a></h2>
+<p><strong>Step 1: Define Hypotheses</strong></p>
+<ul class="simple">
+<li><p>H₀: μ₁ = μ₂ = μ₃</p></li>
+<li><p>H₁: Not all means are equal.</p></li>
+</ul>
+<p><strong>Step 2: Significance Level</strong></p>
+<ul class="simple">
+<li><p>α = 0.05 → confidence level = 95%.</p></li>
+</ul>
+<p><strong>Step 3: Degrees of Freedom</strong></p>
+<ul class="simple">
+<li><p>Total sample size = 21 (7 participants × 3 groups).</p></li>
+<li><p><strong>Between groups:</strong> a − 1 = 3 − 1 = 2.</p></li>
+<li><p><strong>Within groups:</strong> n − a = 21 − 3 = 18.</p></li>
+<li><p><strong>Total:</strong> 20.</p></li>
+</ul>
+<p><strong>Step 4: Decision Rule</strong></p>
+<ul class="simple">
+<li><p>Critical value from F-table (df₁=2, df₂=18, α=0.05) = <strong>3.5546</strong>.</p></li>
+<li><p>If F &gt; 3.5546 → Reject H₀.</p></li>
+</ul>
+<p><strong>Step 5: Compute F-statistic</strong></p>
+<ul>
+<li><p>Compute <strong>Sum of Squares (SS):</strong></p>
+<ul class="simple">
+<li><p>SS(Between) = 98.67</p></li>
+<li><p>SS(Within) = 10.29</p></li>
+<li><p>SS(Total) = 108.96</p></li>
+</ul>
+</li>
+<li><p>Compute <strong>Mean Squares (MS):</strong></p>
+<ul class="simple">
+<li><p>MS(Between) = 49.34</p></li>
+<li><p>MS(Within) = 0.54</p></li>
+</ul>
+</li>
+<li><p>Compute <strong>F-value:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+  F = \frac{49.34}{0.54} = 86.56
+  \]</div>
+</li>
+</ul>
+<p><strong>Step 6: Decision</strong></p>
+<ul class="simple">
+<li><p>Since 86.56 &gt; 3.5546 → Reject H₀.</p></li>
+<li><p>✅ Conclusion: There is a <strong>significant difference</strong> between at least one of the dosage groups.</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Source</p></th>
+<th class="head"><p>SS</p></th>
+<th class="head"><p>df</p></th>
+<th class="head"><p>MS</p></th>
+<th class="head"><p>F</p></th>
+<th class="head"><p>F-critical</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Between Groups</p></td>
+<td><p>98.67</p></td>
+<td><p>2</p></td>
+<td><p>49.34</p></td>
+<td><p>86.56</p></td>
+<td><p>3.55</p></td>
+</tr>
+<tr class="row-odd"><td><p>Within Groups</p></td>
+<td><p>10.29</p></td>
+<td><p>18</p></td>
+<td><p>0.54</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-even"><td><p>Total</p></td>
+<td><p>108.96</p></td>
+<td><p>20</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p><strong>Key Takeaways</strong></p>
+<ul class="simple">
+<li><p>ANOVA compares <strong>means of multiple groups</strong> using <strong>variance</strong>.</p></li>
+<li><p>The <strong>F-statistic</strong> = variance between groups ÷ variance within groups.</p></li>
+<li><p>Decision is based on <strong>critical value from F-table</strong>.</p></li>
+<li><p>In the example: medication dosage significantly affects headache relief.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "py12"
+        },
+        kernelOptions: {
+            name: "py12",
+            path: "./content\statistics\inferential"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'py12'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="09_part.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chi-Square Test (Goodness of Fit)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="11_part.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Central Limit Theorem (CLT)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ANOVA (Analysis of Variance)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">1. Definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-important">2. Why Important?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components-of-anova">3. Key Components of ANOVA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factor-levels-examples">4. Factor &amp; Levels Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">5. What’s Next?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-of-anova">Assumptions of ANOVA</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-anova">Types of ANOVA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-in-anova">Hypothesis Testing in ANOVA</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem">4. Example Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-in-one-way-anova">5. Steps in One-Way ANOVA</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
