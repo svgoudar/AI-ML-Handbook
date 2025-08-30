@@ -775,37 +775,47 @@ y = F_n x
 <h2><a class="toc-backref" href="#id11" role="doc-backlink">Summary of Vector Relevance Across Decompositions</a><a class="headerlink" href="#summary-of-vector-relevance-across-decompositions" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Decomposition</p></th>
-<th class="head"><p>Vector Perspective</p></th>
+<tr class="row-odd"><th class="head"><p><strong>Decomposition</strong></p></th>
+<th class="head"><p><strong>Vector Perspective</strong></p></th>
+<th class="head"><p><strong>ML Context (Use Cases)</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>LU</p></td>
-<td><p>Reveals row interactions; simplifies solving <code class="docutils literal notranslate"><span class="pre">Ax</span> <span class="pre">=</span> <span class="pre">b</span></code></p></td>
+<tr class="row-even"><td><p><strong>LU</strong></p></td>
+<td><p>Reveals row interactions; simplifies solving <span class="math notranslate nohighlight">\(Ax = b\)</span></p></td>
+<td><p>Numerical optimization (solving linear systems inside algorithms like Newton’s method)</p></td>
 </tr>
-<tr class="row-odd"><td><p>QR</p></td>
+<tr class="row-odd"><td><p><strong>QR</strong></p></td>
 <td><p>Produces orthonormal basis for column space; solves least squares</p></td>
+<td><p>Linear regression (least squares), orthogonalization, Gram-Schmidt for stability</p></td>
 </tr>
-<tr class="row-even"><td><p>SVD</p></td>
+<tr class="row-even"><td><p><strong>SVD</strong></p></td>
 <td><p>Maps orthonormal vectors in row space to column space with scaling</p></td>
+<td><p>PCA, Latent Semantic Analysis (NLP), recommender systems, low-rank approximations/model compression</p></td>
 </tr>
-<tr class="row-odd"><td><p>Eigen</p></td>
-<td><p>Shows invariant directions (eigenvectors) scaled by eigenvalues</p></td>
+<tr class="row-odd"><td><p><strong>Eigen</strong></p></td>
+<td><p>Shows invariant directions (eigenvectors scaled by eigenvalues)</p></td>
+<td><p>PCA (via covariance matrix), spectral clustering, graph embeddings, stability analysis in optimization</p></td>
 </tr>
-<tr class="row-even"><td><p>Cholesky</p></td>
+<tr class="row-even"><td><p><strong>Cholesky</strong></p></td>
 <td><p>Decomposes quadratic forms into orthogonal contributions</p></td>
+<td><p>Gaussian Processes (kernel matrix), Bayesian inference, covariance decomposition, multivariate normal sampling</p></td>
 </tr>
-<tr class="row-odd"><td><p>Polar</p></td>
+<tr class="row-odd"><td><p><strong>Polar</strong></p></td>
 <td><p>Separates rotation and stretch applied to vectors</p></td>
+<td><p>Computer vision (image alignment, motion analysis), geometry-based ML, regularization in deep learning</p></td>
 </tr>
-<tr class="row-even"><td><p>Jordan</p></td>
+<tr class="row-even"><td><p><strong>Jordan</strong></p></td>
 <td><p>Reveals generalized directions when eigenvectors are insufficient</p></td>
+<td><p>Theoretical: non-diagonalizable matrices, analyzing stability/dynamics in recurrent models</p></td>
 </tr>
-<tr class="row-odd"><td><p>Schur</p></td>
-<td><p>Triangularizes action of <code class="docutils literal notranslate"><span class="pre">A</span></code> on a new orthonormal basis</p></td>
+<tr class="row-odd"><td><p><strong>Schur</strong></p></td>
+<td><p>Triangularizes action of <span class="math notranslate nohighlight">\(A\)</span> on a new orthonormal basis</p></td>
+<td><p>Ensures numerical stability in solving matrix/differential equations in ML and control theory</p></td>
 </tr>
-<tr class="row-even"><td><p>FFT</p></td>
+<tr class="row-even"><td><p><strong>FFT</strong></p></td>
 <td><p>Projects vectors onto Fourier basis (frequency components)</p></td>
+<td><p>Signal processing, time-series analysis, spectral features, FFT-based convolution in deep learning</p></td>
 </tr>
 </tbody>
 </table>
