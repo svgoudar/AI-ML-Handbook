@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>📊 Statistics &#8212; My sample book</title>
+    <title>Regression &#8212; My sample book</title>
   
   
   
@@ -77,11 +77,9 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/statistics/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/statistics/02_part';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Overview" href="overview.html" />
-    <link rel="prev" title="🎯 Wrap up" href="../probability/q_and_a.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -143,6 +141,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -236,8 +236,8 @@
 </ul>
 </details></li>
 </ul>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">📊 Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">📊 Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="descriptive/index.html">Descriptive Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="descriptive/01_part.html">Measures of Central Tendency</a></li>
@@ -357,7 +357,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/statistics/index.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/statistics/02_part.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -405,7 +405,7 @@
       
       
       
-      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/statistics/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/statistics/02_part.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -435,7 +435,7 @@
       
       
       
-      <li><a href="../../_sources/content/statistics/index.ipynb" target="_blank"
+      <li><a href="../../_sources/content/statistics/02_part.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -506,7 +506,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -517,11 +519,26 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>📊 Statistics</h1>
+    <h1>Regression</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Regression</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-linear-regression-slr">Simple Linear Regression (SLR)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-linear-regression-mlr">Multiple Linear Regression (MLR)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-of-linear-regression">Assumptions of Linear Regression</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostics">Diagnostics</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -531,66 +548,202 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="statistics">
-<h1>📊 Statistics<a class="headerlink" href="#statistics" title="Link to this heading">#</a></h1>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Click here for Sections</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<div class="toctree-wrapper compound">
+  <section id="regression">
+<h1>Regression<a class="headerlink" href="#regression" title="Link to this heading">#</a></h1>
+<p>Regression is a <strong>statistical technique</strong> to model the relationship between a <strong>dependent variable (Y)</strong> and one or more <strong>independent variables (X’s)</strong>.
+It helps answer questions like: <em>“How does X affect Y?”</em> or <em>“Can we predict Y using X?”</em></p>
+<hr class="docutils" />
+<section id="simple-linear-regression-slr">
+<h2>Simple Linear Regression (SLR)<a class="headerlink" href="#simple-linear-regression-slr" title="Link to this heading">#</a></h2>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="descriptive/index.html">Descriptive Statistics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="descriptive/01_part.html">Measures of Central Tendency</a></li>
-<li class="toctree-l2"><a class="reference internal" href="descriptive/02_part.html">Measures of Dispersion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="descriptive/03_part.html">Bessel’s Correction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="descriptive/04_part.html">Random Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="descriptive/05_part.html">Percentage vs Percentile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="descriptive/06_part.html">Five Number Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="descriptive/07_part.html">Histogram and Skewness</a></li>
+<li><p><strong>Definition:</strong> Models the relationship between <strong>one independent variable (X)</strong> and <strong>one dependent variable (Y)</strong>.</p></li>
+<li><p><strong>Equation:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+  Y = \beta_0 + \beta_1X + \epsilon
+  \]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\beta_0\)</span> = intercept (value of Y when X=0)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta_1\)</span> = slope (change in Y for one-unit change in X)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\epsilon\)</span> = error term</p></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="inferential/index.html">Inferential Statistics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="inferential/01_part.html">Hypothesis Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/02_part.html">P-Value, CI and α</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/03_part.html">Hypothesis Testing with Z-test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/04_part.html">Student’s t-Distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/04_part.html#problem-statement">Problem Statement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/04_part.html#solution">Solution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/04_part.html#id1">Problem Statement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/04_part.html#solution-summary">Solution Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/04_part.html#decision-guide-t-test-vs-z-test">Decision Guide: t-Test vs Z-Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/05_part.html">Decision Guide: t-Test vs Z-Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/06_part.html">Type I and Type II Errors in Hypothesis Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/06_part.html#example-1-medical-testing">Example 1: Medical Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/06_part.html#example-2-quality-control-in-manufacturing">Example 2: Quality Control in Manufacturing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/06_part.html#example-3-exam-cheating-detection">Example 3: Exam Cheating Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/07_part.html">Bayesian Statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/07_part.html#independent-vs-dependent-events">Independent vs Dependent Events</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/07_part.html#bayes-theorem">Bayes Theorem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/07_part.html#importance-in-machine-learning-naive-bayes">Importance in Machine Learning (Naïve Bayes)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/08_part.html">Confidence Interval (CI) &amp; Margin of Error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/08_part.html#key-concepts">Key Concepts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/08_part.html#example-cat-exam-scores">Example (CAT Exam Scores)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/08_part.html#final-takeaway">Final Takeaway</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/09_part.html">Chi-Square Test (Goodness of Fit)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/10_part.html">ANOVA (Analysis of Variance)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/10_part.html#types-of-anova">Types of ANOVA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/10_part.html#hypothesis-testing-in-anova">Hypothesis Testing in ANOVA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inferential/11_part.html">Central Limit Theorem (CLT)</a></li>
+<li><p><strong>Example:</strong> Predicting weight (Y) from height (X).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="multiple-linear-regression-mlr">
+<h2>Multiple Linear Regression (MLR)<a class="headerlink" href="#multiple-linear-regression-mlr" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><strong>Definition:</strong> Models the relationship between <strong>two or more independent variables (X₁, X₂, …, Xn)</strong> and <strong>one dependent variable (Y)</strong>.</p></li>
+<li><p><strong>Equation:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+  Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \dots + \beta_nX_n + \epsilon
+  \]</div>
+</li>
+<li><p><strong>Example:</strong> Predicting house prices (Y) using features like area (X₁), number of bedrooms (X₂), and location score (X₃).</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+</section>
+<section id="assumptions-of-linear-regression">
+<h1>Assumptions of Linear Regression<a class="headerlink" href="#assumptions-of-linear-regression" title="Link to this heading">#</a></h1>
+<p>For regression to be valid and reliable, these assumptions must hold:</p>
+<ol class="arabic simple">
+<li><p><strong>Linearity</strong></p>
+<ul class="simple">
+<li><p>The relationship between independent and dependent variables should be <strong>linear</strong>.</p></li>
+<li><p>Example: If doubling advertising spend <em>does not</em> result in a proportional increase in sales, linearity is violated.</p></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="correlation/index.html">Correlation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="correlation/01_part.html">Covariance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="correlation/02_part.html">Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="correlation/03_part.html">Pearson Correlation Coefficient</a></li>
-<li class="toctree-l2"><a class="reference internal" href="correlation/04_part.html">Spearman’s Rank Correlation Coefficient (ρ or <em>rₛ</em>)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="correlation/05_part.html">Kendall’s Tau</a></li>
+<li><p><strong>Independence</strong></p>
+<ul class="simple">
+<li><p>Observations should be <strong>independent</strong> of each other.</p></li>
+<li><p>Example: If data points are repeated measures from the same subject without accounting for it, this assumption is violated.</p></li>
 </ul>
 </li>
+<li><p><strong>Homoscedasticity</strong></p>
+<ul class="simple">
+<li><p>The <strong>variance of residuals</strong> (errors) should be constant across all levels of X.</p></li>
+<li><p>If residuals fan out (increase with X), it’s called <strong>heteroscedasticity</strong>, which biases standard errors.</p></li>
 </ul>
+</li>
+</ol>
+<hr class="docutils" />
+</section>
+<section id="diagnostics">
+<h1>Diagnostics<a class="headerlink" href="#diagnostics" title="Link to this heading">#</a></h1>
+<p>Once a regression model is built, diagnostics are used to check quality and validity.</p>
+<ol class="arabic simple">
+<li><p><strong>R² (Coefficient of Determination)</strong></p>
+<ul class="simple">
+<li><p>Measures how much of the variation in Y is explained by X’s.</p></li>
+<li><p>Value ranges from 0 to 1.</p>
+<ul>
+<li><p>R² = 0 → model explains nothing</p></li>
+<li><p>R² = 1 → model explains everything</p></li>
+</ul>
+</li>
+<li><p>Example: R² = 0.8 means 80% of variance in Y is explained by predictors.</p></li>
+</ul>
+</li>
+<li><p><strong>Residuals Analysis</strong></p>
+<ul class="simple">
+<li><p>Residuals = observed value – predicted value.</p></li>
+<li><p>Ideally, residuals should be:</p>
+<ul>
+<li><p>Randomly scattered (no pattern)</p></li>
+<li><p>Mean close to 0</p></li>
+</ul>
+</li>
+<li><p>Residual plots help check <strong>linearity</strong>, <strong>homoscedasticity</strong>, and <strong>normality of errors</strong>.</p></li>
+</ul>
+</li>
+<li><p><strong>Overfitting</strong></p>
+<ul class="simple">
+<li><p>Model learns <strong>noise</strong> along with the signal.</p></li>
+<li><p>High accuracy on training data but poor performance on new/test data.</p></li>
+<li><p>Example: A regression model with too many predictors (polynomials, interactions) may overfit.</p></li>
+</ul>
+</li>
+<li><p><strong>Underfitting</strong></p>
+<ul class="simple">
+<li><p>Model is too <strong>simple</strong> to capture relationships.</p></li>
+<li><p>Low accuracy on both training and test data.</p></li>
+<li><p>Example: Using only one predictor for a problem where multiple predictors matter.</p></li>
+</ul>
+</li>
+</ol>
+<hr class="docutils" />
+<p><strong>In summary:</strong></p>
+<ul class="simple">
+<li><p><strong>SLR</strong> → one predictor, one response.</p></li>
+<li><p><strong>MLR</strong> → multiple predictors.</p></li>
+<li><p><strong>Assumptions</strong> ensure statistical validity.</p></li>
+<li><p><strong>Diagnostics (R², residuals, over/underfitting)</strong> ensure model quality.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">PolynomialFeatures</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>  <span class="c1"># Added for KDE plot</span>
+
+<span class="c1"># Generate synthetic dataset</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">X</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># --- Plot 1: Simple Linear Regression ---</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Regression Line&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Simple Linear Regression&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># --- Plot 2: Residuals Analysis with KDE ---</span>
+<span class="n">residuals</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">y_pred</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">residuals</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Residuals&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;KDE of Residuals&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">twinx</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Residuals Plot with KDE&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Predicted values&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Residuals&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+
+<span class="c1"># --- Plot 3: Underfitting Example ---</span>
+<span class="c1"># True relationship is quadratic, but fitting linear model</span>
+<span class="n">y_true_quad</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">X</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">X</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">lin_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">lin_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_true_quad</span><span class="p">)</span>
+<span class="n">y_underfit</span> <span class="o">=</span> <span class="n">lin_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_true_quad</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;True Data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_underfit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Linear Fit (Underfit)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Underfitting Example&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># --- Plot 4: Overfitting Example ---</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">X_poly</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">poly_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">poly_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_poly</span><span class="p">,</span> <span class="n">y_true_quad</span><span class="p">)</span>
+<span class="n">y_overfit</span> <span class="o">=</span> <span class="n">poly_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_poly</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_true_quad</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;True Data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_overfit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;15th Degree Polynomial (Overfit)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Overfitting Example&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
 </div>
-</details></section>
+<div class="cell_output docutils container">
+<img alt="../../_images/e4e72046c1c86ad1169c488e48656088183863a037581dfa17b63ed004a4772c.png" src="../../_images/e4e72046c1c86ad1169c488e48656088183863a037581dfa17b63ed004a4772c.png" />
+</div>
+</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -622,30 +775,34 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="../probability/q_and_a.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">🎯 Wrap up</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="overview.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Overview</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Regression</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-linear-regression-slr">Simple Linear Regression (SLR)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-linear-regression-mlr">Multiple Linear Regression (MLR)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-of-linear-regression">Assumptions of Linear Regression</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostics">Diagnostics</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>

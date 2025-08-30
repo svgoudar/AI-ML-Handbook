@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Correlation and Covariance &#8212; My sample book</title>
+    <title>Parametric vs. Non-Parametric Tests &#8212; My sample book</title>
   
   
   
@@ -247,16 +247,6 @@
 <li class="toctree-l3"><a class="reference internal" href="descriptive/05_part.html">Percentage vs Percentile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="descriptive/06_part.html">Five Number Summary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="descriptive/07_part.html">Histogram and Skewness</a></li>
-<li class="toctree-l3"><a class="reference internal" href="descriptive/08_part.html">Covariance</a></li>
-
-</ul>
-</details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="correlation/index.html">Correlation Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="correlation/01_part.html">Covariance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="correlation/02_part.html">Correlation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="correlation/03_part.html">Pearson Correlation Coefficient</a></li>
-<li class="toctree-l3"><a class="reference internal" href="correlation/04_part.html">Spearman’s Rank Correlation Coefficient (ρ or <em>rₛ</em>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="correlation/05_part.html">Kendall’s Tau</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -287,6 +277,14 @@
 
 
 <li class="toctree-l3"><a class="reference internal" href="inferential/11_part.html">Central Limit Theorem (CLT)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="correlation/index.html">Correlation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="correlation/01_part.html">Covariance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="correlation/02_part.html">Correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="correlation/03_part.html">Pearson Correlation Coefficient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="correlation/04_part.html">Spearman’s Rank Correlation Coefficient (ρ or <em>rₛ</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="correlation/05_part.html">Kendall’s Tau</a></li>
 </ul>
 </details></li>
 </ul>
@@ -521,7 +519,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Correlation and Covariance</h1>
+    <h1>Parametric vs. Non-Parametric Tests</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -531,12 +529,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Correlation and Covariance</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">Regression</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-assumptions">Regression Assumptions</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostics">Diagnostics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-tests">Parametric Tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-parametric-tests">Non-Parametric Tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-difference-summary">Key Difference Summary</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -547,124 +543,111 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="correlation-and-covariance">
-<h1>Correlation and Covariance<a class="headerlink" href="#correlation-and-covariance" title="Link to this heading">#</a></h1>
-<p><strong>Correlation</strong></p>
-<ul class="simple">
-<li><p>Measures strength and direction of relationship between two variables.</p></li>
-<li><p>Range: <span class="math notranslate nohighlight">\(-1\)</span> to <span class="math notranslate nohighlight">\(+1\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(+1\)</span>: perfect positive relation, <span class="math notranslate nohighlight">\(-1\)</span>: perfect negative relation, <span class="math notranslate nohighlight">\(0\)</span>: no linear relation.</p></li>
-</ul>
-<p><strong>Pearson Correlation</strong></p>
-<ul class="simple">
-<li><p>Assumes linear relationship and continuous variables.</p></li>
-<li><p>Formula:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[
-r = \frac{\text{Cov}(X,Y)}{\sigma_X \sigma_Y}
-\]</div>
-<ul class="simple">
-<li><p>Sensitive to outliers.</p></li>
-</ul>
-<p><strong>Spearman Correlation</strong></p>
-<ul class="simple">
-<li><p>Rank-based, non-parametric.</p></li>
-<li><p>Measures monotonic relationship (increasing or decreasing, not necessarily linear).</p></li>
-<li><p>Works with ordinal or non-normal data.</p></li>
-</ul>
-<p><strong>Covariance</strong></p>
-<ul class="simple">
-<li><p>Raw measure of how two variables vary together.</p></li>
-<li><p>Formula:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[
-\text{Cov}(X,Y) = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{n-1}
-\]</div>
-<ul class="simple">
-<li><p>Positive: move together, negative: move oppositely.</p></li>
-<li><p>Units depend on variables, so less interpretable than correlation.</p></li>
-</ul>
+  <section id="parametric-vs-non-parametric-tests">
+<h1>Parametric vs. Non-Parametric Tests<a class="headerlink" href="#parametric-vs-non-parametric-tests" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
-</section>
-<section id="regression">
-<h1>Regression<a class="headerlink" href="#regression" title="Link to this heading">#</a></h1>
-<p><strong>Simple Linear Regression</strong></p>
+<section id="parametric-tests">
+<h2>Parametric Tests<a class="headerlink" href="#parametric-tests" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>One predictor <span class="math notranslate nohighlight">\(X\)</span> and one response <span class="math notranslate nohighlight">\(Y\)</span>.</p></li>
-<li><p>Equation:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[
-Y = \beta_0 + \beta_1 X + \epsilon
-\]</div>
-<ul class="simple">
-<li><p>Goal: estimate <span class="math notranslate nohighlight">\(\beta_0\)</span> (intercept) and <span class="math notranslate nohighlight">\(\beta_1\)</span> (slope).</p></li>
-</ul>
-<p><strong>Multiple Linear Regression</strong></p>
-<ul class="simple">
-<li><p>Multiple predictors <span class="math notranslate nohighlight">\(X_1, X_2, \dots, X_k\)</span>.</p></li>
-<li><p>Equation:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[
-Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \dots + \beta_kX_k + \epsilon
-\]</div>
-<ul class="simple">
-<li><p>Captures combined effects of multiple variables.</p></li>
-</ul>
-<hr class="docutils" />
-</section>
-<section id="regression-assumptions">
-<h1>Regression Assumptions<a class="headerlink" href="#regression-assumptions" title="Link to this heading">#</a></h1>
-<ol class="arabic simple">
-<li><p><strong>Linearity</strong></p>
-<ul class="simple">
-<li><p>Relationship between predictors and response is linear.</p></li>
-<li><p>Checked via scatterplots or residual plots.</p></li>
+<li><p><strong>Definition:</strong> Statistical tests that assume the data follows a specific probability distribution, usually the <strong>normal distribution</strong>.</p></li>
+<li><p><strong>Requirements/Assumptions:</strong></p>
+<ul>
+<li><p>Data should be on an <strong>interval or ratio scale</strong>.</p></li>
+<li><p>Data should be approximately <strong>normally distributed</strong>.</p></li>
+<li><p><strong>Homogeneity of variance</strong> (equal variances across groups).</p></li>
+<li><p>Observations are <strong>independent</strong>.</p></li>
 </ul>
 </li>
-<li><p><strong>Independence</strong></p>
-<ul class="simple">
-<li><p>Errors (residuals) are independent.</p></li>
-<li><p>Violations common in time series (autocorrelation).</p></li>
+<li><p><strong>Examples:</strong></p>
+<ul>
+<li><p><strong>t-test</strong> (one-sample, two-sample, paired)</p></li>
+<li><p><strong>ANOVA</strong> (Analysis of Variance)</p></li>
+<li><p><strong>Pearson correlation</strong></p></li>
+<li><p><strong>Linear regression</strong></p></li>
 </ul>
 </li>
-<li><p><strong>Homoscedasticity</strong></p>
-<ul class="simple">
-<li><p>Constant variance of errors across levels of predictors.</p></li>
-<li><p>If violated → heteroscedasticity (errors spread differently).</p></li>
+<li><p><strong>Advantages:</strong></p>
+<ul>
+<li><p>More powerful (detects smaller effects).</p></li>
+<li><p>Provides estimates like means and standard deviations.</p></li>
 </ul>
 </li>
-</ol>
-<hr class="docutils" />
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p>Not robust to violations of assumptions (normality, equal variance).</p></li>
+</ul>
+</li>
+</ul>
 </section>
-<section id="diagnostics">
-<h1>Diagnostics<a class="headerlink" href="#diagnostics" title="Link to this heading">#</a></h1>
-<p><strong>R² (Coefficient of Determination)</strong></p>
+<hr class="docutils" />
+<section id="non-parametric-tests">
+<h2>Non-Parametric Tests<a class="headerlink" href="#non-parametric-tests" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Proportion of variance in <span class="math notranslate nohighlight">\(Y\)</span> explained by predictors.</p></li>
-<li><p>Range: <span class="math notranslate nohighlight">\(0 \leq R^2 \leq 1\)</span>.</p></li>
-<li><p>High <span class="math notranslate nohighlight">\(R^2\)</span> ≠ good model (could be overfit).</p></li>
+<li><p><strong>Definition:</strong> Statistical tests that do <strong>not assume a specific distribution</strong> of the data.</p></li>
+<li><p><strong>When used:</strong></p>
+<ul>
+<li><p>Data is <strong>ordinal</strong> (ranked) or <strong>nominal</strong>.</p></li>
+<li><p>Data is <strong>not normally distributed</strong>.</p></li>
+<li><p>Small sample sizes.</p></li>
+<li><p>Presence of <strong>outliers</strong> or skewed data.</p></li>
 </ul>
-<p><strong>Residuals Analysis</strong></p>
-<ul class="simple">
-<li><p>Residual = observed <span class="math notranslate nohighlight">\(-\)</span> predicted.</p></li>
-<li><p>Plots used to check assumptions: randomness, constant variance, no patterns.</p></li>
+</li>
+<li><p><strong>Examples:</strong></p>
+<ul>
+<li><p><strong>Mann–Whitney U test</strong> (non-parametric alternative to independent t-test)</p></li>
+<li><p><strong>Wilcoxon signed-rank test</strong> (alternative to paired t-test)</p></li>
+<li><p><strong>Kruskal–Wallis test</strong> (alternative to one-way ANOVA)</p></li>
+<li><p><strong>Spearman’s rank correlation</strong> or <strong>Kendall’s tau</strong> (alternative to Pearson correlation)</p></li>
 </ul>
-<p><strong>Overfitting</strong></p>
-<ul class="simple">
-<li><p>Model captures noise along with signal.</p></li>
-<li><p>High training accuracy, poor generalization.</p></li>
-<li><p>Often from too many predictors or overly complex models.</p></li>
+</li>
+<li><p><strong>Advantages:</strong></p>
+<ul>
+<li><p>No strict distributional assumptions.</p></li>
+<li><p>Robust against outliers.</p></li>
 </ul>
-<p><strong>Underfitting</strong></p>
-<ul class="simple">
-<li><p>Model too simple, misses important patterns.</p></li>
-<li><p>Low training and testing accuracy.</p></li>
-<li><p>Often from ignoring nonlinear terms or interactions.</p></li>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p>Less powerful compared to parametric tests when assumptions of parametric tests are met.</p></li>
+<li><p>Results often expressed in terms of <strong>ranks</strong> rather than means.</p></li>
 </ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="key-difference-summary">
+<h2>Key Difference Summary<a class="headerlink" href="#key-difference-summary" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Parametric Tests</p></th>
+<th class="head"><p>Non-Parametric Tests</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Distribution assumption</p></td>
+<td><p>Assumes normal distribution</p></td>
+<td><p>No distribution assumption</p></td>
+</tr>
+<tr class="row-odd"><td><p>Data type</p></td>
+<td><p>Interval or ratio</p></td>
+<td><p>Ordinal, nominal, interval, ratio</p></td>
+</tr>
+<tr class="row-even"><td><p>Examples</p></td>
+<td><p>t-test, ANOVA, Pearson</p></td>
+<td><p>Mann-Whitney, Kruskal-Wallis, Spearman</p></td>
+</tr>
+<tr class="row-odd"><td><p>Power</p></td>
+<td><p>Higher (if assumptions met)</p></td>
+<td><p>Lower</p></td>
+</tr>
+<tr class="row-even"><td><p>Robustness</p></td>
+<td><p>Sensitive to violations of assumptions</p></td>
+<td><p>Robust to outliers and skewed data</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -784,6 +767,7 @@ Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \dots + \beta_kX_k + \epsilon
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -831,12 +815,10 @@ Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \dots + \beta_kX_k + \epsilon
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Correlation and Covariance</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">Regression</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-assumptions">Regression Assumptions</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostics">Diagnostics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-tests">Parametric Tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-parametric-tests">Non-Parametric Tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-difference-summary">Key Difference Summary</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
