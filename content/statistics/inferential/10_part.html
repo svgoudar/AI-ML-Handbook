@@ -247,8 +247,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../descriptive/05_part.html">Percentage vs Percentile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../descriptive/06_part.html">Five Number Summary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../descriptive/07_part.html">Histogram and Skewness</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../descriptive/08_part.html">Covariance</a></li>
-
 </ul>
 </details></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Inferential Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -256,31 +254,27 @@
 <li class="toctree-l3"><a class="reference internal" href="02_part.html">P-Value, CI and α</a></li>
 <li class="toctree-l3"><a class="reference internal" href="03_part.html">Hypothesis Testing with Z-test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="04_part.html">Student’s t-Distribution</a></li>
-
-
-
-
-
-<li class="toctree-l3"><a class="reference internal" href="05_part.html">Decision Guide: t-Test vs Z-Test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="06_part.html">Type I and Type II Errors in Hypothesis Testing</a></li>
-
-
-
 <li class="toctree-l3"><a class="reference internal" href="07_part.html">Bayesian Statistics</a></li>
-
-
-
 <li class="toctree-l3"><a class="reference internal" href="08_part.html">Confidence Interval (CI) &amp; Margin of Error</a></li>
-
-
-
 <li class="toctree-l3"><a class="reference internal" href="09_part.html">Chi-Square Test (Goodness of Fit)</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">ANOVA (Analysis of Variance)</a></li>
-
 
 <li class="toctree-l3"><a class="reference internal" href="11_part.html">Central Limit Theorem (CLT)</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../correlation/index.html">Correlation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../correlation/01_part.html">Covariance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../correlation/02_part.html">Correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../correlation/03_part.html">Pearson Correlation Coefficient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../correlation/04_part.html">Spearman’s Rank Correlation Coefficient (ρ or <em>rₛ</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../correlation/05_part.html">Kendall’s Tau</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_part.html">Parametric vs. Non-Parametric Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_part.html">Regression</a></li>
+
+
 </ul>
 </details></li>
 </ul>
@@ -294,6 +288,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/06_part.html">Inverse Functions &amp; Identity Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/07_part.html">Eigenvectors and Eigenvalues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/08_part.html">Line, Plane and Hyperplane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/09_part.html">Matrix Decomposition</a></li>
 </ul>
 </details></li>
 </ul>
@@ -529,9 +524,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factor-levels-examples">4. Factor &amp; Levels Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">5. What’s Next?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-of-anova">Assumptions of ANOVA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-anova">Types of ANOVA</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-anova">Types of ANOVA</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-in-anova">Hypothesis Testing in ANOVA</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem">4. Example Problem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-in-one-way-anova">5. Steps in One-Way ANOVA</a></li>
@@ -560,9 +555,9 @@ document.write(`
 <li><p><a class="reference internal" href="#factor-levels-examples" id="id5">4. Factor &amp; Levels Examples</a></p></li>
 <li><p><a class="reference internal" href="#whats-next" id="id6">5. What’s Next?</a></p></li>
 <li><p><a class="reference internal" href="#assumptions-of-anova" id="id7">Assumptions of ANOVA</a></p></li>
+<li><p><a class="reference internal" href="#types-of-anova" id="id8">Types of ANOVA</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#types-of-anova" id="id8">Types of ANOVA</a></p></li>
 <li><p><a class="reference internal" href="#hypothesis-testing-in-anova" id="id9">Hypothesis Testing in ANOVA</a></p>
 <ul>
 <li><p><a class="reference internal" href="#example-problem" id="id10">4. Example Problem</a></p></li>
@@ -695,9 +690,8 @@ ANOVA works reliably only when:</p>
 <li><p>Samples are independent and randomly drawn.</p></li>
 </ul>
 </section>
-</section>
 <section id="types-of-anova">
-<h1><a class="toc-backref" href="#id8" role="doc-backlink">Types of ANOVA</a><a class="headerlink" href="#types-of-anova" title="Link to this heading">#</a></h1>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Types of ANOVA</a><a class="headerlink" href="#types-of-anova" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>One-Way ANOVA</strong></p></li>
 </ol>
@@ -745,6 +739,7 @@ ANOVA works reliably only when:</p>
 <li><p><strong>Repeated Measures ANOVA</strong> → One factor, dependent levels</p></li>
 <li><p><strong>Factorial ANOVA</strong> → Two or more factors, each with ≥ 2 levels (independent or dependent)</p></li>
 </ul>
+</section>
 </section>
 <section id="hypothesis-testing-in-anova">
 <h1><a class="toc-backref" href="#id9" role="doc-backlink">Hypothesis Testing in ANOVA</a><a class="headerlink" href="#hypothesis-testing-in-anova" title="Link to this heading">#</a></h1>
@@ -950,9 +945,9 @@ At least one mean is not equal.</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factor-levels-examples">4. Factor &amp; Levels Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">5. What’s Next?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-of-anova">Assumptions of ANOVA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-anova">Types of ANOVA</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-anova">Types of ANOVA</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-in-anova">Hypothesis Testing in ANOVA</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem">4. Example Problem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-in-one-way-anova">5. Steps in One-Way ANOVA</a></li>

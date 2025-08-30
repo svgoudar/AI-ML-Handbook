@@ -80,7 +80,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/statistics/inferential/04_part';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Decision Guide: t-Test vs Z-Test" href="05_part.html" />
+    <link rel="next" title="Type I and Type II Errors in Hypothesis Testing" href="06_part.html" />
     <link rel="prev" title="Hypothesis Testing with Z-test" href="03_part.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -247,8 +247,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../descriptive/05_part.html">Percentage vs Percentile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../descriptive/06_part.html">Five Number Summary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../descriptive/07_part.html">Histogram and Skewness</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../descriptive/08_part.html">Covariance</a></li>
-
 </ul>
 </details></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Inferential Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -256,31 +254,27 @@
 <li class="toctree-l3"><a class="reference internal" href="02_part.html">P-Value, CI and α</a></li>
 <li class="toctree-l3"><a class="reference internal" href="03_part.html">Hypothesis Testing with Z-test</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Student’s t-Distribution</a></li>
-
-
-
-
-
-<li class="toctree-l3"><a class="reference internal" href="05_part.html">Decision Guide: t-Test vs Z-Test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="06_part.html">Type I and Type II Errors in Hypothesis Testing</a></li>
-
-
-
 <li class="toctree-l3"><a class="reference internal" href="07_part.html">Bayesian Statistics</a></li>
-
-
-
 <li class="toctree-l3"><a class="reference internal" href="08_part.html">Confidence Interval (CI) &amp; Margin of Error</a></li>
-
-
-
 <li class="toctree-l3"><a class="reference internal" href="09_part.html">Chi-Square Test (Goodness of Fit)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="10_part.html">ANOVA (Analysis of Variance)</a></li>
-
 
 <li class="toctree-l3"><a class="reference internal" href="11_part.html">Central Limit Theorem (CLT)</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../correlation/index.html">Correlation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../correlation/01_part.html">Covariance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../correlation/02_part.html">Correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../correlation/03_part.html">Pearson Correlation Coefficient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../correlation/04_part.html">Spearman’s Rank Correlation Coefficient (ρ or <em>rₛ</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../correlation/05_part.html">Kendall’s Tau</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_part.html">Parametric vs. Non-Parametric Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_part.html">Regression</a></li>
+
+
 </ul>
 </details></li>
 </ul>
@@ -294,6 +288,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/06_part.html">Inverse Functions &amp; Identity Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/07_part.html">Eigenvectors and Eigenvalues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/08_part.html">Line, Plane and Hyperplane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/09_part.html">Matrix Decomposition</a></li>
 </ul>
 </details></li>
 </ul>
@@ -522,22 +517,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Student’s t-Distribution</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-statement">Problem Statement</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-statement">Problem Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-set-up-hypotheses">Step 1: Set Up Hypotheses</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-determine-test-statistic">Step 2: Determine Test Statistic</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-calculate-t-value">Step 3: Calculate t-value</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-determine-critical-t-value">Step 4: Determine Critical t-value</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-compare-t-value-with-t-critical">Step 5: Compare t-value with t-critical</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-conclusion">Step 6: Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Problem Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-summary">Solution Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-guide-t-test-vs-z-test">Decision Guide: t-Test vs Z-Test</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Problem Statement</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-summary">Solution Summary</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-guide-t-test-vs-z-test">Decision Guide: t-Test vs Z-Test</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -551,21 +542,21 @@ document.write(`
   <nav class="contents" id="contents" role="doc-toc">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#students-t-distribution" id="id2">Student’s t-Distribution</a></p></li>
-<li><p><a class="reference internal" href="#problem-statement" id="id3">Problem Statement</a></p></li>
-<li><p><a class="reference internal" href="#solution" id="id4">Solution</a></p>
+<li><p><a class="reference internal" href="#students-t-distribution" id="id2">Student’s t-Distribution</a></p>
 <ul>
+<li><p><a class="reference internal" href="#problem-statement" id="id3">Problem Statement</a></p></li>
+<li><p><a class="reference internal" href="#solution" id="id4">Solution</a></p></li>
 <li><p><a class="reference internal" href="#step-1-set-up-hypotheses" id="id5">Step 1: Set Up Hypotheses</a></p></li>
 <li><p><a class="reference internal" href="#step-2-determine-test-statistic" id="id6">Step 2: Determine Test Statistic</a></p></li>
 <li><p><a class="reference internal" href="#step-3-calculate-t-value" id="id7">Step 3: Calculate t-value</a></p></li>
 <li><p><a class="reference internal" href="#step-4-determine-critical-t-value" id="id8">Step 4: Determine Critical t-value</a></p></li>
 <li><p><a class="reference internal" href="#step-5-compare-t-value-with-t-critical" id="id9">Step 5: Compare t-value with t-critical</a></p></li>
 <li><p><a class="reference internal" href="#step-6-conclusion" id="id10">Step 6: Conclusion</a></p></li>
-</ul>
-</li>
 <li><p><a class="reference internal" href="#id1" id="id11">Problem Statement</a></p></li>
 <li><p><a class="reference internal" href="#solution-summary" id="id12">Solution Summary</a></p></li>
 <li><p><a class="reference internal" href="#decision-guide-t-test-vs-z-test" id="id13">Decision Guide: t-Test vs Z-Test</a></p></li>
+</ul>
+</li>
 </ul>
 </nav>
 <section id="students-t-distribution">
@@ -618,9 +609,8 @@ document.write(`
 </ul>
 </li>
 </ol>
-</section>
 <section id="problem-statement">
-<h1><a class="toc-backref" href="#id3" role="doc-backlink">Problem Statement</a><a class="headerlink" href="#problem-statement" title="Link to this heading">#</a></h1>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Problem Statement</a><a class="headerlink" href="#problem-statement" title="Link to this heading">#</a></h2>
 <p>A nutritionist claims that a new diet plan helps reduce weight by an average of <strong>5 kg</strong> in one month. To verify this, a sample of <strong>10 participants</strong> follows the diet plan for a month. At the end of the month, the sample shows an <strong>average weight loss of 4.2 kg</strong> with a <strong>sample standard deviation of 0.8 kg</strong>.</p>
 <p><strong>Question:</strong> At a <strong>5% significance level</strong>, can we conclude that the diet plan reduces weight by <strong>less than the claimed 5 kg</strong>?</p>
 <p><strong>Notes:</strong></p>
@@ -628,10 +618,11 @@ document.write(`
 <li><p>Population standard deviation is <strong>unknown</strong>.</p></li>
 <li><p>Use <strong>Student’s t-test</strong> (one-tailed, left-tailed test).</p></li>
 </ul>
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="solution">
-<h1><a class="toc-backref" href="#id4" role="doc-backlink">Solution</a><a class="headerlink" href="#solution" title="Link to this heading">#</a></h1>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Solution</a><a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
+</section>
 <section id="step-1-set-up-hypotheses">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">Step 1: Set Up Hypotheses</a><a class="headerlink" href="#step-1-set-up-hypotheses" title="Link to this heading">#</a></h2>
 <p>Since we want to test if the <strong>weight loss is less than 5 kg</strong>, this is a <strong>left-tailed t-test</strong>:</p>
@@ -739,9 +730,8 @@ t_{calculated} = -3.16 \quad \text{vs} \quad t_{critical} = -1.833
 </table>
 </div>
 </section>
-</section>
 <section id="id1">
-<h1><a class="toc-backref" href="#id11" role="doc-backlink">Problem Statement</a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Problem Statement</a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>A team of researchers wants to test a new medication to see if it has an effect on intelligence. The population average IQ is <strong>100</strong>. A sample of <strong>30 participants</strong> who took the medication has a mean IQ of <strong>140</strong> with a <strong>sample standard deviation of 20</strong>.</p>
 <p><strong>Question:</strong> At a <strong>95% confidence level (α = 0.05)</strong>, can we conclude that the medication affects intelligence?</p>
 <ul class="simple">
@@ -752,10 +742,10 @@ t_{calculated} = -3.16 \quad \text{vs} \quad t_{critical} = -1.833
 </ul>
 </li>
 </ul>
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="solution-summary">
-<h1><a class="toc-backref" href="#id12" role="doc-backlink">Solution Summary</a><a class="headerlink" href="#solution-summary" title="Link to this heading">#</a></h1>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Solution Summary</a><a class="headerlink" href="#solution-summary" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>Hypotheses</strong></p>
 <ul class="simple">
@@ -811,7 +801,7 @@ t = \frac{\bar{X} - \mu}{s / \sqrt{n}} = \frac{140 - 100}{20 / \sqrt{30}} \appro
 </ul>
 </section>
 <section id="decision-guide-t-test-vs-z-test">
-<h1><a class="toc-backref" href="#id13" role="doc-backlink">Decision Guide: t-Test vs Z-Test</a><a class="headerlink" href="#decision-guide-t-test-vs-z-test" title="Link to this heading">#</a></h1>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Decision Guide: t-Test vs Z-Test</a><a class="headerlink" href="#decision-guide-t-test-vs-z-test" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Do you know the <strong>population standard deviation (σ)?</strong></p>
 <ul>
@@ -841,6 +831,7 @@ t = \frac{\bar{X} - \mu}{s / \sqrt{n}} = \frac{140 - 100}{20 / \sqrt{30}} \appro
 </ul>
 </li>
 </ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -883,11 +874,11 @@ t = \frac{\bar{X} - \mu}{s / \sqrt{n}} = \frac{140 - 100}{20 / \sqrt{30}} \appro
       </div>
     </a>
     <a class="right-next"
-       href="05_part.html"
+       href="06_part.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Decision Guide: t-Test vs Z-Test</p>
+        <p class="prev-next-title">Type I and Type II Errors in Hypothesis Testing</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -907,22 +898,18 @@ t = \frac{\bar{X} - \mu}{s / \sqrt{n}} = \frac{140 - 100}{20 / \sqrt{30}} \appro
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Student’s t-Distribution</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-statement">Problem Statement</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-statement">Problem Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-set-up-hypotheses">Step 1: Set Up Hypotheses</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-determine-test-statistic">Step 2: Determine Test Statistic</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-calculate-t-value">Step 3: Calculate t-value</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-determine-critical-t-value">Step 4: Determine Critical t-value</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-compare-t-value-with-t-critical">Step 5: Compare t-value with t-critical</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-conclusion">Step 6: Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Problem Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-summary">Solution Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-guide-t-test-vs-z-test">Decision Guide: t-Test vs Z-Test</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Problem Statement</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-summary">Solution Summary</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-guide-t-test-vs-z-test">Decision Guide: t-Test vs Z-Test</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>

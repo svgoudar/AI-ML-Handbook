@@ -81,7 +81,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Bayesian Statistics" href="07_part.html" />
-    <link rel="prev" title="Decision Guide: t-Test vs Z-Test" href="05_part.html" />
+    <link rel="prev" title="Student’s t-Distribution" href="04_part.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -247,8 +247,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../descriptive/05_part.html">Percentage vs Percentile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../descriptive/06_part.html">Five Number Summary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../descriptive/07_part.html">Histogram and Skewness</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../descriptive/08_part.html">Covariance</a></li>
-
 </ul>
 </details></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Inferential Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -256,31 +254,27 @@
 <li class="toctree-l3"><a class="reference internal" href="02_part.html">P-Value, CI and α</a></li>
 <li class="toctree-l3"><a class="reference internal" href="03_part.html">Hypothesis Testing with Z-test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="04_part.html">Student’s t-Distribution</a></li>
-
-
-
-
-
-<li class="toctree-l3"><a class="reference internal" href="05_part.html">Decision Guide: t-Test vs Z-Test</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Type I and Type II Errors in Hypothesis Testing</a></li>
-
-
-
 <li class="toctree-l3"><a class="reference internal" href="07_part.html">Bayesian Statistics</a></li>
-
-
-
 <li class="toctree-l3"><a class="reference internal" href="08_part.html">Confidence Interval (CI) &amp; Margin of Error</a></li>
-
-
-
 <li class="toctree-l3"><a class="reference internal" href="09_part.html">Chi-Square Test (Goodness of Fit)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="10_part.html">ANOVA (Analysis of Variance)</a></li>
-
 
 <li class="toctree-l3"><a class="reference internal" href="11_part.html">Central Limit Theorem (CLT)</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../correlation/index.html">Correlation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../correlation/01_part.html">Covariance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../correlation/02_part.html">Correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../correlation/03_part.html">Pearson Correlation Coefficient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../correlation/04_part.html">Spearman’s Rank Correlation Coefficient (ρ or <em>rₛ</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../correlation/05_part.html">Kendall’s Tau</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_part.html">Parametric vs. Non-Parametric Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_part.html">Regression</a></li>
+
+
 </ul>
 </details></li>
 </ul>
@@ -294,6 +288,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/06_part.html">Inverse Functions &amp; Identity Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/07_part.html">Eigenvectors and Eigenvalues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/08_part.html">Line, Plane and Hyperplane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/09_part.html">Matrix Decomposition</a></li>
 </ul>
 </details></li>
 </ul>
@@ -522,20 +517,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Type I and Type II Errors in Hypothesis Testing</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">Key Concepts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation">Explanation*</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-medical-testing">Example 1: Medical Testing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-quality-control-in-manufacturing">Example 2: Quality Control in Manufacturing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-exam-cheating-detection">Example 3: Exam Cheating Detection</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-medical-testing">Example 1: Medical Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-quality-control-in-manufacturing">Example 2: Quality Control in Manufacturing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-exam-cheating-detection">Example 3: Exam Cheating Detection</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways-from-examples">Key Takeaways from Examples</a></li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -554,12 +543,9 @@ document.write(`
 <li><p><a class="reference internal" href="#key-concepts" id="id2">Key Concepts</a></p></li>
 <li><p><a class="reference internal" href="#explanation" id="id3">Explanation*</a></p></li>
 <li><p><a class="reference internal" href="#key-points" id="id4">Key Points</a></p></li>
-</ul>
-</li>
 <li><p><a class="reference internal" href="#example-1-medical-testing" id="id5">Example 1: Medical Testing</a></p></li>
 <li><p><a class="reference internal" href="#example-2-quality-control-in-manufacturing" id="id6">Example 2: Quality Control in Manufacturing</a></p></li>
-<li><p><a class="reference internal" href="#example-3-exam-cheating-detection" id="id7">Example 3: Exam Cheating Detection</a></p>
-<ul>
+<li><p><a class="reference internal" href="#example-3-exam-cheating-detection" id="id7">Example 3: Exam Cheating Detection</a></p></li>
 <li><p><a class="reference internal" href="#key-takeaways-from-examples" id="id8">Key Takeaways from Examples</a></p></li>
 </ul>
 </li>
@@ -641,9 +627,8 @@ document.write(`
 <li><p>Correct decisions occur when we <strong>reject a false null</strong> or <strong>accept a true null</strong>.</p></li>
 </ul>
 </section>
-</section>
 <section id="example-1-medical-testing">
-<h1><a class="toc-backref" href="#id5" role="doc-backlink">Example 1: Medical Testing</a><a class="headerlink" href="#example-1-medical-testing" title="Link to this heading">#</a></h1>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Example 1: Medical Testing</a><a class="headerlink" href="#example-1-medical-testing" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Scenario:</strong> A doctor tests for a disease.</p>
 <ul>
@@ -668,10 +653,10 @@ document.write(`
 </tbody>
 </table>
 </div>
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="example-2-quality-control-in-manufacturing">
-<h1><a class="toc-backref" href="#id6" role="doc-backlink">Example 2: Quality Control in Manufacturing</a><a class="headerlink" href="#example-2-quality-control-in-manufacturing" title="Link to this heading">#</a></h1>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Example 2: Quality Control in Manufacturing</a><a class="headerlink" href="#example-2-quality-control-in-manufacturing" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Scenario:</strong> A factory checks if a batch of products meets quality standards.</p>
 <ul>
@@ -696,10 +681,10 @@ document.write(`
 </tbody>
 </table>
 </div>
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="example-3-exam-cheating-detection">
-<h1><a class="toc-backref" href="#id7" role="doc-backlink">Example 3: Exam Cheating Detection</a><a class="headerlink" href="#example-3-exam-cheating-detection" title="Link to this heading">#</a></h1>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Example 3: Exam Cheating Detection</a><a class="headerlink" href="#example-3-exam-cheating-detection" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Scenario:</strong> Detecting if a student cheated.</p>
 <ul>
@@ -724,6 +709,7 @@ document.write(`
 </tbody>
 </table>
 </div>
+</section>
 <hr class="docutils" />
 <section id="key-takeaways-from-examples">
 <h2><a class="toc-backref" href="#id8" role="doc-backlink">Key Takeaways from Examples</a><a class="headerlink" href="#key-takeaways-from-examples" title="Link to this heading">#</a></h2>
@@ -766,12 +752,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="05_part.html"
+       href="04_part.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Decision Guide: t-Test vs Z-Test</p>
+        <p class="prev-next-title">Student’s t-Distribution</p>
       </div>
     </a>
     <a class="right-next"
@@ -799,20 +785,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Type I and Type II Errors in Hypothesis Testing</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">Key Concepts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation">Explanation*</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-medical-testing">Example 1: Medical Testing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-quality-control-in-manufacturing">Example 2: Quality Control in Manufacturing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-exam-cheating-detection">Example 3: Exam Cheating Detection</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-medical-testing">Example 1: Medical Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-quality-control-in-manufacturing">Example 2: Quality Control in Manufacturing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-exam-cheating-detection">Example 3: Exam Cheating Detection</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways-from-examples">Key Takeaways from Examples</a></li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
