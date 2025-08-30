@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Descriptive Statistics &#8212; My sample book</title>
+    <title>Correlation &#8212; My sample book</title>
   
   
   
@@ -77,11 +77,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/statistics/descriptive/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/statistics/correlation/index';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Measures of Central Tendency" href="01_part.html" />
-    <link rel="prev" title="Overview" href="../overview.html" />
+    <link rel="next" title="Covariance" href="01_part.html" />
+    <link rel="prev" title="Covariance" href="../descriptive/08_part.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -239,24 +239,24 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">📊 Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../overview.html">Overview</a></li>
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Descriptive Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="01_part.html">Measures of Central Tendency</a></li>
-<li class="toctree-l3"><a class="reference internal" href="02_part.html">Measures of Dispersion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="03_part.html">Bessel’s Correction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="04_part.html">Random Variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="05_part.html">Percentage vs Percentile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="06_part.html">Five Number Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="07_part.html">Histogram and Skewness</a></li>
-<li class="toctree-l3"><a class="reference internal" href="08_part.html">Covariance</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../descriptive/index.html">Descriptive Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/01_part.html">Measures of Central Tendency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/02_part.html">Measures of Dispersion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/03_part.html">Bessel’s Correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/04_part.html">Random Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/05_part.html">Percentage vs Percentile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/06_part.html">Five Number Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/07_part.html">Histogram and Skewness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptive/08_part.html">Covariance</a></li>
 
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../correlation/index.html">Correlation Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../correlation/01_part.html">Covariance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../correlation/02_part.html">Correlation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../correlation/03_part.html">Pearson Correlation Coefficient</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../correlation/04_part.html">Spearman’s Rank Correlation Coefficient (ρ or <em>rₛ</em>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../correlation/05_part.html">Kendall’s Tau</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Correlation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="01_part.html">Covariance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_part.html">Correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_part.html">Pearson Correlation Coefficient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_part.html">Spearman’s Rank Correlation Coefficient (ρ or <em>rₛ</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_part.html">Kendall’s Tau</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -359,7 +359,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/statistics/descriptive/index.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/statistics/correlation/index.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -407,7 +407,7 @@
       
       
       
-      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/statistics/descriptive/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/statistics/correlation/index.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -437,7 +437,7 @@
       
       
       
-      <li><a href="../../../_sources/content/statistics/descriptive/index.ipynb" target="_blank"
+      <li><a href="../../../_sources/content/statistics/correlation/index.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -508,7 +508,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -519,11 +521,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Descriptive Statistics</h1>
+    <h1>Correlation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-correlation">What is Correlation?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-correlation">Types of Correlation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-which">When to Use Which?</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -533,22 +545,64 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="descriptive-statistics">
-<h1>Descriptive Statistics<a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h1>
-<p>This section covers methods for summarizing and describing the important features of data.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="correlation">
+<h1>Correlation<a class="headerlink" href="#correlation" title="Link to this heading">#</a></h1>
+<p>Correlation is a statistical measure that describes the strength and direction of a relationship between two variables. It is a key concept in statistics and data analysis, helping us understand how variables move together.</p>
+<hr class="docutils" />
+<section id="what-is-correlation">
+<h2>What is Correlation?<a class="headerlink" href="#what-is-correlation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Correlation</strong> quantifies the degree to which two variables are related.</p></li>
+<li><p>The value ranges from <strong>-1</strong> (perfect negative) to <strong>+1</strong> (perfect positive), with <strong>0</strong> meaning no linear relationship.</p></li>
+<li><p>Correlation does <strong>not</strong> imply causation.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="types-of-correlation">
+<h2>Types of Correlation<a class="headerlink" href="#types-of-correlation" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Pearson Correlation (r)</strong></p>
+<ul class="simple">
+<li><p>Measures linear relationships between continuous variables.</p></li>
+<li><p>Sensitive to outliers and assumes normality.</p></li>
+<li><p>Value: <span class="math notranslate nohighlight">\(-1 \leq r \leq 1\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>Spearman’s Rank Correlation (ρ or rₛ)</strong></p>
+<ul class="simple">
+<li><p>Measures monotonic relationships using ranked data.</p></li>
+<li><p>Non-parametric, less sensitive to outliers.</p></li>
+<li><p>Value: <span class="math notranslate nohighlight">\(-1 \leq \rho \leq 1\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>Kendall’s Tau (τ)</strong></p>
+<ul class="simple">
+<li><p>Measures strength of association based on concordant and discordant pairs.</p></li>
+<li><p>Non-parametric, robust for small samples and tied ranks.</p></li>
+<li><p>Value: <span class="math notranslate nohighlight">\(-1 \leq \tau \leq 1\)</span></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="when-to-use-which">
+<h2>When to Use Which?<a class="headerlink" href="#when-to-use-which" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Pearson</strong>: For linear, continuous, normally distributed data.</p></li>
+<li><p><strong>Spearman</strong>: For monotonic, ordinal, or non-normal data.</p></li>
+<li><p><strong>Kendall</strong>: For small samples, many ties, or ordinal data.</p></li>
+</ul>
+<hr class="docutils" />
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="01_part.html">Measures of Central Tendency</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_part.html">Measures of Dispersion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_part.html">Bessel’s Correction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_part.html">Random Variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_part.html">Percentage vs Percentile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_part.html">Five Number Summary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_part.html">Histogram and Skewness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_part.html">Covariance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_part.html#correlation">Correlation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_part.html">Covariance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_part.html">Correlation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_part.html">Pearson Correlation Coefficient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_part.html">Spearman’s Rank Correlation Coefficient (ρ or <em>rₛ</em>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_part.html">Kendall’s Tau</a></li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -564,7 +618,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./content\statistics\descriptive"
+            path: "./content\statistics\correlation"
         },
         predefinedOutput: true
     }
@@ -582,12 +636,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../overview.html"
+       href="../descriptive/08_part.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Overview</p>
+        <p class="prev-next-title">Covariance</p>
       </div>
     </a>
     <a class="right-next"
@@ -595,7 +649,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Measures of Central Tendency</p>
+        <p class="prev-next-title">Covariance</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -605,6 +659,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-correlation">What is Correlation?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-correlation">Types of Correlation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-which">When to Use Which?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
