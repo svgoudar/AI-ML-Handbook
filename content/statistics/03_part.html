@@ -1,0 +1,1005 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Resampling Methods &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.custom.css?v=7bc2f056" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.bundle.min.css?v=37217874" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-shadow.min.css?v=6227e517" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-punk.min.css?v=94669e23" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-noir.min.css?v=21a39f42" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-light.min.css?v=a18b2449" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-borderless.min.css?v=dbff53e4" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/micromodal.css?v=d7bf34ee" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=6528377c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=7f8ff830"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../_static/js/hoverxref.js?v=c95ade4f"></script>
+    <script src="../../_static/js/tooltipster.bundle.min.js?v=18bf091b"></script>
+    <script src="../../_static/js/micromodal.min.js?v=04d6302d"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/statistics/03_part';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Time Series (TS)" href="04_part.html" />
+    <link rel="prev" title="Regression" href="02_part.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../probability/index.html">🎲 Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../probability/01_probability.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../probability/02_probability_types.html">Types of Probability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../probability/03_probability_rules.html">Rules of Probability</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../probability/functions/overview.html">Probability Functions Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../probability/functions/01_pdf.html">Probability Density Function (PDF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../probability/functions/02_pmf.html">Probability Mass Function (PMF):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../probability/functions/03_cdf.html">Cumulative Distribution Function (CDF)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../probability/distribution/index.html">Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../probability/distribution/discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/bernoulli.html">Bernoulli Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/binomial.html">Binomial Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/poisson.html">The Poisson Distribution (Discrete)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/geometric.html">Geometric Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/discrete/uniform.html">Discrete Uniform Distribution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../probability/distribution/continuous/index.html">Continuous Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/normal.html">Normal Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/exponential.html">Exponential Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/uniform.html">Uniform Continuous Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/gamma.html">Gamma Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/beta.html">Beta Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/student_t.html">Student’s t-Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../probability/distribution/continuous/chi_square.html">Chi-Square Distribution</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../probability/q_and_a.html">🎯 Wrap up</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">📊 Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="descriptive/index.html">Descriptive Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="descriptive/01_part.html">Measures of Central Tendency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="descriptive/02_part.html">Measures of Dispersion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="descriptive/03_part.html">Bessel’s Correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="descriptive/04_part.html">Random Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="descriptive/05_part.html">Percentage vs Percentile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="descriptive/06_part.html">Five Number Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="descriptive/07_part.html">Histogram and Skewness</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="inferential/01_part.html">Hypothesis Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inferential/02_part.html">P-Value, CI and α</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inferential/03_part.html">Hypothesis Testing with Z-test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inferential/04_part.html">Student’s t-Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inferential/06_part.html">Type I and Type II Errors in Hypothesis Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inferential/07_part.html">Bayes’ Theorem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inferential/08_part.html">Confidence Interval (CI) &amp; Margin of Error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inferential/09_part.html">Chi-Square Test (Goodness of Fit)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inferential/10_part.html">ANOVA (Analysis of Variance)</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="inferential/11_part.html">Central Limit Theorem (CLT)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="correlation/index.html">Correlation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="correlation/01_part.html">Covariance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="correlation/02_part.html">Correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="correlation/03_part.html">Pearson Correlation Coefficient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="correlation/04_part.html">Spearman’s Rank Correlation Coefficient (ρ or <em>rₛ</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="correlation/05_part.html">Kendall’s Tau</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="01_part.html">Parametric vs. Non-Parametric Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_part.html">Regression</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Resampling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_part.html">Time Series (TS)</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear_algebra/index.html">↗️ Linear Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear_algebra/01_part.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear_algebra/02_part.html">Scalar &amp; Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear_algebra/03_part.html">Multiplication on Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear_algebra/04_part.html">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear_algebra/05_part.html">Functions &amp; Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear_algebra/06_part.html">Inverse Functions &amp; Identity Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear_algebra/07_part.html">Eigenvectors and Eigenvalues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear_algebra/08_part.html">Line, Plane and Hyperplane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear_algebra/09_part.html">Matrix Decomposition</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../calculus/index.html">Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../calculus/01_part.html">DIfferential Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calculus/02_part.html">Integration Calculus</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/statistics/03_part.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/statistics/03_part.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/statistics/03_part.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Resampling Methods</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-resampling-methods">Types of Resampling Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bootstrap">Bootstrap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#permutation-randomization-test">Permutation (Randomization) Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation">Cross-Validation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jackknife">Jackknife</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-resampling-methods">Advantages of Resampling Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-table">Summary Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aic-akaike-information-criterion">AIC (Akaike Information Criterion)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bic-bayesian-information-criterion">BIC (Bayesian Information Criterion)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adjusted-r2">Adjusted R²</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-comparison">Quick Comparison</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <nav class="contents" id="contents" role="doc-toc">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#resampling-methods" id="id1">Resampling Methods</a></p>
+<ul>
+<li><p><a class="reference internal" href="#types-of-resampling-methods" id="id2">Types of Resampling Methods</a></p></li>
+<li><p><a class="reference internal" href="#bootstrap" id="id3">Bootstrap</a></p></li>
+<li><p><a class="reference internal" href="#permutation-randomization-test" id="id4">Permutation (Randomization) Test</a></p></li>
+<li><p><a class="reference internal" href="#cross-validation" id="id5">Cross-Validation</a></p></li>
+<li><p><a class="reference internal" href="#jackknife" id="id6">Jackknife</a></p></li>
+<li><p><a class="reference internal" href="#advantages-of-resampling-methods" id="id7">Advantages of Resampling Methods</a></p></li>
+<li><p><a class="reference internal" href="#summary-table" id="id8">Summary Table</a></p></li>
+<li><p><a class="reference internal" href="#model-selection" id="id9">Model Selection</a></p></li>
+<li><p><a class="reference internal" href="#aic-akaike-information-criterion" id="id10">AIC (Akaike Information Criterion)</a></p></li>
+<li><p><a class="reference internal" href="#bic-bayesian-information-criterion" id="id11">BIC (Bayesian Information Criterion)</a></p></li>
+<li><p><a class="reference internal" href="#adjusted-r2" id="id12">Adjusted R²</a></p></li>
+<li><p><a class="reference internal" href="#quick-comparison" id="id13">Quick Comparison</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="resampling-methods">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Resampling Methods</a><a class="headerlink" href="#resampling-methods" title="Link to this heading">#</a></h1>
+<p>Resampling methods are <strong>techniques that repeatedly draw samples from observed data</strong> to:</p>
+<ul class="simple">
+<li><p>Estimate the <strong>variability</strong> of a statistic</p></li>
+<li><p>Construct <strong>confidence intervals</strong></p></li>
+<li><p>Test hypotheses</p></li>
+<li><p>Evaluate <strong>model performance</strong></p></li>
+</ul>
+<p><strong>Key idea:</strong> They rely on the <strong>data itself</strong> rather than strong parametric assumptions (like normality).</p>
+<hr class="docutils" />
+<section id="types-of-resampling-methods">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Types of Resampling Methods</a><a class="headerlink" href="#types-of-resampling-methods" title="Link to this heading">#</a></h2>
+</section>
+<section id="bootstrap">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Bootstrap</a><a class="headerlink" href="#bootstrap" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Purpose:</strong> Estimate the sampling distribution of a statistic and compute confidence intervals.</p></li>
+<li><p><strong>How it works:</strong></p>
+<ol class="arabic simple">
+<li><p>Take your dataset of size <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
+<li><p>Draw a sample of size <span class="math notranslate nohighlight">\(n\)</span> <strong>with replacement</strong>.</p></li>
+<li><p>Compute the statistic (mean, median, etc.) for this resample.</p></li>
+<li><p>Repeat 1000+ times to get a distribution of the statistic.</p></li>
+</ol>
+</li>
+<li><p><strong>Example:</strong>
+You have 10 exam scores: <code class="docutils literal notranslate"><span class="pre">[55,</span> <span class="pre">60,</span> <span class="pre">62,</span> <span class="pre">70,</span> <span class="pre">72,</span> <span class="pre">75,</span> <span class="pre">78,</span> <span class="pre">80,</span> <span class="pre">85,</span> <span class="pre">90]</span></code>.</p>
+<ul>
+<li><p>Bootstrap 1000 samples → compute the mean of each sample → use percentiles to get 95% confidence interval for the mean.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="permutation-randomization-test">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Permutation (Randomization) Test</a><a class="headerlink" href="#permutation-randomization-test" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Purpose:</strong> Test hypotheses without relying on parametric assumptions.</p></li>
+<li><p><strong>How it works:</strong></p>
+<ol class="arabic simple">
+<li><p>Compute the statistic of interest (e.g., difference in means) on original data.</p></li>
+<li><p>Shuffle group labels many times and compute the statistic each time.</p></li>
+<li><p>Compare original statistic to the distribution from shuffles → p-value.</p></li>
+</ol>
+</li>
+<li><p><strong>Example:</strong>
+Compare recovery times between two treatments. Shuffle treatment labels 10,000 times → check how extreme the observed difference is.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="cross-validation">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Cross-Validation</a><a class="headerlink" href="#cross-validation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Purpose:</strong> Estimate model performance on unseen data.</p></li>
+<li><p><strong>How it works:</strong></p>
+<ol class="arabic simple">
+<li><p>Split data into k folds.</p></li>
+<li><p>Train model on k−1 folds, test on 1 fold.</p></li>
+<li><p>Repeat k times and average the results.</p></li>
+</ol>
+</li>
+<li><p><strong>Example:</strong>
+You have 1000 samples → 5-fold cross-validation → average accuracy of each fold → robust estimate of model performance.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="jackknife">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Jackknife</a><a class="headerlink" href="#jackknife" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Purpose:</strong> Estimate bias and variance of a statistic.</p></li>
+<li><p><strong>How it works:</strong></p>
+<ol class="arabic simple">
+<li><p>Leave out one observation at a time.</p></li>
+<li><p>Compute the statistic for each subset.</p></li>
+<li><p>Use these values to estimate bias/variance.</p></li>
+</ol>
+</li>
+<li><p><strong>Example:</strong>
+For data <code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">5,</span> <span class="pre">7,</span> <span class="pre">9,</span> <span class="pre">11]</span></code>, leave out each point → compute mean → use these 5 means to estimate variance of the mean.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="advantages-of-resampling-methods">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Advantages of Resampling Methods</a><a class="headerlink" href="#advantages-of-resampling-methods" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Minimal assumptions about data distribution.</p></li>
+<li><p>Works well with <strong>small datasets</strong>.</p></li>
+<li><p>Provides <strong>empirical confidence intervals</strong>, p-values, and error estimates.</p></li>
+<li><p>Flexible and general-purpose.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="summary-table">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Summary Table</a><a class="headerlink" href="#summary-table" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Purpose</p></th>
+<th class="head"><p>How it Resamples</p></th>
+<th class="head"><p>Example Use Case</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Bootstrap</p></td>
+<td><p>Estimate variability / CI</p></td>
+<td><p>With replacement</p></td>
+<td><p>Mean, median, SD</p></td>
+</tr>
+<tr class="row-odd"><td><p>Permutation</p></td>
+<td><p>Hypothesis testing</p></td>
+<td><p>Shuffle labels</p></td>
+<td><p>Difference in group means</p></td>
+</tr>
+<tr class="row-even"><td><p>Cross-validation</p></td>
+<td><p>Model evaluation</p></td>
+<td><p>Split dataset into folds</p></td>
+<td><p>ML model accuracy</p></td>
+</tr>
+<tr class="row-odd"><td><p>Jackknife</p></td>
+<td><p>Bias / variance estimation</p></td>
+<td><p>Leave-one-out</p></td>
+<td><p>Mean, regression coefficient</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="model-selection">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Model Selection</a><a class="headerlink" href="#model-selection" title="Link to this heading">#</a></h2>
+<p><strong>Model selection</strong> is the process of choosing the <strong>best statistical or machine learning model</strong> from a set of candidates based on some criteria.</p>
+<p>Key goals:</p>
+<ul class="simple">
+<li><p>Balance <strong>goodness-of-fit</strong> with <strong>model complexity</strong>.</p></li>
+<li><p>Avoid <strong>overfitting</strong> (model too complex) or <strong>underfitting</strong> (model too simple).</p></li>
+</ul>
+<p>Commonly used criteria: <strong>AIC, BIC, Adjusted R²</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="aic-akaike-information-criterion">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">AIC (Akaike Information Criterion)</a><a class="headerlink" href="#aic-akaike-information-criterion" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Purpose:</strong> Compare models based on <strong>fit and complexity</strong>.</p></li>
+<li><p><strong>Formula:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\text{AIC} = 2k - 2 \ln(L)
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k\)</span> = number of parameters in the model</p></li>
+<li><p><span class="math notranslate nohighlight">\(L\)</span> = maximum likelihood of the model</p></li>
+<li><p><strong>Interpretation:</strong></p>
+<ul>
+<li><p>Lower AIC → better model.</p></li>
+<li><p>Penalizes models with more parameters to avoid overfitting.</p></li>
+</ul>
+</li>
+<li><p><strong>Example:</strong>
+Two regression models predicting house prices:</p>
+<ul>
+<li><p>Model 1: AIC = 120</p></li>
+<li><p>Model 2: AIC = 115 → Model 2 is preferred.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="bic-bayesian-information-criterion">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">BIC (Bayesian Information Criterion)</a><a class="headerlink" href="#bic-bayesian-information-criterion" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Purpose:</strong> Similar to AIC, but penalizes <strong>complexity more strongly</strong>, especially for larger datasets.</p></li>
+<li><p><strong>Formula:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\text{BIC} = k \ln(n) - 2 \ln(L)
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span> = number of observations</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span> = number of parameters</p></li>
+<li><p><span class="math notranslate nohighlight">\(L\)</span> = likelihood</p></li>
+<li><p><strong>Interpretation:</strong></p>
+<ul>
+<li><p>Lower BIC → better model.</p></li>
+<li><p>More conservative than AIC; favors simpler models when data is large.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="adjusted-r2">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Adjusted R²</a><a class="headerlink" href="#adjusted-r2" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Purpose:</strong> Measure how well a regression model explains variability in the data, <strong>adjusted for number of predictors</strong>.</p></li>
+<li><p><strong>Formula:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\text{Adjusted } R^2 = 1 - \frac{(1-R^2)(n-1)}{n-k-1}
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(R^2\)</span> = coefficient of determination</p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> = number of observations</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span> = number of predictors</p></li>
+<li><p><strong>Interpretation:</strong></p>
+<ul>
+<li><p>Unlike <span class="math notranslate nohighlight">\(R^2\)</span>, it <strong>penalizes adding irrelevant predictors</strong>.</p></li>
+<li><p>Higher Adjusted R² → better model.</p></li>
+</ul>
+</li>
+<li><p><strong>Example:</strong></p>
+<ul>
+<li><p>Model 1: R² = 0.85, k = 3 → Adjusted R² = 0.84</p></li>
+<li><p>Model 2: R² = 0.87, k = 8 → Adjusted R² = 0.83 → Model 1 is preferred.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="quick-comparison">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Quick Comparison</a><a class="headerlink" href="#quick-comparison" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Purpose</p></th>
+<th class="head"><p>Penalizes Complexity?</p></th>
+<th class="head"><p>Lower/Upper Better</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AIC</p></td>
+<td><p>Model fit + complexity</p></td>
+<td><p>Yes (moderate)</p></td>
+<td><p>Lower</p></td>
+</tr>
+<tr class="row-odd"><td><p>BIC</p></td>
+<td><p>Model fit + complexity (strong)</p></td>
+<td><p>Yes (strong)</p></td>
+<td><p>Lower</p></td>
+</tr>
+<tr class="row-even"><td><p>Adjusted R²</p></td>
+<td><p>Explains variance adjusted for predictors</p></td>
+<td><p>Yes (adjusts R²)</p></td>
+<td><p>Higher</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p><strong>Key Idea:</strong></p>
+<ul class="simple">
+<li><p>Use <strong>AIC/BIC</strong> for comparing multiple models quantitatively.</p></li>
+<li><p>Use <strong>Adjusted R²</strong> to see explanatory power <strong>without overfitting</strong>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Simulated data for model comparison</span>
+<span class="n">models</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Model 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Model 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Model 3&#39;</span><span class="p">,</span> <span class="s1">&#39;Model 4&#39;</span><span class="p">]</span>
+<span class="n">num_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="n">log_likelihood</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">120</span><span class="p">,</span> <span class="o">-</span><span class="mi">115</span><span class="p">,</span> <span class="o">-</span><span class="mi">110</span><span class="p">,</span> <span class="o">-</span><span class="mi">108</span><span class="p">])</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># number of observations</span>
+
+<span class="c1"># Calculate AIC and BIC</span>
+<span class="n">AIC</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">num_params</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">log_likelihood</span>
+<span class="n">BIC</span> <span class="o">=</span> <span class="n">num_params</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">log_likelihood</span>
+<span class="n">R2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.80</span><span class="p">,</span> <span class="mf">0.82</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.87</span><span class="p">])</span>
+<span class="n">Adj_R2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">R2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">num_params</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">AIC</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;AIC&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">BIC</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;BIC&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;AIC / BIC&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Models&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Model Selection Metrics Comparison&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot Adjusted R² on secondary axis</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">Adj_R2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Adjusted R²&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Adjusted R²&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/667b724db1bf7307fca639a86d342a85a57c340ac3d2e2b73077f71e684860ea.png" src="../../_images/667b724db1bf7307fca639a86d342a85a57c340ac3d2e2b73077f71e684860ea.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content\statistics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_part.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Regression</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_part.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Time Series (TS)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-resampling-methods">Types of Resampling Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bootstrap">Bootstrap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#permutation-randomization-test">Permutation (Randomization) Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation">Cross-Validation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jackknife">Jackknife</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-resampling-methods">Advantages of Resampling Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-table">Summary Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aic-akaike-information-criterion">AIC (Akaike Information Criterion)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bic-bayesian-information-criterion">BIC (Bayesian Information Criterion)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adjusted-r2">Adjusted R²</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-comparison">Quick Comparison</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
