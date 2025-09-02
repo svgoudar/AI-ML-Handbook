@@ -1,0 +1,1799 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data Transformation &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=6528377c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=7f8ff830"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../_static/js/hoverxref.js"></script>
+    <script src="../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../_static/js/micromodal.min.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/eda/pandas/07_part';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Data Aggregation" href="08_part.html" />
+    <link rel="prev" title="Column Transformer &amp; Imputer" href="06_part.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../probability/index.html">🎲 Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/01_probability.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/02_probability_types.html">Types of Probability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/03_probability_rules.html">Rules of Probability</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../probability/functions/overview.html">Probability Functions Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../probability/functions/01_pdf.html">Probability Density Function (PDF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../probability/functions/02_pmf.html">Probability Mass Function (PMF):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../probability/functions/03_cdf.html">Cumulative Distribution Function (CDF)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../probability/distribution/index.html">Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../probability/distribution/discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/bernoulli.html">Bernoulli Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/binomial.html">Binomial Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/poisson.html">The Poisson Distribution (Discrete)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/geometric.html">Geometric Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/uniform.html">Discrete Uniform Distribution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../probability/distribution/continuous/index.html">Continuous Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/normal.html">Normal Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/exponential.html">Exponential Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/uniform.html">Uniform Continuous Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/gamma.html">Gamma Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/beta.html">Beta Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/student_t.html">Student’s t-Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/chi_square.html">Chi-Square Distribution</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/q_and_a.html">🎯 Wrap up</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../statistics/index.html">📊 Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../statistics/overview.html">Overview</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../statistics/descriptive/index.html">Descriptive Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/01_part.html">Measures of Central Tendency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/02_part.html">Measures of Dispersion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/03_part.html">Bessel’s Correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/04_part.html">Random Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/05_part.html">Percentage vs Percentile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/06_part.html">Five Number Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/07_part.html">Histogram and Skewness</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../statistics/inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/01_part.html">Hypothesis Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/02_part.html">P-Value, CI and α</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/03_part.html">Hypothesis Testing with Z-test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/04_part.html">Student’s t-Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/06_part.html">Type I and Type II Errors in Hypothesis Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/07_part.html">Bayes’ Theorem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/08_part.html">Confidence Interval (CI) &amp; Margin of Error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/09_part.html">Chi-Square Test (Goodness of Fit)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/10_part.html">ANOVA (Analysis of Variance)</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/11_part.html">Central Limit Theorem (CLT)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../statistics/correlation/index.html">Correlation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/correlation/01_part.html">Covariance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/correlation/02_part.html">Correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/correlation/03_part.html">Pearson Correlation Coefficient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/correlation/04_part.html">Spearman’s Rank Correlation Coefficient (ρ or <em>rₛ</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/correlation/05_part.html">Kendall’s Tau</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../statistics/01_part.html">Parametric vs. Non-Parametric Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../statistics/02_part.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../statistics/03_part.html">Resampling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../statistics/04_part.html">Time Series (TS)</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linear_algebra/index.html">↗️ Linear Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/01_part.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/02_part.html">Scalar &amp; Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/03_part.html">Multiplication on Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/04_part.html">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/05_part.html">Functions &amp; Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/06_part.html">Inverse Functions &amp; Identity Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/07_part.html">Eigenvectors and Eigenvalues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/08_part.html">Line, Plane and Hyperplane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/09_part.html">Matrix Decomposition</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../calculus/index.html">📐Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../calculus/01_part.html">DIfferential Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../calculus/02_part.html">Integration Calculus</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory Data Analysis</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy/index.html">NumPy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/01_part.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/02_part.html">Creating Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/03_part.html">Indexing &amp; Slicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/04_part.html">Reshaping and Resizing</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../numpy/05_part.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/06_part.html">Stacking &amp; Splitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/07_part.html">Broadcasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/08_part.html">Arithmetic Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/09_part.html">Linear Algebra Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/10_part.html">Random Sampling in NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/11_part.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/Practice_exercises_for_Pandas_and_NumPy.html">Outlines</a></li>
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Pandas</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_part.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_part.html">Creating Dataframe &amp; Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_part.html">Data Inspection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_part.html">Selection, Indexing &amp; Filtering</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="05_part.html">Data Cleaning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_part.html">Column Transformer &amp; Imputer</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Data Transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_part.html">Data Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_part.html">Reshaping &amp; Pivot</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/eda/pandas/07_part.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/eda/pandas/07_part.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/content/eda/pandas/07_part.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Transformation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-arithmetic-transformations">Numeric / Arithmetic Transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-text-transformations">String / Text Transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-formatting">Cleaning / Formatting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-matching">Searching / Matching</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#replacement-modification">Replacement / Modification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-extracting">Splitting / Extracting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-checks-information">Type Checks / Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#padding-justification">Padding / Justification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-joining">Combining / Joining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-transformations">Categorical Transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#date-time-transformations">Date / Time Transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#element-wise-column-wise-transformations">Element-wise / Column-wise Transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-wise-transformations">Group-wise Transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-ranking">Sorting / Ranking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binning-discretization">Binning / Discretization</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <nav class="contents" id="contents" role="doc-toc">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#data-transformation" id="id1">Data Transformation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#numeric-arithmetic-transformations" id="id2">Numeric / Arithmetic Transformations</a></p></li>
+<li><p><a class="reference internal" href="#string-text-transformations" id="id3">String / Text Transformations</a></p></li>
+<li><p><a class="reference internal" href="#cleaning-formatting" id="id4">Cleaning / Formatting</a></p></li>
+<li><p><a class="reference internal" href="#searching-matching" id="id5">Searching / Matching</a></p></li>
+<li><p><a class="reference internal" href="#replacement-modification" id="id6">Replacement / Modification</a></p></li>
+<li><p><a class="reference internal" href="#splitting-extracting" id="id7">Splitting / Extracting</a></p></li>
+<li><p><a class="reference internal" href="#type-checks-information" id="id8">Type Checks / Information</a></p></li>
+<li><p><a class="reference internal" href="#padding-justification" id="id9">Padding / Justification</a></p></li>
+<li><p><a class="reference internal" href="#combining-joining" id="id10">Combining / Joining</a></p></li>
+<li><p><a class="reference internal" href="#categorical-transformations" id="id11">Categorical Transformations</a></p></li>
+<li><p><a class="reference internal" href="#date-time-transformations" id="id12">Date / Time Transformations</a></p></li>
+<li><p><a class="reference internal" href="#element-wise-column-wise-transformations" id="id13">Element-wise / Column-wise Transformations</a></p></li>
+<li><p><a class="reference internal" href="#group-wise-transformations" id="id14">Group-wise Transformations</a></p></li>
+<li><p><a class="reference internal" href="#sorting-ranking" id="id15">Sorting / Ranking</a></p></li>
+<li><p><a class="reference internal" href="#binning-discretization" id="id16">Binning / Discretization</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="data-transformation">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Data Transformation</a><a class="headerlink" href="#data-transformation" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/svgoudar/datasets/blob/main/loan_applications.csv?raw=true&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>application_id</th>
+      <th>customer_id</th>
+      <th>application_date</th>
+      <th>loan_type</th>
+      <th>loan_amount_requested</th>
+      <th>loan_tenure_months</th>
+      <th>interest_rate_offered</th>
+      <th>purpose_of_loan</th>
+      <th>employment_status</th>
+      <th>monthly_income</th>
+      <th>...</th>
+      <th>existing_emis_monthly</th>
+      <th>debt_to_income_ratio</th>
+      <th>property_ownership_status</th>
+      <th>residential_address</th>
+      <th>applicant_age</th>
+      <th>gender</th>
+      <th>number_of_dependents</th>
+      <th>loan_status</th>
+      <th>fraud_flag</th>
+      <th>fraud_type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>c8bf0bea-70e6-4870-9125-41b8210c527f</td>
+      <td>CUST109427</td>
+      <td>2023-04-09</td>
+      <td>Business Loan</td>
+      <td>604000.0</td>
+      <td>12</td>
+      <td>11.66</td>
+      <td>Medical Emergency</td>
+      <td>Retired</td>
+      <td>34700.0</td>
+      <td>...</td>
+      <td>1100.0</td>
+      <td>3.17</td>
+      <td>Rented</td>
+      <td>94/31, Sehgal Zila, Vadodara-380521, Anantapur...</td>
+      <td>28</td>
+      <td>Female</td>
+      <td>3</td>
+      <td>Approved</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>91224cec-3544-4bc7-ac15-a9792da54c02</td>
+      <td>CUST106146</td>
+      <td>2023-09-23</td>
+      <td>Car Loan</td>
+      <td>100000.0</td>
+      <td>240</td>
+      <td>13.62</td>
+      <td>Education</td>
+      <td>Unemployed</td>
+      <td>51600.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>Owned</td>
+      <td>H.No. 00, Sheth Chowk, Ichalkaranji 006728, Im...</td>
+      <td>44</td>
+      <td>Other</td>
+      <td>3</td>
+      <td>Approved</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4efcd02d-4a03-4ab7-9bd1-0ff430493d0c</td>
+      <td>CUST100674</td>
+      <td>2023-05-22</td>
+      <td>Education Loan</td>
+      <td>431000.0</td>
+      <td>60</td>
+      <td>11.40</td>
+      <td>Medical Emergency</td>
+      <td>Self-Employed</td>
+      <td>14800.0</td>
+      <td>...</td>
+      <td>4600.0</td>
+      <td>31.08</td>
+      <td>Rented</td>
+      <td>H.No. 81, Dutta Path, Kozhikode-340301, Tadepa...</td>
+      <td>56</td>
+      <td>Other</td>
+      <td>4</td>
+      <td>Approved</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>a61337d4-ba04-4a68-b492-2cb8266e6ed7</td>
+      <td>CUST106466</td>
+      <td>2024-07-09</td>
+      <td>Car Loan</td>
+      <td>324000.0</td>
+      <td>120</td>
+      <td>10.36</td>
+      <td>Debt Consolidation</td>
+      <td>Self-Employed</td>
+      <td>28800.0</td>
+      <td>...</td>
+      <td>4000.0</td>
+      <td>13.89</td>
+      <td>Rented</td>
+      <td>H.No. 022, Rege Road, Tiruvottiyur-927857, Aur...</td>
+      <td>27</td>
+      <td>Other</td>
+      <td>4</td>
+      <td>Declined</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>a8d1639e-170b-41b2-826a-55c7dae38d16</td>
+      <td>CUST112319</td>
+      <td>2023-11-20</td>
+      <td>Personal Loan</td>
+      <td>100000.0</td>
+      <td>36</td>
+      <td>14.14</td>
+      <td>Business Expansion</td>
+      <td>Salaried</td>
+      <td>43900.0</td>
+      <td>...</td>
+      <td>1100.0</td>
+      <td>2.51</td>
+      <td>Rented</td>
+      <td>85/24, Bali Zila, Sambalpur 922071, Tumkur, Ke...</td>
+      <td>50</td>
+      <td>Other</td>
+      <td>0</td>
+      <td>Declined</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 21 columns</p>
+</div></div></div>
+</div>
+<hr class="docutils" />
+<section id="numeric-arithmetic-transformations">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Numeric / Arithmetic Transformations</a><a class="headerlink" href="#numeric-arithmetic-transformations" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;application_id&#39;, &#39;customer_id&#39;, &#39;application_date&#39;, &#39;loan_type&#39;,
+       &#39;loan_amount_requested&#39;, &#39;loan_tenure_months&#39;, &#39;interest_rate_offered&#39;,
+       &#39;purpose_of_loan&#39;, &#39;employment_status&#39;, &#39;monthly_income&#39;, &#39;cibil_score&#39;,
+       &#39;existing_emis_monthly&#39;, &#39;debt_to_income_ratio&#39;,
+       &#39;property_ownership_status&#39;, &#39;residential_address&#39;, &#39;applicant_age&#39;,
+       &#39;gender&#39;, &#39;number_of_dependents&#39;, &#39;loan_status&#39;, &#39;fraud_flag&#39;,
+       &#39;fraud_type&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Create new numeric columns</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_amount_requested&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;income&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;monthly_income&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_plus_income&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;income&#39;</span><span class="p">]</span>          <span class="c1"># addition</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_squared&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span>                        <span class="c1"># power</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_abs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>                            <span class="c1"># absolute</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_clipped&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50000</span><span class="p">)</span>              <span class="c1"># clip values</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_cumsum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>                     <span class="c1"># cumulative sum</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>                          <span class="c1"># difference</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_log&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">])</span>                       <span class="c1"># log(1+x)</span>
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">,</span><span class="s1">&#39;loan_plus_income&#39;</span><span class="p">,</span><span class="s1">&#39;loan_squared&#39;</span><span class="p">,</span><span class="s1">&#39;loan_abs&#39;</span><span class="p">,</span><span class="s1">&#39;loan_clipped&#39;</span><span class="p">,</span><span class="s1">&#39;loan_cumsum&#39;</span><span class="p">,</span><span class="s1">&#39;loan_diff&#39;</span><span class="p">,</span><span class="s1">&#39;loan_log&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>loan_amount</th>
+      <th>loan_plus_income</th>
+      <th>loan_squared</th>
+      <th>loan_abs</th>
+      <th>loan_clipped</th>
+      <th>loan_cumsum</th>
+      <th>loan_diff</th>
+      <th>loan_log</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>604000.0</td>
+      <td>638700.0</td>
+      <td>3.648160e+11</td>
+      <td>604000.0</td>
+      <td>50000.0</td>
+      <td>604000.0</td>
+      <td>NaN</td>
+      <td>13.311331</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>100000.0</td>
+      <td>151600.0</td>
+      <td>1.000000e+10</td>
+      <td>100000.0</td>
+      <td>50000.0</td>
+      <td>704000.0</td>
+      <td>-504000.0</td>
+      <td>11.512935</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>431000.0</td>
+      <td>445800.0</td>
+      <td>1.857610e+11</td>
+      <td>431000.0</td>
+      <td>50000.0</td>
+      <td>1135000.0</td>
+      <td>331000.0</td>
+      <td>12.973866</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>324000.0</td>
+      <td>352800.0</td>
+      <td>1.049760e+11</td>
+      <td>324000.0</td>
+      <td>50000.0</td>
+      <td>1459000.0</td>
+      <td>-107000.0</td>
+      <td>12.688502</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>100000.0</td>
+      <td>143900.0</td>
+      <td>1.000000e+10</td>
+      <td>100000.0</td>
+      <td>50000.0</td>
+      <td>1559000.0</td>
+      <td>-224000.0</td>
+      <td>11.512935</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="string-text-transformations">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">String / Text Transformations</a><a class="headerlink" href="#string-text-transformations" title="Link to this heading">#</a></h2>
+</section>
+<section id="cleaning-formatting">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Cleaning / Formatting</a><a class="headerlink" href="#cleaning-formatting" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Strip spaces and title-case loan_type</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_type_clean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+
+<span class="c1"># Capitalize purpose_of_loan</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;purpose_clean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;purpose_of_loan&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+
+<span class="c1"># Uppercase employment_status</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;employment_upper&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;employment_status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="searching-matching">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Searching / Matching</a><a class="headerlink" href="#searching-matching" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check if &#39;Loan&#39; is in loan_type</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_contains_loan&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Loan&#39;</span><span class="p">)</span>
+
+<span class="c1"># Check if purpose starts with &#39;Medical&#39;</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;purpose_medical&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;purpose_of_loan&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;Medical&#39;</span><span class="p">)</span>
+
+<span class="c1"># Count occurrences of &#39;e&#39; in purpose_of_loan</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;e_count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;purpose_of_loan&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="replacement-modification">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Replacement / Modification</a><a class="headerlink" href="#replacement-modification" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace spaces with underscores in loan_type</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_type_underscore&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span>
+
+<span class="c1"># Slice first 3 characters of customer_id</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;customer_id_short&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Repeat loan_status twice</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_status_repeat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="splitting-extracting">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Splitting / Extracting</a><a class="headerlink" href="#splitting-extracting" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get first word of purpose_of_loan</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;purpose_first_word&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;purpose_of_loan&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Extract digits from residential_address</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;postal_code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;residential_address&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;(\d</span><span class="si">{6}</span><span class="s1">)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Extract all numbers from address</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;all_numbers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;residential_address&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\d+&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+&lt;&gt;:8: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+&lt;&gt;:8: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+C:\Users\sangouda\AppData\Local\Temp\ipykernel_35132\3220266368.py:5: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+  df[&#39;postal_code&#39;] = df[&#39;residential_address&#39;].str.extract(&#39;(\d{6})&#39;)
+C:\Users\sangouda\AppData\Local\Temp\ipykernel_35132\3220266368.py:8: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+  df[&#39;all_numbers&#39;] = df[&#39;residential_address&#39;].str.findall(&#39;\d+&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="type-checks-information">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Type Checks / Information</a><a class="headerlink" href="#type-checks-information" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check if customer_id is alphanumeric</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;id_is_alnum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span>
+
+<span class="c1"># Length of application_id</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;app_id_length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;application_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="padding-justification">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Padding / Justification</a><a class="headerlink" href="#padding-justification" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Center loan_type in width 20</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_type_centered&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
+
+<span class="c1"># Zero-fill last 3 characters of customer_id (example)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;customer_id_zfill&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="combining-joining">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Combining / Joining</a><a class="headerlink" href="#combining-joining" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combine first word of purpose and loan_type</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;combined&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_status&#39;</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">combined</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0         Business Loan_Approved
+1              Car Loan_Approved
+2        Education Loan_Approved
+3              Car Loan_Declined
+4         Personal Loan_Declined
+                  ...           
+49995    Education Loan_Approved
+49996    Education Loan_Approved
+49997          Car Loan_Approved
+49998     Business Loan_Approved
+49999         Home Loan_Approved
+Name: combined, Length: 50000, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Summary Table of Transformations</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Transformation</p></th>
+<th class="head"><p>Column Example</p></th>
+<th class="head"><p>Method</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Strip / Title</p></td>
+<td><p>loan_type</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.str.strip().str.title()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Capitalize</p></td>
+<td><p>purpose_of_loan</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.str.capitalize()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Uppercase</p></td>
+<td><p>employment_status</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.str.upper()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Contains / Startswith</p></td>
+<td><p>loan_type / purpose_of_loan</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.str.contains()</span></code>, <code class="docutils literal notranslate"><span class="pre">.str.startswith()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Count</p></td>
+<td><p>purpose_of_loan</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.str.count()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Replace</p></td>
+<td><p>loan_type</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.str.replace()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Slice</p></td>
+<td><p>customer_id</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.str.slice()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Repeat</p></td>
+<td><p>loan_status</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.str.repeat()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Split / Get</p></td>
+<td><p>purpose_of_loan</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.str.split().str.get(0)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Extract / Findall</p></td>
+<td><p>residential_address</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.str.extract()</span></code>, <code class="docutils literal notranslate"><span class="pre">.str.findall()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Type check</p></td>
+<td><p>customer_id</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.str.isalnum()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Length</p></td>
+<td><p>application_id</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.str.len()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Center / Zfill</p></td>
+<td><p>loan_type / customer_id</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.str.center()</span></code>, <code class="docutils literal notranslate"><span class="pre">.str.zfill()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Concatenate</p></td>
+<td><p>purpose + loan_type</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.str.cat()</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="categorical-transformations">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Categorical Transformations</a><a class="headerlink" href="#categorical-transformations" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert to category and get codes</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_status&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;status_code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span>
+
+<span class="c1"># One-hot encoding</span>
+<span class="n">df_status_dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;status&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;status&#39;</span><span class="p">,</span><span class="s1">&#39;status_code&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df_status_dummies</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>status</th>
+      <th>status_code</th>
+      <th>status_Approved</th>
+      <th>status_Declined</th>
+      <th>status_Fraudulent - Detected</th>
+      <th>status_Fraudulent - Undetected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Approved</td>
+      <td>0</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Approved</td>
+      <td>0</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Approved</td>
+      <td>0</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Declined</td>
+      <td>1</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Declined</td>
+      <td>1</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="date-time-transformations">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Date / Time Transformations</a><a class="headerlink" href="#date-time-transformations" title="Link to this heading">#</a></h2>
+<p><em>(Assuming <code class="docutils literal notranslate"><span class="pre">application_date</span></code> column exists)</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;application_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;application_date&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;application_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;application_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;application_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day</span>
+
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;application_date&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="s1">&#39;day&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>application_date</th>
+      <th>year</th>
+      <th>month</th>
+      <th>day</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2023-04-09</td>
+      <td>2023</td>
+      <td>4</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2023-09-23</td>
+      <td>2023</td>
+      <td>9</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2023-05-22</td>
+      <td>2023</td>
+      <td>5</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2024-07-09</td>
+      <td>2024</td>
+      <td>7</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2023-11-20</td>
+      <td>2023</td>
+      <td>11</td>
+      <td>20</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="element-wise-column-wise-transformations">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Element-wise / Column-wise Transformations</a><a class="headerlink" href="#element-wise-column-wise-transformations" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># map on Series (element-wise)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_scaled&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># apply on column(s) (column-wise)</span>
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">,</span><span class="s1">&#39;monthly_income&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">)</span>
+
+<span class="c1"># applymap on entire DataFrame (element-wise)</span>
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">,</span><span class="s1">&#39;monthly_income&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\sangouda\AppData\Local\Temp\ipykernel_35132\1770321388.py:8: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+  df[[&#39;loan_amount&#39;,&#39;monthly_income&#39;]].applymap(lambda x: x**2)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>loan_amount</th>
+      <th>monthly_income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3.648160e+11</td>
+      <td>1.204090e+09</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.000000e+10</td>
+      <td>2.662560e+09</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.857610e+11</td>
+      <td>2.190400e+08</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.049760e+11</td>
+      <td>8.294400e+08</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.000000e+10</td>
+      <td>1.927210e+09</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>49995</th>
+      <td>1.451610e+11</td>
+      <td>2.420640e+09</td>
+    </tr>
+    <tr>
+      <th>49996</th>
+      <td>5.416960e+11</td>
+      <td>8.179600e+08</td>
+    </tr>
+    <tr>
+      <th>49997</th>
+      <td>1.900960e+11</td>
+      <td>1.764000e+09</td>
+    </tr>
+    <tr>
+      <th>49998</th>
+      <td>6.839290e+11</td>
+      <td>2.180890e+09</td>
+    </tr>
+    <tr>
+      <th>49999</th>
+      <td>1.000000e+10</td>
+      <td>6.988960e+09</td>
+    </tr>
+  </tbody>
+</table>
+<p>50000 rows × 2 columns</p>
+</div></div></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="group-wise-transformations">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Group-wise Transformations</a><a class="headerlink" href="#group-wise-transformations" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mean loan per status</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_mean_by_status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">)[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+
+<span class="c1"># Aggregation example</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">)[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;median&#39;</span><span class="p">,</span><span class="s1">&#39;max&#39;</span><span class="p">,</span><span class="s1">&#39;min&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\sangouda\AppData\Local\Temp\ipykernel_35132\3442481362.py:2: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  df[&#39;loan_mean_by_status&#39;] = df.groupby(&#39;status&#39;)[&#39;loan_amount&#39;].transform(&#39;mean&#39;)
+C:\Users\sangouda\AppData\Local\Temp\ipykernel_35132\3442481362.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  df.groupby(&#39;status&#39;)[&#39;loan_amount&#39;].agg([&#39;mean&#39;,&#39;median&#39;,&#39;max&#39;,&#39;min&#39;])
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>median</th>
+      <th>max</th>
+      <th>min</th>
+    </tr>
+    <tr>
+      <th>status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Approved</th>
+      <td>514625.727704</td>
+      <td>504000.0</td>
+      <td>1618000.0</td>
+      <td>100000.0</td>
+    </tr>
+    <tr>
+      <th>Declined</th>
+      <td>511739.001483</td>
+      <td>500000.0</td>
+      <td>1485000.0</td>
+      <td>100000.0</td>
+    </tr>
+    <tr>
+      <th>Fraudulent - Detected</th>
+      <td>509380.073801</td>
+      <td>492500.0</td>
+      <td>1521000.0</td>
+      <td>100000.0</td>
+    </tr>
+    <tr>
+      <th>Fraudulent - Undetected</th>
+      <td>495138.429752</td>
+      <td>487000.0</td>
+      <td>1336000.0</td>
+      <td>100000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="sorting-ranking">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Sorting / Ranking</a><a class="headerlink" href="#sorting-ranking" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_sorted</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_rank&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;dense&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">,</span><span class="s1">&#39;loan_rank&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>loan_amount</th>
+      <th>loan_rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>604000.0</td>
+      <td>808.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>100000.0</td>
+      <td>1312.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>431000.0</td>
+      <td>981.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>324000.0</td>
+      <td>1088.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>100000.0</td>
+      <td>1312.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="binning-discretization">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Binning / Discretization</a><a class="headerlink" href="#binning-discretization" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Interval-based binning</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_bin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">25000</span><span class="p">,</span><span class="mi">50000</span><span class="p">,</span><span class="mi">100000</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">,</span><span class="s1">&#39;Medium&#39;</span><span class="p">,</span><span class="s1">&#39;High&#39;</span><span class="p">,</span><span class="s1">&#39;Very High&#39;</span><span class="p">])</span>
+
+<span class="c1"># Quantile-based binning</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_quantile_bin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Q1&#39;</span><span class="p">,</span><span class="s1">&#39;Q2&#39;</span><span class="p">,</span><span class="s1">&#39;Q3&#39;</span><span class="p">,</span><span class="s1">&#39;Q4&#39;</span><span class="p">])</span>
+
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">,</span><span class="s1">&#39;loan_bin&#39;</span><span class="p">,</span><span class="s1">&#39;loan_quantile_bin&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>loan_amount</th>
+      <th>loan_bin</th>
+      <th>loan_quantile_bin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>604000.0</td>
+      <td>NaN</td>
+      <td>Q3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>100000.0</td>
+      <td>Very High</td>
+      <td>Q1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>431000.0</td>
+      <td>NaN</td>
+      <td>Q2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>324000.0</td>
+      <td>NaN</td>
+      <td>Q2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>100000.0</td>
+      <td>Very High</td>
+      <td>Q1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<hr class="docutils" />
+<p><strong>Summary of Transformations Applied</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Numeric / Arithmetic</strong> → <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>, <code class="docutils literal notranslate"><span class="pre">abs</span></code>, <code class="docutils literal notranslate"><span class="pre">clip</span></code>, <code class="docutils literal notranslate"><span class="pre">cumsum</span></code>, <code class="docutils literal notranslate"><span class="pre">diff</span></code>, <code class="docutils literal notranslate"><span class="pre">log1p</span></code></p></li>
+<li><p><strong>String / Text</strong> → <code class="docutils literal notranslate"><span class="pre">strip</span></code>, <code class="docutils literal notranslate"><span class="pre">title</span></code>, <code class="docutils literal notranslate"><span class="pre">replace</span></code>, <code class="docutils literal notranslate"><span class="pre">split</span></code></p></li>
+<li><p><strong>Categorical</strong> → <code class="docutils literal notranslate"><span class="pre">astype('category')</span></code>, <code class="docutils literal notranslate"><span class="pre">.cat.codes</span></code>, <code class="docutils literal notranslate"><span class="pre">get_dummies</span></code></p></li>
+<li><p><strong>Date / Time</strong> → <code class="docutils literal notranslate"><span class="pre">to_datetime</span></code>, extract year/month/day</p></li>
+<li><p><strong>Element-wise / Column-wise</strong> → <code class="docutils literal notranslate"><span class="pre">map</span></code>, <code class="docutils literal notranslate"><span class="pre">apply</span></code>, <code class="docutils literal notranslate"><span class="pre">applymap</span></code></p></li>
+<li><p><strong>Group-wise</strong> → <code class="docutils literal notranslate"><span class="pre">groupby().transform()</span></code>, <code class="docutils literal notranslate"><span class="pre">groupby().agg()</span></code></p></li>
+<li><p><strong>Sorting / Ranking</strong> → <code class="docutils literal notranslate"><span class="pre">sort_values</span></code>, <code class="docutils literal notranslate"><span class="pre">rank</span></code></p></li>
+<li><p><strong>Binning / Discretization</strong> → <code class="docutils literal notranslate"><span class="pre">cut</span></code>, <code class="docutils literal notranslate"><span class="pre">qcut</span></code></p></li>
+<li><p><strong>Combining Columns</strong> → <code class="docutils literal notranslate"><span class="pre">str.cat()</span></code></p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "py12"
+        },
+        kernelOptions: {
+            name: "py12",
+            path: "./content\eda\pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'py12'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="06_part.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Column Transformer &amp; Imputer</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="08_part.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Aggregation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-arithmetic-transformations">Numeric / Arithmetic Transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-text-transformations">String / Text Transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-formatting">Cleaning / Formatting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-matching">Searching / Matching</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#replacement-modification">Replacement / Modification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-extracting">Splitting / Extracting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-checks-information">Type Checks / Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#padding-justification">Padding / Justification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-joining">Combining / Joining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-transformations">Categorical Transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#date-time-transformations">Date / Time Transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#element-wise-column-wise-transformations">Element-wise / Column-wise Transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-wise-transformations">Group-wise Transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-ranking">Sorting / Ranking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binning-discretization">Binning / Discretization</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

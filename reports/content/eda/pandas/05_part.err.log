@@ -1,0 +1,65 @@
+Traceback (most recent call last):
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 664, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Check duplicates
+print(df.duplicated().sum())
+
+# Drop duplicate rows based on customer_id and loan_amount
+df.drop_duplicates(subset=['customer_id', 'loan_amount'], inplace=True)
+
+
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mKeyError[39m                                  Traceback (most recent call last)
+[32m~\AppData\Local\Temp\ipykernel_36776\2888835569.py[39m in [36m?[39m[34m()[39m
+[32m      1[39m [38;5;66;03m# Check duplicates[39;00m
+[32m      2[39m print(df.duplicated().sum())
+[32m      3[39m 
+[32m      4[39m [38;5;66;03m# Drop duplicate rows based on customer_id and loan_amount[39;00m
+[32m----> [39m[32m5[39m df.drop_duplicates(subset=[[33m'customer_id'[39m, [33m'loan_amount'[39m], inplace=[38;5;28;01mTrue[39;00m)
+[32m      6[39m 
+
+[32m~\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\frame.py[39m in [36m?[39m[34m(self, subset, keep, inplace, ignore_index)[39m
+[32m   6821[39m 
+[32m   6822[39m         inplace = validate_bool_kwarg(inplace, [33m"inplace"[39m)
+[32m   6823[39m         ignore_index = validate_bool_kwarg(ignore_index, [33m"ignore_index"[39m)
+[32m   6824[39m 
+[32m-> [39m[32m6825[39m         result = self[-self.duplicated(subset, keep=keep)]
+[32m   6826[39m         [38;5;28;01mif[39;00m ignore_index:
+[32m   6827[39m             result.index = default_index(len(result))
+[32m   6828[39m 
+
+[32m~\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\frame.py[39m in [36m?[39m[34m(self, subset, keep)[39m
+[32m   6953[39m         [38;5;66;03m# Otherwise, raise a KeyError, same as if you try to __getitem__ with a[39;00m
+[32m   6954[39m         [38;5;66;03m# key that doesn't exist.[39;00m
+[32m   6955[39m         diff = set(subset) - set(self.columns)
+[32m   6956[39m         [38;5;28;01mif[39;00m diff:
+[32m-> [39m[32m6957[39m             [38;5;28;01mraise[39;00m KeyError(Index(diff))
+[32m   6958[39m 
+[32m   6959[39m         [38;5;28;01mif[39;00m len(subset) == [32m1[39m [38;5;28;01mand[39;00m self.columns.is_unique:
+[32m   6960[39m             [38;5;66;03m# GH#45236 This is faster than get_group_index below[39;00m
+
+[31mKeyError[39m: Index(['loan_amount'], dtype='object')
+KeyError: Index(['loan_amount'], dtype='object')
+

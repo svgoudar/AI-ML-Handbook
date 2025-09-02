@@ -1,0 +1,1714 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data Inspection &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=6528377c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=7f8ff830"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../_static/js/hoverxref.js"></script>
+    <script src="../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../_static/js/micromodal.min.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/eda/pandas/03_part';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Selection, Indexing &amp; Filtering" href="04_part.html" />
+    <link rel="prev" title="Creating Dataframe &amp; Series" href="02_part.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../probability/index.html">🎲 Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/01_probability.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/02_probability_types.html">Types of Probability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/03_probability_rules.html">Rules of Probability</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../probability/functions/overview.html">Probability Functions Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../probability/functions/01_pdf.html">Probability Density Function (PDF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../probability/functions/02_pmf.html">Probability Mass Function (PMF):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../probability/functions/03_cdf.html">Cumulative Distribution Function (CDF)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../probability/distribution/index.html">Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../probability/distribution/discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/bernoulli.html">Bernoulli Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/binomial.html">Binomial Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/poisson.html">The Poisson Distribution (Discrete)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/geometric.html">Geometric Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/uniform.html">Discrete Uniform Distribution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../probability/distribution/continuous/index.html">Continuous Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/normal.html">Normal Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/exponential.html">Exponential Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/uniform.html">Uniform Continuous Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/gamma.html">Gamma Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/beta.html">Beta Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/student_t.html">Student’s t-Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/chi_square.html">Chi-Square Distribution</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/q_and_a.html">🎯 Wrap up</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../statistics/index.html">📊 Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../statistics/overview.html">Overview</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../statistics/descriptive/index.html">Descriptive Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/01_part.html">Measures of Central Tendency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/02_part.html">Measures of Dispersion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/03_part.html">Bessel’s Correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/04_part.html">Random Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/05_part.html">Percentage vs Percentile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/06_part.html">Five Number Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/07_part.html">Histogram and Skewness</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../statistics/inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/01_part.html">Hypothesis Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/02_part.html">P-Value, CI and α</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/03_part.html">Hypothesis Testing with Z-test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/04_part.html">Student’s t-Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/06_part.html">Type I and Type II Errors in Hypothesis Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/07_part.html">Bayes’ Theorem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/08_part.html">Confidence Interval (CI) &amp; Margin of Error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/09_part.html">Chi-Square Test (Goodness of Fit)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/10_part.html">ANOVA (Analysis of Variance)</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/11_part.html">Central Limit Theorem (CLT)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../statistics/correlation/index.html">Correlation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/correlation/01_part.html">Covariance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/correlation/02_part.html">Correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/correlation/03_part.html">Pearson Correlation Coefficient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/correlation/04_part.html">Spearman’s Rank Correlation Coefficient (ρ or <em>rₛ</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/correlation/05_part.html">Kendall’s Tau</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../statistics/01_part.html">Parametric vs. Non-Parametric Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../statistics/02_part.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../statistics/03_part.html">Resampling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../statistics/04_part.html">Time Series (TS)</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linear_algebra/index.html">↗️ Linear Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/01_part.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/02_part.html">Scalar &amp; Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/03_part.html">Multiplication on Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/04_part.html">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/05_part.html">Functions &amp; Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/06_part.html">Inverse Functions &amp; Identity Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/07_part.html">Eigenvectors and Eigenvalues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/08_part.html">Line, Plane and Hyperplane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/09_part.html">Matrix Decomposition</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../calculus/index.html">📐Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../calculus/01_part.html">DIfferential Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../calculus/02_part.html">Integration Calculus</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory Data Analysis</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy/index.html">NumPy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/01_part.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/02_part.html">Creating Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/03_part.html">Indexing &amp; Slicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/04_part.html">Reshaping and Resizing</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../numpy/05_part.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/06_part.html">Stacking &amp; Splitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/07_part.html">Broadcasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/08_part.html">Arithmetic Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/09_part.html">Linear Algebra Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/10_part.html">Random Sampling in NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/11_part.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/Practice_exercises_for_Pandas_and_NumPy.html">Outlines</a></li>
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Pandas</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_part.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_part.html">Creating Dataframe &amp; Series</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Data Inspection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_part.html">Selection, Indexing &amp; Filtering</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="05_part.html">Data Cleaning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_part.html">Column Transformer &amp; Imputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_part.html">Data Transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_part.html">Data Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_part.html">Reshaping &amp; Pivot</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/eda/pandas/03_part.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/eda/pandas/03_part.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/content/eda/pandas/03_part.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Inspection</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-inspection">Structural Inspection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-overview">Content Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-inspection">Value Inspection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-checks">Data Quality Checks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-checks">Statistical Checks</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <nav class="contents" id="contents" role="doc-toc">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#data-inspection" id="id1">Data Inspection</a></p>
+<ul>
+<li><p><a class="reference internal" href="#structural-inspection" id="id2">Structural Inspection</a></p></li>
+<li><p><a class="reference internal" href="#content-overview" id="id3">Content Overview</a></p></li>
+<li><p><a class="reference internal" href="#value-inspection" id="id4">Value Inspection</a></p></li>
+<li><p><a class="reference internal" href="#data-quality-checks" id="id5">Data Quality Checks</a></p></li>
+<li><p><a class="reference internal" href="#statistical-checks" id="id6">Statistical Checks</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="data-inspection">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Data Inspection</a><a class="headerlink" href="#data-inspection" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/svgoudar/datasets/blob/main/loan_applications.csv?raw=true&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="structural-inspection">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Structural Inspection</a><a class="headerlink" href="#structural-inspection" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;shape&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;ndim&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ndim</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">size</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;axes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">axes</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;columns&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;shape&#39;: (50000, 21),
+ &#39;ndim&#39;: 2,
+ &#39;size&#39;: 1050000,
+ &#39;axes&#39;: [RangeIndex(start=0, stop=50000, step=1),
+  Index([&#39;application_id&#39;, &#39;customer_id&#39;, &#39;application_date&#39;, &#39;loan_type&#39;,
+         &#39;loan_amount_requested&#39;, &#39;loan_tenure_months&#39;, &#39;interest_rate_offered&#39;,
+         &#39;purpose_of_loan&#39;, &#39;employment_status&#39;, &#39;monthly_income&#39;, &#39;cibil_score&#39;,
+         &#39;existing_emis_monthly&#39;, &#39;debt_to_income_ratio&#39;,
+         &#39;property_ownership_status&#39;, &#39;residential_address&#39;, &#39;applicant_age&#39;,
+         &#39;gender&#39;, &#39;number_of_dependents&#39;, &#39;loan_status&#39;, &#39;fraud_flag&#39;,
+         &#39;fraud_type&#39;],
+        dtype=&#39;object&#39;)],
+ &#39;columns&#39;: [&#39;application_id&#39;,
+  &#39;customer_id&#39;,
+  &#39;application_date&#39;,
+  &#39;loan_type&#39;,
+  &#39;loan_amount_requested&#39;,
+  &#39;loan_tenure_months&#39;,
+  &#39;interest_rate_offered&#39;,
+  &#39;purpose_of_loan&#39;,
+  &#39;employment_status&#39;,
+  &#39;monthly_income&#39;,
+  &#39;cibil_score&#39;,
+  &#39;existing_emis_monthly&#39;,
+  &#39;debt_to_income_ratio&#39;,
+  &#39;property_ownership_status&#39;,
+  &#39;residential_address&#39;,
+  &#39;applicant_age&#39;,
+  &#39;gender&#39;,
+  &#39;number_of_dependents&#39;,
+  &#39;loan_status&#39;,
+  &#39;fraud_flag&#39;,
+  &#39;fraud_type&#39;],
+ &#39;index&#39;: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="content-overview">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Content Overview</a><a class="headerlink" href="#content-overview" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;head&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;tail&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;sample&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>  <span class="c1"># info prints to stdout, capture as string</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;describe&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;dtypes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;nunique&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 50000 entries, 0 to 49999
+Data columns (total 21 columns):
+ #   Column                     Non-Null Count  Dtype  
+---  ------                     --------------  -----  
+ 0   application_id             50000 non-null  object 
+ 1   customer_id                50000 non-null  object 
+ 2   application_date           50000 non-null  object 
+ 3   loan_type                  50000 non-null  object 
+ 4   loan_amount_requested      50000 non-null  float64
+ 5   loan_tenure_months         50000 non-null  int64  
+ 6   interest_rate_offered      50000 non-null  float64
+ 7   purpose_of_loan            50000 non-null  object 
+ 8   employment_status          50000 non-null  object 
+ 9   monthly_income             50000 non-null  float64
+ 10  cibil_score                50000 non-null  int64  
+ 11  existing_emis_monthly      50000 non-null  float64
+ 12  debt_to_income_ratio       50000 non-null  float64
+ 13  property_ownership_status  50000 non-null  object 
+ 14  residential_address        50000 non-null  object 
+ 15  applicant_age              50000 non-null  int64  
+ 16  gender                     50000 non-null  object 
+ 17  number_of_dependents       50000 non-null  int64  
+ 18  loan_status                50000 non-null  object 
+ 19  fraud_flag                 50000 non-null  int64  
+ 20  fraud_type                 1026 non-null   object 
+dtypes: float64(5), int64(5), object(11)
+memory usage: 8.0+ MB
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;head&#39;: {&#39;application_id&#39;: {0: &#39;c8bf0bea-70e6-4870-9125-41b8210c527f&#39;,
+   1: &#39;91224cec-3544-4bc7-ac15-a9792da54c02&#39;,
+   2: &#39;4efcd02d-4a03-4ab7-9bd1-0ff430493d0c&#39;},
+  &#39;customer_id&#39;: {0: &#39;CUST109427&#39;, 1: &#39;CUST106146&#39;, 2: &#39;CUST100674&#39;},
+  &#39;application_date&#39;: {0: &#39;2023-04-09&#39;, 1: &#39;2023-09-23&#39;, 2: &#39;2023-05-22&#39;},
+  &#39;loan_type&#39;: {0: &#39;Business Loan&#39;, 1: &#39;Car Loan&#39;, 2: &#39;Education Loan&#39;},
+  &#39;loan_amount_requested&#39;: {0: 604000.0, 1: 100000.0, 2: 431000.0},
+  &#39;loan_tenure_months&#39;: {0: 12, 1: 240, 2: 60},
+  &#39;interest_rate_offered&#39;: {0: 11.66, 1: 13.62, 2: 11.4},
+  &#39;purpose_of_loan&#39;: {0: &#39;Medical Emergency&#39;,
+   1: &#39;Education&#39;,
+   2: &#39;Medical Emergency&#39;},
+  &#39;employment_status&#39;: {0: &#39;Retired&#39;, 1: &#39;Unemployed&#39;, 2: &#39;Self-Employed&#39;},
+  &#39;monthly_income&#39;: {0: 34700.0, 1: 51600.0, 2: 14800.0},
+  &#39;cibil_score&#39;: {0: 714, 1: 667, 2: 808},
+  &#39;existing_emis_monthly&#39;: {0: 1100.0, 1: 0.0, 2: 4600.0},
+  &#39;debt_to_income_ratio&#39;: {0: 3.17, 1: 0.0, 2: 31.08},
+  &#39;property_ownership_status&#39;: {0: &#39;Rented&#39;, 1: &#39;Owned&#39;, 2: &#39;Rented&#39;},
+  &#39;residential_address&#39;: {0: &#39;94/31, Sehgal Zila, Vadodara-380521, Anantapur, Uttarakhand, 918055&#39;,
+   1: &#39;H.No. 00, Sheth Chowk, Ichalkaranji 006728, Imphal, Himachal Pradesh, 909564&#39;,
+   2: &#39;H.No. 81, Dutta Path, Kozhikode-340301, Tadepalligudem, Kerala, 797564&#39;},
+  &#39;applicant_age&#39;: {0: 28, 1: 44, 2: 56},
+  &#39;gender&#39;: {0: &#39;Female&#39;, 1: &#39;Other&#39;, 2: &#39;Other&#39;},
+  &#39;number_of_dependents&#39;: {0: 3, 1: 3, 2: 4},
+  &#39;loan_status&#39;: {0: &#39;Approved&#39;, 1: &#39;Approved&#39;, 2: &#39;Approved&#39;},
+  &#39;fraud_flag&#39;: {0: 0, 1: 0, 2: 0},
+  &#39;fraud_type&#39;: {0: nan, 1: nan, 2: nan}},
+ &#39;tail&#39;: {&#39;application_id&#39;: {49997: &#39;cdbc7ad8-0f23-46c4-aaca-619053ad5605&#39;,
+   49998: &#39;46a8f901-8005-4ae7-923e-f9d0dc8e0ae8&#39;,
+   49999: &#39;6aaf792e-6755-408e-a9ef-4d9bf841864b&#39;},
+  &#39;customer_id&#39;: {49997: &#39;CUST119886&#39;,
+   49998: &#39;CUST109088&#39;,
+   49999: &#39;CUST113445&#39;},
+  &#39;application_date&#39;: {49997: &#39;2024-12-14&#39;,
+   49998: &#39;2022-12-16&#39;,
+   49999: &#39;2025-03-25&#39;},
+  &#39;loan_type&#39;: {49997: &#39;Car Loan&#39;, 49998: &#39;Business Loan&#39;, 49999: &#39;Home Loan&#39;},
+  &#39;loan_amount_requested&#39;: {49997: 436000.0, 49998: 827000.0, 49999: 100000.0},
+  &#39;loan_tenure_months&#39;: {49997: 12, 49998: 24, 49999: 24},
+  &#39;interest_rate_offered&#39;: {49997: 10.98, 49998: 16.18, 49999: 9.44},
+  &#39;purpose_of_loan&#39;: {49997: &#39;Wedding&#39;,
+   49998: &#39;Vehicle Purchase&#39;,
+   49999: &#39;Education&#39;},
+  &#39;employment_status&#39;: {49997: &#39;Student&#39;,
+   49998: &#39;Business Owner&#39;,
+   49999: &#39;Business Owner&#39;},
+  &#39;monthly_income&#39;: {49997: 42000.0, 49998: 46700.0, 49999: 83600.0},
+  &#39;cibil_score&#39;: {49997: 799, 49998: 759, 49999: 709},
+  &#39;existing_emis_monthly&#39;: {49997: 600.0, 49998: 8100.0, 49999: 2200.0},
+  &#39;debt_to_income_ratio&#39;: {49997: 1.43, 49998: 17.34, 49999: 2.63},
+  &#39;property_ownership_status&#39;: {49997: &#39;Jointly Owned&#39;,
+   49998: &#39;Rented&#39;,
+   49999: &#39;Owned&#39;},
+  &#39;residential_address&#39;: {49997: &#39;H.No. 505, Luthra Zila, Panchkula 991795, Kolhapur, Manipur, 392400&#39;,
+   49998: &#39;H.No. 697, Sathe Road, Ongole 444116, Satna, Arunachal Pradesh, 935295&#39;,
+   49999: &#39;23/178, Iyengar Chowk, Karawal Nagar-908829, Jehanabad, Odisha, 379174&#39;},
+  &#39;applicant_age&#39;: {49997: 48, 49998: 62, 49999: 46},
+  &#39;gender&#39;: {49997: &#39;Other&#39;, 49998: &#39;Other&#39;, 49999: &#39;Male&#39;},
+  &#39;number_of_dependents&#39;: {49997: 4, 49998: 3, 49999: 3},
+  &#39;loan_status&#39;: {49997: &#39;Approved&#39;, 49998: &#39;Approved&#39;, 49999: &#39;Approved&#39;},
+  &#39;fraud_flag&#39;: {49997: 0, 49998: 0, 49999: 0},
+  &#39;fraud_type&#39;: {49997: nan, 49998: nan, 49999: nan}},
+ &#39;sample&#39;: {&#39;application_id&#39;: {33553: &#39;dbbc1847-694c-4cfe-b38e-2d1778eba8d9&#39;,
+   9427: &#39;9996e6bb-04b9-4269-bcd8-6989816f6b71&#39;,
+   199: &#39;362d1afe-b47c-41b7-aee7-2a890731a0f2&#39;},
+  &#39;customer_id&#39;: {33553: &#39;CUST109488&#39;, 9427: &#39;CUST105847&#39;, 199: &#39;CUST118171&#39;},
+  &#39;application_date&#39;: {33553: &#39;2023-08-05&#39;,
+   9427: &#39;2024-11-19&#39;,
+   199: &#39;2024-04-09&#39;},
+  &#39;loan_type&#39;: {33553: &#39;Car Loan&#39;,
+   9427: &#39;Business Loan&#39;,
+   199: &#39;Personal Loan&#39;},
+  &#39;loan_amount_requested&#39;: {33553: 683000.0, 9427: 550000.0, 199: 100000.0},
+  &#39;loan_tenure_months&#39;: {33553: 24, 9427: 36, 199: 12},
+  &#39;interest_rate_offered&#39;: {33553: 13.07, 9427: 11.97, 199: 8.72},
+  &#39;purpose_of_loan&#39;: {33553: &#39;Education&#39;,
+   9427: &#39;Debt Consolidation&#39;,
+   199: &#39;Business Expansion&#39;},
+  &#39;employment_status&#39;: {33553: &#39;Business Owner&#39;,
+   9427: &#39;Student&#39;,
+   199: &#39;Salaried&#39;},
+  &#39;monthly_income&#39;: {33553: 38000.0, 9427: 25100.0, 199: 63500.0},
+  &#39;cibil_score&#39;: {33553: 704, 9427: 663, 199: 723},
+  &#39;existing_emis_monthly&#39;: {33553: 1600.0, 9427: 4000.0, 199: 1700.0},
+  &#39;debt_to_income_ratio&#39;: {33553: 4.21, 9427: 15.94, 199: 2.68},
+  &#39;property_ownership_status&#39;: {33553: &#39;Jointly Owned&#39;,
+   9427: &#39;Rented&#39;,
+   199: &#39;Rented&#39;},
+  &#39;residential_address&#39;: {33553: &#39;738, Konda Nagar, Jammu-977955, Mahbubnagar, Sikkim, 782055&#39;,
+   9427: &#39;43/00, Taneja Street, Mathura 178790, Ramgarh, Uttarakhand, 060282&#39;,
+   199: &#39;35/345, Boase Zila, Karaikudi-576117, Nadiad, Maharashtra, 503569&#39;},
+  &#39;applicant_age&#39;: {33553: 47, 9427: 26, 199: 45},
+  &#39;gender&#39;: {33553: &#39;Male&#39;, 9427: &#39;Other&#39;, 199: &#39;Female&#39;},
+  &#39;number_of_dependents&#39;: {33553: 2, 9427: 4, 199: 0},
+  &#39;loan_status&#39;: {33553: &#39;Approved&#39;, 9427: &#39;Approved&#39;, 199: &#39;Approved&#39;},
+  &#39;fraud_flag&#39;: {33553: 0, 9427: 0, 199: 0},
+  &#39;fraud_type&#39;: {33553: nan, 9427: nan, 199: nan}},
+ &#39;info&#39;: &#39;None&#39;,
+ &#39;describe&#39;: {&#39;application_id&#39;: {&#39;count&#39;: 50000,
+   &#39;unique&#39;: 50000,
+   &#39;top&#39;: &#39;6aaf792e-6755-408e-a9ef-4d9bf841864b&#39;,
+   &#39;freq&#39;: 1,
+   &#39;mean&#39;: nan,
+   &#39;std&#39;: nan,
+   &#39;min&#39;: nan,
+   &#39;25%&#39;: nan,
+   &#39;50%&#39;: nan,
+   &#39;75%&#39;: nan,
+   &#39;max&#39;: nan},
+  &#39;customer_id&#39;: {&#39;count&#39;: 50000,
+   &#39;unique&#39;: 18314,
+   &#39;top&#39;: &#39;CUST114139&#39;,
+   &#39;freq&#39;: 10,
+   &#39;mean&#39;: nan,
+   &#39;std&#39;: nan,
+   &#39;min&#39;: nan,
+   &#39;25%&#39;: nan,
+   &#39;50%&#39;: nan,
+   &#39;75%&#39;: nan,
+   &#39;max&#39;: nan},
+  &#39;application_date&#39;: {&#39;count&#39;: 50000,
+   &#39;unique&#39;: 1096,
+   &#39;top&#39;: &#39;2024-05-26&#39;,
+   &#39;freq&#39;: 70,
+   &#39;mean&#39;: nan,
+   &#39;std&#39;: nan,
+   &#39;min&#39;: nan,
+   &#39;25%&#39;: nan,
+   &#39;50%&#39;: nan,
+   &#39;75%&#39;: nan,
+   &#39;max&#39;: nan},
+  &#39;loan_type&#39;: {&#39;count&#39;: 50000,
+   &#39;unique&#39;: 5,
+   &#39;top&#39;: &#39;Home Loan&#39;,
+   &#39;freq&#39;: 10056,
+   &#39;mean&#39;: nan,
+   &#39;std&#39;: nan,
+   &#39;min&#39;: nan,
+   &#39;25%&#39;: nan,
+   &#39;50%&#39;: nan,
+   &#39;75%&#39;: nan,
+   &#39;max&#39;: nan},
+  &#39;loan_amount_requested&#39;: {&#39;count&#39;: 50000.0,
+   &#39;unique&#39;: nan,
+   &#39;top&#39;: nan,
+   &#39;freq&#39;: nan,
+   &#39;mean&#39;: 513913.04,
+   &#39;std&#39;: 275212.57121931325,
+   &#39;min&#39;: 100000.0,
+   &#39;25%&#39;: 300000.0,
+   &#39;50%&#39;: 503000.0,
+   &#39;75%&#39;: 701000.0,
+   &#39;max&#39;: 1618000.0},
+  &#39;loan_tenure_months&#39;: {&#39;count&#39;: 50000.0,
+   &#39;unique&#39;: nan,
+   &#39;top&#39;: nan,
+   &#39;freq&#39;: nan,
+   &#39;mean&#39;: 121.3884,
+   &#39;std&#39;: 121.41040002876484,
+   &#39;min&#39;: 12.0,
+   &#39;25%&#39;: 24.0,
+   &#39;50%&#39;: 60.0,
+   &#39;75%&#39;: 240.0,
+   &#39;max&#39;: 360.0},
+  &#39;interest_rate_offered&#39;: {&#39;count&#39;: 50000.0,
+   &#39;unique&#39;: nan,
+   &#39;top&#39;: nan,
+   &#39;freq&#39;: nan,
+   &#39;mean&#39;: 10.528547199999997,
+   &#39;std&#39;: 1.926442019098737,
+   &#39;min&#39;: 7.0,
+   &#39;25%&#39;: 9.15,
+   &#39;50%&#39;: 10.51,
+   &#39;75%&#39;: 11.85,
+   &#39;max&#39;: 19.62},
+  &#39;purpose_of_loan&#39;: {&#39;count&#39;: 50000,
+   &#39;unique&#39;: 7,
+   &#39;top&#39;: &#39;Home Renovation&#39;,
+   &#39;freq&#39;: 7230,
+   &#39;mean&#39;: nan,
+   &#39;std&#39;: nan,
+   &#39;min&#39;: nan,
+   &#39;25%&#39;: nan,
+   &#39;50%&#39;: nan,
+   &#39;75%&#39;: nan,
+   &#39;max&#39;: nan},
+  &#39;employment_status&#39;: {&#39;count&#39;: 50000,
+   &#39;unique&#39;: 6,
+   &#39;top&#39;: &#39;Retired&#39;,
+   &#39;freq&#39;: 8534,
+   &#39;mean&#39;: nan,
+   &#39;std&#39;: nan,
+   &#39;min&#39;: nan,
+   &#39;25%&#39;: nan,
+   &#39;50%&#39;: nan,
+   &#39;75%&#39;: nan,
+   &#39;max&#39;: nan},
+  &#39;monthly_income&#39;: {&#39;count&#39;: 50000.0,
+   &#39;unique&#39;: nan,
+   &#39;top&#39;: nan,
+   &#39;freq&#39;: nan,
+   &#39;mean&#39;: 50844.94,
+   &#39;std&#39;: 23874.74223657163,
+   &#39;min&#39;: 10000.0,
+   &#39;25%&#39;: 33600.0,
+   &#39;50%&#39;: 50300.0,
+   &#39;75%&#39;: 67300.0,
+   &#39;max&#39;: 162000.0},
+  &#39;cibil_score&#39;: {&#39;count&#39;: 50000.0,
+   &#39;unique&#39;: nan,
+   &#39;top&#39;: nan,
+   &#39;freq&#39;: nan,
+   &#39;mean&#39;: 699.14976,
+   &#39;std&#39;: 49.920325446858364,
+   &#39;min&#39;: 476.0,
+   &#39;25%&#39;: 665.0,
+   &#39;50%&#39;: 699.0,
+   &#39;75%&#39;: 733.0,
+   &#39;max&#39;: 888.0},
+  &#39;existing_emis_monthly&#39;: {&#39;count&#39;: 50000.0,
+   &#39;unique&#39;: nan,
+   &#39;top&#39;: nan,
+   &#39;freq&#39;: nan,
+   &#39;mean&#39;: 3066.362,
+   &#39;std&#39;: 1896.9745004087706,
+   &#39;min&#39;: 0.0,
+   &#39;25%&#39;: 1700.0,
+   &#39;50%&#39;: 3000.0,
+   &#39;75%&#39;: 4400.0,
+   &#39;max&#39;: 11400.0},
+  &#39;debt_to_income_ratio&#39;: {&#39;count&#39;: 50000.0,
+   &#39;unique&#39;: nan,
+   &#39;top&#39;: nan,
+   &#39;freq&#39;: nan,
+   &#39;mean&#39;: 8.573188,
+   &#39;std&#39;: 9.58764941479829,
+   &#39;min&#39;: 0.0,
+   &#39;25%&#39;: 3.09,
+   &#39;50%&#39;: 5.95,
+   &#39;75%&#39;: 10.2925,
+   &#39;max&#39;: 102.0},
+  &#39;property_ownership_status&#39;: {&#39;count&#39;: 50000,
+   &#39;unique&#39;: 3,
+   &#39;top&#39;: &#39;Jointly Owned&#39;,
+   &#39;freq&#39;: 16734,
+   &#39;mean&#39;: nan,
+   &#39;std&#39;: nan,
+   &#39;min&#39;: nan,
+   &#39;25%&#39;: nan,
+   &#39;50%&#39;: nan,
+   &#39;75%&#39;: nan,
+   &#39;max&#39;: nan},
+  &#39;residential_address&#39;: {&#39;count&#39;: 50000,
+   &#39;unique&#39;: 18314,
+   &#39;top&#39;: &#39;75/83, Gaba Road, Madhyamgram 537011, Udaipur, Mizoram, 754659&#39;,
+   &#39;freq&#39;: 10,
+   &#39;mean&#39;: nan,
+   &#39;std&#39;: nan,
+   &#39;min&#39;: nan,
+   &#39;25%&#39;: nan,
+   &#39;50%&#39;: nan,
+   &#39;75%&#39;: nan,
+   &#39;max&#39;: nan},
+  &#39;applicant_age&#39;: {&#39;count&#39;: 50000.0,
+   &#39;unique&#39;: nan,
+   &#39;top&#39;: nan,
+   &#39;freq&#39;: nan,
+   &#39;mean&#39;: 43.06088,
+   &#39;std&#39;: 12.970254360480503,
+   &#39;min&#39;: 21.0,
+   &#39;25%&#39;: 32.0,
+   &#39;50%&#39;: 43.0,
+   &#39;75%&#39;: 54.0,
+   &#39;max&#39;: 65.0},
+  &#39;gender&#39;: {&#39;count&#39;: 50000,
+   &#39;unique&#39;: 3,
+   &#39;top&#39;: &#39;Other&#39;,
+   &#39;freq&#39;: 16913,
+   &#39;mean&#39;: nan,
+   &#39;std&#39;: nan,
+   &#39;min&#39;: nan,
+   &#39;25%&#39;: nan,
+   &#39;50%&#39;: nan,
+   &#39;75%&#39;: nan,
+   &#39;max&#39;: nan},
+  &#39;number_of_dependents&#39;: {&#39;count&#39;: 50000.0,
+   &#39;unique&#39;: nan,
+   &#39;top&#39;: nan,
+   &#39;freq&#39;: nan,
+   &#39;mean&#39;: 2.01228,
+   &#39;std&#39;: 1.4087614751184372,
+   &#39;min&#39;: 0.0,
+   &#39;25%&#39;: 1.0,
+   &#39;50%&#39;: 2.0,
+   &#39;75%&#39;: 3.0,
+   &#39;max&#39;: 4.0},
+  &#39;loan_status&#39;: {&#39;count&#39;: 50000,
+   &#39;unique&#39;: 4,
+   &#39;top&#39;: &#39;Approved&#39;,
+   &#39;freq&#39;: 40882,
+   &#39;mean&#39;: nan,
+   &#39;std&#39;: nan,
+   &#39;min&#39;: nan,
+   &#39;25%&#39;: nan,
+   &#39;50%&#39;: nan,
+   &#39;75%&#39;: nan,
+   &#39;max&#39;: nan},
+  &#39;fraud_flag&#39;: {&#39;count&#39;: 50000.0,
+   &#39;unique&#39;: nan,
+   &#39;top&#39;: nan,
+   &#39;freq&#39;: nan,
+   &#39;mean&#39;: 0.02052,
+   &#39;std&#39;: 0.1417721114557857,
+   &#39;min&#39;: 0.0,
+   &#39;25%&#39;: 0.0,
+   &#39;50%&#39;: 0.0,
+   &#39;75%&#39;: 0.0,
+   &#39;max&#39;: 1.0},
+  &#39;fraud_type&#39;: {&#39;count&#39;: 1026,
+   &#39;unique&#39;: 4,
+   &#39;top&#39;: &#39;Synthetic Identity&#39;,
+   &#39;freq&#39;: 276,
+   &#39;mean&#39;: nan,
+   &#39;std&#39;: nan,
+   &#39;min&#39;: nan,
+   &#39;25%&#39;: nan,
+   &#39;50%&#39;: nan,
+   &#39;75%&#39;: nan,
+   &#39;max&#39;: nan}},
+ &#39;dtypes&#39;: {&#39;application_id&#39;: dtype(&#39;O&#39;),
+  &#39;customer_id&#39;: dtype(&#39;O&#39;),
+  &#39;application_date&#39;: dtype(&#39;O&#39;),
+  &#39;loan_type&#39;: dtype(&#39;O&#39;),
+  &#39;loan_amount_requested&#39;: dtype(&#39;float64&#39;),
+  &#39;loan_tenure_months&#39;: dtype(&#39;int64&#39;),
+  &#39;interest_rate_offered&#39;: dtype(&#39;float64&#39;),
+  &#39;purpose_of_loan&#39;: dtype(&#39;O&#39;),
+  &#39;employment_status&#39;: dtype(&#39;O&#39;),
+  &#39;monthly_income&#39;: dtype(&#39;float64&#39;),
+  &#39;cibil_score&#39;: dtype(&#39;int64&#39;),
+  &#39;existing_emis_monthly&#39;: dtype(&#39;float64&#39;),
+  &#39;debt_to_income_ratio&#39;: dtype(&#39;float64&#39;),
+  &#39;property_ownership_status&#39;: dtype(&#39;O&#39;),
+  &#39;residential_address&#39;: dtype(&#39;O&#39;),
+  &#39;applicant_age&#39;: dtype(&#39;int64&#39;),
+  &#39;gender&#39;: dtype(&#39;O&#39;),
+  &#39;number_of_dependents&#39;: dtype(&#39;int64&#39;),
+  &#39;loan_status&#39;: dtype(&#39;O&#39;),
+  &#39;fraud_flag&#39;: dtype(&#39;int64&#39;),
+  &#39;fraud_type&#39;: dtype(&#39;O&#39;)},
+ &#39;nunique&#39;: {&#39;application_id&#39;: 50000,
+  &#39;customer_id&#39;: 18314,
+  &#39;application_date&#39;: 1096,
+  &#39;loan_type&#39;: 5,
+  &#39;loan_amount_requested&#39;: 1312,
+  &#39;loan_tenure_months&#39;: 7,
+  &#39;interest_rate_offered&#39;: 983,
+  &#39;purpose_of_loan&#39;: 7,
+  &#39;employment_status&#39;: 6,
+  &#39;monthly_income&#39;: 1101,
+  &#39;cibil_score&#39;: 354,
+  &#39;existing_emis_monthly&#39;: 108,
+  &#39;debt_to_income_ratio&#39;: 3288,
+  &#39;property_ownership_status&#39;: 3,
+  &#39;residential_address&#39;: 18314,
+  &#39;applicant_age&#39;: 45,
+  &#39;gender&#39;: 3,
+  &#39;number_of_dependents&#39;: 5,
+  &#39;loan_status&#39;: 4,
+  &#39;fraud_flag&#39;: 2,
+  &#39;fraud_type&#39;: 4}}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="value-inspection">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Value Inspection</a><a class="headerlink" href="#value-inspection" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">first_col</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;value_counts&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">first_col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;unique&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">first_col</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()[:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;nunique_col&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">first_col</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;value_counts&#39;: {&#39;6aaf792e-6755-408e-a9ef-4d9bf841864b&#39;: 1,
+  &#39;c8bf0bea-70e6-4870-9125-41b8210c527f&#39;: 1,
+  &#39;91224cec-3544-4bc7-ac15-a9792da54c02&#39;: 1,
+  &#39;4efcd02d-4a03-4ab7-9bd1-0ff430493d0c&#39;: 1,
+  &#39;a61337d4-ba04-4a68-b492-2cb8266e6ed7&#39;: 1},
+ &#39;unique&#39;: [&#39;c8bf0bea-70e6-4870-9125-41b8210c527f&#39;,
+  &#39;91224cec-3544-4bc7-ac15-a9792da54c02&#39;,
+  &#39;4efcd02d-4a03-4ab7-9bd1-0ff430493d0c&#39;,
+  &#39;a61337d4-ba04-4a68-b492-2cb8266e6ed7&#39;,
+  &#39;a8d1639e-170b-41b2-826a-55c7dae38d16&#39;],
+ &#39;nunique_col&#39;: 50000}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-quality-checks">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Data Quality Checks</a><a class="headerlink" href="#data-quality-checks" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;isnull_sum&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;notnull_sum&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;duplicated_sum&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;duplicated_rows&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>isnull_sum</th>
+      <th>notnull_sum</th>
+      <th>duplicated_sum</th>
+      <th>duplicated_rows</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>application_id</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>customer_id</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>application_date</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>loan_type</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>loan_amount_requested</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>loan_tenure_months</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>interest_rate_offered</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>purpose_of_loan</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>employment_status</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>monthly_income</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>cibil_score</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>existing_emis_monthly</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>debt_to_income_ratio</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>property_ownership_status</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>residential_address</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>applicant_age</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>gender</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>number_of_dependents</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>loan_status</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>fraud_flag</th>
+      <td>0</td>
+      <td>50000</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>fraud_type</th>
+      <td>48974</td>
+      <td>1026</td>
+      <td>0</td>
+      <td>{}</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="statistical-checks">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Statistical Checks</a><a class="headerlink" href="#statistical-checks" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;median&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;corr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;var&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;std&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>median</th>
+      <th>mode</th>
+      <th>min</th>
+      <th>max</th>
+      <th>corr</th>
+      <th>var</th>
+      <th>std</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>loan_amount_requested</th>
+      <td>513913.040000</td>
+      <td>503000.00</td>
+      <td>100000.0</td>
+      <td>100000.0</td>
+      <td>1618000.00</td>
+      <td>{'loan_amount_requested': 1.0, 'loan_tenure_mo...</td>
+      <td>7.574196e+10</td>
+      <td>275212.571219</td>
+    </tr>
+    <tr>
+      <th>loan_tenure_months</th>
+      <td>121.388400</td>
+      <td>60.00</td>
+      <td>24.0</td>
+      <td>12.0</td>
+      <td>360.00</td>
+      <td>{'loan_amount_requested': 0.006663320703185639...</td>
+      <td>1.474049e+04</td>
+      <td>121.410400</td>
+    </tr>
+    <tr>
+      <th>interest_rate_offered</th>
+      <td>10.528547</td>
+      <td>10.51</td>
+      <td>7.0</td>
+      <td>7.0</td>
+      <td>19.62</td>
+      <td>{'loan_amount_requested': -0.00730245995193055...</td>
+      <td>3.711179e+00</td>
+      <td>1.926442</td>
+    </tr>
+    <tr>
+      <th>monthly_income</th>
+      <td>50844.940000</td>
+      <td>50300.00</td>
+      <td>10000.0</td>
+      <td>10000.0</td>
+      <td>162000.00</td>
+      <td>{'loan_amount_requested': -0.00628645429399494...</td>
+      <td>5.700033e+08</td>
+      <td>23874.742237</td>
+    </tr>
+    <tr>
+      <th>cibil_score</th>
+      <td>699.149760</td>
+      <td>699.00</td>
+      <td>715.0</td>
+      <td>476.0</td>
+      <td>888.00</td>
+      <td>{'loan_amount_requested': 0.008058566557966971...</td>
+      <td>2.492039e+03</td>
+      <td>49.920325</td>
+    </tr>
+    <tr>
+      <th>existing_emis_monthly</th>
+      <td>3066.362000</td>
+      <td>3000.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>11400.00</td>
+      <td>{'loan_amount_requested': 0.005052796337672041...</td>
+      <td>3.598512e+06</td>
+      <td>1896.974500</td>
+    </tr>
+    <tr>
+      <th>debt_to_income_ratio</th>
+      <td>8.573188</td>
+      <td>5.95</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>102.00</td>
+      <td>{'loan_amount_requested': 0.004796831954571135...</td>
+      <td>9.192302e+01</td>
+      <td>9.587649</td>
+    </tr>
+    <tr>
+      <th>applicant_age</th>
+      <td>43.060880</td>
+      <td>43.00</td>
+      <td>48.0</td>
+      <td>21.0</td>
+      <td>65.00</td>
+      <td>{'loan_amount_requested': -0.00697686689550769...</td>
+      <td>1.682275e+02</td>
+      <td>12.970254</td>
+    </tr>
+    <tr>
+      <th>number_of_dependents</th>
+      <td>2.012280</td>
+      <td>2.00</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.00</td>
+      <td>{'loan_amount_requested': 0.002294829283521847...</td>
+      <td>1.984609e+00</td>
+      <td>1.408761</td>
+    </tr>
+    <tr>
+      <th>fraud_flag</th>
+      <td>0.020520</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.00</td>
+      <td>{'loan_amount_requested': -0.00591735482226123...</td>
+      <td>2.009933e-02</td>
+      <td>0.141772</td>
+    </tr>
+    <tr>
+      <th>application_id</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>00003836-17f2-4ed9-ab3e-8090cd396b43</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>customer_id</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CUST100339</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>application_date</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2024-05-26</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>loan_type</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Home Loan</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>purpose_of_loan</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Home Renovation</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>employment_status</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Retired</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>property_ownership_status</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Jointly Owned</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>residential_address</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>522, Kohli Ganj, Ambala-793230, Nellore, Himac...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>gender</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Other</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>loan_status</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Approved</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>fraud_type</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Synthetic Identity</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "py12"
+        },
+        kernelOptions: {
+            name: "py12",
+            path: "./content\eda\pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'py12'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_part.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Creating Dataframe &amp; Series</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_part.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Selection, Indexing &amp; Filtering</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-inspection">Structural Inspection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-overview">Content Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-inspection">Value Inspection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-checks">Data Quality Checks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-checks">Statistical Checks</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

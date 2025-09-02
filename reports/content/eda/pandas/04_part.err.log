@@ -1,0 +1,41 @@
+Traceback (most recent call last):
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 664, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\sangouda\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Single column (Series)
+loan_type = df['loan_type']
+
+# Multiple columns (DataFrame)
+df_subset = df[['application_id','loan_type','loan_amount_requested']]
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mNameError[39m                                 Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 2[39m
+[32m      1[39m [38;5;66;03m# Single column (Series)[39;00m
+[32m----> [39m[32m2[39m loan_type = [43mdf[49m[[33m'[39m[33mloan_type[39m[33m'[39m]
+[32m      4[39m [38;5;66;03m# Multiple columns (DataFrame)[39;00m
+[32m      5[39m df_subset = df[[[33m'[39m[33mapplication_id[39m[33m'[39m,[33m'[39m[33mloan_type[39m[33m'[39m,[33m'[39m[33mloan_amount_requested[39m[33m'[39m]]
+
+[31mNameError[39m: name 'df' is not defined
+NameError: name 'df' is not defined
+
