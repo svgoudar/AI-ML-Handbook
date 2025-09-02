@@ -1,0 +1,1764 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Reshaping and Resizing &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=6528377c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=7f8ff830"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../_static/js/hoverxref.js"></script>
+    <script src="../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../_static/js/micromodal.min.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/eda/numpy/04_part';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Memory Management" href="05_part.html" />
+    <link rel="prev" title="Indexing &amp; Slicing" href="03_part.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../probability/index.html">🎲 Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/01_probability.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/02_probability_types.html">Types of Probability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/03_probability_rules.html">Rules of Probability</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../probability/functions/overview.html">Probability Functions Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../probability/functions/01_pdf.html">Probability Density Function (PDF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../probability/functions/02_pmf.html">Probability Mass Function (PMF):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../probability/functions/03_cdf.html">Cumulative Distribution Function (CDF)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../probability/distribution/index.html">Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../probability/distribution/discrete/index.html">Discrete Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/bernoulli.html">Bernoulli Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/binomial.html">Binomial Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/poisson.html">The Poisson Distribution (Discrete)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/geometric.html">Geometric Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/hypergeometric.html">Hypergeometric Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/discrete/uniform.html">Discrete Uniform Distribution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../probability/distribution/continuous/index.html">Continuous Probability Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/normal.html">Normal Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/exponential.html">Exponential Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/uniform.html">Uniform Continuous Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/gamma.html">Gamma Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/beta.html">Beta Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/student_t.html">Student’s t-Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../probability/distribution/continuous/chi_square.html">Chi-Square Distribution</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/q_and_a.html">🎯 Wrap up</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../statistics/index.html">📊 Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../statistics/overview.html">Overview</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../statistics/descriptive/index.html">Descriptive Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/01_part.html">Measures of Central Tendency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/02_part.html">Measures of Dispersion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/03_part.html">Bessel’s Correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/04_part.html">Random Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/05_part.html">Percentage vs Percentile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/06_part.html">Five Number Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/descriptive/07_part.html">Histogram and Skewness</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../statistics/inferential/index.html">Inferential Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/01_part.html">Hypothesis Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/02_part.html">P-Value, CI and α</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/03_part.html">Hypothesis Testing with Z-test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/04_part.html">Student’s t-Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/06_part.html">Type I and Type II Errors in Hypothesis Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/07_part.html">Bayes’ Theorem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/08_part.html">Confidence Interval (CI) &amp; Margin of Error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/09_part.html">Chi-Square Test (Goodness of Fit)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/10_part.html">ANOVA (Analysis of Variance)</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/inferential/11_part.html">Central Limit Theorem (CLT)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../statistics/correlation/index.html">Correlation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/correlation/01_part.html">Covariance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/correlation/02_part.html">Correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/correlation/03_part.html">Pearson Correlation Coefficient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/correlation/04_part.html">Spearman’s Rank Correlation Coefficient (ρ or <em>rₛ</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistics/correlation/05_part.html">Kendall’s Tau</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../statistics/01_part.html">Parametric vs. Non-Parametric Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../statistics/02_part.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../statistics/03_part.html">Resampling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../statistics/04_part.html">Time Series (TS)</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linear_algebra/index.html">↗️ Linear Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/01_part.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/02_part.html">Scalar &amp; Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/03_part.html">Multiplication on Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/04_part.html">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/05_part.html">Functions &amp; Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/06_part.html">Inverse Functions &amp; Identity Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/07_part.html">Eigenvectors and Eigenvalues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/08_part.html">Line, Plane and Hyperplane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linear_algebra/09_part.html">Matrix Decomposition</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../calculus/index.html">📐Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../calculus/01_part.html">DIfferential Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../calculus/02_part.html">Integration Calculus</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory Data Analysis</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">NumPy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_part.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_part.html">Creating Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_part.html">Indexing &amp; Slicing</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Reshaping and Resizing</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="05_part.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_part.html">Stacking &amp; Splitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_part.html">Broadcasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_part.html">Arithmetic Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_part.html">Linear Algebra Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_part.html">Random Sampling in NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_part.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Practice_exercises_for_Pandas_and_NumPy.html">Outlines</a></li>
+
+
+
+
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/svgoudar/AI-ML-Handbook/blob/master/content/eda/numpy/04_part.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/svgoudar/AI-ML-Handbook/issues/new?title=Issue%20on%20page%20%2Fcontent/eda/numpy/04_part.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/content/eda/numpy/04_part.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Reshaping and Resizing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Reshaping and Resizing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-reshape-do">What does <code class="docutils literal notranslate"><span class="pre">reshape</span></code> do?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax">Syntax</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-basic-reshape">Example: Basic reshape</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-if-shape-doesnt-match">What if shape doesn’t match?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-1-to-auto-calculate">Using <code class="docutils literal notranslate"><span class="pre">-1</span></code> to auto-calculate</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-to-higher-dimension-3d">Changing to higher dimension (3D)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-note">Important note</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resize"><code class="docutils literal notranslate"><span class="pre">resize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-resize-do">What does <code class="docutils literal notranslate"><span class="pre">resize</span></code> do?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-arr-resize-newshape-method">A. <code class="docutils literal notranslate"><span class="pre">arr.resize(newshape)</span></code> (method)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-resize-method">🔥 Example: resize (method)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resize-to-a-larger-shape">Resize to a larger shape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-error-with-resize">Typical error with <code class="docutils literal notranslate"><span class="pre">resize</span></code>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-resize-array-newshape-function"><code class="docutils literal notranslate"><span class="pre">np.resize(array,</span> <span class="pre">newshape)</span></code> (function)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-np-resize">Example: <code class="docutils literal notranslate"><span class="pre">np.resize</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-cheat-sheet">🥇 Quick cheat sheet</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-reshape-vs-resize-concepts-in-numpy">🚀 Advanced <code class="docutils literal notranslate"><span class="pre">reshape</span></code> vs <code class="docutils literal notranslate"><span class="pre">resize</span></code> concepts in NumPy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-order-order-c-vs-order-f">⚙️ 1️⃣ Memory order: <code class="docutils literal notranslate"><span class="pre">order='C'</span></code> vs <code class="docutils literal notranslate"><span class="pre">order='F'</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#order-parameter">✅ <code class="docutils literal notranslate"><span class="pre">order</span></code> parameter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">🔥 Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flatten-vs-ravel-vs-reshape-1">🚀 2️⃣ <code class="docutils literal notranslate"><span class="pre">flatten</span></code> vs <code class="docutils literal notranslate"><span class="pre">ravel</span></code> vs <code class="docutils literal notranslate"><span class="pre">reshape(-1)</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flatten">✅ <code class="docutils literal notranslate"><span class="pre">flatten()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ravel">✅ <code class="docutils literal notranslate"><span class="pre">ravel()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reshape-1">✅ <code class="docutils literal notranslate"><span class="pre">reshape(-1)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-example">Differences example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strides-and-reshaping">Strides and reshaping</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-strides">What are strides?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-this-matter">Why does this matter?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-forcing-a-copy">Example of forcing a copy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resize-to-unusual-shapes-for-broadcasting">Resize to unusual shapes for broadcasting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-dimensions-with-reshape">Adding dimensions with reshape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-broadcasting-outer-sum">Example: broadcasting outer sum</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-advanced-np-resize">More advanced <code class="docutils literal notranslate"><span class="pre">np.resize</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repeats-data-in-order-to-fill-shape">Repeats data in order to fill shape</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-resize-with-refcheck">Using <code class="docutils literal notranslate"><span class="pre">resize</span></code> with <code class="docutils literal notranslate"><span class="pre">refcheck</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcing-it">Forcing it</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#short-advanced-examples">Short advanced examples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-of-dimension">Conversion of Dimension</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping-1-d-to-2d">Reshaping : 1-D to 2D</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping-1-d-to-3-d">Reshaping : 1-D to 3-D</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping-n-d-to-1-d-array">Reshaping N-D to 1-D array</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping-using-unknown-dimension">Reshaping using unknown dimension</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-occur-during-reshaping">Errors Occur during reshaping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <nav class="contents" id="contents" role="doc-toc">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#reshaping-and-resizing" id="id1">Reshaping and Resizing</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-does-reshape-do" id="id2">What does <code class="docutils literal notranslate"><span class="pre">reshape</span></code> do?</a></p></li>
+<li><p><a class="reference internal" href="#syntax" id="id3">Syntax</a></p></li>
+<li><p><a class="reference internal" href="#example-basic-reshape" id="id4">Example: Basic reshape</a></p></li>
+<li><p><a class="reference internal" href="#what-if-shape-doesnt-match" id="id5">What if shape doesn’t match?</a></p></li>
+<li><p><a class="reference internal" href="#using-1-to-auto-calculate" id="id6">Using <code class="docutils literal notranslate"><span class="pre">-1</span></code> to auto-calculate</a></p>
+<ul>
+<li><p><a class="reference internal" href="#changing-to-higher-dimension-3d" id="id7">Changing to higher dimension (3D)</a></p></li>
+<li><p><a class="reference internal" href="#important-note" id="id8">Important note</a></p></li>
+<li><p><a class="reference internal" href="#resize" id="id9"><code class="docutils literal notranslate"><span class="pre">resize</span></code></a></p></li>
+<li><p><a class="reference internal" href="#what-does-resize-do" id="id10">What does <code class="docutils literal notranslate"><span class="pre">resize</span></code> do?</a></p></li>
+<li><p><a class="reference internal" href="#a-arr-resize-newshape-method" id="id11">A. <code class="docutils literal notranslate"><span class="pre">arr.resize(newshape)</span></code> (method)</a></p></li>
+<li><p><a class="reference internal" href="#example-resize-method" id="id12">🔥 Example: resize (method)</a></p></li>
+<li><p><a class="reference internal" href="#resize-to-a-larger-shape" id="id13">Resize to a larger shape</a></p></li>
+<li><p><a class="reference internal" href="#typical-error-with-resize" id="id14">Typical error with <code class="docutils literal notranslate"><span class="pre">resize</span></code>:</a></p></li>
+<li><p><a class="reference internal" href="#np-resize-array-newshape-function" id="id15"><code class="docutils literal notranslate"><span class="pre">np.resize(array,</span> <span class="pre">newshape)</span></code> (function)</a></p></li>
+<li><p><a class="reference internal" href="#example-np-resize" id="id16">Example: <code class="docutils literal notranslate"><span class="pre">np.resize</span></code></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#quick-cheat-sheet" id="id17">🥇 Quick cheat sheet</a></p></li>
+<li><p><a class="reference internal" href="#advanced-reshape-vs-resize-concepts-in-numpy" id="id18">🚀 Advanced <code class="docutils literal notranslate"><span class="pre">reshape</span></code> vs <code class="docutils literal notranslate"><span class="pre">resize</span></code> concepts in NumPy</a></p>
+<ul>
+<li><p><a class="reference internal" href="#memory-order-order-c-vs-order-f" id="id19">⚙️ 1️⃣ Memory order: <code class="docutils literal notranslate"><span class="pre">order='C'</span></code> vs <code class="docutils literal notranslate"><span class="pre">order='F'</span></code></a></p>
+<ul>
+<li><p><a class="reference internal" href="#order-parameter" id="id20">✅ <code class="docutils literal notranslate"><span class="pre">order</span></code> parameter</a></p></li>
+<li><p><a class="reference internal" href="#example" id="id21">🔥 Example</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#flatten-vs-ravel-vs-reshape-1" id="id22">🚀 2️⃣ <code class="docutils literal notranslate"><span class="pre">flatten</span></code> vs <code class="docutils literal notranslate"><span class="pre">ravel</span></code> vs <code class="docutils literal notranslate"><span class="pre">reshape(-1)</span></code></a></p>
+<ul>
+<li><p><a class="reference internal" href="#flatten" id="id23">✅ <code class="docutils literal notranslate"><span class="pre">flatten()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#ravel" id="id24">✅ <code class="docutils literal notranslate"><span class="pre">ravel()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#reshape-1" id="id25">✅ <code class="docutils literal notranslate"><span class="pre">reshape(-1)</span></code></a></p></li>
+<li><p><a class="reference internal" href="#differences-example" id="id26">Differences example</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#strides-and-reshaping" id="id27">Strides and reshaping</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-are-strides" id="id28">What are strides?</a></p></li>
+<li><p><a class="reference internal" href="#why-does-this-matter" id="id29">Why does this matter?</a></p></li>
+<li><p><a class="reference internal" href="#example-of-forcing-a-copy" id="id30">Example of forcing a copy</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#resize-to-unusual-shapes-for-broadcasting" id="id31">Resize to unusual shapes for broadcasting</a></p>
+<ul>
+<li><p><a class="reference internal" href="#adding-dimensions-with-reshape" id="id32">Adding dimensions with reshape</a></p></li>
+<li><p><a class="reference internal" href="#example-broadcasting-outer-sum" id="id33">Example: broadcasting outer sum</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#more-advanced-np-resize" id="id34">More advanced <code class="docutils literal notranslate"><span class="pre">np.resize</span></code></a></p>
+<ul>
+<li><p><a class="reference internal" href="#repeats-data-in-order-to-fill-shape" id="id35">Repeats data in order to fill shape</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#using-resize-with-refcheck" id="id36">Using <code class="docutils literal notranslate"><span class="pre">resize</span></code> with <code class="docutils literal notranslate"><span class="pre">refcheck</span></code></a></p>
+<ul>
+<li><p><a class="reference internal" href="#forcing-it" id="id37">Forcing it</a></p></li>
+<li><p><a class="reference internal" href="#short-advanced-examples" id="id38">Short advanced examples</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#conversion-of-dimension" id="id39">Conversion of Dimension</a></p>
+<ul>
+<li><p><a class="reference internal" href="#reshaping-1-d-to-2d" id="id40">Reshaping : 1-D to 2D</a></p></li>
+<li><p><a class="reference internal" href="#reshaping-1-d-to-3-d" id="id41">Reshaping : 1-D to 3-D</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#reshaping-n-d-to-1-d-array" id="id42">Reshaping N-D to 1-D array</a></p>
+<ul>
+<li><p><a class="reference internal" href="#reshaping-using-unknown-dimension" id="id43">Reshaping using unknown dimension</a></p></li>
+<li><p><a class="reference internal" href="#errors-occur-during-reshaping" id="id44">Errors Occur during reshaping</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<section class="tex2jax_ignore mathjax_ignore" id="reshaping-and-resizing">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Reshaping and Resizing</a><a class="headerlink" href="#reshaping-and-resizing" title="Link to this heading">#</a></h1>
+<section id="what-does-reshape-do">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">What does <code class="docutils literal notranslate"><span class="pre">reshape</span></code> do?</a><a class="headerlink" href="#what-does-reshape-do" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>It returns a <strong>new view (or sometimes a copy) of the original data</strong>, but with a <strong>different shape</strong>.</p></li>
+<li><p>It does <strong>not change the original array unless you assign it back</strong>.</p></li>
+<li><p>The <strong>total number of elements must remain the same</strong>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="syntax">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Syntax</a><a class="headerlink" href="#syntax" title="Link to this heading">#</a></h2>
+<p>array.reshape(newshape, order=’C’)</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">newshape</span></code>: tuple, e.g. <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">3)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">order</span></code>: <code class="docutils literal notranslate"><span class="pre">'C'</span></code> (row-major) or <code class="docutils literal notranslate"><span class="pre">'F'</span></code> (column-major)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="example-basic-reshape">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Example: Basic reshape</a><a class="headerlink" href="#example-basic-reshape" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># [ 0  1  2  3  4  5  6  7  8  9 10 11]</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="c1"># [[ 0  1  2  3]</span>
+<span class="c1">#  [ 4  5  6  7]</span>
+<span class="c1">#  [ 8  9 10 11]]</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0  1  2  3  4  5  6  7  8  9 10 11]
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  1,  1,  1,  4,  5,  6,  7,  8,  9, 10, 11])
+</pre></div>
+</div>
+</div>
+</div>
+<p>✅ Notice <code class="docutils literal notranslate"><span class="pre">a</span></code> is still 1D <code class="docutils literal notranslate"><span class="pre">(12,)</span></code>, while <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">(3,4)</span></code>.</p>
+</section>
+<hr class="docutils" />
+<section id="what-if-shape-doesnt-match">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">What if shape doesn’t match?</a><a class="headerlink" href="#what-if-shape-doesnt-match" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: cannot reshape array of size 12 into shape (5,3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  1,  1,  1,  4,  5],
+       [ 6,  7,  8,  9, 10, 11]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>❌ You get an error because <code class="docutils literal notranslate"><span class="pre">5*3=15</span></code> doesn’t match <code class="docutils literal notranslate"><span class="pre">12</span></code>.</p>
+</section>
+<hr class="docutils" />
+<section id="using-1-to-auto-calculate">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Using <code class="docutils literal notranslate"><span class="pre">-1</span></code> to auto-calculate</a><a class="headerlink" href="#using-1-to-auto-calculate" title="Link to this heading">#</a></h2>
+<p>You can ask NumPy to figure out the missing dimension.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 2 * ? = 12 -&gt; ?=6</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (2,6)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="changing-to-higher-dimension-3d">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Changing to higher dimension (3D)</a><a class="headerlink" href="#changing-to-higher-dimension-3d" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[ 1  1]
+  [ 1  1]
+  [ 4  5]]
+
+ [[ 6  7]
+  [ 8  9]
+  [10 11]]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="important-note">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Important note</a><a class="headerlink" href="#important-note" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reshape</span></code> tries to return a <strong>view (no extra memory)</strong> if possible.</p></li>
+<li><p>But if necessary (e.g. non-contiguous slice), it makes a <strong>copy</strong>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="resize">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">resize</span></code></a><a class="headerlink" href="#resize" title="Link to this heading">#</a></h3>
+</section>
+<hr class="docutils" />
+<section id="what-does-resize-do">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">What does <code class="docutils literal notranslate"><span class="pre">resize</span></code> do?</a><a class="headerlink" href="#what-does-resize-do" title="Link to this heading">#</a></h3>
+<p>It depends on <strong>which version</strong> you use:</p>
+</section>
+<hr class="docutils" />
+<section id="a-arr-resize-newshape-method">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">A. <code class="docutils literal notranslate"><span class="pre">arr.resize(newshape)</span></code> (method)</a><a class="headerlink" href="#a-arr-resize-newshape-method" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Changes the array <strong>in-place</strong>.</p></li>
+<li><p>Can change the total size:</p>
+<ul>
+<li><p>If the new shape is larger, fills new values with <code class="docutils literal notranslate"><span class="pre">0</span></code> (or <code class="docutils literal notranslate"><span class="pre">nan</span></code> for floats).</p></li>
+<li><p>If smaller, truncates.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="example-resize-method">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">🔥 Example: resize (method)</a><a class="headerlink" href="#example-resize-method" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># [0 1 2 3 4 5]</span>
+
+<span class="n">a</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># [[0 1 2]</span>
+<span class="c1">#  [3 4 5]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 3 4 5]
+[[0 1 2]
+ [3 4 5]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="resize-to-a-larger-shape">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Resize to a larger shape</a><a class="headerlink" href="#resize-to-a-larger-shape" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># [[0 1 2 3]</span>
+<span class="c1">#  [4 5 0 0]</span>
+<span class="c1">#  [0 0 0 0]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0 1 2 3]
+ [4 5 0 0]
+ [0 0 0 0]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Fills extra with <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</section>
+<hr class="docutils" />
+<section id="typical-error-with-resize">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Typical error with <code class="docutils literal notranslate"><span class="pre">resize</span></code>:</a><a class="headerlink" href="#typical-error-with-resize" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  1,  1,  1],
+       [ 4,  5,  6,  7],
+       [ 8,  9, 10, 11]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
+<span class="c1"># b</span>
+<span class="n">b</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># b</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">b</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: resize only works on single-segment arrays
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because <code class="docutils literal notranslate"><span class="pre">b</span></code> shares data with <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+<p>You can force it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">refcheck</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">b</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">refcheck</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: resize only works on single-segment arrays
+</pre></div>
+</div>
+</div>
+</div>
+<p>But be careful — may break references.</p>
+</section>
+<hr class="docutils" />
+<section id="np-resize-array-newshape-function">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">np.resize(array,</span> <span class="pre">newshape)</span></code> (function)</a><a class="headerlink" href="#np-resize-array-newshape-function" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Always returns a <strong>new array</strong>.</p></li>
+<li><p>Repeats data if needed to fill the shape.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="example-np-resize">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Example: <code class="docutils literal notranslate"><span class="pre">np.resize</span></code></a><a class="headerlink" href="#example-np-resize" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="c1"># [[1 2 3 1]</span>
+<span class="c1">#  [2 3 1 2]]</span>
+</pre></div>
+</div>
+<p>Fills by <strong>cycling through the original data.</strong></p>
+<hr class="docutils" />
+<p><strong>Summary comparison</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">reshape</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">arr.resize</span></code> (method)</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">np.resize</span></code> (function)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Changes shape?</p></td>
+<td><p>✅ Yes</p></td>
+<td><p>✅ Yes</p></td>
+<td><p>✅ Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Keeps total elements?</p></td>
+<td><p>✅ Must be same</p></td>
+<td><p>❌ Can change (pads or cuts)</p></td>
+<td><p>❌ Can change (repeats)</p></td>
+</tr>
+<tr class="row-even"><td><p>In-place?</p></td>
+<td><p>❌ No (returns view/copy)</p></td>
+<td><p>✅ Yes (modifies itself)</p></td>
+<td><p>❌ No (returns new array)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fills new data?</p></td>
+<td><p>❌ Error if mismatch</p></td>
+<td><p>✅ Pads with <code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p>✅ Repeats data to fill</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="quick-cheat-sheet">
+<h1><a class="toc-backref" href="#id17" role="doc-backlink">🥇 Quick cheat sheet</a><a class="headerlink" href="#quick-cheat-sheet" title="Link to this heading">#</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># reshape: same total elements</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># resize (method): modifies a itself</span>
+<span class="n">a</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>  <span class="c1"># fills with 0 if needed</span>
+
+<span class="c1"># np.resize (function): returns new array, repeats data</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>🔥 Awesome — let’s take it to the <strong>next level</strong> with some <strong>advanced, deeper insights and tricks</strong> around <code class="docutils literal notranslate"><span class="pre">reshape</span></code> vs <code class="docutils literal notranslate"><span class="pre">resize</span></code> in <strong>NumPy</strong>, including:</p>
+<p>✅ multi-dimensional reshaping,
+✅ Fortran vs C order,
+✅ memory layout &amp; strides,
+✅ flatten vs ravel vs reshape,
+✅ unusual uses like adding axes and reshaping for broadcasting.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="advanced-reshape-vs-resize-concepts-in-numpy">
+<h1><a class="toc-backref" href="#id18" role="doc-backlink">🚀 Advanced <code class="docutils literal notranslate"><span class="pre">reshape</span></code> vs <code class="docutils literal notranslate"><span class="pre">resize</span></code> concepts in NumPy</a><a class="headerlink" href="#advanced-reshape-vs-resize-concepts-in-numpy" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="memory-order-order-c-vs-order-f">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">⚙️ 1️⃣ Memory order: <code class="docutils literal notranslate"><span class="pre">order='C'</span></code> vs <code class="docutils literal notranslate"><span class="pre">order='F'</span></code></a><a class="headerlink" href="#memory-order-order-c-vs-order-f" title="Link to this heading">#</a></h2>
+<section id="order-parameter">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">✅ <code class="docutils literal notranslate"><span class="pre">order</span></code> parameter</a><a class="headerlink" href="#order-parameter" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'C'</span></code> = <strong>row-major order</strong> (default, like C arrays).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'F'</span></code> = <strong>column-major order</strong> (like Fortran / MATLAB).</p></li>
+</ul>
+<p>This changes how numpy reads the data into the reshaped array.</p>
+</section>
+<hr class="docutils" />
+<section id="example">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">🔥 Example</a><a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># [[0 1 2]</span>
+<span class="c1">#  [3 4 5]]</span>
+
+<span class="c1"># reshape with Fortran order</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="c1"># [[0 4]</span>
+<span class="c1">#  [3 1]</span>
+<span class="c1">#  [2 5]]</span>
+</pre></div>
+</div>
+<p>✅ It reads <strong>column-wise first</strong>, not row-wise.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="flatten-vs-ravel-vs-reshape-1">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">🚀 2️⃣ <code class="docutils literal notranslate"><span class="pre">flatten</span></code> vs <code class="docutils literal notranslate"><span class="pre">ravel</span></code> vs <code class="docutils literal notranslate"><span class="pre">reshape(-1)</span></code></a><a class="headerlink" href="#flatten-vs-ravel-vs-reshape-1" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="flatten">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">✅ <code class="docutils literal notranslate"><span class="pre">flatten()</span></code></a><a class="headerlink" href="#flatten" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Always returns a <strong>copy</strong> of data.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># still 0</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="ravel">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">✅ <code class="docutils literal notranslate"><span class="pre">ravel()</span></code></a><a class="headerlink" href="#ravel" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Returns a <strong>view if possible</strong> (faster, no new memory). Falls back to a copy if needed.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+<span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># 99 if contiguous</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="reshape-1">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">✅ <code class="docutils literal notranslate"><span class="pre">reshape(-1)</span></code></a><a class="headerlink" href="#reshape-1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Often equivalent to <code class="docutils literal notranslate"><span class="pre">ravel()</span></code>.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">r2</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Also returns a <strong>view if possible</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="differences-example">
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">Differences example</a><a class="headerlink" href="#differences-example" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">T</span>  <span class="c1"># transpose</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>  <span class="c1"># may still be view</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="c1"># always copy</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="strides-and-reshaping">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">Strides and reshaping</a><a class="headerlink" href="#strides-and-reshaping" title="Link to this heading">#</a></h2>
+<section id="what-are-strides">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">What are strides?</a><a class="headerlink" href="#what-are-strides" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Strides tell <strong>how many bytes to jump</strong> in memory to move to the next element along each axis.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">strides</span><span class="p">)</span>
+<span class="c1"># (32, 8) on a 64-bit machine: 4 bytes * 8 = 32</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="why-does-this-matter">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Why does this matter?</a><a class="headerlink" href="#why-does-this-matter" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reshape</span></code> tries to create a <strong>view by modifying shape &amp; strides</strong>, without moving data.</p></li>
+<li><p>But some operations (e.g. non-contiguous slices) force it to make a copy.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="example-of-forcing-a-copy">
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">Example of forcing a copy</a><a class="headerlink" href="#example-of-forcing-a-copy" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:,</span> <span class="p">::</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># take every second column</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (3,2)</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># actually makes a copy</span>
+</pre></div>
+</div>
+<p>Because the data is <strong>not contiguous</strong>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="resize-to-unusual-shapes-for-broadcasting">
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">Resize to unusual shapes for broadcasting</a><a class="headerlink" href="#resize-to-unusual-shapes-for-broadcasting" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="adding-dimensions-with-reshape">
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">Adding dimensions with reshape</a><a class="headerlink" href="#adding-dimensions-with-reshape" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (3,)</span>
+
+<span class="c1"># reshape to (3,1) to enable broadcasting with (1,3)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (3,1)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="example-broadcasting-outer-sum">
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">Example: broadcasting outer sum</a><a class="headerlink" href="#example-broadcasting-outer-sum" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># shape (3,1)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># shape (1,4)</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="c1"># shape (3,4) result</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="more-advanced-np-resize">
+<h2><a class="toc-backref" href="#id34" role="doc-backlink">More advanced <code class="docutils literal notranslate"><span class="pre">np.resize</span></code></a><a class="headerlink" href="#more-advanced-np-resize" title="Link to this heading">#</a></h2>
+<section id="repeats-data-in-order-to-fill-shape">
+<h3><a class="toc-backref" href="#id35" role="doc-backlink">Repeats data in order to fill shape</a><a class="headerlink" href="#repeats-data-in-order-to-fill-shape" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="c1"># [[1 2 3 1]</span>
+<span class="c1">#  [2 3 1 2]]</span>
+</pre></div>
+</div>
+<p>It literally cycles the data to fill the target shape.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="using-resize-with-refcheck">
+<h2><a class="toc-backref" href="#id36" role="doc-backlink">Using <code class="docutils literal notranslate"><span class="pre">resize</span></code> with <code class="docutils literal notranslate"><span class="pre">refcheck</span></code></a><a class="headerlink" href="#using-resize-with-refcheck" title="Link to this heading">#</a></h2>
+<p>When you use the <strong>method</strong> <code class="docutils literal notranslate"><span class="pre">arr.resize</span></code>, it checks for references:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="c1"># ValueError: cannot resize because b references a</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<section id="forcing-it">
+<h3><a class="toc-backref" href="#id37" role="doc-backlink">Forcing it</a><a class="headerlink" href="#forcing-it" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">refcheck</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>DANGER</strong>: breaks safety checks — any other views may see garbage.</p>
+<hr class="docutils" />
+<p><strong>Summary of advanced differences</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
+<th class="head"><p>Memory</p></th>
+<th class="head"><p>Copies data?</p></th>
+<th class="head"><p>Can change total elements?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reshape</span></code></p></td>
+<td><p>reshapes view using strides</p></td>
+<td><p>❌ if contiguous, ✅ if not</p></td>
+<td><p>❌ Must match</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">flatten</span></code></p></td>
+<td><p>always 1D copy</p></td>
+<td><p>✅ always</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ravel</span></code></p></td>
+<td><p>tries view, fallback copy</p></td>
+<td><p>❌ / ✅</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">arr.resize</span></code> (method)</p></td>
+<td><p>modifies in-place</p></td>
+<td><p>✅ changes data</p></td>
+<td><p>✅ pads/truncates</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">np.resize</span></code> (function)</p></td>
+<td><p>new array</p></td>
+<td><p>✅ repeats data</p></td>
+<td><p>✅ cycles</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="short-advanced-examples">
+<h3><a class="toc-backref" href="#id38" role="doc-backlink">Short advanced examples</a><a class="headerlink" href="#short-advanced-examples" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># careful, often needs copy</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">))</span>  <span class="c1"># column-wise fill</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)))</span>  <span class="c1"># repeats data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
+[ 0  4  8  1  5  9  2  6 10  3  7 11]
+[[ 0  5 10]
+ [ 4  9  3]
+ [ 8  2  7]
+ [ 1  6 11]]
+[[ 0  1  2  3  4]
+ [ 5  6  7  8  9]
+ [10 11  0  1  2]
+ [ 3  4  5  6  7]
+ [ 8  9 10 11  0]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="conversion-of-dimension">
+<h2><a class="toc-backref" href="#id39" role="doc-backlink">Conversion of Dimension</a><a class="headerlink" href="#conversion-of-dimension" title="Link to this heading">#</a></h2>
+<section id="reshaping-1-d-to-2d">
+<h3><a class="toc-backref" href="#id40" role="doc-backlink">Reshaping : 1-D to 2D</a><a class="headerlink" href="#reshaping-1-d-to-2d" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing numpy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># creating a numpy array</span>
+<span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
+
+<span class="c1"># printing array</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Array : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">array</span><span class="p">))</span>
+
+<span class="c1"># length of array</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">size</span>
+
+<span class="c1"># N-D array N dimension</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="c1"># calculating M</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">n</span><span class="o">//</span><span class="n">N</span>
+
+<span class="c1"># reshaping numpy array</span>
+<span class="c1"># converting it to 2-D from 1-D array</span>
+<span class="n">reshaped1</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
+
+<span class="c1"># printing reshaped array</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First Reshaped Array : &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reshaped1</span><span class="p">)</span>
+
+<span class="c1"># creating another reshaped array</span>
+<span class="n">reshaped2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># printing reshaped array</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Second Reshaped Array : &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reshaped2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array : [ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16]
+First Reshaped Array : 
+[[ 1  2  3  4]
+ [ 5  6  7  8]
+ [ 9 10 11 12]
+ [13 14 15 16]]
+Second Reshaped Array : 
+[[ 1  2  3  4  5  6  7  8]
+ [ 9 10 11 12 13 14 15 16]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="reshaping-1-d-to-3-d">
+<h3><a class="toc-backref" href="#id41" role="doc-backlink">Reshaping : 1-D to 3-D</a><a class="headerlink" href="#reshaping-1-d-to-3-d" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing numpy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># creating a numpy array</span>
+<span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
+
+<span class="c1"># printing array</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Array : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">array</span><span class="p">))</span>
+
+
+<span class="c1"># reshaping numpy array</span>
+<span class="c1"># converting it to 3-D from 1-D array</span>
+<span class="n">reshaped</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># printing reshaped array</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reshaped 3-D Array : &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reshaped</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array : [ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16]
+Reshaped 3-D Array : 
+[[[ 1  2  3  4]
+  [ 5  6  7  8]]
+
+ [[ 9 10 11 12]
+  [13 14 15 16]]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="reshaping-n-d-to-1-d-array">
+<h2><a class="toc-backref" href="#id42" role="doc-backlink">Reshaping N-D to 1-D array</a><a class="headerlink" href="#reshaping-n-d-to-1-d-array" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing numpy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># creating a numpy array</span>
+<span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+
+<span class="c1"># printing array</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; 2-D Array : &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+
+
+<span class="c1"># reshaping numpy array</span>
+<span class="c1"># converting it to 1-D from 2-D array</span>
+<span class="n">reshaped</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">9</span><span class="p">))</span>
+
+<span class="c1"># or we can use unknown dimension</span>
+<span class="c1"># reshaped = array.reshape((-1))</span>
+
+<span class="c1"># printing reshaped array</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reshaped 1-D Array : &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reshaped</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 2-D Array : 
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+Reshaped 1-D Array : 
+[1 2 3 4 5 6 7 8 9]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="reshaping-using-unknown-dimension">
+<h3><a class="toc-backref" href="#id43" role="doc-backlink">Reshaping using unknown dimension</a><a class="headerlink" href="#reshaping-using-unknown-dimension" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing numpy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># creating a numpy array</span>
+<span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
+
+<span class="c1"># printing array</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Array : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">array</span><span class="p">))</span>
+
+
+<span class="c1"># reshaping numpy array</span>
+<span class="c1"># converting it to 3-D from 1-D array</span>
+<span class="n">reshaped1</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># printing reshaped array</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First Reshaped Array : &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reshaped1</span><span class="p">)</span>
+
+
+<span class="c1"># converting it to 2-D array</span>
+<span class="n">reshaped2</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># printing reshaped array</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Second Reshaped Array : &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reshaped2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array : [ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16]
+First Reshaped Array : 
+[[[ 1  2  3  4]
+  [ 5  6  7  8]]
+
+ [[ 9 10 11 12]
+  [13 14 15 16]]]
+Second Reshaped Array : 
+[[ 1  2  3  4]
+ [ 5  6  7  8]
+ [ 9 10 11 12]
+ [13 14 15 16]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="errors-occur-during-reshaping">
+<h3><a class="toc-backref" href="#id44" role="doc-backlink">Errors Occur during reshaping</a><a class="headerlink" href="#errors-occur-during-reshaping" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing numpy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># creating a numpy array</span>
+<span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+
+<span class="c1"># printing array</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; 2-D Array : &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+
+
+<span class="c1"># reshaping numpy array</span>
+<span class="c1"># converting it to 1-D from 2-D array</span>
+<span class="c1"># reshaping it into 1, 5</span>
+<span class="n">reshaped</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># or we can use </span>
+
+<span class="c1"># printing reshaped array</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reshaped 1-D Array : &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reshaped</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 2-D Array : 
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">17</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># reshaping numpy array</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1"># converting it to 1-D from 2-D array</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="c1"># reshaping it into 1, 5</span>
+<span class="ne">---&gt; </span><span class="mi">17</span> <span class="n">reshaped</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="c1"># or we can use </span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> 
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="c1"># printing reshaped array</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reshaped 1-D Array : &quot;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: cannot reshape array of size 9 into shape (1,5)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">reshape</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">resize</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Modifies original?</p></td>
+<td><p>🚫 No (returns new array)</p></td>
+<td><p>✅ Yes (changes in-place)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Keeps data?</p></td>
+<td><p>✅ Always</p></td>
+<td><p>⚠ May fill</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content\eda\numpy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03_part.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Indexing &amp; Slicing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_part.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Memory Management</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Reshaping and Resizing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-reshape-do">What does <code class="docutils literal notranslate"><span class="pre">reshape</span></code> do?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax">Syntax</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-basic-reshape">Example: Basic reshape</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-if-shape-doesnt-match">What if shape doesn’t match?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-1-to-auto-calculate">Using <code class="docutils literal notranslate"><span class="pre">-1</span></code> to auto-calculate</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-to-higher-dimension-3d">Changing to higher dimension (3D)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-note">Important note</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resize"><code class="docutils literal notranslate"><span class="pre">resize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-resize-do">What does <code class="docutils literal notranslate"><span class="pre">resize</span></code> do?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-arr-resize-newshape-method">A. <code class="docutils literal notranslate"><span class="pre">arr.resize(newshape)</span></code> (method)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-resize-method">🔥 Example: resize (method)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resize-to-a-larger-shape">Resize to a larger shape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-error-with-resize">Typical error with <code class="docutils literal notranslate"><span class="pre">resize</span></code>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-resize-array-newshape-function"><code class="docutils literal notranslate"><span class="pre">np.resize(array,</span> <span class="pre">newshape)</span></code> (function)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-np-resize">Example: <code class="docutils literal notranslate"><span class="pre">np.resize</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-cheat-sheet">🥇 Quick cheat sheet</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-reshape-vs-resize-concepts-in-numpy">🚀 Advanced <code class="docutils literal notranslate"><span class="pre">reshape</span></code> vs <code class="docutils literal notranslate"><span class="pre">resize</span></code> concepts in NumPy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-order-order-c-vs-order-f">⚙️ 1️⃣ Memory order: <code class="docutils literal notranslate"><span class="pre">order='C'</span></code> vs <code class="docutils literal notranslate"><span class="pre">order='F'</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#order-parameter">✅ <code class="docutils literal notranslate"><span class="pre">order</span></code> parameter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">🔥 Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flatten-vs-ravel-vs-reshape-1">🚀 2️⃣ <code class="docutils literal notranslate"><span class="pre">flatten</span></code> vs <code class="docutils literal notranslate"><span class="pre">ravel</span></code> vs <code class="docutils literal notranslate"><span class="pre">reshape(-1)</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flatten">✅ <code class="docutils literal notranslate"><span class="pre">flatten()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ravel">✅ <code class="docutils literal notranslate"><span class="pre">ravel()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reshape-1">✅ <code class="docutils literal notranslate"><span class="pre">reshape(-1)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-example">Differences example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strides-and-reshaping">Strides and reshaping</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-strides">What are strides?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-this-matter">Why does this matter?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-forcing-a-copy">Example of forcing a copy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resize-to-unusual-shapes-for-broadcasting">Resize to unusual shapes for broadcasting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-dimensions-with-reshape">Adding dimensions with reshape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-broadcasting-outer-sum">Example: broadcasting outer sum</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-advanced-np-resize">More advanced <code class="docutils literal notranslate"><span class="pre">np.resize</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repeats-data-in-order-to-fill-shape">Repeats data in order to fill shape</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-resize-with-refcheck">Using <code class="docutils literal notranslate"><span class="pre">resize</span></code> with <code class="docutils literal notranslate"><span class="pre">refcheck</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcing-it">Forcing it</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#short-advanced-examples">Short advanced examples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-of-dimension">Conversion of Dimension</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping-1-d-to-2d">Reshaping : 1-D to 2D</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping-1-d-to-3-d">Reshaping : 1-D to 3-D</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping-n-d-to-1-d-array">Reshaping N-D to 1-D array</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping-using-unknown-dimension">Reshaping using unknown dimension</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-occur-during-reshaping">Errors Occur during reshaping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
