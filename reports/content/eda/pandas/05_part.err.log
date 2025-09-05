@@ -32,7 +32,7 @@ df.drop_duplicates(subset=['customer_id', 'loan_amount'], inplace=True)
 
 [31m---------------------------------------------------------------------------[39m
 [31mKeyError[39m                                  Traceback (most recent call last)
-[32m~\AppData\Local\Temp\ipykernel_36776\2888835569.py[39m in [36m?[39m[34m()[39m
+[32m~\AppData\Local\Temp\ipykernel_45548\2888835569.py[39m in [36m?[39m[34m()[39m
 [32m      1[39m [38;5;66;03m# Check duplicates[39;00m
 [32m      2[39m print(df.duplicated().sum())
 [32m      3[39m 
