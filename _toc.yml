@@ -1,7 +1,8 @@
 format: jb-book
 root: introduction
 parts:
-- chapters:
+- caption: "Applied Mathematics"
+  chapters:
   - file: content/probability/index
     sections:
     - file: content/probability/01_probability
@@ -40,8 +41,32 @@ parts:
     - file: content/statistics/inferential/index
       sections:
       - glob: content/statistics/inferential/*
+    - file: content/statistics/correlation/index
+      sections:
+      - glob: content/statistics/correlation/*
+    - glob: content/statistics/*part
 - chapters:
   - file: content/linear_algebra/index
     sections:  
     - glob: content/linear_algebra/*
-    
+- chapters:
+  - file: content/calculus/index
+    sections:  
+    - glob: content/calculus/*
+- caption: "Exploratory Data Analysis"
+  chapters:
+  - file: content/eda/numpy/index
+    sections:
+    - glob: content/eda/numpy/*
+  - file: content/eda/pandas/index
+    sections:
+    - glob: content/eda/pandas/*
+- caption: "Machine Learning"
+  chapters:
+  - file: content/machine_learning/index
+  - file: content/machine_learning/supervised learning/index
+    sections:
+    - file: content/machine_learning/supervised learning/regression/index
+      sections:
+      - glob: content/machine_learning/supervised learning/regression/Linear Regression/*
+      
